@@ -4,12 +4,12 @@ Nome curto: **Portal Valle**. Terceiro produto independente para a recepção do
 
 ## Estado atual
 
-Fase 0: descoberta e planejamento. A documentação detalhada foi preparada em uma cópia local para revisão. O repositório GitHub público contém apenas este README enquanto a publicação do material interno aguarda autorização específica. Ainda não há aplicação, banco próprio, autenticação, integração ou deploy. A Fase 1 exige autorização explícita do proprietário.
+Fase 0: descoberta e planejamento concluída. A documentação detalhada foi autorizada para publicação no repositório GitHub público. A Fase 1 foi autorizada e está em desenvolvimento local. Ainda não há banco próprio, autenticação, integração ou deploy.
 
 - Repositório: https://github.com/luisdienstmanntd/Portal-Valle
 - Produção desejada, ainda não provisionada: https://portalvalle.vercel.app
-- Relatório local: `docs/architecture/PHASE_0_REPORT.md`.
-- Continuidade local: `docs/ai/PROGRESS.md` e `AGENTS.md`.
+- Relatório: [Fase 0](docs/architecture/PHASE_0_REPORT.md).
+- Continuidade: [PROGRESS](docs/ai/PROGRESS.md) e [AGENTS](AGENTS.md).
 
 ## Limites permanentes
 
@@ -19,9 +19,9 @@ Os repositórios `luisdienstmanntd/Reservas-Piscina-Academia` e `luisdienstmannt
 
 ## Verificação nesta fase
 
-Revisão de fontes GitHub com commits fixos, catálogos PostgreSQL em transações somente leitura, consistência documental e verificação de ausência de credenciais. Não há scripts npm ou testes de aplicação na Fase 0. A matriz de testes local descreve trabalho futuro, não resultados executados.
+Revisão de fontes GitHub com commits fixos, catálogos PostgreSQL em transações somente leitura, consistência documental e verificação de ausência de credenciais. Não houve scripts npm ou testes de aplicação na Fase 0. A matriz de testes descreve trabalho futuro, não resultados executados.
 
 ## Próxima etapa
 
-Fase 1: fundação Next.js/TypeScript, lint, testes, CI, ENV, design tokens e cópia local do logo. Sem funcionalidades operacionais e sem integrações. Banco remoto novo apenas na Fase 3; autenticação na Fase 4; nenhum deploy nesta Fase 0.
+Fase 1: fundação Next.js/TypeScript, lint, testes, CI, ENV, design tokens e cópia local do logo. Sem funcionalidades operacionais e sem integrações. Banco remoto novo apenas na Fase 3; autenticação na Fase 4.
 
