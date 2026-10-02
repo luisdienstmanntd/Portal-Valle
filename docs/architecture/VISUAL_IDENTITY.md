@@ -18,9 +18,8 @@ Paleta é observação do código, não guia de marca formal aprovado. Verificar
 - `public/brand/logo-header.png`, 354×140, castanho de fundo e texto claro: alternativa encontrada. [Origem fixa](https://github.com/luisdienstmanntd/Reservas-Piscina-Academia/blob/eeecd6db4f2a327aafa47759a3e66a2c5a7fc5e0/public/brand/logo-header.png).
 - `public/brand/logo-valle-dincanto.png` e `public/brand/logo-valle-top.png` têm o mesmo blob no snapshot analisado; confirmar uso antes de escolher.
 
-Na Fase 1, copiar o asset escolhido para `public/brand/` do novo repositório e registrar hash/origem/licença/uso do proprietário. Não hotlinkar. Nesta fase o logo foi localizado e inspecionado, mas não foi colocado no novo repositório para respeitar o marco de fundação.
+Na Fase 1, o JPG usado no sistema de referência foi copiado para `public/brand/logo-valle-dincanto.jpg` no Portal, sem hotlink. SHA-256 de origem e cópia: `8e3abee264752f6f6255288b97be5b494a0f0223757d11872f57346a0c65d01c`. Origem e uso estão documentados acima; licença/brand ownership devem ser confirmados pelo proprietário antes de redistribuição fora do projeto do hotel.
 
 ## Interface alvo
 
 Sidebar e cabeçalho discretos, card Hoje com linha de tempo legível, estados de fonte indisponível específicos, tabela operacional sem gráficos decorativos. Desktop/tablet 768 e 1024 px, portrait/landscape, teclado/foco visível e alvos de toque ≥44 px. Páginas sem funcionalidade podem mostrar empty state, sem prometer ação inexistente.
-

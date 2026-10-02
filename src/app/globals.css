@@ -1,0 +1,42 @@
+@import "tailwindcss";
+
+:root {
+  --brand-background: #f9f7f2;
+  --brand-surface: #ffffff;
+  --brand-foreground: #2d2926;
+  --brand-primary: #604d3f;
+  --brand-primary-foreground: #f9f7f2;
+  --brand-muted: #ebe8e4;
+  --brand-muted-foreground: #6b6560;
+  --brand-border: #ddd8d2;
+  --brand-accent: #d1d8df;
+  --brand-focus: #604d3f;
+  --brand-radius: 0.625rem;
+}
+
+@theme inline {
+  --color-background: var(--brand-background);
+  --color-foreground: var(--brand-foreground);
+  --font-sans: Inter, Arial, sans-serif;
+  --font-serif: "Playfair Display", Georgia, serif;
+}
+
+html {
+  background: var(--brand-background);
+  color: var(--brand-foreground);
+  font-family: Inter, Arial, sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+::selection {
+  background: var(--brand-accent);
+  color: var(--brand-foreground);
+}
+
+:focus-visible {
+  outline: 3px solid var(--brand-focus);
+  outline-offset: 3px;
+}
