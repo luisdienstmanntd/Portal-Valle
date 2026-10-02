@@ -29,21 +29,21 @@ Nenhum banco novo, migration, Auth ou credencial. As variáveis do `.env.example
 - `npm run check`: PASS — lint sem avisos após ajuste, TypeScript e 3 testes unitários.
 - `npm run build`: PASS — rota `/` compilada/prerenderizada.
 - `npm run test:e2e`: PASS — 1 smoke HTTP com servidor Next iniciado separadamente; processo concluiu com exit code 0.
-- `npm ci` e GitHub Actions remotos: ainda não executados. O lockfile veio de instalação npm; CI os validará após publicação.
+- [GitHub Actions, execução 36955589105](https://github.com/luisdienstmanntd/Portal-Valle/actions/runs/36955589105): PASS — jobs `checks` e `e2e`, ambos com `npm ci`; lint, TypeScript, unit, build e smoke E2E passaram no Ubuntu.
 
 ## Riscos encontrados
 
-- Neste Windows, quando Playwright inicia sozinho o `webServer`, o teste passa mas o processo fica preso no encerramento. Com servidor já iniciado, o E2E encerra. O job CI Linux precisa confirmar o ciclo completo. Registro em KNOWN_ISSUES.
-- Node local 24.14.1, `.nvmrc` 24.21.0. Versões satisfazem os engines declarados; CI ainda validará a versão exata de `.nvmrc`.
+- Neste Windows, quando Playwright inicia sozinho o `webServer`, o teste passa mas o processo fica preso no encerramento. Com servidor já iniciado, o E2E encerra. O job CI Linux confirmou o ciclo completo; a limitação local continua registrada em KNOWN_ISSUES.
+- Node local 24.14.1, `.nvmrc` 24.21.0. Versões satisfazem os engines declarados; o CI validou a instalação pela versão declarada em `.nvmrc`.
 - ESLint 9.39.5 emite aviso de depreciação durante instalação, mas a cadeia Next 16 auditada declara peers compatíveis com ESLint 9. Revisar upgrade quando peers mudarem.
 
 ## Pendências
 
-Publicação do commit da Fase 1 e confirmação do CI remoto. A revisão técnica independente foi aprovada após repetição de `npm run check` e `npm run build`. Vercel, Supabase, Auth e integrações pertencem a fases futuras autorizadas. Fonts Inter e Playfair foram definidas como tokens/fallbacks; a inclusão local dos arquivos de fonte e o design system completo pertencem à Fase 2.
+A revisão técnica independente foi aprovada após repetição de `npm run check` e `npm run build`. Vercel, Supabase, Auth e integrações pertencem a fases futuras autorizadas. Fonts Inter e Playfair foram definidas como tokens/fallbacks; a inclusão local dos arquivos de fonte e o design system completo pertencem à Fase 2.
 
 ## Commit
 
-Será registrado no PROGRESS.md após publicação.
+Implementação publicada no commit [`44d925b49f3cfecd7072aa45934f0305e7360fdd`](https://github.com/luisdienstmanntd/Portal-Valle/commit/44d925b49f3cfecd7072aa45934f0305e7360fdd), após aprovação técnica do revisor.
 
 ## Próxima fase
 
@@ -53,4 +53,4 @@ Fase 2: design system e shell com rotas de navegação. Só iniciar após autori
 
 Executar `npm ci`, `npm run dev`, abrir `http://localhost:3000/` e verificar logo, foco/contraste e leitura em 768/1024px. Executar `npm run check`, `npm run build` e `npm run test:e2e` com servidor previamente iniciado neste Windows.
 
-**AGUARDANDO AUTORIZAÇÃO PARA INICIAR A PRÓXIMA FASE após publicação e verificação.**
+**AGUARDANDO AUTORIZAÇÃO PARA INICIAR A PRÓXIMA FASE.**

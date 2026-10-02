@@ -7,8 +7,8 @@
 - Arquivos: `package.json`/lockfile, `.nvmrc`, configs Next/TS/Tailwind/ESLint/Vitest/Playwright, `.github/workflows/ci.yml`, `.env.example`, `src/app`, `src/lib/env.server.*`, `tests/e2e`, `public/brand/logo-valle-dincanto.jpg`, `.cursor/agents/portal-reviewer.md`, README/AGENTS/docs de continuidade.
 - Motivo: criar base testável sem antecipar features ou integrações; tornar revisão técnica repetível.
 - Impacto: página `/` de preparação, sem dados reais nem acesso externo. Sistemas legados não alterados. Nenhum Supabase/Vercel do Portal criado.
-- Testes: `npm run check` PASS (lint, TypeScript, 3 unit); `npm run build` PASS; Playwright HTTP smoke 1 PASS com servidor pré-iniciado. Execução automática do webServer no Windows deixou o processo preso após o teste e foi registrada em KNOWN_ISSUES.
-- Commit: atualizar após revisão técnica e publicação da Fase 1.
+- Testes: `npm run check` PASS (lint, TypeScript, 3 unit); `npm run build` PASS; Playwright HTTP smoke 1 PASS com servidor pré-iniciado. Execução automática do webServer no Windows deixou o processo preso após o teste e foi registrada em KNOWN_ISSUES. GitHub Actions [execução 36955589105](https://github.com/luisdienstmanntd/Portal-Valle/actions/runs/36955589105) PASS nos jobs `checks` e `e2e`, com `npm ci` em ambos.
+- Commit de implementação aprovado tecnicamente e publicado: `44d925b49f3cfecd7072aa45934f0305e7360fdd`.
 
 ## 2026-10-01 — Publicação autorizada da Fase 0
 
