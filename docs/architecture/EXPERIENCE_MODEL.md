@@ -20,7 +20,7 @@ Instantes são timestamptz no SQL; domínio exige ISO com offset e fim posterior
 
 Quatro tabelas próprias: experiences, experience_occurrences, experience_bookings e audit_events. FK locais com índices, exclusão restrict entre catálogo/occurrences/reservas e timestamps de atualização por trigger. Leitura exige perfil ativo e sessão viva via has_permission: experiences.read para catálogo/occurrences/reservas, settings.manage para auditoria.
 
-RLS em todas, grants explícitos. INSERT/UPDATE/DELETE não são concedidos a anon/authenticated/service_role. Ainda não há RPC de escrita. Isso impede bypass direto de futura capacidade/idempotência. Escritas SQL administrativas nos testes não comprovam proteção de lotação; locks, invariantes entre tabelas e concorrência entram na Fase 6 antes de liberar operações. Não há seed operacional.
+RLS em todas, grants explícitos. INSERT/UPDATE/DELETE não são concedidos a anon/authenticated/service_role. Ainda não há RPC de escrita. Isso impede bypass direto de futura capacidade/idempotência. A exceção actor null do trigger não autoriza requests sem identidade: qualquer RPC futura deve exigir has_permission/sessão viva antes de mutar, inclusive quando auth.uid for null. Escritas SQL administrativas nos testes não comprovam proteção de lotação; locks, invariantes entre tabelas e concorrência entram na Fase 6 antes de liberar operações. Não há seed operacional.
 
 ## Auditoria atômica
 

@@ -28,7 +28,7 @@ Sem ENV, o shell continua disponível. Para habilitar clientes, fornecer conjunt
 
 `browser.ts` usa createBrowserClient; `server.ts` é server-only e cria cliente por requisição, com cookies getAll. Atualização Fase 4: leitura padrão em Server Components e escrita explícita para Server Actions. Proxy de renovação/cookies/cache privado e login/logout implementados; páginas configuradas consultam Auth/perfil com RLS. Sem ENV, shell é somente preparação e login fica desabilitado. Consulte AUTH_AND_RBAC.
 
-`database.types.ts` é contrato tipado manual de portal_settings, portal_profiles e portal_role, validado pelos testes SQL; não foi apresentado como resultado de geração remota. Quando houver ambiente hospedado, gerar tipos a partir do schema real e revisar o diff.
+`database.types.ts` é contrato tipado manual de portal_settings, portal_profiles, experiences, experience_occurrences, experience_bookings, audit_events e enums, validado pelos testes SQL; não foi apresentado como resultado de geração remota. Quando houver ambiente hospedado, gerar tipos a partir do schema real e revisar o diff.
 
 ## Prévia preservada durante checks
 

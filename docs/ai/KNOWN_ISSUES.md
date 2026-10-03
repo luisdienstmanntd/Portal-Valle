@@ -18,4 +18,4 @@ Atualizado na Fase 4. O Portal ainda não está em produção.
 13. **Docker ausente neste Windows.** CLI 2.119.0 funciona com SUPABASE_HOME no workspace; PostgreSQL/pgTAP/HTTP são validados em CI Linux isolado. Não afirmar execução local desses testes. CI local não comprova configuração/backup do futuro SaaS.
 14. **Auth hospedado e equipe real ainda desconectados.** Proxy/setAll/login/logout implementados na Fase 4; validação real em CI isolado. Nesta prévia sem ENV, login está desabilitado e o shell é somente preparação. Tipos continuam contrato manual; regenerar do schema hospedado. Provisionamento real requer contas individuais e confirmação da matriz de permissões antes de uso operacional.
 
-Fase 5 já autorizada pelo proprietário após conclusão técnica da Fase 4. Pontos 1–4 são gates das integrações; não alterar sistemas existentes para resolvê-los.
+Fase5 concluída; Lora adiada pelo proprietário e Fase6 aguarda nova autorização. Pontos 1–4 são gates das integrações; não alterar sistemas existentes para resolvê-los.

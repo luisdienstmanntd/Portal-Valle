@@ -2,7 +2,7 @@
 
 ## ADR-009 — Modelo separado e auditoria atômica antes das escritas operacionais
 
-Status: implementada na Fase5, validação SQL/CI pendente. Data: 2026-10-03.
+Status: implementada na Fase5, validada no CI37151730319. Data: 2026-10-03.
 
 Decisão: experiences/occurrences/bookings locais com capacidades persons/bookings/units/unlimited; limite físico adicional person_limit preserva Cine8pessoas/4puffs. Políticas de crianças/no_show sem default; Lora adiada pelo proprietário. Booking de grupo e guest_bookable false até fluxo público. Auditoria por trigger privada com actor Auth e allowlist de dados estruturados, excluindo PII livre.
 

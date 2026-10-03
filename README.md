@@ -4,7 +4,7 @@ Nome curto: **Portal Valle**. Terceiro produto independente para a recepção do
 
 ## Estado atual
 
-Fases 0–4 concluídas e publicadas. A Fase 3 foi validada em CI com Supabase independente efêmero, migrations/RLS, clientes e testes de banco. Homologação hospedada adiada pelo proprietário devido ao limite gratuito; nenhum banco existente será usado. Auth/RBAC individual foi validado em CI isolado. A prévia não possui ENV ou contas reais; ainda não há integração externa ou deploy.
+Fases 0–5 concluídas e publicadas. A Fase 3 foi validada em CI com Supabase independente efêmero, migrations/RLS, clientes e testes de banco. Homologação hospedada adiada pelo proprietário devido ao limite gratuito; nenhum banco existente será usado. Auth/RBAC individual foi validado em CI isolado. A prévia não possui ENV ou contas reais; ainda não há integração externa ou deploy.
 
 - Repositório: https://github.com/luisdienstmanntd/Portal-Valle
 - Produção desejada, ainda não provisionada: https://portalvalle.vercel.app
@@ -29,4 +29,4 @@ Revisão de fontes GitHub com commits fixos, catálogos PostgreSQL em transaçõ
 
 ## Próxima etapa
 
-Iniciar a Fase 5 (modelo de experiências), autorizada automaticamente após o encerramento técnico da Fase 4. Consulte [SUPABASE_SETUP](docs/architecture/SUPABASE_SETUP.md) para executar os testes de banco.
+Fase5 concluída, validada em CI e aprovada tecnicamente: modelo de experiências/ocorrências/reservas e auditoria, sem UI de operação. Consulte [EXPERIENCE_MODEL](docs/architecture/EXPERIENCE_MODEL.md). Fase6 exige nova autorização. Consulte [SUPABASE_SETUP](docs/architecture/SUPABASE_SETUP.md) para executar os testes de banco.

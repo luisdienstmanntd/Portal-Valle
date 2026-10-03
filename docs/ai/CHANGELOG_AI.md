@@ -1,10 +1,10 @@
 # Changelog de trabalho IA
 
-## 2026-10-03 — Modelo de experiências em validação
+## 2026-10-03 — Modelo de experiências validado
 
 - Fase5 autorizada automaticamente após fechamento técnico da Fase4; proprietário informou Cine8pessoas/4puffs e pediu adiar regraLora.
 - Quatro tabelas Portal, domínio puro/validação, projeção de capacidade por unidade/limite físico, RLS/sessão viva e auditoria com allowlist/actor na mesma transação. Escritas client fechadas até RPCs atômicas Fase6. Sem UI operacional, seed real ou alteração de legados.
-- Check67unit e build separado PASS; mapper explícito valida linhas do banco e remove timestamps antes do DTO puro. SQL/HTTP/Auth CI e parecer final pendentes; tipos manuais atualizados. Sem autorização automática para Fase6.
+- Check67unit e build separado PASS; mapper explícito valida linhas do banco e remove timestamps antes do DTO puro. CI37151730319 PASS: 113pgTAP/7HTTP/14AuthE2E/24preview/advisors/cleanup; APROVADO TECNICAMENTE pelo revisor independente; tipos manuais atualizados. Implementação3803dd111e0e7a5f7da1e87d1b07e6abea5f182e. Sem autorização automática para Fase6.
 
 ## 2026-10-02 — Auth/RBAC validado
 
