@@ -9,8 +9,8 @@
 | Assets locais/hidratação | 2 | E2E `shell.spec.ts` em Hoje: sem pageerror nem requisições externas; fontes locais carregadas e capturas inspecionadas |
 | ENV separada e erro claro | 1/3 | `src/lib/env.server.test.ts`: 16 PASS local; parcial, segredos, transporte/identidade, refs legados e loopback |
 | RLS/grants | 3 | `supabase/tests/portal_foundation.test.sql`: 22 asserts pgTAP PASS; `tests/integration/supabase.test.ts`: 3 HTTP reais PASS no CI 37087962869, com reset/migration e stop isolados |
-| Contas ativas e membership | 4 | integração por sem vínculo, recepção, gerência, admin, inativo; ainda não implementados |
-| Login/logout/renovação | 4 | E2E de Auth Portal e Server Actions protegidas |
+| Contas ativas e membership | 4 | supabase/tests/portal_auth.test.sql: 41 asserts; total SQL 63 PASS no CI 37090654113; Auth/RLS reais e cadastro público bloqueado PASS |
+| Login/logout/renovação | 4 | tests/e2e-auth/login.spec.ts: 14 PASS no CI 37090654113; login/logout/reload, renovação, roles e revogação |
 | Capacidade persons/bookings/units/unlimited | 5/6 | testes domínio com builders e consultas DB reais |
 | Última vaga sob concorrência | 6 | integração com duas transações paralelas, uma recusada |
 | Idempotência e alteração da reserva | 6 | retry, payload divergente, edição/cancelamento/reativação/transferência |

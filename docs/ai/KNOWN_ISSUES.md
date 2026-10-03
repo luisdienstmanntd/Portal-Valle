@@ -1,6 +1,6 @@
 # Pendências e riscos conhecidos
 
-Atualizado na Fase 3. O Portal ainda não está em produção.
+Atualizado na Fase 4. O Portal ainda não está em produção.
 
 1. **Integrações sem acesso comprovadamente read-only.** Facilities expõe grants operacionais ao service_role; Osteria oferece escrita à conta comum. Bloqueia habilitação das Fases 11/12; não bloqueia fundação e experiências próprias.
 2. **Associação runtime Facilities não confirmada.** Projeto Supabase homônimo tem schema coincidente, mas a URL da aplicação vem de ENV não consultada. Validar por metadados do deploy na fase de integração sem ler/expor segredo.
@@ -16,6 +16,6 @@ Atualizado na Fase 3. O Portal ainda não está em produção.
 12. **Primitivas sem fluxo operacional nesta fase.** Input/Label/Textarea/Select e AlertDialog são componentes preparados para os próximos formulários. Não há gravação nem confirmação destrutiva disponível na interface. Seus fluxos operacionais receberão testes quando implementados.
 
 13. **Docker ausente neste Windows.** CLI 2.119.0 funciona com SUPABASE_HOME no workspace; PostgreSQL/pgTAP/HTTP são validados em CI Linux isolado. Não afirmar execução local desses testes. CI local não comprova configuração/backup do futuro SaaS.
-14. **Cliente server Supabase de leitura.** Sem proxy de renovação nem adapter setAll nesta fase. Não habilitar Auth/login/logout com esse helper antes da implementação e verificação da Fase 4. Tipos da única tabela ainda são contrato manual; regenerar do schema real quando hospedado.
+14. **Auth hospedado e equipe real ainda desconectados.** Proxy/setAll/login/logout implementados na Fase 4; validação real em CI isolado. Nesta prévia sem ENV, login está desabilitado e o shell é somente preparação. Tipos continuam contrato manual; regenerar do schema hospedado. Provisionamento real requer contas individuais e confirmação da matriz de permissões antes de uso operacional.
 
-Próxima fase após autorização: Auth/RBAC. Pontos 1–4 são gates das integrações; não alterar sistemas existentes para resolvê-los.
+Fase 5 já autorizada pelo proprietário após conclusão técnica da Fase 4. Pontos 1–4 são gates das integrações; não alterar sistemas existentes para resolvê-los.

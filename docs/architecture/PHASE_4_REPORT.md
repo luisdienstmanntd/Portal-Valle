@@ -1,6 +1,6 @@
 # Fase 4 — Auth/RBAC
 
-Status: implementação liberada para validação em CI; aprovação final pendente. O proprietário autorizou iniciar a Fase 5 automaticamente depois do encerramento técnico desta fase, em 2026-10-02.
+Status: concluída; CI completo PASS e APROVADO TECNICAMENTE pelo revisor independente. O proprietário autorizou iniciar a Fase 5 automaticamente depois do encerramento técnico desta fase, em 2026-10-02.
 
 ## Objetivo
 
@@ -24,11 +24,11 @@ portal_profiles com FK Auth, enum role e active; private.has_permission restrita
 
 ## Testes executados
 
-Check local PASS (lint/TS/41 unit), build PASS, 24 E2E da prévia PASS nos quatro viewports. PostgreSQL/Auth reais aguardam CI porque Docker não está instalado no Windows.
+Check local PASS (lint/TS/41 unit), build PASS, 24 E2E da prévia PASS nos quatro viewports. CI 37089838139: 63 asserts pgTAP, 3 integrações HTTP e advisors PASS; 14 E2E Auth falharam no login. Docker não está instalado no Windows.
 
 ## Resultado dos testes
 
-CI de banco/Auth pendente. Não declarar fase concluída até PG/HTTP/Auth E2E e revisão final.
+CI 37090654113 PASS em checks/e2e/database: 41 unit, build, 24 E2E da prévia, 63 pgTAP, 3 HTTP, 14 Auth E2E, advisors e cleanup. Checkpoints reais de Auth/perfil e bloqueio de registro público PASS. A causa do CI inicial foi email_provider_disabled: habilitado o provedor de e-mail mantendo auth.enable_signup=false. Locator da mensagem de erro recebeu nome acessível.
 
 ## Riscos encontrados
 
@@ -36,11 +36,11 @@ Sem hosted/equipe real; CI não comprova recuperação/backup SaaS. Tipos manuai
 
 ## Pendências
 
-Verificar CI e obter aprovação final. Hosted antes de uso real, com custo/backup/provisionamento individual aprovados.
+Sem pendências técnicas da fase. Hosted antes de uso real, com custo/backup/provisionamento individual aprovados.
 
 ## Commit
 
-Obter SHA de implementação após publicação de validação.
+Implementação 4bb94a3ccd2e2a0f6b060ad7c70c4307199622f4; correção validada bf01c925897ab07132c8d6b0ff09ce57bf1067ca. CI: https://github.com/luisdienstmanntd/Portal-Valle/actions/runs/37090654113
 
 ## Próxima fase
 

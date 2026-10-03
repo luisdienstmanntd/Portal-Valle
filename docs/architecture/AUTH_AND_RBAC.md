@@ -27,6 +27,8 @@ Login usa e-mail/senha individual, validação Zod server, mensagens genéricas 
 
 ## Verificação e limites
 
+Configuração local: `auth.enable_signup=false` bloqueia registro público; `auth.email.enable_signup=true` mantém o provedor de e-mail/senha disponível. Apesar do nome, na CLI 2.119.0 o segundo campo vira `GOTRUE_EXTERNAL_EMAIL_ENABLED`, enquanto o primeiro controla `GOTRUE_DISABLE_SIGNUP`. [Fonte oficial da CLI fixada](https://github.com/supabase/cli/blob/v2.119.0/apps/cli/src/commands/start/services/gotrue.service.ts). O script de CI verifica login/perfil por HTTP antes dos testes de navegador e exige `signup_disabled` para tentativa de cadastro público.
+
 Unit prova matriz e validação. pgTAP transacional prova grants, roles/permissões, perfil próprio, metadata não autoritativa, inativo/sem vínculo, sessão de outro usuário, revogação com claims persistentes e not_after. HTTP real prova RLS; E2E Auth prova login/logout/reload, senha incorreta, roles, inativo/sem vínculo, renovação de cookies/cache privado e navegação após revogação. Fixtures são contas fictícias criadas somente em loopback; chave admin local é mantida em memória do script, nunca enviada ao Next/browser. JSON de credenciais fictícias fica em work ignorado, e o stack é encerrado no finally do CI.
 
 Windows sem Docker: valida apenas UI de preparação, unit e build. Hosted e equipe real exigem projeto próprio, backups/custo aprovados e provisionamento individual antes de deploy. Tipos de banco continuam contrato manual, com verificação SQL real; gerar do schema hospedado quando disponível.

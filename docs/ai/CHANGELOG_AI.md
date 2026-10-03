@@ -1,10 +1,11 @@
 # Changelog de trabalho IA
 
-## 2026-10-02 — Auth/RBAC em validação
+## 2026-10-02 — Auth/RBAC validado
 
 - Fase4 autorizada; Fase5 autorizada automaticamente após conclusão técnica da Fase4.
 - Login/logout individuais, perfil ativo e sessão viva, RLS/private lookup, matriz central, proxy/cookies/no-store e guards de página. Nenhum legado alterado; hosted adiado.
-- Check41unit/build/24E2E preview PASS. PG/HTTP/14AuthE2E/advisors e revisão final aguardam CI.
+- Check41unit/build/24E2E preview PASS. CI 37090654113 PASS: 63 pgTAP, 3 HTTP, 14 Auth E2E, advisors e cleanup. Implementação 4bb94a3; correção bf01c925897ab07132c8d6b0ff09ce57bf1067ca. APROVADO TECNICAMENTE pelo revisor independente.
+- CI inicial revelou email_provider_disabled: auth.email.enable_signup habilita o provedor de e-mail na CLI, enquanto auth.enable_signup=false bloqueia registro público. Correção confirmada com checkpoints Auth/perfil e signup_disabled. Nenhum cookie, chave ou dado pessoal registrado.
 
 
 

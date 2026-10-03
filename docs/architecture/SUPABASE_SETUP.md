@@ -26,9 +26,9 @@ Migration criada com `supabase migration new portal_foundation`: `20261003014150
 
 Sem ENV, o shell continua disponível. Para habilitar clientes, fornecer conjuntamente `NEXT_PUBLIC_SUPABASE_URL`, `NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY` e `NEXT_PUBLIC_SUPABASE_PROJECT_REF` em arquivo ignorado ou secrets do ambiente. Hosted exige HTTPS, hostname correspondente ao ref e chave `sb_publishable_`; os dois refs legados são bloqueados. Local aceita apenas `http://127.0.0.1:<porta>` com ref `local`. Chaves privilegiadas/JWT antigos são rejeitados.
 
-`browser.ts` usa createBrowserClient; `server.ts` é server-only e cria cliente por requisição, com cookies getAll. É **cliente de leitura**, ainda sem fluxo Auth ou escrita de cookies. Antes de habilitar Auth na Fase 4, implementar proxy de renovação e adapter de resposta com setAll e headers ant-cache; não usar este helper para login/logout/refresh. As páginas atuais não instanciam clientes, nem fazem chamadas de banco.
+`browser.ts` usa createBrowserClient; `server.ts` é server-only e cria cliente por requisição, com cookies getAll. Atualização Fase 4: leitura padrão em Server Components e escrita explícita para Server Actions. Proxy de renovação/cookies/cache privado e login/logout implementados; páginas configuradas consultam Auth/perfil com RLS. Sem ENV, shell é somente preparação e login fica desabilitado. Consulte AUTH_AND_RBAC.
 
-`database.types.ts` é contrato tipado manual desta única tabela, validado pelos testes SQL; não foi apresentado como resultado de geração remota. Quando houver ambiente hospedado, gerar tipos a partir do schema real e revisar o diff.
+`database.types.ts` é contrato tipado manual de portal_settings, portal_profiles e portal_role, validado pelos testes SQL; não foi apresentado como resultado de geração remota. Quando houver ambiente hospedado, gerar tipos a partir do schema real e revisar o diff.
 
 ## Prévia preservada durante checks
 
