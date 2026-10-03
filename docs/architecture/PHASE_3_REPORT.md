@@ -1,6 +1,6 @@
 # Fase 3 — Supabase Portal
 
-Status: implementação local em revisão; validação de banco no CI pendente. Não considerar fase concluída até registrar CI PASS e APROVADO TECNICAMENTE.
+Status: CONCLUÍDA no escopo CI aprovado pelo proprietário; CI/checks/E2E PASS e APROVADO TECNICAMENTE pelo revisor independente. Banco hospedado adiado por decisão expressa do proprietário.
 
 ## Objetivo
 
@@ -28,7 +28,7 @@ Build isolado PASS. Primeira checagem local PASS com 15 unit; uma checagem poste
 
 ## Resultado dos testes
 
-Pendente confirmação final local/CI. Não afirmar execução de testes de banco até evidência do job database.
+PASS: check local (lint/TypeScript/16 unit), build isolado e 20 E2E do build atual. [CI 37087962869](https://github.com/luisdienstmanntd/Portal-Valle/actions/runs/37087962869) PASS nos jobs checks/e2e/database, com npm ci. Database aplicou/resetou migration, executou 22 asserts pgTAP (Result: PASS), 3 HTTP reais e encerrou stack isolado. npm audit --omit=dev retornou zero vulnerabilidades conhecidas. PostgreSQL não foi executado no Windows.
 
 ## Riscos encontrados
 
@@ -36,11 +36,11 @@ Quota gratuita; CI não reproduz configuração SaaS nem backups; cliente server
 
 ## Pendências
 
-CI e revisão final desta implementação; projeto hospedado antes de Auth conectado/deploy, com plano/backup aprovados. Nenhum usuário/hóspede real.
+Projeto hospedado antes de Auth conectado/deploy, com plano/backup aprovados. Não há pendência técnica do escopo CI desta fase. Nenhum usuário/hóspede real.
 
 ## Commit
 
-Obter implementação com `git log`; SHA/CI serão registrados após publicação para validação.
+Implementação: `c1d2b6f` (feat(portal): prepare isolated Supabase foundation and RLS tests), publicada em main; CI 37087962869 PASS. Fechamento documental: commit docs(portal): close phase three after successful database CI; SHA consultável no histórico.
 
 ## Próxima fase
 

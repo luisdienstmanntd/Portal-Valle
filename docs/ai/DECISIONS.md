@@ -64,7 +64,7 @@ Consequências: Fase 1 precisa validar `npm ci`, lint, typecheck, testes e build
 
 ## ADR-006 — Projeto Supabase próprio e menor privilégio
 
-Status: Implementação de CI em validação na Fase 3; hospedado adiado pelo proprietário por quota. Data: 2026-10-01; atualização 2026-10-02.
+Status: Implementada e validada em CI na Fase 3; hospedado adiado pelo proprietário por quota. Data: 2026-10-01; atualização 2026-10-02.
 
 Contexto: Portal armazenará PII de experiências, usuários e auditoria.
 

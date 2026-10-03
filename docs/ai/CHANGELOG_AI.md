@@ -1,11 +1,12 @@
-## 2026-10-02 — Base Supabase do Portal em validação
+# Changelog de trabalho IA
+
+## 2026-10-02 — Base Supabase do Portal concluída em CI
 
 - Fase 3 autorizada; banco hospedado adiado pelo proprietário após quota gratuita impedir criação.
 - Migration portal_settings, RLS/grants/default deny, clientes tipados browser/server de leitura, identidade ENV e bloqueio de segredos/legados, testes pgTAP/HTTP e job CI isolado.
 - Supabase JS 2.117.2, SSR 0.12.7 e CLI 2.119.0 fixados. Nenhum banco/repositório legado alterado; nenhuma Auth/experiência operacional.
-- Check local PASS com 16 unit; build separado PASS. CI de banco e revisão final pendentes. Prévia permanece aberta na porta 3100.
+- Check local PASS com 16 unit; build separado PASS. CI 37087962869 PASS (checks/e2e/database): 22 pgTAP e 3 HTTP reais, cleanup PASS. Implementação c1d2b6f. APROVADO TECNICAMENTE pelo revisor independente. Prévia permanece aberta na porta 3100.
 
-# Changelog de trabalho IA
 
 ## 2026-10-02 — Design system e shell
 

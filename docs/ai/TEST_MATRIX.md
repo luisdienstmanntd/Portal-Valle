@@ -8,7 +8,7 @@
 | Navegação teclado/touch/tablet | 2 | `tests/e2e/shell.spec.ts`: menu/8 rotas/aria-current; modal Tab/Shift+Tab/Esc/retorno de foco; skip-link; 404; sem overflow; alvos de navegação ≥44px; 16 PASS nos 4 viewports, local e CI |
 | Assets locais/hidratação | 2 | E2E `shell.spec.ts` em Hoje: sem pageerror nem requisições externas; fontes locais carregadas e capturas inspecionadas |
 | ENV separada e erro claro | 1/3 | `src/lib/env.server.test.ts`: 16 PASS local; parcial, segredos, transporte/identidade, refs legados e loopback |
-| RLS/grants | 3 | `supabase/tests/portal_foundation.test.sql`: 22 asserts; pgTAP/CI pendente. `tests/integration/supabase.test.ts`: 3 HTTP reais, pendente CI |
+| RLS/grants | 3 | `supabase/tests/portal_foundation.test.sql`: 22 asserts pgTAP PASS; `tests/integration/supabase.test.ts`: 3 HTTP reais PASS no CI 37087962869, com reset/migration e stop isolados |
 | Contas ativas e membership | 4 | integração por sem vínculo, recepção, gerência, admin, inativo; ainda não implementados |
 | Login/logout/renovação | 4 | E2E de Auth Portal e Server Actions protegidas |
 | Capacidade persons/bookings/units/unlimited | 5/6 | testes domínio com builders e consultas DB reais |
