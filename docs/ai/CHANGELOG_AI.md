@@ -8,7 +8,7 @@
 - Motivo: criar navegação e identidade consistentes para os próximos fluxos.
 - Impacto: shell navegável com estados de preparação; nenhum dado real, Auth, banco, integração ou mutação operacional. Prévia local aberta em `http://127.0.0.1:3100/hoje`.
 - Testes: `npm run check` PASS (lint, TypeScript, 3 unit); build PASS; 20 E2E Chromium PASS nos 4 viewports após correção do ciclo Tab nos diálogos. Capturas inspecionadas.
-- Revisão/commit/CI remoto: aguardam fechamento.
+- Revisão: APROVADO TECNICAMENTE; revisor repetiu check e os 20 E2E com sucesso. Commit publicado: `d34ed631299425636814ae38a7f0f9965d966b94`. [CI 37086206304](https://github.com/luisdienstmanntd/Portal-Valle/actions/runs/37086206304) PASS nos jobs checks/e2e.
 
 ## 2026-10-01 — Fundação independente
 

@@ -13,7 +13,7 @@ Criar a estrutura visual e a navegação do Portal com a identidade observada no
 
 ## Arquivos criados e alterados
 
-Criados: `src/components/{ui,shell}`, `src/app/{hoje,agenda,programacao,experiencias,piscina,academia,osteria,configuracoes}/page.tsx`, `src/app/not-found.tsx`, `public/fonts/*`, `tests/e2e/shell.spec.ts`, `docs/architecture/DESIGN_SYSTEM.md` e este relatório.
+Criados: `.gitattributes` (licenças originais/fontes binárias), `src/components/{ui,shell}`, `src/app/{hoje,agenda,programacao,experiencias,piscina,academia,osteria,configuracoes}/page.tsx`, `src/app/not-found.tsx`, `public/fonts/*`, `tests/e2e/shell.spec.ts`, `docs/architecture/DESIGN_SYSTEM.md` e este relatório.
 
 Alterados: `src/app/{layout.tsx,page.tsx,globals.css}`, `playwright.config.ts`, CI (instalação do Chromium), README e documentos de continuidade.
 
@@ -29,7 +29,7 @@ Nenhum banco, migration, credencial, Auth ou integração nesta fase. Nenhuma gr
 - Primeira execução mostrou saída do foco dos controles modais com Tab; ciclo explícito corrigido e suíte completa repetida com sucesso.
 - Capturas reais desktop/tablets/mobile inspecionadas; sem overflow na página Hoje, navegação ≥44px, sem pageerror nem requisições externas nessa página.
 - Contraste calculado em seis pares de tokens usados para texto/estados: de 4,70:1 a 7,46:1. Verificação focal, não auditoria completa WCAG.
-- CI remoto da Fase 2: aguarda publicação e verificação. Não promover este campo para PASS antes da execução.
+- [CI remoto 37086206304](https://github.com/luisdienstmanntd/Portal-Valle/actions/runs/37086206304): PASS — jobs `checks` e `e2e`, incluindo `npm ci`, build e os 20 testes de navegador no Ubuntu.
 
 ## Riscos e pendências
 
@@ -37,7 +37,7 @@ Validação em tablet físico/Safari/Firefox não realizada. No Windows, usar se
 
 ## Commit e revisão
 
-Aguarda parecer do subagente, commit e publicação. Fontes, licenças e origem em DESIGN_SYSTEM.md.
+Subagente revisor: **APROVADO TECNICAMENTE**. Repetiu check e 20 E2E com sucesso e conferiu fontes/licenças/capturas/contrastes; build final concluído com sucesso pelo agente principal. Implementação publicada no commit [`d34ed631299425636814ae38a7f0f9965d966b94`](https://github.com/luisdienstmanntd/Portal-Valle/commit/d34ed631299425636814ae38a7f0f9965d966b94). Fontes, licenças e origem em DESIGN_SYSTEM.md.
 
 ## Próxima fase
 
@@ -47,4 +47,6 @@ Fase 3: projeto/banco exclusivo do Portal. Iniciar somente após autorização s
 
 `npm ci`, `npx playwright install chromium`, `npm run build`, `npm run start`; conferir `/hoje`, abrir as áreas no menu, usar Tab/Shift+Tab/Esc em Ajuda de navegação, verificar tablet 768/1024 e celular. Nunca usar o shell como evidência de reservas reais.
 
-**AGUARDANDO AUTORIZAÇÃO PARA INICIAR A PRÓXIMA FASE após publicação e verificação.**
+Prévia local mantida aberta a pedido do proprietário em `http://127.0.0.1:3100/hoje`; é temporária e depende do processo local ativo. Capturas desktop/tablet/mobile em `outputs/fase2-hoje-*.png` no workspace.
+
+**AGUARDANDO AUTORIZAÇÃO PARA INICIAR A PRÓXIMA FASE.**
