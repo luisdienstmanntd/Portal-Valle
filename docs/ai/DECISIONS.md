@@ -2,7 +2,7 @@
 
 ## ADR-010 — Cine primeiro e operações transacionais por sessão
 
-Status: em validação, Fase6 adaptada. Data: 2026-10-03.
+Status: implementada e APROVADO TECNICAMENTE na Fase6 adaptada, CI37155203841 PASS. Data: 2026-10-03.
 
 Proprietário adiou Lora, autorizou Cine8pessoas/4puffs e informou não haver lugares para crianças. Reordenar primeiro fluxo para Cine sem declarar Lora implementada. Puffs provisoriamente exclusivos por inscrição, ceil(adults/2), suposição comunicada enquanto resposta sobre compartilhamento está pendente.
 

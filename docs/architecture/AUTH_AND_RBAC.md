@@ -10,12 +10,14 @@ Supabase Auth pertence exclusivamente ao Portal. Hosted permanece adiado por esc
 
 Matriz central em `src/modules/auth/domain/permissions.ts`, equivalente no SQL e testada por todos os papéis:
 
-- Todos os perfis ativos: portal.read, experiences.read, facilities.read, osteria.read.
+- Todos os perfis ativos: portal.read, experiences.read, bookings.manage (adicionada na Fase6 adaptada), facilities.read, osteria.read.
 - Gerência/admin: experiences.manage, weekly_program.manage, reports.read.
 - Admin: settings.manage.
 - Inativo, sem perfil ou sessão revogada: nenhum acesso.
 
 As permissões de experiências/programação/relatórios estão preparadas; funcionalidades entram em suas fases. Configurações é área restrita ao admin, ainda sem mutações. Timezone do hotel segue imutável.
+
+Atualização Fase6 adaptada: gerência/admin gerenciam sessões Cine; todos os papéis ativos gerenciam inscrições Cine via RPC. `private.has_permission` e matriz TypeScript receberam bookings.manage; auditoria verifica essa permissão para bookings e experiences.manage para catálogo/sessões. Identidade/perfil/sessão viva permanecem obrigatórios. Operações validadas em CI37155203841; ver CINEMA_OPERATIONS.
 
 ## Fronteira de servidor
 

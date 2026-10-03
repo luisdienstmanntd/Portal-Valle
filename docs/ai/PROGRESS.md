@@ -2,18 +2,18 @@
 
 Current phase: Phase 6 adaptada — Cine Toscana como primeiro fluxo operacional.
 
-Status: PHASE_6_IN_VALIDATION. Baseline Fase5 aprovada CI37151730319, fechamento614b733; Fase6 ainda não concluída.
+Status: PHASE_6_COMPLETE. APROVADO TECNICAMENTE pelo revisor independente; CI37155203841 PASS em checks/e2e/database.
 
-Completed: Fases 0–5; Fase5 validada em CI: modelo das quatro tabelas, domínio puro/mapping, capacidade por unidade/limite físico, RLS e auditoria atômica. Sem UI/RPC de escrita operacional.
+Completed: Fases0–5 e Fase6 adaptada Cine: sessão/inscrição/capacidade8adultos4puffs/presença/notas, RPCs autorizadas e atômicas com concorrência/idempotência/versões/auditoria. Lora não implementada.
 
-In progress: Cine autorizado expressamente; Lora adiada. UI sessão/inscrição, adultos somente, 8pessoas/4puffs, RPCs atômicas, locks/idempotência/versões/presença/auditoria. Prévia preservada porta3100. Ver CINEMA_OPERATIONS. Testes desta etapa em andamento.
+In progress: nenhum desenvolvimento além desta etapa concluída. Prévia .next-check porta3100, PID em work/phase6-preview.pid, tabCine preservada; não sobrescrever build ativo. Sem ENV/contas reais, formulários desabilitados.
 
-Next step: concluir verificações/revisão/documentação. Não promover Fase6 antes do CI; Lora não implementada.
+Next step: aguardar próxima frente autorizada; CI concluído e fechamento documental aprovado. Lora adiada, não implementada.
 
 Blocked by: hosted adiado por quota conforme escolha do proprietário. Não alterar legados, projetos existentes ou plano.
 
-Last verified implementation commit: 3803dd111e0e7a5f7da1e87d1b07e6abea5f182e, CI37151730319 PASS.
+Last verified implementation commit: db28d2b85aee20d6859b4fb87e6b2e6ddc47ab67, CI37155203841 PASS; implementação56143a4 e correção348d8fb.
 
-Tests status: lint/TS/67 unit/build PASS; 24 E2E preview, 113 pgTAP (50 novos), 7 HTTP, 14 Auth E2E, Auth/perfil/cadastro bloqueado checkpoints, advisors e cleanup PASS. Banco/Auth somente em CI Linux; Windows sem Docker.
+Tests Status: PHASE_6_COMPLETE. APROVADO TECNICAMENTE pelo revisor independente; CI37155203841 PASS em checks/e2e/database.
 
-Next AI instruction: concluir Fase6 adaptada Cine; ler CINEMA_OPERATIONS. Cine exclusivo adultos8pessoas/4puffs; puffs provisoriamente exclusivos ceil(adults/2), suposição comunicada. Lora/no_show sem padrão operacional. Preservar prévia/isolamento/hospedagem adiada.
+Next AI instruction: Fase6 adaptada Cine encerrada; ler CINEMA_OPERATIONS e PHASE_6_REPORT. Cine adultos8pessoas4puffs, puffs exclusivos provisórios ceil(adults/2). Lora/no_show pendentes; preservar prévia/isolamento/hosted adiado. Não avançar sem autorização.

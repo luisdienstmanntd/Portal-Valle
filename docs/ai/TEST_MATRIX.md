@@ -30,4 +30,6 @@
 
 Quando o teste existir, substituir esta coluna por caminho concreto e resultado do CI. Não promover uma fase com testes aplicáveis vermelhos.
 
-Fase6 adaptada Cine: commands.test.ts + hotel-time, check local83unit PASS. portal_cinema.test.sql (RPC/Auth/idempotência/versões/crianças/unidades/rollback), scripts/test-cinema.mjs (HTTP/concorrência/cancelamento/redução), login.spec.ts (fluxo UI/papéis), cinema-preview.spec.ts (4viewports). Banco/Auth/CI em validação; sem declarar PASS antecipado. Transferência não suportada e recusada.
+Fase6 adaptada Cine: commands.test.ts + hotel-time, check local83unit PASS. portal_cinema.test.sql (RPC/Auth/idempotência/versões/crianças/unidades/rollback), scripts/test-cinema.mjs (HTTP/concorrência/cancelamento/redução), login.spec.ts (fluxo UI/papéis), cinema-preview.spec.ts (4viewports). Banco/Auth/CI confirmado PASS em CI37155203841. Transferência não suportada e recusada.
+
+Resultado Fase6: CI37155203841/db28d2b PASS:83unit/28preview/140pgTAP (27novos)/7HTTP/14AuthE2E e checkpoints concorrência/idempotência/versões/cancelamento/redução/crianças. Advisors/cleanup PASS. Duas tentativas AuthUI12/14 corrigidas no teste sem remover assertions; APROVADO TECNICAMENTE pelo revisor independente.

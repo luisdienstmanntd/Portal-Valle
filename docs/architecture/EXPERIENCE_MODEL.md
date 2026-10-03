@@ -1,5 +1,7 @@
 # Modelo de experiências — Fase 5
 
+Atualização Fase6 adaptada validada em CI37155203841: proprietário escolheu Cine primeiro e somente adultos. `persons_per_unit=2`, `children_allowed=false` no catálogo Cine, version/responsible_id e RPCs de operação adicionados; os parágrafos abaixo registram a fundação da Fase5, antes das escritas. Puffs provisoriamente exclusivos ceil(adults/2); Lora adiada. Auditoria de bookings exige bookings.manage. Consulte CINEMA_OPERATIONS para comportamento e limites atuais.
+
 Experience é o catálogo; occurrence é sua realização com instantes explícitos; booking é a inscrição de um grupo. A programação semanal futura consultará occurrences, sem outra tabela de eventos. O domínio em `src/modules/experiences/domain` importa apenas Zod e seus próprios tipos. Linhas completas do banco passam por infrastructure/mapping: valida/remova created_at/updated_at e valida o DTO antes do cálculo puro. Não passar Row bruto a summarizeCapacity. Não há UI operacional, serviço genérico ou adapter externo nesta fase.
 
 ## Capacidade e decisões do proprietário
