@@ -18,25 +18,25 @@ const items: { href: string; label: string; icon: IconName; group: string }[] = 
   { href: "/configuracoes", label: "Configurações", icon: "settings", group: "Portal" },
 ];
 
-function Navigation({ onNavigate }: { onNavigate?: () => void }) {
+function Navigation({ onNavigate, showSettings = true }: { onNavigate?: () => void; showSettings?: boolean }) {
   const pathname = usePathname();
   return <nav aria-label="Navegação principal">
-    {["Dia a dia", "No hotel", "Portal"].map(group => <div className="nav-group" key={group}>
+    {["Dia a dia", "No hotel", ...(showSettings ? ["Portal"] : [])].map(group => <div className="nav-group" key={group}>
       <p className="nav-label">{group}</p>
       <ul>{items.filter(item => item.group === group).map(item => <li key={item.href}><Link href={item.href} className="nav-link" aria-current={pathname === item.href ? "page" : undefined} onClick={onNavigate}><Icon name={item.icon} /><span>{item.label}</span></Link></li>)}</ul>
     </div>)}
   </nav>;
 }
 
-export function SidebarNavigation() { return <Navigation />; }
+export function SidebarNavigation({ showSettings = true }: { showSettings?: boolean }) { return <Navigation showSettings={showSettings} />; }
 
-export function MobileNavigation() {
+export function MobileNavigation({ showSettings = true }: { showSettings?: boolean }) {
   const dialog = useRef<HTMLDialogElement>(null);
   return <div className="mobile-navigation">
     <Button variant="secondary" aria-label="Abrir menu de navegação" aria-haspopup="dialog" onClick={() => dialog.current?.showModal()}><Icon name="menu" /></Button>
     <dialog ref={dialog} className="navigation-dialog" aria-labelledby="navigation-title" onKeyDown={keepDialogFocus}>
       <div className="mobile-menu-header"><h2 id="navigation-title">Portal Valle</h2><Button variant="secondary" aria-label="Fechar menu de navegação" autoFocus onClick={() => dialog.current?.close()}><Icon name="close" /></Button></div>
-      <Navigation onNavigate={() => dialog.current?.close()} />
+      <Navigation showSettings={showSettings} onNavigate={() => dialog.current?.close()} />
     </dialog>
   </div>;
 }

@@ -1,5 +1,21 @@
 @import "tailwindcss";
 
+.header-account { display: flex; align-items: center; gap: .75rem; }
+.header-account form { margin: 0; }
+.login-page { min-height: 100dvh; display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 2rem 1rem; gap: 1.5rem; background: var(--brand-background); }
+.login-page > footer { text-align: center; font-size: .75rem; color: var(--brand-muted-foreground); }
+.login-card { width: min(100%, 460px); padding: 2.5rem; border: 1px solid var(--brand-border); border-radius: 16px; background: var(--brand-surface); box-shadow: 0 12px 40px #604d3f10; }
+.login-brand { width: 220px; max-width: 100%; height: auto; margin: 0 auto 1.5rem; }
+.login-card h1 { font-family: var(--font-playfair), Georgia, serif; font-size: 2rem; margin: .5rem 0 .75rem; color: var(--brand-primary); }
+.login-card > p { line-height: 1.6; color: var(--brand-muted-foreground); }
+.login-form { display: grid; gap: 1.25rem; margin-top: 1.5rem; }
+.login-form .button { width: 100%; }
+.login-error { color: var(--status-danger); margin: 0; }
+.login-notice { padding: .75rem; border-radius: 8px; background: var(--brand-muted); }
+.login-back { display: flex; align-items: center; justify-content: center; min-height: 44px; margin-top: 1rem; color: var(--brand-primary); text-decoration: underline; }
+.login-help { margin: 1.5rem 0 0; font-size: .8rem; }
+@media (max-width: 767px) { .header-account .badge { display: none; } .login-card { padding: 1.5rem; } }
+
 :root {
   --brand-background: #f9f7f2;
   --brand-surface: #ffffff;

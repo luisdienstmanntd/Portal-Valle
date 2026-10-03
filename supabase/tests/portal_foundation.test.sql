@@ -13,7 +13,7 @@ select ok(has_table_privilege('authenticated', 'public.portal_settings', 'select
 select ok(not has_table_privilege('authenticated', 'public.portal_settings', 'insert'), 'Insert not granted');
 select ok(not has_table_privilege('authenticated', 'public.portal_settings', 'update'), 'Update not granted');
 select ok(not has_table_privilege('authenticated', 'public.portal_settings', 'delete'), 'Delete not granted');
-select is((select count(*) from pg_policy where polrelid = 'public.portal_settings'::regclass), 0::bigint, 'No premature staff policies');
+select is((select count(*) from pg_policy where polrelid = 'public.portal_settings'::regclass), 1::bigint, 'Settings have only the staff read policy');
 
 set local role anon;
 select throws_ok('select * from public.portal_settings', '42501', 'permission denied for table portal_settings', 'Anonymous query denied');

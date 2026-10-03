@@ -1,5 +1,13 @@
 # Decisões de arquitetura
 
+## ADR-008 — Auth individual e autorização por perfil atual/sessão viva
+
+Status: implementada na Fase 4, validação de banco/Auth em CI pendente. Data: 2026-10-02.
+
+Decisão: Auth Portal com contas individuais, portal_profiles provisionado administrativamente e permissões centrais no TypeScript/SQL. Perfil ativo e auth.sessions verificados em RLS; papel não vem de metadata editável ou formulário. Lookup definer estreito em private evita recursão e acessa auth.sessions protegida. Configurações segue sem escrita. Proxy renova cookies/headers; guards de página/operação continuam fonte de autorização. Sem configuração somente shell de preparação, nenhuma operação liberada. Hosted permanece adiado pelo proprietário; CI isolado com contas sintéticas.
+
+Consequências: revogação/perfil inativo bloqueia JWT ainda válido; leitura exige banco/Auth disponíveis. Provisionamento real/backup depende do novo SaaS. Consulte AUTH_AND_RBAC e testes para matriz exata.
+
 As decisões abaixo são propostas da Fase 0; status `Proposta` até validação no marco de implementação. Preservar ADRs anteriores; supersedes deve ser adicionado, não apagar histórico.
 
 ## ADR-001 — Produto e dados independentes

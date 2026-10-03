@@ -1,5 +1,13 @@
 # Changelog de trabalho IA
 
+## 2026-10-02 — Auth/RBAC em validação
+
+- Fase4 autorizada; Fase5 autorizada automaticamente após conclusão técnica da Fase4.
+- Login/logout individuais, perfil ativo e sessão viva, RLS/private lookup, matriz central, proxy/cookies/no-store e guards de página. Nenhum legado alterado; hosted adiado.
+- Check41unit/build/24E2E preview PASS. PG/HTTP/14AuthE2E/advisors e revisão final aguardam CI.
+
+
+
 ## 2026-10-02 — Base Supabase do Portal concluída em CI
 
 - Fase 3 autorizada; banco hospedado adiado pelo proprietário após quota gratuita impedir criação.

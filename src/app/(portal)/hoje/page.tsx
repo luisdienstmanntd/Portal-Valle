@@ -2,8 +2,10 @@ import Link from "next/link";
 import { PageHeading } from "@/components/shell/page-heading";
 import { Badge, Card, Table } from "@/components/ui/primitives";
 import { Icon } from "@/components/ui/icon";
+import { guardPreparationPage } from "@/modules/auth/infrastructure/session";
 
-export default function TodayPage() {
+export default async function TodayPage() {
+  await guardPreparationPage();
   return <>
     <PageHeading title="Hoje" description="Seu dia no Valle, em um só lugar." />
     <Card className="welcome-card"><div><p className="eyebrow">BEM-VINDO AO PORTAL</p><h2>Mais tempo para acolher.</h2><p>Um espaço para acompanhar a programação e as experiências do hotel. As áreas estão sendo preparadas para o dia a dia da recepção.</p></div><Icon name="sparkles" width={72} height={72} /></Card>

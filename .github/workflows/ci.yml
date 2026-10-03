@@ -20,6 +20,9 @@ jobs:
       - run: npx supabase db reset --local
       - run: npm run test:db
       - run: npm run test:integration
+      - run: npx supabase db advisors --local --type security --level error --fail-on error
+      - run: npx playwright install --with-deps chromium
+      - run: npm run test:e2e:auth
       - name: Stop isolated stack
         if: always()
         run: npx supabase stop --no-backup

@@ -17,6 +17,7 @@
     "test:integration": "node scripts/test-local-supabase.mjs",
     "test:db": "supabase test db --local",
     "test:e2e": "playwright test",
+    "test:e2e:auth": "node scripts/test-auth.mjs",
     "check": "npm run lint && npm run typecheck && npm run test"
   },
   "dependencies": {
