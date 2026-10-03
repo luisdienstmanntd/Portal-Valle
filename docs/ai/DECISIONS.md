@@ -52,7 +52,7 @@ Consequências: testes de falha parcial, virada de dia, mudança de schema e ord
 
 ## ADR-005 — Stack candidata com versões fixas
 
-Status: Proposta, sujeita aos gates da Fase 1. Data: 2026-10-01.
+Status: Implementada e validada na Fase 1, localmente e em CI. Data: 2026-10-01; validação confirmada em 2026-10-02.
 
 Contexto: a referência Facilities usa Next 15; o novo Portal deve ser independente e atual, sem combinar versões incompatíveis.
 
@@ -73,4 +73,16 @@ Decisão: provisionar Supabase exclusivo do Portal na Fase 3, separado por ambie
 Alternativas: usar projeto existente ou service role em todas as queries; rejeitadas por acoplamento e excesso de privilégio.
 
 Consequências: definir organização/região/custo/backup antes do provisionamento e testar políticas/concorrência em banco isolado.
+
+## ADR-007 — Design system mínimo com HTML nativo e assets locais
+
+Status: Implementada na Fase 2. Data: 2026-10-02.
+
+Contexto: a recepção usa desktop/tablet e precisa de controles familiares e navegação por teclado.
+
+Decisão: tokens centrais da referência Facilities, fontes locais Inter/Playfair Display via `next/font/local`, componentes finos de HTML, `<dialog>` modal com nomes acessíveis, Esc/retorno nativos e ciclo explícito de Tab nos controles. Sidebar a partir de 768px; abaixo disso, menu modal. Páginas e layout server; client apenas nas interações.
+
+Alternativas: copiar runtime do sistema existente ou adicionar uma biblioteca completa de UI; não necessárias ao escopo visual desta fase.
+
+Consequências: oito rotas reais com estados de preparação, sem dados/contagens fictícios nem ações de reserva. Fontes possuem cópia da licença OFL e SHA documentados. Formulários e confirmações operacionais precisarão de validações/testes nas respectivas fases.
 

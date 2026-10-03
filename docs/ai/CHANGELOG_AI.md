@@ -1,5 +1,15 @@
 # Changelog de trabalho IA
 
+## 2026-10-02 — Design system e shell
+
+- Solicitação: continuar após a Fase 1; proprietário também pediu navegador aberto para acompanhar a interface.
+- Fase: 2.
+- Arquivos: `src/components/{ui,shell}`, oito páginas, layout/CSS/redirect/404, fontes/licenças em `public/fonts`, E2E/config/CI, README e docs.
+- Motivo: criar navegação e identidade consistentes para os próximos fluxos.
+- Impacto: shell navegável com estados de preparação; nenhum dado real, Auth, banco, integração ou mutação operacional. Prévia local aberta em `http://127.0.0.1:3100/hoje`.
+- Testes: `npm run check` PASS (lint, TypeScript, 3 unit); build PASS; 20 E2E Chromium PASS nos 4 viewports após correção do ciclo Tab nos diálogos. Capturas inspecionadas.
+- Revisão/commit/CI remoto: aguardam fechamento.
+
 ## 2026-10-01 — Fundação independente
 
 - Solicitação: proprietário autorizou prosseguir para a Fase 1 e publicar a documentação da Fase 0 no GitHub público. Também pediu subagente revisor para cada tarefa concluída.

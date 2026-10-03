@@ -4,11 +4,11 @@ Nome curto: **Portal Valle**. Terceiro produto independente para a recepção do
 
 ## Estado atual
 
-Fase 0: descoberta e planejamento concluída. A Fase 1 criou a fundação local do Next.js com TypeScript strict, Tailwind, testes, CI, validação de ENV e logo próprio. Ainda não há banco próprio, autenticação, integração ou deploy.
+Fases 0 e 1 concluídas e publicadas. A Fase 2 adiciona o design system e a estrutura visual com as oito áreas previstas, em preparação. Ainda não há banco próprio, autenticação, integração ou deploy.
 
 - Repositório: https://github.com/luisdienstmanntd/Portal-Valle
 - Produção desejada, ainda não provisionada: https://portalvalle.vercel.app
-- Relatório: [Fase 0](docs/architecture/PHASE_0_REPORT.md).
+- Relatórios: [Fase 0](docs/architecture/PHASE_0_REPORT.md), [Fase 1](docs/architecture/PHASE_1_REPORT.md) e [Fase 2](docs/architecture/PHASE_2_REPORT.md).
 - Continuidade: [PROGRESS](docs/ai/PROGRESS.md) e [AGENTS](AGENTS.md).
 
 ## Limites permanentes
@@ -19,7 +19,7 @@ Os repositórios `luisdienstmanntd/Reservas-Piscina-Academia` e `luisdienstmannt
 
 ## Desenvolvimento local
 
-Use Node 24 (`.nvmrc`), `npm ci` e `npm run dev`. Para verificar: `npm run check`, `npm run build` e `npm run test:e2e` depois do build. A página inicial é apenas um marco de fundação; as telas operacionais pertencem às fases seguintes.
+Use Node 24 (`.nvmrc`), `npm ci` e `npm run dev`. Para verificar: `npm run check`, `npm run build`, `npx playwright install chromium` e `npm run test:e2e` depois do build. `/` redireciona para `/hoje`. As rotas mostram a estrutura visual e estados de preparação; a operação será implementada nas próximas fases. Consulte [DESIGN_SYSTEM](docs/architecture/DESIGN_SYSTEM.md) para os componentes e fontes locais.
 
 O teste E2E usa Playwright contra um servidor Next em `127.0.0.1:3100`. No Windows, o Playwright pode ficar preso ao encerrar automaticamente o servidor; iniciar `npm run start -- --hostname 127.0.0.1 --port 3100` separadamente antes do E2E permite o teste terminar normalmente.
 
@@ -29,4 +29,4 @@ Revisão de fontes GitHub com commits fixos, catálogos PostgreSQL em transaçõ
 
 ## Próxima etapa
 
-Fase 2: design system e shell operacional após autorização do proprietário. Banco remoto novo apenas na Fase 3; autenticação na Fase 4.
+Fase 3: banco exclusivo do Portal após autorização do proprietário. Autenticação na Fase 4.

@@ -1,6 +1,6 @@
 # Identidade visual encontrada
 
-Fonte: [Piscina/Academia no commit eeecd6d](https://github.com/luisdienstmanntd/Reservas-Piscina-Academia/tree/eeecd6db4f2a327aafa47759a3e66a2c5a7fc5e0), principalmente `src/app/globals.css`, `src/app/layout.tsx`, componentes `ui/button.tsx`, `ui/card.tsx` e telas de recepção. Proposta de transposição, não implementação.
+Fonte: [Piscina/Academia no commit eeecd6d](https://github.com/luisdienstmanntd/Reservas-Piscina-Academia/tree/eeecd6db4f2a327aafa47759a3e66a2c5a7fc5e0), principalmente `src/app/globals.css`, `src/app/layout.tsx`, componentes `ui/button.tsx`, `ui/card.tsx` e telas de recepção. Transposição implementada na Fase 2; detalhes/fontes/licenças em [DESIGN_SYSTEM](DESIGN_SYSTEM.md).
 
 ## Cores e tipos reais
 

@@ -2,7 +2,7 @@
 
 ## Estado atual
 
-Portal-Valle contém a fundação Next.js App Router em `src/app`, validação de ENV em `src/lib`, CI, testes e logo copiado em `public/brand`. A página `/` informa que o Portal está em preparação; não há funcionalidades operacionais, banco, Auth ou adapters. As arquiteturas externas estão descritas em `../architecture/FACILITIES_AUDIT.md` e `../architecture/OSTERIA_AUDIT.md`. Código em main dos sistemas externos não prova qual commit está em produção.
+Portal-Valle contém a fundação Next.js App Router, design system em `src/components/ui`, estrutura de navegação em `src/components/shell`, oito rotas e estados de preparação. `/` redireciona para `/hoje`. Layout e páginas são Server Components; navegação ativa, menu mobile e diálogos têm interações client. Fontes e logo são locais. Ainda não há funcionalidades operacionais, banco, Auth ou adapters. As arquiteturas externas estão descritas em `../architecture/FACILITIES_AUDIT.md` e `../architecture/OSTERIA_AUDIT.md`. Código em main dos sistemas externos não prova qual commit está em produção.
 
 ## Arquitetura alvo
 

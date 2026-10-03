@@ -1,19 +1,19 @@
 # Progresso — Portal Valle
 
-Current phase: Phase 1 — fundação do novo projeto, autorizada pelo proprietário após a Fase 0.
+Current phase: Phase 2 — design system e shell, autorizada pelo proprietário em 2026-10-02 ao pedir para continuar.
 
-Status: PHASE_1_COMPLETE. Fundação implementada, aprovada tecnicamente e publicada; CI remoto aprovado. Fase 0 publicada no GitHub público com autorização expressa. Aguardando autorização separada do proprietário para a Fase 2.
+Status: PHASE_2_REVIEW. Implementação e validação local concluídas; aguardam revisão técnica, commit, publicação e CI remoto.
 
-Completed: Fase 0 documental e publicação no GitHub; Next.js App Router/React/TypeScript strict/Tailwind; lint/Vitest/Playwright; CI; ENV validation; design tokens/logo local; página de preparação; subagente revisor de projeto.
+Completed: Fases 0/1 e CI; Fase 2 local com design system mínimo, fontes locais/licenças, shell/header/sidebar/menu mobile, oito rotas, estados de preparação, diálogo acessível, 404 e E2E de navegação/teclado/tablet.
 
-In progress: nenhuma implementação; aguarda decisão do proprietário sobre a Fase 2.
+In progress: revisão independente, publicação e CI da Fase 2. Prévia local aberta a pedido do proprietário em `http://127.0.0.1:3100/hoje`.
 
-Next step: PARAR antes da Fase 2. Após autorização, consultar o relatório da Fase 1 e iniciar design system e shell.
+Next step: obter aprovação técnica, publicar e conferir CI, fechar relatório e PARAR antes da Fase 3.
 
-Blocked by: autorização para a Fase 2. Integrações externas exigem acesso SELECT-only comprovável nas Fases 11/12; projetos Portal Supabase/Vercel são trabalho de fases futuras.
+Blocked by: nenhuma dependência externa para fechar Fase 2. Fase 3 requer autorização separada. Integrações externas exigem acesso SELECT-only comprovável nas Fases 11/12.
 
-Last verified implementation commit: local/remoto `44d925b49f3cfecd7072aa45934f0305e7360fdd`. CI: [execução 36955589105](https://github.com/luisdienstmanntd/Portal-Valle/actions/runs/36955589105), jobs `checks` e `e2e` com sucesso. O commit documental de fechamento será o próximo no histórico.
+Last verified commit before Phase 2: local/remoto `670786208edb813cffedfb85007419693ce41fcd`. [CI 36955798526](https://github.com/luisdienstmanntd/Portal-Valle/actions/runs/36955798526) com sucesso.
 
-Tests status: `npm run check` PASS (lint 0 problemas, TypeScript, 3 unit); `npm run build` PASS; `npm run test:e2e` PASS (1 HTTP smoke com servidor pré-iniciado). CI remoto PASS com `npm ci`, checks e E2E no Ubuntu.
+Tests status Phase 2: `npm run check` PASS (lint, TypeScript, 3 unit); `npm run build` PASS; `npm run test:e2e` PASS (20 Chromium; desktop, tablet portrait/landscape e mobile; servidor pré-iniciado no Windows). Capturas inspecionadas. CI da Fase 2 pendente.
 
-Next AI instruction: Fases 0 e 1 concluídas. PARAR. Não iniciar Fase 2 automaticamente; exigir autorização separada. Preserve os sistemas existentes e convoque o subagente revisor ao fechar cada tarefa.
+Next AI instruction: fechar revisão/commits/CI/documentação da Fase 2 e PARAR. Não iniciar Fase 3 automaticamente. Preserve os sistemas existentes e convoque o subagente revisor ao fechar cada tarefa.

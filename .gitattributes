@@ -1,0 +1,3 @@
+# Preserve upstream font licenses, including their original whitespace.
+public/fonts/*OFL.txt -whitespace
+public/fonts/*.ttf binary

@@ -4,8 +4,9 @@
 
 | Requisito | Fase | Teste/critério futuro |
 | --- | ---: | --- |
-| TypeScript strict, lint, build | 1 | `npm run check` e `npm run build` locais PASS; CI com `npm ci` pendente |
-| Navegação teclado/contraste/touch/tablet | 2 | Playwright viewport 768/1024, portrait/landscape; revisão acessibilidade |
+| TypeScript strict, lint, build | 1/2 | `npm run check` e `npm run build` locais PASS; CI Fase 1 com `npm ci` PASS; Fase 2 aguarda publicação |
+| Navegação teclado/touch/tablet | 2 | `tests/e2e/shell.spec.ts`: menu/8 rotas/aria-current; modal Tab/Shift+Tab/Esc/retorno de foco; skip-link; 404; sem overflow; alvos de navegação ≥44px; 16 PASS nos 4 viewports |
+| Assets locais/hidratação | 2 | E2E `shell.spec.ts` em Hoje: sem pageerror nem requisições externas; fontes locais carregadas e capturas inspecionadas |
 | ENV separada e erro claro | 1/3 | `src/lib/env.server.test.ts` 3 PASS + build sem segredos; chaves reais só na Fase 3 |
 | RLS/grants/contas ativas | 3/4 | integração Supabase local por anon, sem vínculo, recepção, gerência, admin, inativo |
 | Login/logout/renovação | 4 | E2E de Auth Portal e Server Actions protegidas |
@@ -24,6 +25,6 @@
 | Osteria mapping e schema | 12 | contract tests com bloqueio/cancelamento/ROOM/status, 401/403 |
 | Consulta externa realmente read-only | 11/12 | revisão grants/policies e teste em ambiente isolado autorizado; nunca mutar produção |
 | Dados pessoais não vazam | 1–14 | auditoria server/client bundle, logs e responses |
-| Fundação responde HTTP | 1 | `tests/e2e/foundation.spec.ts` 1 PASS com servidor pré-iniciado |
+| Fundação responde HTTP | 1/2 | `tests/e2e/foundation.spec.ts` PASS nos 4 projetos de viewport; servidor pré-iniciado no Windows |
 
 Quando o teste existir, substituir esta coluna por caminho concreto e resultado do CI. Não promover uma fase com testes aplicáveis vermelhos.
