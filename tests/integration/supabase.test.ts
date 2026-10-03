@@ -12,6 +12,11 @@ const client = createClient<Database>(config.url, config.publishableKey, {
 });
 
 describe("Supabase Portal HTTP real", () => {
+  it.each(["experiences", "experience_occurrences", "experience_bookings", "audit_events"] as const)(
+    "%s não expõe dados anônimos pela API", async table => {
+      const { data, error } = await client.from(table).select("id");
+      expect(data).toBeNull(); expect(error?.code).toBe("42501");
+    });
   it("conecta à API e nega SELECT anônimo", async () => {
     const { data, error } = await client.from("portal_settings").select("timezone");
     expect(data).toBeNull();

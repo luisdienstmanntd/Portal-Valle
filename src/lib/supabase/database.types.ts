@@ -1,7 +1,19 @@
-/** Phase 3 schema contract, maintained with the versioned migration and pgTAP tests. */
+import type { Booking, Experience, Occurrence } from "@/modules/experiences/domain/model";
+type Timestamps = { created_at: string; updated_at: string };
+// Phase 5 has no direct client mutations; future writes must use atomic authorized RPCs.
+type ReadTable<Row> = { Row: Row; Insert: never; Update: never; Relationships: [] };
+type AuditRow = { id: string; actor_id: string | null; action: "INSERT" | "UPDATE" | "DELETE";
+  entity_type: "experiences" | "experience_occurrences" | "experience_bookings"; entity_id: string;
+  before: Record<string, string | number | boolean | null> | null;
+  after: Record<string, string | number | boolean | null> | null; created_at: string };
+/** Manual schema contract maintained with versioned migrations and pgTAP tests. */
 export type Database = {
   public: {
     Tables: {
+      experiences: ReadTable<Experience & Timestamps>;
+      experience_occurrences: ReadTable<Occurrence & Timestamps>;
+      experience_bookings: ReadTable<Booking & Timestamps>;
+      audit_events: ReadTable<AuditRow>;
       portal_profiles: {
         Row: { id: string; role: "recepcao" | "gerencia" | "admin"; active: boolean; created_at: string };
         Insert: { id: string; role: "recepcao" | "gerencia" | "admin"; active?: boolean; created_at?: string };
@@ -17,7 +29,10 @@ export type Database = {
     };
     Views: { [_ in never]: never };
     Functions: { [_ in never]: never };
-    Enums: { portal_role: "recepcao" | "gerencia" | "admin" };
+    Enums: { portal_role: "recepcao" | "gerencia" | "admin";
+      experience_category: Experience["category"]; capacity_mode: Experience["capacity_mode"];
+      occurrence_status: Occurrence["status"]; booking_status: Booking["status"];
+      attendance_status: Booking["attendance_status"] };
     CompositeTypes: { [_ in never]: never };
   };
 };

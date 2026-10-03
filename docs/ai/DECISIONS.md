@@ -1,5 +1,13 @@
 # Decisões de arquitetura
 
+## ADR-009 — Modelo separado e auditoria atômica antes das escritas operacionais
+
+Status: implementada na Fase5, validação SQL/CI pendente. Data: 2026-10-03.
+
+Decisão: experiences/occurrences/bookings locais com capacidades persons/bookings/units/unlimited; limite físico adicional person_limit preserva Cine8pessoas/4puffs. Políticas de crianças/no_show sem default; Lora adiada pelo proprietário. Booking de grupo e guest_bookable false até fluxo público. Auditoria por trigger privada com actor Auth e allowlist de dados estruturados, excluindo PII livre.
+
+Consequências: nenhuma escrita client concedida nesta fase; cálculo puro não garante concorrência. Fase6 deve criar operações autorizadas/atômicas com locks/idempotência antes de qualquer mutação operacional. Sem abstrações genéricas e sem dependência dos legados. Consulte EXPERIENCE_MODEL para reservas/stays/retensão e decisões pendentes.
+
 ## ADR-008 — Auth individual e autorização por perfil atual/sessão viva
 
 Status: implementada na Fase 4, validada no CI 37090654113. Data: 2026-10-02.
