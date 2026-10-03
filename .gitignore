@@ -3,6 +3,7 @@
 !.env.example
 node_modules/
 .next/
+.next-check/
 coverage/
 playwright-report/
 test-results/

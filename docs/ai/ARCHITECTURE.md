@@ -2,7 +2,7 @@
 
 ## Estado atual
 
-Portal-Valle contém a fundação Next.js App Router, design system em `src/components/ui`, estrutura de navegação em `src/components/shell`, oito rotas e estados de preparação. `/` redireciona para `/hoje`. Layout e páginas são Server Components; navegação ativa, menu mobile e diálogos têm interações client. Fontes e logo são locais. Ainda não há funcionalidades operacionais, banco, Auth ou adapters. As arquiteturas externas estão descritas em `../architecture/FACILITIES_AUDIT.md` e `../architecture/OSTERIA_AUDIT.md`. Código em main dos sistemas externos não prova qual commit está em produção.
+Portal-Valle contém a fundação Next.js App Router, design system em `src/components/ui`, estrutura de navegação em `src/components/shell`, oito rotas e estados de preparação. `/` redireciona para `/hoje`. Layout e páginas são Server Components; navegação ativa, menu mobile e diálogos têm interações client. Fontes e logo são locais. Fase 3 adiciona migration mínima `portal_settings` com RLS/default deny, configuração de identidade e clientes Supabase browser/server de leitura, ainda não usados nas páginas. Banco de validação é efêmero em CI; Supabase hospedado adiado por quota conforme escolha do proprietário. Não há funcionalidades operacionais, Auth ou adapters. As arquiteturas externas estão em `../architecture/FACILITIES_AUDIT.md` e `../architecture/OSTERIA_AUDIT.md`. Código em main dos sistemas externos não prova qual commit está em produção.
 
 ## Arquitetura alvo
 

@@ -7,8 +7,9 @@
 | TypeScript strict, lint, build | 1/2 | `npm run check` e `npm run build` locais PASS; CI Fases 1/2 com `npm ci` PASS; Fase 2 run 37086206304 |
 | Navegação teclado/touch/tablet | 2 | `tests/e2e/shell.spec.ts`: menu/8 rotas/aria-current; modal Tab/Shift+Tab/Esc/retorno de foco; skip-link; 404; sem overflow; alvos de navegação ≥44px; 16 PASS nos 4 viewports, local e CI |
 | Assets locais/hidratação | 2 | E2E `shell.spec.ts` em Hoje: sem pageerror nem requisições externas; fontes locais carregadas e capturas inspecionadas |
-| ENV separada e erro claro | 1/3 | `src/lib/env.server.test.ts` 3 PASS + build sem segredos; chaves reais só na Fase 3 |
-| RLS/grants/contas ativas | 3/4 | integração Supabase local por anon, sem vínculo, recepção, gerência, admin, inativo |
+| ENV separada e erro claro | 1/3 | `src/lib/env.server.test.ts`: 16 PASS local; parcial, segredos, transporte/identidade, refs legados e loopback |
+| RLS/grants | 3 | `supabase/tests/portal_foundation.test.sql`: 22 asserts; pgTAP/CI pendente. `tests/integration/supabase.test.ts`: 3 HTTP reais, pendente CI |
+| Contas ativas e membership | 4 | integração por sem vínculo, recepção, gerência, admin, inativo; ainda não implementados |
 | Login/logout/renovação | 4 | E2E de Auth Portal e Server Actions protegidas |
 | Capacidade persons/bookings/units/unlimited | 5/6 | testes domínio com builders e consultas DB reais |
 | Última vaga sob concorrência | 6 | integração com duas transações paralelas, uma recusada |

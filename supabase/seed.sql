@@ -1,0 +1,1 @@
+-- Synthetic fixtures belong in transactional tests. No guests or Auth users here.

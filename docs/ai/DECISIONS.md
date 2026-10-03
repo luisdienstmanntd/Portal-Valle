@@ -64,7 +64,7 @@ Consequências: Fase 1 precisa validar `npm ci`, lint, typecheck, testes e build
 
 ## ADR-006 — Projeto Supabase próprio e menor privilégio
 
-Status: Proposta; nenhum projeto criado. Data: 2026-10-01.
+Status: Implementação de CI em validação na Fase 3; hospedado adiado pelo proprietário por quota. Data: 2026-10-01; atualização 2026-10-02.
 
 Contexto: Portal armazenará PII de experiências, usuários e auditoria.
 
@@ -73,6 +73,8 @@ Decisão: provisionar Supabase exclusivo do Portal na Fase 3, separado por ambie
 Alternativas: usar projeto existente ou service role em todas as queries; rejeitadas por acoplamento e excesso de privilégio.
 
 Consequências: definir organização/região/custo/backup antes do provisionamento e testar políticas/concorrência em banco isolado.
+
+Atualização Fase 3: organização luisdienstmanntd, região sa-east-1 e nome Portal-Valle-staging escolhidos; custo consultado US$ 0/mês aprovado, mas criação recusada por quota de dois projetos free. Proprietário escolheu validar em CI e adiar hospedagem. Migration mínima/RLS/grants e testes usam somente stack efêmero do checkout. Nenhuma mudança a legados, plano ou projetos existentes. Auth conectado e backup SaaS permanecem pendentes.
 
 ## ADR-007 — Design system mínimo com HTML nativo e assets locais
 

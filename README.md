@@ -4,11 +4,11 @@ Nome curto: **Portal Valle**. Terceiro produto independente para a recepção do
 
 ## Estado atual
 
-Fases 0 e 1 concluídas e publicadas. A Fase 2 adiciona o design system e a estrutura visual com as oito áreas previstas, em preparação. Ainda não há banco próprio, autenticação, integração ou deploy.
+Fases 0–2 concluídas e publicadas. A Fase 3 prepara Supabase independente, migrations/RLS, clientes e testes em banco efêmero de CI. Homologação hospedada adiada pelo proprietário devido ao limite gratuito; nenhum banco existente será usado. Ainda não há autenticação operacional, integração externa ou deploy.
 
 - Repositório: https://github.com/luisdienstmanntd/Portal-Valle
 - Produção desejada, ainda não provisionada: https://portalvalle.vercel.app
-- Relatórios: [Fase 0](docs/architecture/PHASE_0_REPORT.md), [Fase 1](docs/architecture/PHASE_1_REPORT.md) e [Fase 2](docs/architecture/PHASE_2_REPORT.md).
+- Relatórios: [Fase 0](docs/architecture/PHASE_0_REPORT.md), [Fase 1](docs/architecture/PHASE_1_REPORT.md), [Fase 2](docs/architecture/PHASE_2_REPORT.md) e [Fase 3](docs/architecture/PHASE_3_REPORT.md).
 - Continuidade: [PROGRESS](docs/ai/PROGRESS.md) e [AGENTS](AGENTS.md).
 
 ## Limites permanentes
@@ -29,4 +29,4 @@ Revisão de fontes GitHub com commits fixos, catálogos PostgreSQL em transaçõ
 
 ## Próxima etapa
 
-Fase 3: banco exclusivo do Portal após autorização do proprietário. Autenticação na Fase 4.
+Concluir a validação da Fase 3 antes de pedir autorização para Auth/RBAC na Fase 4. Consulte [SUPABASE_SETUP](docs/architecture/SUPABASE_SETUP.md) para executar os testes de banco.

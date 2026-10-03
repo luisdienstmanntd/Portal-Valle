@@ -5,6 +5,25 @@ on:
   pull_request:
 
 jobs:
+  database:
+    runs-on: ubuntu-latest
+    env:
+      SUPABASE_HOME: ${{ github.workspace }}/work/supabase-home
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version-file: .nvmrc
+          cache: npm
+      - run: npm ci
+      - run: npx supabase start --exclude studio,logflare,vector,realtime,storage-api,imgproxy,edge-runtime,postgres-meta,supavisor,mailpit
+      - run: npx supabase db reset --local
+      - run: npm run test:db
+      - run: npm run test:integration
+      - name: Stop isolated stack
+        if: always()
+        run: npx supabase stop --no-backup
+
   checks:
     runs-on: ubuntu-latest
     steps:

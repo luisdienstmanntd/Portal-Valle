@@ -47,12 +47,12 @@ test("o diálogo mantém o foco, fecha com Esc e devolve o foco à origem", asyn
   await expect(trigger).toBeFocused();
 });
 
-test("a interface cabe na tela e os alvos principais têm 44px", async ({ page }, testInfo) => {
+test("a interface cabe na tela e os alvos principais têm 44px", async ({ page, baseURL }, testInfo) => {
   const errors: string[] = [];
   const externalRequests: string[] = [];
   page.on("pageerror", error => errors.push(error.message));
   page.on("request", request => {
-    if (!request.url().startsWith("http://127.0.0.1:3100")) externalRequests.push(request.url());
+    if (new URL(request.url()).origin !== new URL(baseURL!).origin) externalRequests.push(request.url());
   });
   await page.goto("/hoje");
   await page.evaluate(() => document.fonts.ready);

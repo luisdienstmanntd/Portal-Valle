@@ -1,19 +1,19 @@
 # Progresso — Portal Valle
 
-Current phase: Phase 2 — design system e shell, autorizada pelo proprietário em 2026-10-02 ao pedir para continuar.
+Current phase: Phase 3 — Supabase Portal, autorizada pelo proprietário em 2026-10-02.
 
-Status: PHASE_2_COMPLETE. Implementação e documentação aprovadas tecnicamente; implementação publicada e CI remoto PASS. Aguardando autorização separada para a Fase 3.
+Status: PHASE_3_VALIDATING. Implementação liberada pelo revisor para commit/push de validação; fechamento exige CI de banco e APROVADO TECNICAMENTE.
 
-Completed: Fases 0/1 e CI; Fase 2 local com design system mínimo, fontes locais/licenças, shell/header/sidebar/menu mobile, oito rotas, estados de preparação, diálogo acessível, 404 e E2E de navegação/teclado/tablet.
+Completed: Fases 0–2 verificadas/publicadas. Fase 3 local: migration mínima, RLS/grants, clientes browser/server de leitura, ENV com isolamento, 16 unit, testes SQL/HTTP e CI isolado preparados.
 
-In progress: nenhuma nova implementação. Prévia local mantida aberta a pedido do proprietário em `http://127.0.0.1:3100/hoje`; processo Next local em porta 3100 (PID registrado em `work/phase2-server.pid` fora do repo).
+In progress: PostgreSQL real no CI e revisão final. Prévia do proprietário preservada em http://127.0.0.1:3100/hoje; build de verificação separado em .next-check.
 
-Next step: PARAR. Após autorização da Fase 3, consultar PHASE_2_REPORT e o plano Supabase, confirmar organização/região/custo/ambientes e provisionar recursos exclusivos do Portal.
+Next step: publicar para executar CI database/checks/e2e, corrigir falhas e obter revisão final. Ao concluir, PARAR e solicitar autorização separada para Fase 4.
 
-Blocked by: autorização da Fase 3. Integrações externas exigem acesso SELECT-only comprovável nas Fases 11/12.
+Blocked by: Supabase hospedado recusado por quota de dois free; proprietário escolheu validar em CI e adiar hospedagem. Não pausar/excluir/alterar bancos existentes nem contratar plano pago. Integrações externas exigem SELECT-only comprovável nas Fases 11/12.
 
-Last verified implementation commit: local/remoto `d34ed631299425636814ae38a7f0f9965d966b94`. [CI 37086206304](https://github.com/luisdienstmanntd/Portal-Valle/actions/runs/37086206304) com sucesso em `checks` e `e2e`. Fechamento documental será o próximo commit do histórico.
+Last verified implementation commit: Fase 2 d34ed631299425636814ae38a7f0f9965d966b94; fechamento f85433e61f49872bbe40bd9cc4a180822d3ab9ed. Novo commit será registrado após CI.
 
-Tests status Phase 2: `npm run check` PASS (lint, TypeScript, 3 unit); `npm run build` PASS; `npm run test:e2e` PASS (20 Chromium; desktop, tablet portrait/landscape e mobile; servidor pré-iniciado no Windows). Capturas inspecionadas; CI remoto PASS com `npm ci` e todos os checks/E2E.
+Tests status Phase 3: npm run check PASS (lint/TS/16 unit); build isolado PASS; 20 E2E contra build atual na porta 3102 PASS. pgTAP/HTTP pendentes CI; Docker ausente neste Windows.
 
-Next AI instruction: Fases 0–2 concluídas. PARAR. Não iniciar Fase 3 automaticamente. Preserve os sistemas existentes, mantenha a prévia solicitada disponível e convoque o subagente revisor ao fechar cada tarefa.
+Next AI instruction: atuar apenas na Fase 3 até fechar revisão/testes/documentação. Consultar PHASE_3_REPORT e SUPABASE_SETUP. Banco hosted explicitamente adiado; não afirmar provisionamento ou backup. Nenhuma Auth operacional ou experiência completa nesta fase. Preservar prévia e legados.
