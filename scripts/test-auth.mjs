@@ -42,6 +42,14 @@ for (const name of ["recepcao", "gerencia", "admin", "inactive", "unlinked"]) {
   await probe.auth.signOut({ scope: "local" });
 }
 console.log("Synthetic Auth and profile RLS checkpoints PASS.");
+const registrationProbe = createClient(status.API_URL, status.PUBLISHABLE_KEY, {
+  auth: { persistSession: false, autoRefreshToken: false },
+});
+const registration = await registrationProbe.auth.signUp({ email: "self-registration@portal.test", password });
+if (registration.error?.code !== "signup_disabled" || registration.data.user) {
+  throw new Error("Public registration must remain disabled.");
+}
+console.log("Public registration disabled checkpoint PASS.");
 const env = { ...process.env, NEXT_PUBLIC_SUPABASE_URL: status.API_URL,
   NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY: status.PUBLISHABLE_KEY, NEXT_PUBLIC_SUPABASE_PROJECT_REF: "local" };
 execFileSync(runner, ["next", "build"], { stdio: "inherit", env });
