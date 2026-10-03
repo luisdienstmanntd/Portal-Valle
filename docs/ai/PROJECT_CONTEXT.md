@@ -31,3 +31,7 @@ Experience é o conceito da experiência; occurrence é sua realização datada;
 
 Auditoria estática dos repositórios e consulta de catálogos PostgreSQL; nenhum registro de hóspede/reserva consultado, nenhuma feature, migration, login nos sistemas operacionais ou deploy realizado. As fontes e limites de confirmação estão nos relatórios de auditoria. A próxima IA deve respeitar o bloqueio de fase de PROGRESS.md.
 
+
+## Regras confirmadas em 2026-10-03
+
+Cine Toscana: 8 vagas de adultos e 4 puffs de casal, distribuição exclusiva provisória ceil(adults/2). Pizza e Lora: capacidade inicial de 12 adultos. Crianças entram somente nas observações, com idade (ex.: 2 adultos; CHD 2 anos), sem contagem de vagas. Isso substitui a interpretação anterior de proibição de crianças. Lora segue adiada pelo proprietário. Fase 8 reutiliza o fluxo de experiência para Pizza, sem financeiro.

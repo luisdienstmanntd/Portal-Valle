@@ -13,6 +13,41 @@ async function login(page: Page, name: string, password = fixture.password) {
   await page.getByRole("button", { name: "Entrar", exact: true }).click();
 }
 
+async function experienceFlow(page:Page,slug:string,label:string,title:string,occupied:string,empty:string) {
+ await page.goto('/experiencias/'+slug);
+ const session=page.getByRole('form',{name:'Nova sessão',exact:true});
+ await session.getByLabel(label,{exact:true}).fill(title);
+ await session.getByLabel('Local',{exact:true}).fill('Local fictício interface');
+ await session.getByLabel('Início · horário de Gramado').fill('2026-10-10T19:30');
+ await session.getByLabel('Fim · horário de Gramado').fill('2026-10-10T21:30');
+ await session.getByLabel('Disponibilidade').selectOption('published');
+ await session.getByRole('button',{name:'Criar sessão',exact:true}).click();
+ await expect(page.getByRole('heading',{name:title,exact:true})).toBeVisible();
+ const booking=page.getByRole('form',{name:'Nova inscrição',exact:true});
+ await booking.getByLabel('Apartamento',{exact:true}).fill('TEST');
+ await booking.getByLabel('Nome do hóspede').fill('Pessoa fictícia interface');
+ await booking.getByLabel('Adultos',{exact:true}).fill('3');
+ await booking.getByLabel('Observações',{exact:true}).fill('CHD 2 anos');
+ await expect(booking.getByLabel('Crianças',{exact:true})).toHaveCount(0);
+ await booking.getByRole('button',{name:'Reservar',exact:true}).click();
+ await expect(page.getByRole('heading',{name:occupied,exact:true})).toBeVisible();
+ await expect(page.getByText('Observações: CHD 2 anos',{exact:true})).toBeVisible();
+ await page.getByText('Editar inscrição e presença',{exact:true}).click();
+ const edit=page.getByRole('form',{name:'Editar inscrição de Pessoa fictícia interface',exact:true});
+ await edit.getByLabel('Presença',{exact:true}).selectOption('present');
+ await edit.getByRole('button',{name:'Salvar inscrição',exact:true}).click();
+ await expect(page.getByText('Reservada · Presente',{exact:true})).toBeVisible();
+ await page.getByRole('button',{name:'Cancelar inscrição',exact:true}).click();
+ await page.getByRole('alertdialog',{name:'Cancelar esta inscrição?',exact:true}).getByRole('button',{name:'Confirmar cancelamento',exact:true}).click();
+ await expect(page.getByRole('heading',{name:empty,exact:true})).toBeVisible();
+ await expect(page.getByText('Cancelada · Presente',{exact:true})).toBeVisible();
+ const reactivate=page.getByRole('form',{name:'Editar inscrição de Pessoa fictícia interface',exact:true}).getByRole('button',{name:'Reativar inscrição',exact:true});
+ if(!(await reactivate.isVisible()))await page.locator('summary').filter({hasText:'Reativar inscrição'}).click();
+ await expect(reactivate).toBeVisible();await reactivate.click();
+ await expect(page.getByRole('heading',{name:occupied,exact:true})).toBeVisible();
+ await expect(page.getByText('Observações: CHD 2 anos',{exact:true})).toBeVisible();
+}
+
 test("anônimo redirecionado, login, reload e logout", async ({ page }) => {
   await page.goto("/hoje"); await expect(page).toHaveURL(/\/login$/);
   await login(page, "recepcao"); await expect(page).toHaveURL(/\/hoje$/);
@@ -58,37 +93,9 @@ for (const name of ["recepcao", "gerencia", "admin"]) {
     await login(page, name); await expect(page).toHaveURL(/\/hoje$/);
     if (name !== "admin") await expect(page.getByRole("navigation").getByRole("link", { name: "Configurações" })).toHaveCount(0);
     if (name === "gerencia") {
-      test.setTimeout(60_000);
-      await page.goto("/experiencias/cine-toscana");
-      const session = page.getByRole("form", { name: "Nova sessão", exact: true });
-      await session.getByLabel("Filme", { exact: true }).fill("Filme fictício interface");
-      await session.getByLabel("Local", { exact: true }).fill("Local fictício interface");
-      await session.getByLabel("Início · horário de Gramado").fill("2026-10-10T19:30");
-      await session.getByLabel("Fim · horário de Gramado").fill("2026-10-10T21:30");
-      await session.getByLabel("Disponibilidade").selectOption("published");
-      await session.getByRole("button", { name: "Criar sessão" }).click();
-      await expect(page.getByRole("heading", { name: "Filme fictício interface", exact: true })).toBeVisible();
-      const booking = page.getByRole("form", { name: "Nova inscrição", exact: true });
-      await booking.getByLabel("Apartamento", { exact: true }).fill("TEST");
-      await booking.getByLabel("Nome do hóspede").fill("Pessoa fictícia interface");
-      await booking.getByLabel("Adultos", { exact: true }).fill("3");
-      await booking.getByRole("button", { name: "Reservar", exact: true }).click();
-      await expect(page.getByRole("heading", { name: "2 / 4 puffs · 3 / 8 adultos", exact: true })).toBeVisible();
-      await page.getByText("Editar inscrição e presença", { exact: true }).click();
-      const edit = page.getByRole("form", { name: "Editar inscrição de Pessoa fictícia interface", exact: true });
-      await edit.getByLabel("Presença", { exact: true }).selectOption("present");
-      await edit.getByRole("button", { name: "Salvar inscrição", exact: true }).click();
-      await expect(page.getByText("Reservada · Presente", { exact: true })).toBeVisible();
-      await page.getByRole("button", { name: "Cancelar inscrição", exact: true }).click();
-      await page.getByRole("alertdialog", { name: "Cancelar esta inscrição?", exact: true }).getByRole("button", { name: "Confirmar cancelamento", exact: true }).click();
-      await expect(page.getByRole("heading", { name: "0 / 4 puffs · 0 / 8 adultos", exact: true })).toBeVisible();
-      await expect(page.getByText("Cancelada · Presente", { exact: true })).toBeVisible();
-      const reactivate = page.getByRole("form", { name: "Editar inscrição de Pessoa fictícia interface", exact: true }).getByRole("button", { name: "Reativar inscrição", exact: true });
-      // A same-route refresh can preserve the native details open state.
-      if (!(await reactivate.isVisible())) await page.locator("summary").filter({ hasText: "Reativar inscrição" }).click();
-      await expect(reactivate).toBeVisible();
-      await reactivate.click();
-      await expect(page.getByRole("heading", { name: "2 / 4 puffs · 3 / 8 adultos", exact: true })).toBeVisible();
+      test.setTimeout(90_000);
+      await experienceFlow(page,"cine-toscana","Filme","Filme fictício interface","2 / 4 puffs · 3 / 8 adultos","0 / 4 puffs · 0 / 8 adultos");
+      await experienceFlow(page,"la-vera-pizza","Evento","Pizza fictícia interface","3 / 12 adultos","0 / 12 adultos");
     }
     if (name === "recepcao") {
       const cinema = JSON.parse(readFileSync("work/cinema-fixtures.json", "utf8")) as { occurrenceId: string };

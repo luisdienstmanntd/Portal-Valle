@@ -31,6 +31,8 @@ export type Database = {
     Functions: {
       portal_save_occurrence: { Args: { p_request: string; p_command: Record<string, string | number> }; Returns: string };
       portal_save_booking: { Args: { p_request: string; p_command: Record<string, string | number> }; Returns: string };
+      portal_pizza_save_occurrence: { Args: { p_request: string; p_command: Record<string, string | number> }; Returns: string };
+      portal_pizza_save_booking: { Args: { p_request: string; p_command: Record<string, string | number> }; Returns: string };
     };
     Enums: { portal_role: "recepcao" | "gerencia" | "admin";
       experience_category: Experience["category"]; capacity_mode: Experience["capacity_mode"];

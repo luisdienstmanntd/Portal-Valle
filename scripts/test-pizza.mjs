@@ -1,0 +1,30 @@
+import {randomUUID} from "node:crypto";
+import assert from "node:assert/strict";
+export async function testPizza(manager,reception) {
+ const experience="c8000000-0000-4000-8000-000000000001",session=randomUUID();
+ const call=(client,name,command,key=randomUUID())=>client.rpc(name,{p_request:key,p_command:command});
+ const event={action:"save",id:session,version:0,experience_id:experience,title:"Pizza fictícia HTTP",location:"Local fictício",starts_at:"2026-10-12T22:00:00Z",ends_at:"2026-10-13T00:00:00Z",capacity:12,person_limit:12,status:"published"};
+ const key=randomUUID();
+ assert.equal((await call(manager,"portal_pizza_save_occurrence",event,key)).error,null);
+ assert.equal((await call(manager,"portal_pizza_save_occurrence",event,key)).data,session);
+ assert.equal((await call(manager,"portal_save_occurrence",event,key)).error?.message,"E_IDEMPOTENCY");
+ assert.equal((await call(manager,"portal_save_occurrence",event)).error?.message,"E_CONFIGURATION");
+ assert.equal((await call(reception,"portal_pizza_save_occurrence",{...event,id:randomUUID()})).error?.message,"E_FORBIDDEN");
+ const booking=(id,patch={})=>({action:"save",id,version:0,occurrence_id:session,adults:11,children:0,apartment_number:"TEST",guest_name:"Pessoa fictícia Pizza",notes:"CHD 2 anos",status:"reserved",attendance_status:"pending",...patch});
+ const first=randomUUID(),bookingKey=randomUUID(),command=booking(first);
+ assert.equal((await call(reception,"portal_pizza_save_booking",command,bookingKey)).error,null);
+ assert.equal((await call(reception,"portal_save_booking",command,bookingKey)).error?.message,"E_IDEMPOTENCY");
+ assert.equal((await call(reception,"portal_pizza_save_booking",command,bookingKey)).data,first);
+ const race=await Promise.all([call(reception,"portal_pizza_save_booking",booking(randomUUID(),{adults:1})),call(reception,"portal_pizza_save_booking",booking(randomUUID(),{adults:1}))]);
+ assert.equal(race.filter(x=>!x.error).length,1);assert.equal(race.filter(x=>x.error?.message==="E_CAPACITY").length,1);
+ const persisted=await reception.from("experience_bookings").select("adults,children,units,notes").eq("id",first).single();
+ assert.deepEqual(persisted.data,{adults:11,children:0,units:0,notes:"CHD 2 anos"});
+ assert.equal((await call(reception,"portal_pizza_save_booking",booking(first,{version:1,children:1}))).error?.message,"E_INPUT");
+ assert.equal((await call(manager,"portal_pizza_save_occurrence",{...event,version:1,capacity:11})).error?.message,"E_CAPACITY");
+ assert.equal((await call(reception,"portal_pizza_save_booking",{action:"cancel",id:first,version:1,occurrence_id:session})).error,null);
+ assert.equal((await call(reception,"portal_pizza_save_booking",booking(first,{version:2,attendance_status:"present"}))).error,null);
+ assert.equal((await call(reception,"portal_pizza_save_booking",booking(first,{version:2}))).error?.message,"E_VERSION");
+ assert.equal((await call(manager,"portal_pizza_save_occurrence",{action:"cancel",id:session,version:1,experience_id:experience})).error,null);
+ assert.equal((await call(reception,"portal_pizza_save_booking",booking(first,{version:4}))).error?.message,"E_CANCELLED");
+ console.log("Pizza HTTP adult capacity/notes/concurrency/roles/idempotency/versions/cancellation PASS.");
+}

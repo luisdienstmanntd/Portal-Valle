@@ -73,3 +73,7 @@
 - Publicação detalhada: rejeitada inicialmente pela revisão automática por risco de exposição de material interno em repositório público. O proprietário autorizou expressamente essa publicação na mensagem seguinte.
 
 Fase6 adaptada: CI37155203841/db28d2b PASS completo (83unit/28preview/140pgTAP/7HTTP/14AuthE2E/checkpointsRPC/advisors/cleanup). APROVADO TECNICAMENTE após revisão independente dos logs/CI e implementação. Fase6 adaptada encerrada; Lora e hosted continuam adiados.
+
+## 2026-10-03 — Fase 8 La Vera Pizza
+
+Proprietário autorizou prosseguir, adiou Lora e confirmou capacidade inicial 12 adultos para Pizza/Lora; crianças nas observações com idade em Cine/Lora/Pizza. Reutilização de consultas/UI/ações e operações transacionais de Cine/Pizza, RPCs restritas ao catálogo, idempotência por operação e unidades zero em persons. Sem financeiro e sem mutações dos legados. Check/build local PASS, 85 unit e 32 prévias E2E PASS; CI isolado e revisão final pendentes. Prévia na porta 3100 preservada.

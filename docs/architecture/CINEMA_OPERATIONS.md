@@ -2,7 +2,7 @@
 
 Fase 6 adaptada: proprietário adiou Lora e escolheu expressamente Cine Toscana em 2026-10-03. O requisito original permanece em MASTER_REQUEST; a reordenação não declara Lora implementada.
 
-Somente adultos, máximo de 8 pessoas e 4 puffs de casal. Crianças são recusadas por validação de comando e trigger SQL. Por enquanto cada inscrição usa puffs exclusivos: `ceil(adults / 2)`. Compartilhamento entre inscrições aguarda resposta opcional; esta suposição foi comunicada. Limites por sessão podem ser reduzidos respeitando ocupação; zero fecha vagas.
+Regra corrigida pelo proprietário na Fase 8: 8 vagas de adultos e 4 puffs de casal. Crianças são registradas nas observações, com idade, sem vagas ou quantidade estruturada; children=0 é técnico e não impede participação. Por enquanto cada inscrição usa puffs exclusivos: `ceil(adults / 2)`. Compartilhamento entre inscrições aguarda resposta opcional; esta suposição foi comunicada. Limites por sessão podem ser reduzidos respeitando ocupação; zero fecha vagas.
 
 Sessões têm filme/local/início/fim/disponibilidade e responsável pelo login criador. Reservas têm apartamento/nome/adultos/observações/status/presença independentes. Contas individuais ativas: gerência/admin gerem sessões; recepção/gerência/admin gerem inscrições. Não há DML client direta.
 
@@ -15,3 +15,4 @@ Versão impede sobrescrita de edição concorrente. Request escopado ao actor, s
 Testes: commands.test.ts (crianças/unidades/fuso/erros), portal_cinema.test.sql (grants/Auth/configuração/idempotência/versões/rollback), test-cinema.mjs (HTTP/última vaga/redução concorrente), login.spec.ts (sessão/reserva/presença/cancelamento/reativação/papéis). Banco/Auth somente CI loopback efêmero. Prévia sem ENV exibe formulários desabilitados, sem simular inscrições.
 
 Pendências: Supabase hospedado, retenção/contas reais e eventual confirmação/alteração da distribuição de puffs.
+

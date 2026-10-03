@@ -2,7 +2,7 @@ begin;
 set local search_path = public, extensions;
 select no_plan();
 -- Isolate the Phase 5 synthetic fixture from the new fixed Cine catalogue; rollback restores it.
-delete from public.experiences where slug='cine-toscana';
+delete from public.experiences where slug in ('cine-toscana','la-vera-pizza');
 delete from public.audit_events;
 insert into auth.users(id) values ('50000000-0000-4000-8000-000000000001'),('50000000-0000-4000-8000-000000000002'),('50000000-0000-4000-8000-000000000003');
 insert into auth.sessions(id,user_id) values
@@ -19,7 +19,7 @@ insert into public.experience_occurrences(id,experience_id,starts_at,ends_at,loc
  values ('53000000-0000-4000-8000-000000000001','52000000-0000-4000-8000-000000000001',
  '2026-10-08 19:30-03','2026-10-08 21:30-03','Local fictício');
 insert into public.experience_bookings(id,occurrence_id,apartment_number,guest_name,guest_phone,adults,children,units,notes,created_by,updated_at)
- values ('54000000-0000-4000-8000-000000000001','53000000-0000-4000-8000-000000000001','TEST','Pessoa fictícia','TEST-PHONE',2,1,1,'TEST-NOTE',
+ values ('54000000-0000-4000-8000-000000000001','53000000-0000-4000-8000-000000000001','TEST','Pessoa fictícia','TEST-PHONE',2,0,1,'TEST-NOTE',
  '50000000-0000-4000-8000-000000000001','2020-01-01Z');
 
 select ok((select relrowsecurity from pg_class where oid=('public.'||name)::regclass),name||' RLS')

@@ -2,6 +2,7 @@ import {randomUUID} from "node:crypto";
 import {writeFileSync} from "node:fs";
 import assert from "node:assert/strict";
 import {createClient} from "@supabase/supabase-js";
+import {testPizza} from "./test-pizza.mjs";
 export async function testCinema(status,users,password) {
   assert.equal(new URL(status.API_URL).hostname,"127.0.0.1");
   const client=()=>createClient(status.API_URL,status.PUBLISHABLE_KEY,{auth:{persistSession:false,autoRefreshToken:false}});
@@ -52,6 +53,7 @@ export async function testCinema(status,users,password) {
   assert.equal(shrinking.filter(r=>r.error?.message==="E_CAPACITY").length,1);
   const ui=randomUUID(); assert.equal((await call(manager,"portal_save_occurrence",{...occurrence,id:ui})).error,null);
   writeFileSync("work/cinema-fixtures.json",JSON.stringify({occurrenceId:ui}));
+  await testPizza(manager,reception);
   await manager.auth.signOut({scope:"local"}); await reception.auth.signOut({scope:"local"});
   console.log("Cine HTTP transactions/concurrency/idempotency/roles/children/versions/cancellation PASS.");
 }

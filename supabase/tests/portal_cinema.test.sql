@@ -15,7 +15,7 @@ insert into cinema_commands values
  ('booking','{"action":"save","id":"63000000-0000-4000-8000-000000000001","version":0,"occurrence_id":"62000000-0000-4000-8000-000000000001","adults":1,"children":0,"apartment_number":"TEST","guest_name":"Pessoa fictícia SQL","notes":"Observação fictícia SQL","status":"reserved","attendance_status":"pending"}');
 select ok(not has_function_privilege('anon','public.portal_save_booking(uuid,jsonb)','execute'),'Anon cannot execute booking RPC');
 select ok(not has_function_privilege('service_role','public.portal_save_booking(uuid,jsonb)','execute'),'Service role not an operational writer');
-select ok(not has_function_privilege('authenticated','private.begin_mutation(uuid,jsonb,text)','execute'),'Idempotency helper private');
+select ok(not has_function_privilege('authenticated','private.begin_mutation(uuid,jsonb,text,text)','execute'),'Idempotency helper private');
 select ok(not has_table_privilege('authenticated','private.mutation_requests','select,insert,update,delete'),'Client cannot access idempotency store');
 select throws_ok($$select public.portal_save_occurrence(gen_random_uuid(),(select command from cinema_commands where kind='occurrence'))$$,'P0001','E_FORBIDDEN','RPC rejects missing Auth even under SQL owner');
 set local role authenticated;
@@ -28,7 +28,7 @@ select throws_ok($$select public.portal_save_occurrence('64000000-0000-4000-8000
 select set_config('request.jwt.claims','{"sub":"60000000-0000-4000-8000-000000000002","session_id":"61000000-0000-4000-8000-000000000002"}',true);
 select is(public.portal_save_booking('64000000-0000-4000-8000-000000000002',(select command from cinema_commands where kind='booking')),'63000000-0000-4000-8000-000000000001'::uuid,'Reception books adult');
 select is((select units from public.experience_bookings where id='63000000-0000-4000-8000-000000000001'),1,'One adult consumes one exclusive puff');
-select throws_ok($$select public.portal_save_booking(gen_random_uuid(),(select command||'{"version":1,"children":1}'::jsonb from cinema_commands where kind='booking'))$$,'P0001','E_INPUT','Children rejected by RPC');
+select throws_ok($$select public.portal_save_booking(gen_random_uuid(),(select command||'{"version":1,"children":1}'::jsonb from cinema_commands where kind='booking'))$$,'P0001','E_INPUT','Structured child count rejected by RPC');
 select throws_ok($$select public.portal_save_booking(gen_random_uuid(),(select command||'{"version":1,"units":0}'::jsonb from cinema_commands where kind='booking'))$$,'P0001','E_INPUT','Client cannot override units');
 select lives_ok($$select public.portal_save_booking(gen_random_uuid(),(select command||'{"version":1,"adults":8}'::jsonb from cinema_commands where kind='booking'))$$,'Eight adults fit four puffs');
 select is((select units from public.experience_bookings where id='63000000-0000-4000-8000-000000000001'),4,'Eight adults consume four puffs');
@@ -39,7 +39,7 @@ select is((select count(*) from private.mutation_requests),3::bigint,'Only succe
 select ok((select bool_and(length(payload_hash)=64) from private.mutation_requests),'Payload retained only as SHA256');
 select ok((select bool_and(not after ?| array['guest_name','notes','apartment_number','metadata','location']) from public.audit_events),'Audit excludes free text');
 select set_config('request.jwt.claims','{}',true);
-select throws_ok($$update public.experience_bookings set children=1 where id='63000000-0000-4000-8000-000000000001'$$,'23514','E_CHILDREN','Direct privileged SQL still enforces children configuration');
+select throws_ok($$update public.experience_bookings set children=1 where id='63000000-0000-4000-8000-000000000001'$$,'23514','E_CHILDREN','Structured child count disabled even in privileged SQL');
 select throws_ok($$update public.experience_bookings set units=1 where id='63000000-0000-4000-8000-000000000001'$$,'23514','E_UNITS','Direct SQL cannot misstate puff quantity');
 create function private.phase6_fail_audit() returns trigger language plpgsql as $$begin raise exception 'Synthetic audit failure'; end;$$;
 create trigger phase6_fail_audit before insert on public.audit_events for each row execute function private.phase6_fail_audit();

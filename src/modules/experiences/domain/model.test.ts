@@ -4,7 +4,7 @@ import { summarizeCapacity } from "./capacity";
 const id = (n: number) => `00000000-0000-4000-8000-${String(n).padStart(12, "0")}`;
 const experience = (patch: Partial<Experience> = {}): Experience => ({ id: id(1), slug: "test-experience",
   name: "Experiência fictícia", description: null, category: "other", booking_mode: "group",
-  capacity_mode: "persons", default_capacity: 8, person_limit: null, persons_per_unit: null, children_allowed: null, active: false,
+  capacity_mode: "persons", default_capacity: 8, person_limit: null, persons_per_unit: null, active: false,
   guest_bookable: false, ...patch });
 const occurrence = (patch: Partial<Occurrence> = {}): Occurrence => ({ id: id(2), experience_id: id(1), version: 1, responsible_id: null,
   starts_at: "2026-10-08T18:00:00-03:00", ends_at: "2026-10-08T19:00:00-03:00", location: "Local fictício",

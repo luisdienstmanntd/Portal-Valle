@@ -11,6 +11,16 @@ export const bookingCommandSchema = z.discriminatedUnion("action", [
     apartment_number:text(30), guest_name:text(160), notes:z.string().max(2000), status:z.enum(["reserved","confirmed"]), attendance_status:z.enum(["pending","present","absent"]) }).strict(),
   z.object({ action:z.literal("cancel"), ...identity, occurrence_id:z.uuid() }).strict(),
 ]);
+export const pizzaOccurrenceCommandSchema = z.discriminatedUnion("action", [
+  z.object({ action:z.literal("save"), ...identity, experience_id:z.uuid(), starts_at:z.iso.datetime({offset:true}), ends_at:z.iso.datetime({offset:true}),
+    location:text(160), title:text(160), capacity:z.number().int().min(0).max(12), person_limit:z.number().int().min(0).max(12), status:z.enum(["draft","published"]) }).strict(),
+  z.object({ action:z.literal("cancel"), ...identity, experience_id:z.uuid() }).strict(),
+]).refine(v=>v.action==="cancel"||Date.parse(v.ends_at)>Date.parse(v.starts_at),{message:"Fim deve ser posterior ao início."});
+export const pizzaBookingCommandSchema = z.discriminatedUnion("action", [
+  z.object({ action:z.literal("save"), ...identity, occurrence_id:z.uuid(), adults:z.number().int().min(1).max(12), children:z.literal(0),
+    apartment_number:text(30), guest_name:text(160), notes:z.string().max(2000), status:z.enum(["reserved","confirmed"]), attendance_status:z.enum(["pending","present","absent"]) }).strict(),
+  z.object({ action:z.literal("cancel"), ...identity, occurrence_id:z.uuid() }).strict(),
+]);
 export function requiredPuffs(adults:number) { return Math.ceil(z.number().int().min(1).max(8).parse(adults)/2); }
 export function operationError(code:string) {
   const messages:Record<string,string> = {

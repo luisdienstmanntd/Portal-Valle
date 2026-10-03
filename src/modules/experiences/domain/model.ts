@@ -13,7 +13,7 @@ export const experienceSchema = z.object({
   category: z.enum(["wine", "cinema", "gastronomy", "wellness", "leisure", "other"]),
   booking_mode: z.literal("group"), capacity_mode: capacityModeSchema,
   default_capacity: quantity.nullable(), person_limit: quantity.nullable(),
-  persons_per_unit: z.number().int().min(1).max(10000).nullable(), children_allowed: z.boolean().nullable(),
+  persons_per_unit: z.number().int().min(1).max(10000).nullable(),
   active: z.boolean(), guest_bookable: z.literal(false),
 }).strict().superRefine((value, ctx) => {
   if ((value.capacity_mode === "unlimited") !== (value.default_capacity === null)) {

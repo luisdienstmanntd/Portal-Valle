@@ -112,3 +112,11 @@ Alternativas: copiar runtime do sistema existente ou adicionar uma biblioteca co
 
 Consequências: oito rotas reais com estados de preparação, sem dados/contagens fictícios nem ações de reserva. Fontes possuem cópia da licença OFL e SHA documentados. Formulários e confirmações operacionais precisarão de validações/testes nas respectivas fases.
 
+
+## ADR-011 — Reutilização de experiências e vagas por adultos
+
+Status: implementada, aguardando validação CI da Fase 8. Data: 2026-10-03.
+
+O proprietário confirmou crianças somente em observações para Cine/Lora/Pizza e capacidade inicial 12 para Lora/Pizza. O campo de admissão children_allowed foi removido; children=0 é invariante técnica, não proibição de participação. Capacidade conta adultos. Lora permanece adiada.
+
+Cine e Pizza usam consultas, formulários e Server Actions compartilhados, com configuração fechada cinema/pizza. Helpers privados SECURITY INVOKER são chamados por wrappers SECURITY DEFINER com search_path vazio, grants mínimos e autorização viva. Wrappers restringem categoria e slug; idempotência inclui categoria, slug e tipo de operação antes de qualquer replay. persons exige units=0; Cine calcula ceil(adults/2). Auditoria exclui observações e dados pessoais. Sem motor universal ou financeiro.
