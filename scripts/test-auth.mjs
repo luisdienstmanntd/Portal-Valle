@@ -27,6 +27,21 @@ const tuples = Object.entries(users).filter(([name]) => name !== "unlinked").map
   `('${user.id}', '${name === "inactive" ? "admin" : name}', ${name !== "inactive"})`);
 writeFileSync("work/auth-fixtures.sql", `insert into public.portal_profiles(id,role,active) values ${tuples.join(",")};`);
 execFileSync(runner, ["supabase", "db", "query", "--local", "--file", "work/auth-fixtures.sql"], { stdio: ["ignore", "ignore", "inherit"] });
+// Validate real Auth and RLS independently of Next/cookies before browser tests.
+// Report only checkpoint and database error code; never tokens, keys or identities.
+for (const name of ["recepcao", "gerencia", "admin", "inactive", "unlinked"]) {
+  const probe = createClient(status.API_URL, status.PUBLISHABLE_KEY, {
+    auth: { persistSession: false, autoRefreshToken: false },
+  });
+  const signedIn = await probe.auth.signInWithPassword({ email: users[name].email, password });
+  if (signedIn.error) throw new Error(`Auth fixture checkpoint failed: ${signedIn.error.code || "unknown"}`);
+  const profile = await probe.from("portal_profiles").select("id,role,active").maybeSingle();
+  if (profile.error) throw new Error(`Profile RLS checkpoint failed: ${profile.error.code}`);
+  const expected = name !== "inactive" && name !== "unlinked";
+  if (Boolean(profile.data?.active) !== expected) throw new Error("Profile visibility checkpoint failed.");
+  await probe.auth.signOut({ scope: "local" });
+}
+console.log("Synthetic Auth and profile RLS checkpoints PASS.");
 const env = { ...process.env, NEXT_PUBLIC_SUPABASE_URL: status.API_URL,
   NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY: status.PUBLISHABLE_KEY, NEXT_PUBLIC_SUPABASE_PROJECT_REF: "local" };
 execFileSync(runner, ["next", "build"], { stdio: "inherit", env });

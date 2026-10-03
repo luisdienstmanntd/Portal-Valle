@@ -27,7 +27,7 @@ test("anônimo redirecionado, login, reload e logout", async ({ page }) => {
 test("senha incorreta, perfil inativo e sem vínculo não entram", async ({ page }) => {
   for (const [name, password] of [["recepcao", "incorrect-synthetic-password"], ["inactive", fixture.password], ["unlinked", fixture.password]]) {
     await login(page, name, password);
-    await expect(page.getByRole("alert")).toHaveText("Não foi possível entrar. Confira seus dados e tente novamente.");
+    await expect(page.getByRole("alert", { name: "Erro ao entrar" })).toHaveText("Não foi possível entrar. Confira seus dados e tente novamente.");
     await page.goto("/hoje"); await expect(page).toHaveURL(/\/login$/);
   }
 });
