@@ -1,0 +1,57 @@
+import {randomUUID} from "node:crypto";
+import {writeFileSync} from "node:fs";
+import assert from "node:assert/strict";
+import {createClient} from "@supabase/supabase-js";
+export async function testCinema(status,users,password) {
+  assert.equal(new URL(status.API_URL).hostname,"127.0.0.1");
+  const client=()=>createClient(status.API_URL,status.PUBLISHABLE_KEY,{auth:{persistSession:false,autoRefreshToken:false}});
+  const manager=client(),reception=client();
+  assert.equal((await manager.auth.signInWithPassword({email:users.gerencia.email,password})).error,null);
+  assert.equal((await reception.auth.signInWithPassword({email:users.recepcao.email,password})).error,null);
+  const exp="c1000000-0000-4000-8000-000000000001",occ=randomUUID();
+  const occurrence={action:"save",id:occ,version:0,experience_id:exp,starts_at:"2026-10-08T22:30:00Z",ends_at:"2026-10-09T00:30:00Z",location:"Local fictício CI",film_title:"Filme fictício CI",capacity:4,person_limit:8,status:"published"};
+  const call=(c,fn,command,request=randomUUID())=>c.rpc(fn,{p_request:request,p_command:command});
+  const request=randomUUID();
+  const created=await call(manager,"portal_save_occurrence",occurrence,request); assert.equal(created.error,null);
+  assert.equal((await call(manager,"portal_save_occurrence",occurrence,request)).data,occ);
+  assert.equal((await call(manager,"portal_save_occurrence",{...occurrence,film_title:"Outro filme fictício"},request)).error?.message,"E_IDEMPOTENCY");
+  assert.equal((await call(reception,"portal_save_occurrence",{...occurrence,id:randomUUID()})).error?.message,"E_FORBIDDEN");
+  const command=(id,patch={})=>({action:"save",id,version:0,occurrence_id:occ,adults:2,children:0,apartment_number:"TEST",guest_name:"Pessoa fictícia CI",notes:"",status:"reserved",attendance_status:"pending",...patch});
+  const first=randomUUID(),duplicateRequest=randomUUID(),firstCommand=command(first);
+  const duplicate=await Promise.all([call(reception,"portal_save_booking",firstCommand,duplicateRequest),call(reception,"portal_save_booking",firstCommand,duplicateRequest)]);
+  assert(duplicate.every(r=>!r.error&&r.data===first));
+  assert.equal((await reception.from("experience_bookings").select("id").eq("id",first)).data.length,1);
+  const second=randomUUID(),third=randomUUID();
+  assert.equal((await call(reception,"portal_save_booking",command(second))).error,null);
+  assert.equal((await call(reception,"portal_save_booking",command(third))).error,null);
+  const races=await Promise.all([call(reception,"portal_save_booking",command(randomUUID())),call(reception,"portal_save_booking",command(randomUUID()))]);
+  assert.equal(races.filter(r=>!r.error).length,1); assert.equal(races.filter(r=>r.error?.message==="E_CAPACITY").length,1);
+  assert.equal((await call(reception,"portal_save_booking",command(randomUUID(),{children:1}))).error?.message,"E_INPUT");
+  assert.equal((await call(reception,"portal_save_booking",command(randomUUID(),{units:0}))).error?.message,"E_INPUT");
+  assert.equal((await call(reception,"portal_save_booking",command(first,{version:1,adults:3}))).error?.message,"E_CAPACITY");
+  assert.equal((await call(manager,"portal_save_occurrence",{...occurrence,version:1,capacity:3})).error?.message,"E_CAPACITY");
+  assert.equal((await call(reception,"portal_save_booking",{action:"cancel",id:second,version:1,occurrence_id:occ})).error,null);
+  assert.equal((await call(reception,"portal_save_booking",{action:"cancel",id:second,version:2,occurrence_id:occ})).error?.message,"E_CANCELLED");
+  assert.equal((await call(reception,"portal_save_booking",command(first,{version:1,adults:3,attendance_status:"present",notes:"Observação fictícia"}))).error,null);
+  assert.equal((await call(reception,"portal_save_booking",command(first,{version:1}))).error?.message,"E_VERSION");
+  assert.equal((await call(reception,"portal_save_booking",command(second,{version:2}))).error?.message,"E_CAPACITY");
+  assert.equal((await call(reception,"portal_save_booking",{action:"cancel",id:first,version:2,occurrence_id:occ})).error,null);
+  assert.equal((await call(reception,"portal_save_booking",command(second,{version:2}))).error,null);
+  assert.equal((await call(manager,"portal_save_occurrence",{action:"cancel",id:occ,version:1,experience_id:exp})).error,null);
+  assert.equal((await call(manager,"portal_save_occurrence",{action:"cancel",id:occ,version:2,experience_id:exp})).error?.message,"E_CANCELLED");
+  const rows=await reception.from("experience_bookings").select("status,version,id").eq("occurrence_id",occ);
+  assert(rows.data.every(b=>b.status==="cancelled"));
+  assert.equal((await call(reception,"portal_save_booking",command(second,{version:rows.data.find(b=>b.id===second).version}))).error?.message,"E_CANCELLED");
+  const capacityRace=randomUUID();
+  assert.equal((await call(manager,"portal_save_occurrence",{...occurrence,id:capacityRace})).error,null);
+  const shrinking=await Promise.all([
+    call(manager,"portal_save_occurrence",{...occurrence,id:capacityRace,version:1,capacity:0,person_limit:0}),
+    call(reception,"portal_save_booking",command(randomUUID(),{occurrence_id:capacityRace})),
+  ]);
+  assert.equal(shrinking.filter(r=>!r.error).length,1);
+  assert.equal(shrinking.filter(r=>r.error?.message==="E_CAPACITY").length,1);
+  const ui=randomUUID(); assert.equal((await call(manager,"portal_save_occurrence",{...occurrence,id:ui})).error,null);
+  writeFileSync("work/cinema-fixtures.json",JSON.stringify({occurrenceId:ui}));
+  await manager.auth.signOut({scope:"local"}); await reception.auth.signOut({scope:"local"});
+  console.log("Cine HTTP transactions/concurrency/idempotency/roles/children/versions/cancellation PASS.");
+}

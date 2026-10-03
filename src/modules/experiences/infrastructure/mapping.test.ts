@@ -7,12 +7,12 @@ const timestamps = { created_at: "2026-10-03T12:00:00+00:00", updated_at: "2026-
 type Rows = Database["public"]["Tables"];
 const experience: Rows["experiences"]["Row"] = { id: id(1), slug: "test-cine", name: "Cinema fictício",
   description: null, category: "cinema", booking_mode: "group", capacity_mode: "units",
-  default_capacity: 4, person_limit: 8, active: false, guest_bookable: false, ...timestamps };
-const occurrence: Rows["experience_occurrences"]["Row"] = { id: id(2), experience_id: id(1),
+  default_capacity: 4, person_limit: 8, persons_per_unit: 2, children_allowed: false, active: false, guest_bookable: false, ...timestamps };
+const occurrence: Rows["experience_occurrences"]["Row"] = { id: id(2), experience_id: id(1), version: 1, responsible_id: null,
   starts_at: "2026-10-08T22:30:00+00:00", ends_at: "2026-10-09T00:30:00+00:00", location: "Local fictício",
   capacity_override: null, person_limit_override: null, status: "draft", title_override: null,
   description_override: null, metadata: {}, ...timestamps };
-const booking: Rows["experience_bookings"]["Row"] = { id: id(3), occurrence_id: id(2), stay_id: null,
+const booking: Rows["experience_bookings"]["Row"] = { id: id(3), occurrence_id: id(2), stay_id: null, version: 1,
   apartment_number: "TEST", guest_name: "Pessoa fictícia", guest_phone: null, adults: 2, children: 0,
   units: 1, notes: null, status: "reserved", attendance_status: "pending", created_by: id(4), ...timestamps };
 

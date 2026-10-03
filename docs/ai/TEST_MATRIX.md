@@ -29,3 +29,5 @@
 | Fundação responde HTTP | 1/2 | `tests/e2e/foundation.spec.ts` PASS nos 4 projetos de viewport; servidor pré-iniciado no Windows |
 
 Quando o teste existir, substituir esta coluna por caminho concreto e resultado do CI. Não promover uma fase com testes aplicáveis vermelhos.
+
+Fase6 adaptada Cine: commands.test.ts + hotel-time, check local83unit PASS. portal_cinema.test.sql (RPC/Auth/idempotência/versões/crianças/unidades/rollback), scripts/test-cinema.mjs (HTTP/concorrência/cancelamento/redução), login.spec.ts (fluxo UI/papéis), cinema-preview.spec.ts (4viewports). Banco/Auth/CI em validação; sem declarar PASS antecipado. Transferência não suportada e recusada.

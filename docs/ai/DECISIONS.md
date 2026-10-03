@@ -1,5 +1,13 @@
 # Decisões de arquitetura
 
+## ADR-010 — Cine primeiro e operações transacionais por sessão
+
+Status: em validação, Fase6 adaptada. Data: 2026-10-03.
+
+Proprietário adiou Lora, autorizou Cine8pessoas/4puffs e informou não haver lugares para crianças. Reordenar primeiro fluxo para Cine sem declarar Lora implementada. Puffs provisoriamente exclusivos por inscrição, ceil(adults/2), suposição comunicada enquanto resposta sobre compartilhamento está pendente.
+
+RPCs por usuário vivo, locks catálogo→sessão→inscrição, versões/conflitos, idempotência actor/request/hash e auditoria transacional. Recepção gerencia bookings; gerência/admin também gerenciam sessões. Crianças/unidades inválidas recusadas no SQL. Cancelamento preserva presença/histórico; no_show bloqueia escritas de capacidade até política; transferência fora do fluxo. Ver CINEMA_OPERATIONS. Hosted adiado.
+
 ## ADR-009 — Modelo separado e auditoria atômica antes das escritas operacionais
 
 Status: implementada na Fase5, validada no CI37151730319. Data: 2026-10-03.

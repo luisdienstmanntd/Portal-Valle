@@ -1,6 +1,9 @@
 begin;
 set local search_path = public, extensions;
 select no_plan();
+-- Isolate the Phase 5 synthetic fixture from the new fixed Cine catalogue; rollback restores it.
+delete from public.experiences where slug='cine-toscana';
+delete from public.audit_events;
 insert into auth.users(id) values ('50000000-0000-4000-8000-000000000001'),('50000000-0000-4000-8000-000000000002'),('50000000-0000-4000-8000-000000000003');
 insert into auth.sessions(id,user_id) values
  ('51000000-0000-4000-8000-000000000001','50000000-0000-4000-8000-000000000001'),
@@ -52,7 +55,7 @@ select throws_ok($$update public.experience_bookings set adults=8$$,'42501',null
 select set_config('request.jwt.claims','{"sub":"50000000-0000-4000-8000-000000000003","session_id":"51000000-0000-4000-8000-000000000003"}',true);
 select is((select count(*) from public.experience_bookings),0::bigint,'Inactive staff denied');
 reset role;
-select set_config('request.jwt.claims','{"sub":"50000000-0000-4000-8000-000000000002","session_id":"51000000-0000-4000-8000-000000000002"}',true);
+select set_config('request.jwt.claims','{"sub":"50000000-0000-4000-8000-000000000003","session_id":"51000000-0000-4000-8000-000000000003"}',true);
 select throws_ok($$update public.experience_bookings set status='confirmed'$$,'42501',null,'Trigger also rejects unauthorized actor');
 select set_config('request.jwt.claims','{"sub":"50000000-0000-4000-8000-000000000001","session_id":"51000000-0000-4000-8000-000000000001"}',true);
 update public.experience_bookings set status='confirmed',attendance_status='absent';

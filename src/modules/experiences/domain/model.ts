@@ -13,6 +13,7 @@ export const experienceSchema = z.object({
   category: z.enum(["wine", "cinema", "gastronomy", "wellness", "leisure", "other"]),
   booking_mode: z.literal("group"), capacity_mode: capacityModeSchema,
   default_capacity: quantity.nullable(), person_limit: quantity.nullable(),
+  persons_per_unit: z.number().int().min(1).max(10000).nullable(), children_allowed: z.boolean().nullable(),
   active: z.boolean(), guest_bookable: z.literal(false),
 }).strict().superRefine((value, ctx) => {
   if ((value.capacity_mode === "unlimited") !== (value.default_capacity === null)) {
@@ -22,6 +23,7 @@ export const experienceSchema = z.object({
 
 export const occurrenceSchema = z.object({
   id: z.uuid(),
+  version: z.number().int().min(1), responsible_id: z.uuid().nullable(),
   experience_id: z.uuid(), starts_at: z.iso.datetime({ offset: true }),
   ends_at: z.iso.datetime({ offset: true }), location: shortText(160),
   capacity_override: quantity.nullable(), person_limit_override: quantity.nullable(),
@@ -34,6 +36,7 @@ export const occurrenceSchema = z.object({
 
 export const bookingSchema = z.object({
   id: z.uuid(),
+  version: z.number().int().min(1),
   occurrence_id: z.uuid(), stay_id: z.null(), apartment_number: shortText(30),
   guest_name: shortText(160), guest_phone: shortText(40).nullable(),
   adults: quantity, children: quantity, units: quantity,

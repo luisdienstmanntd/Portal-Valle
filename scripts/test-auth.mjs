@@ -2,6 +2,7 @@ import { execFileSync } from "node:child_process";
 import { mkdirSync, writeFileSync } from "node:fs";
 import { randomBytes } from "node:crypto";
 import { createClient } from "@supabase/supabase-js";
+import { testCinema } from "./test-cinema.mjs";
 
 const runner = process.platform === "win32" ? "npx.cmd" : "npx";
 const status = JSON.parse(execFileSync(runner, ["supabase", "status", "--output", "json"], { encoding: "utf8" }));
@@ -50,6 +51,7 @@ if (registration.error?.code !== "signup_disabled" || registration.data.user) {
   throw new Error("Public registration must remain disabled.");
 }
 console.log("Public registration disabled checkpoint PASS.");
+await testCinema(status, users, password);
 const env = { ...process.env, NEXT_PUBLIC_SUPABASE_URL: status.API_URL,
   NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY: status.PUBLISHABLE_KEY, NEXT_PUBLIC_SUPABASE_PROJECT_REF: "local" };
 execFileSync(runner, ["next", "build"], { stdio: "inherit", env });

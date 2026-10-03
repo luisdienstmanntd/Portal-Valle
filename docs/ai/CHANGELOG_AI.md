@@ -1,5 +1,11 @@
 # Changelog de trabalho IA
 
+## 2026-10-03 — Cine operacional em validação
+
+- Fase6 reordenada pelo proprietário: Cine primeiro, Lora adiada. Somente adultos8pessoas/4puffs; puffs exclusivos provisoriamente.
+- UI sessão/filme/local/inscrição/presença/notas, bookings.manage e RPCs locks/idempotência/versões/auditoria; SQL bloqueia crianças/unidades falsas. Hosted desconectado.
+- Check83unit, build separado e28E2E públicos PASS; SQL/concorrência/Auth em validação. Cancelamento repetido corrigido após achado do revisor; conclusão pendente.
+
 ## 2026-10-03 — Modelo de experiências validado
 
 - Fase5 autorizada automaticamente após fechamento técnico da Fase4; proprietário informou Cine8pessoas/4puffs e pediu adiar regraLora.
