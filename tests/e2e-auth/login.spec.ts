@@ -83,8 +83,11 @@ for (const name of ["recepcao", "gerencia", "admin"]) {
       await page.getByRole("alertdialog", { name: "Cancelar esta inscrição?", exact: true }).getByRole("button", { name: "Confirmar cancelamento", exact: true }).click();
       await expect(page.getByRole("heading", { name: "0 / 4 puffs · 0 / 8 adultos", exact: true })).toBeVisible();
       await expect(page.getByText("Cancelada · Presente", { exact: true })).toBeVisible();
-      await page.locator("summary").filter({ hasText: "Reativar inscrição" }).click();
-      await page.getByRole("form", { name: "Editar inscrição de Pessoa fictícia interface", exact: true }).getByRole("button", { name: "Reativar inscrição", exact: true }).click();
+      const reactivate = page.getByRole("form", { name: "Editar inscrição de Pessoa fictícia interface", exact: true }).getByRole("button", { name: "Reativar inscrição", exact: true });
+      // A same-route refresh can preserve the native details open state.
+      if (!(await reactivate.isVisible())) await page.locator("summary").filter({ hasText: "Reativar inscrição" }).click();
+      await expect(reactivate).toBeVisible();
+      await reactivate.click();
       await expect(page.getByRole("heading", { name: "2 / 4 puffs · 3 / 8 adultos", exact: true })).toBeVisible();
     }
     if (name === "recepcao") {

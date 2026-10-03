@@ -6,6 +6,7 @@
 - UI sessão/filme/local/inscrição/presença/notas, bookings.manage e RPCs locks/idempotência/versões/auditoria; SQL bloqueia crianças/unidades falsas. Hosted desconectado.
 - Check83unit, build separado e28E2E públicos PASS; SQL/concorrência/Auth em validação. Cancelamento repetido corrigido após achado do revisor; conclusão pendente.
 - CI37154422828:140pgTAP/7HTTP/concorrênciaRPC PASS; AuthUI12/14PASS, reativação falhou por locator textual ambíguo summary/botão. Teste corrigido para selecionar summary; nova execução pendente.
+- CI37154772166: banco/HTTP/RPC novamente PASS, AuthUI12/14PASS; timeout após clicksummary; provável preservação de details aberto. Corrigir teste para abrir somente se botão não estiver visível; manter assertions de capacidade/presença/reativação.
 
 ## 2026-10-03 — Modelo de experiências validado
 
