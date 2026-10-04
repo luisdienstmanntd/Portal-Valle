@@ -84,3 +84,5 @@ Fechamento da Fase 8: APROVADO TECNICAMENTE pelo revisor independente.
 ## 2026-10-03 — Fase 9 Programação semanal
 
 Solicitação: prosseguir após Pizza; avanço automático entre fases já autorizado. Projeção das sessões reais, navegação semanal, gerência pelos fluxos existentes e duplicação para destino vazio. SQL usa mesma serialização de writers e receipts privados do lote. Horários no fuso do hotel; cópias rascunho sem inscrições/presença. Check89unit/buildPASS;E2E/CI/revisão em andamento. Nenhum legado/hospedado alterado.
+
+Fase9 CI37168251847/994642e: checks/e2e PASS,196pgTAP/7HTTP e checkpoints semanal/Cine/Pizza PASS; Auth13/14, locator aguardava título repetido na lista antes do redirect. Corrigido para heading level1 sem remover assertions. Cobertura adicional de editar/cancelar cópia e reflexão na semana; faixa1900–2099 em nova migration20261004013531, não editar versão já publicada. Navegação extrema omitida, destino padrão fora da faixa fica vazio; CI da correção pendente.

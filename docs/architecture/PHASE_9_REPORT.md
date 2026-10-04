@@ -43,3 +43,5 @@ Fase10 Agenda diária, avanço automático autorizado pelo proprietário.
 ## Validação manual sugerida
 
 Abrir /programacao, escolher semana/avançar/voltar; com Authisolado criar/editar/cancelar nos links de sessão e conferir reflexão na semana; duplicar em destino vazio, publicar rascunhos após conferência, verificar ausência de inscrições/presença.
+
+Fase9 CI37168251847/994642e: checks/e2e PASS,196pgTAP/7HTTP e checkpoints semanal/Cine/Pizza PASS; Auth13/14, locator aguardava título repetido na lista antes do redirect. Corrigido para heading level1 sem remover assertions. Cobertura adicional de editar/cancelar cópia e reflexão na semana; faixa1900–2099 em nova migration20261004013531, não editar versão já publicada. Navegação extrema omitida, destino padrão fora da faixa fica vazio; CI da correção pendente.

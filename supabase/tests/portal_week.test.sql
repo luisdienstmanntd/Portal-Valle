@@ -21,6 +21,8 @@ select throws_ok($$select public.portal_duplicate_week(gen_random_uuid(),'{"sour
 select set_config('request.jwt.claims','{"sub":"90000000-0000-4000-8000-000000000001","session_id":"91000000-0000-4000-8000-000000000001"}',true);
 select throws_ok($$select public.portal_duplicate_week(gen_random_uuid(),'{"source_week":"2026-12-29","target_week":"2027-01-04"}')$$,'P0001','E_INPUT','Source requires Monday');
 select throws_ok($$select public.portal_duplicate_week(gen_random_uuid(),'{"source_week":"2026-12-28","target_week":"2026-12-28"}')$$,'P0001','E_INPUT','Same week rejected');
+select throws_ok($$select public.portal_duplicate_week(gen_random_uuid(),'{"source_week":"1899-12-25","target_week":"2027-01-04"}')$$,'P0001','E_INPUT','Source below supported date range rejected');
+select throws_ok($$select public.portal_duplicate_week(gen_random_uuid(),'{"source_week":"2026-12-28","target_week":"2100-01-04"}')$$,'P0001','E_INPUT','Target above supported date range rejected');
 select throws_ok($$select public.portal_duplicate_week(gen_random_uuid(),'{"source_week":"2026-12-28","target_week":"2027-01-04","bookings":true}')$$,'P0001','E_INPUT','Strict command excludes bookings');
 insert into week_results select public.portal_duplicate_week('94000000-0000-4000-8000-000000000001','{"source_week":"2026-12-28","target_week":"2027-01-04"}');
 select is((select cardinality(ids) from week_results),1,'Cancelled source not copied');

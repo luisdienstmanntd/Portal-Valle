@@ -22,7 +22,7 @@ async function experienceFlow(page:Page,slug:string,label:string,title:string,oc
  await session.getByLabel('Fim · horário de Gramado').fill('2026-10-10T21:30');
  await session.getByLabel('Disponibilidade').selectOption('published');
  await session.getByRole('button',{name:'Criar sessão',exact:true}).click();
- await expect(page.getByRole('heading',{name:title,exact:true})).toBeVisible();
+ await expect(page.getByRole('heading',{name:title,exact:true,level:1})).toBeVisible();
  const booking=page.getByRole('form',{name:'Nova inscrição',exact:true});
  await booking.getByLabel('Apartamento',{exact:true}).fill('TEST');
  await booking.getByLabel('Nome do hóspede').fill('Pessoa fictícia interface');
@@ -109,6 +109,20 @@ for (const name of ["recepcao", "gerencia", "admin"]) {
       await copy.click();
       await expect(page.getByRole('heading',{name:'0 / 12 adultos',exact:true})).toBeVisible();
       await expect(page.getByText('Observações: CHD 2 anos',{exact:true})).toHaveCount(0);
+      await page.getByText('Editar sessão',{exact:true}).click();
+      const sessionEdit=page.getByRole('form',{name:'Editar sessão',exact:true});
+      const editedTitle='Pizza duplicada editada '+test.info().project.name;
+      await sessionEdit.getByLabel('Evento',{exact:true}).fill(editedTitle);
+      await sessionEdit.getByRole('button',{name:'Salvar sessão',exact:true}).click();
+      await expect(page.getByRole('heading',{name:editedTitle,exact:true})).toBeVisible();
+      await page.goto('/programacao?semana='+target);
+      const editedCard=page.locator('.week-session').filter({hasText:editedTitle});
+      await expect(editedCard).toBeVisible(); await editedCard.click();
+      await page.getByRole('button',{name:'Cancelar sessão',exact:true}).click();
+      await page.getByRole('alertdialog',{name:'Cancelar esta sessão?',exact:true}).getByRole('button',{name:'Confirmar cancelamento',exact:true}).click();
+      await expect(page.getByRole('heading',{name:editedTitle,exact:true})).toBeVisible();
+      await page.goto('/programacao?semana='+target);
+      await expect(page.locator('.week-session').filter({hasText:editedTitle})).toContainText('Cancelada');
     }
     if (name === "recepcao") {
       const cinema = JSON.parse(readFileSync("work/cinema-fixtures.json", "utf8")) as { occurrenceId: string };

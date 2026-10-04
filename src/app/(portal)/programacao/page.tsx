@@ -19,11 +19,14 @@ export default async function ProgramPage({searchParams}:{searchParams:Promise<{
   const week=weekRange(parsed.success?parsed.data:hotelToday(new Date()));
   const data=configured?await loadWeek(week.from,week.until):null;
   const manages=can(staff,"weekly_program.manage");
+  const previous=addDays(week.start,-7);
+  const previousAvailable=localDateSchema.safeParse(previous).success;
+  const nextAvailable=localDateSchema.safeParse(week.end).success;
   const request=randomUUID();
   return <><PageHeading title="Programação" description="As experiências da semana, no horário de Gramado."/>
-    <Card className="operation-panel"><div className="week-toolbar"><Link className={buttonClass("secondary")} href={`/programacao?semana=${addDays(week.start,-7)}`}>← Semana anterior</Link>
-    <h2>{dateLabel(week.start)} a {dateLabel(week.days[6])}</h2><Link className={buttonClass("secondary")} href={`/programacao?semana=${week.end}`}>Próxima semana →</Link></div>
-    <form className="week-selector" action="/programacao"><Label htmlFor="week-date">Escolher data da semana</Label><Input id="week-date" type="date" name="semana" defaultValue={week.start} required/><Button type="submit" variant="secondary">Ver semana</Button></form>
+    <Card className="operation-panel"><div className="week-toolbar">{previousAvailable?<Link className={buttonClass("secondary")} href={`/programacao?semana=${previous}`}>← Semana anterior</Link>:<span aria-disabled="true">Início do período disponível</span>}
+    <h2>{dateLabel(week.start)} a {dateLabel(week.days[6])}</h2>{nextAvailable?<Link className={buttonClass("secondary")} href={`/programacao?semana=${week.end}`}>Próxima semana →</Link>:<span aria-disabled="true">Fim do período disponível</span>}</div>
+    <form className="week-selector" action="/programacao"><Label htmlFor="week-date">Escolher data da semana</Label><Input id="week-date" type="date" name="semana" min="1900-01-01" max="2099-12-31" defaultValue={week.start} required/><Button type="submit" variant="secondary">Ver semana</Button></form>
     {params.semana&&!parsed.success&&<p role="status">Data inválida. Exibindo a semana atual do hotel.</p>}
     <p className="operation-help">Segunda a domingo. Sessões aparecem no dia em que começam, mesmo quando terminam no dia seguinte.</p></Card>
     {!configured&&<p className="operation-notice" role="status">Prévia da programação. As sessões reais aparecerão após a conexão própria do Portal. Criação e duplicação estão indisponíveis.</p>}
@@ -38,6 +41,6 @@ export default async function ProgramPage({searchParams}:{searchParams:Promise<{
     })}</div>
     {(manages||!configured)&&<Card className="operation-panel"><h2>Criar uma sessão</h2><p>Escolha a experiência para definir evento, local, horário e capacidade. A sessão aparecerá automaticamente na sua semana.</p>
     <div className="week-toolbar"><Link className={buttonClass("secondary")} href="/experiencias/cine-toscana">Criar sessão do Cine</Link><Link className={buttonClass("secondary")} href="/experiencias/la-vera-pizza">Criar sessão da Pizza</Link></div></Card>}
-    {(manages||!configured)&&<Card className="operation-panel"><h2>Duplicar esta semana</h2><DuplicateForm key={week.start} request={request} source={week.start} target={week.end} available={configured&&manages}/></Card>}
+    {(manages||!configured)&&<Card className="operation-panel"><h2>Duplicar esta semana</h2><DuplicateForm key={week.start} request={request} source={week.start} target={nextAvailable?week.end:""} available={configured&&manages}/></Card>}
   </>;
 }

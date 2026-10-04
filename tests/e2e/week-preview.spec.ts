@@ -10,4 +10,8 @@ test("programação navega semanas e protege duplicação na prévia",async({pag
  await page.getByRole("link",{name:"Próxima semana →"}).click();
  await expect(page.getByRole("heading",{name:"04/01/2027 a 10/01/2027"})).toBeVisible();
  await page.goto("/programacao?semana=2026-02-30");await expect(page.getByText("Data inválida. Exibindo a semana atual do hotel.")).toBeVisible();
+ await page.goto("/programacao?semana=9999-12-31");await expect(page.getByText("Data inválida. Exibindo a semana atual do hotel.")).toBeVisible();
+ await page.goto("/programacao?semana=1900-01-01");await expect(page.getByRole("link",{name:"← Semana anterior"})).toHaveCount(0);
+ await page.goto("/programacao?semana=2099-12-31");await expect(page.getByRole("link",{name:"Próxima semana →"})).toHaveCount(0);
+ await expect(page.getByLabel("Segunda-feira da semana de destino")).toHaveValue("");
 });

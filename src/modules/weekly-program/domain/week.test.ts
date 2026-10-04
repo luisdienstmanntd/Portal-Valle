@@ -10,6 +10,9 @@ describe("semana do hotel",()=>{
   it("fronteiras respeitam mudanças históricas de offset",()=>expect(weekRange("2018-10-29")).toMatchObject({from:"2018-10-29T03:00:00.000Z",until:"2018-11-05T02:00:00.000Z"}));
   it("datas impossíveis, semana igual e payload extra falham",()=>{
     expect(()=>weekRange("2026-02-30")).toThrow();
+    expect(()=>weekRange("0000-01-01")).toThrow();
+    expect(()=>weekRange("9999-12-31")).toThrow();
+    expect(weekRange("2099-12-31").end).toBe("2100-01-04");
     expect(duplicateWeekSchema.safeParse({source_week:"2026-10-05",target_week:"2026-10-05"}).success).toBe(false);
     expect(duplicateWeekSchema.safeParse({source_week:"2026-10-06",target_week:"2026-10-12"}).success).toBe(false);
     expect(duplicateWeekSchema.safeParse({source_week:"2026-12-28",target_week:"2027-01-04"}).success).toBe(true);
