@@ -96,4 +96,8 @@ Fechamento Fase9: APROVADO TECNICAMENTE pelo revisor independente.
 
 2026-10-03 — Fase10 APROVADO TECNICAMENTE pelo revisor independente após confirmar implementação, CI e documentação. Fase11 permanece apenas auditoria inicial, não aprovada nem habilitada.
 
-2026-10-03 — Fase11: autorização explícita de metadados recebida; consulta renovada sem dados operacionais. Adapter/contrato/telas preparados; factory null por falta de acesso restrito.103 unitários/check/build e44 prévias PASS; CI/revisão pendentes. Nenhuma mudança externa/dependência/migration.
+2026-10-03 — Fase11: autorização explícita de metadados recebida; consulta renovada sem dados operacionais. Adapter/contrato/telas preparados; factory null por falta de acesso restrito.103 unitários/check/build e44 prévias PASS; CI37170970533 PASS, APROVADO TECNICAMENTE (preparação). Nenhuma mudança externa/dependência/migration.
+
+Resultado preparação Fase11: CI37170970533/0630c5374590375e91059f40691f5082e4df9ca9 PASS: 103 unitários, 44 prévias E2E, 198 pgTAP, 7 HTTP e14 Auth E2E; checkpoints/advisors/cleanup PASS. Integração operacional continua pendente; nenhum acesso externo de leitura de reservas foi habilitado.
+
+2026-10-03 — Preparação Fase11 APROVADO TECNICAMENTE pelo revisor após confirmar código, CI37170970533 e fechamento documental. Integração operacional não aprovada/habilitada; endpoint ou identidade SELECT-only ainda necessário.

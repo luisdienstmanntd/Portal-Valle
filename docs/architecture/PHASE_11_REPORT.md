@@ -18,11 +18,11 @@ Proprietário autorizou consulta adicional somente de metadados. BEGIN READ ONLY
 
 ## Testes executados
 
-Check/103 unitários PASS e build local PASS; 44 E2E públicos nos quatro viewports PASS. Contract tests cobrem slots, enums, DST gap, duplicatas, excesso, schema divergente/PII, 401/403/falha, resposta incompleta, timeout e releitura após exclusão. CI e revisão independente pendentes.
+Check/103 unitários PASS e build local PASS; 44 E2E públicos nos quatro viewports PASS. Contract tests cobrem slots, enums, DST gap, duplicatas, excesso, schema divergente/PII, 401/403/falha, resposta incompleta, timeout e releitura após exclusão. CI concluído; parecer final independente pendente.
 
 ## Resultado dos testes
 
-Locais PASS. CI/revisão final pendentes nesta publicação.
+CI37170970533/0630c5374590375e91059f40691f5082e4df9ca9 PASS: 103 unitários, 44 prévias E2E, 198 pgTAP, 7 HTTP e14 Auth E2E; checkpoints/advisors/cleanup PASS. Build final .next e4 testes Facilities focalizados PASS. APROVADO TECNICAMENTE pelo revisor independente para a preparação, não para a conexão operacional.
 
 ## Riscos encontrados
 
@@ -30,11 +30,11 @@ Não há acesso restrito disponível. Um port de leitura não transforma credenc
 
 ## Pendências
 
-Fase11 operacional pendente: interface oficial/identidade restrita e contrato da origem ainda não disponíveis. Não solicitar service_role nem modificar origem neste escopo. Adapter e telas preparados, conexão desabilitada. Revisão/CI pendentes.
+Fase11 operacional pendente: interface oficial/identidade restrita e contrato da origem ainda não disponíveis. Não solicitar service_role nem modificar origem neste escopo. Adapter e telas preparados, conexão desabilitada. CI PASS; preparação APROVADA TECNICAMENTE.
 
 ## Commit
 
-Implementação nesta publicação; registrar SHA/CI após validação.
+Implementação 0630c5374590375e91059f40691f5082e4df9ca9 publicada, CI37170970533 PASS. Fechamento documental posterior.
 
 ## Próxima fase
 
