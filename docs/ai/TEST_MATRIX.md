@@ -49,3 +49,5 @@ Fechamento Fase9: APROVADO TECNICAMENTE pelo revisor independente.
 Fase 10: 97 unitários PASS (datas/fronteiras DST/1900–2099; estados/ordenamento/deadline/abort/DTO/limites/PII), check/build PASS, 40 prévias E2E PASS nos quatro viewports. Agenda: datas inválidas, limites e navegação; conexão pendente sem falso vazio. Auth CI adiciona sessões Cine/Pizza Hoje/Agenda, ausência de hóspede/apartamento na timeline, detalhe autorizado e dia consultado vazio. CI37170139071 concluído com PASS, contagens abaixo.
 
 Resultado final Fase10: CI37170139071/c639381de43eb842e955f54242965817794f68b2 PASS: 97 unitários, 40 prévias E2E, 198 pgTAP, 7 HTTP e 14 Auth E2E; checkpoints Agenda/Cine/Pizza/semana, advisors e cleanup PASS.
+
+Fase11 locais:103 unitários/check/build PASS,44 prévias E2E PASS. Contratos: schema/PII/slots/calendário/DST/duplicatas/limites/completude/401/403/falha/timeout/releitura após exclusão. UI quatro viewports: data/navegação/limites/sem zero/sem requests externos/link original. CI pendente; nenhum teste de escrita ou reserva real no legado.

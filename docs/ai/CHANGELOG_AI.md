@@ -95,3 +95,5 @@ Fechamento Fase9: APROVADO TECNICAMENTE pelo revisor independente.
 2026-10-03 — Fase10 CI validado: CI37170139071/c639381de43eb842e955f54242965817794f68b2 PASS: 97 unitários, 40 prévias E2E, 198 pgTAP, 7 HTTP e 14 Auth E2E; checkpoints Agenda/Cine/Pizza/semana, advisors e cleanup PASS. Acesso Facilities começou a ser revisto somente em metadados; grants permanecem administrativos. Renovação adicional de metadados bloqueada pela revisão automática, pergunta de autorização pendente; nenhum dado operacional ou alteração aos legados.
 
 2026-10-03 — Fase10 APROVADO TECNICAMENTE pelo revisor independente após confirmar implementação, CI e documentação. Fase11 permanece apenas auditoria inicial, não aprovada nem habilitada.
+
+2026-10-03 — Fase11: autorização explícita de metadados recebida; consulta renovada sem dados operacionais. Adapter/contrato/telas preparados; factory null por falta de acesso restrito.103 unitários/check/build e44 prévias PASS; CI/revisão pendentes. Nenhuma mudança externa/dependência/migration.

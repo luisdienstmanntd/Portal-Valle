@@ -41,3 +41,5 @@ Cine Toscana: 8 vagas de adultos e 4 puffs de casal, distribuição exclusiva pr
 Proprietário autorizou prosseguir após Pizza. Semana de segunda00:00 até próxima segunda exclusiva em America/Sao_Paulo; cada sessão pertence ao dia em que começa. Projeção de occurrences, sem tabela duplicada de programação. Criar/editar/cancelar usam fluxos próprios. Duplicação para semana vazia copia somente sessões Cine/Pizza ativos, draft/published, como novos rascunhos; sem inscrições/presença.
 
 Fase 10: Hoje/Agenda compartilham timeline somente de sessões Cine/Pizza, seleção diária e estados de fonte explícitos. Sem hóspedes ou contagens de reservas. Prévia sem ENV permanece conexão pendente. CI37170139071 PASS; próximas integrações dependem das auditorias e preservarão os legados.
+
+Fase11 preparada com contratos fictícios e telas Piscina/Academia; acesso restrito ausente, conexão operacional pendente. Consulta autorizada somente de metadados, sem alteração externa.
