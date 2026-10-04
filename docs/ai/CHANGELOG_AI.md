@@ -101,3 +101,5 @@ Fechamento Fase9: APROVADO TECNICAMENTE pelo revisor independente.
 Resultado preparação Fase11: CI37170970533/0630c5374590375e91059f40691f5082e4df9ca9 PASS: 103 unitários, 44 prévias E2E, 198 pgTAP, 7 HTTP e14 Auth E2E; checkpoints/advisors/cleanup PASS. Integração operacional continua pendente; nenhum acesso externo de leitura de reservas foi habilitado.
 
 2026-10-03 — Preparação Fase11 APROVADO TECNICAMENTE pelo revisor após confirmar código, CI37170970533 e fechamento documental. Integração operacional não aprovada/habilitada; endpoint ou identidade SELECT-only ainda necessário.
+
+2026-10-03 — Fase12: contrato/DTO/resumo/telas Osteria preparados; factory null e integração operacional pendente. Link Gestão da Osteria, datas, flags e pessoas preservados sem PII. Conversor civil com segundos/histórico.112 unitários/check/build PASS, CI/revisão pendentes; sem migration/dependência/alteração externa.

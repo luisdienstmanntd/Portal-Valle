@@ -43,3 +43,5 @@ Proprietário autorizou prosseguir após Pizza. Semana de segunda00:00 até pró
 Fase 10: Hoje/Agenda compartilham timeline somente de sessões Cine/Pizza, seleção diária e estados de fonte explícitos. Sem hóspedes ou contagens de reservas. Prévia sem ENV permanece conexão pendente. CI37170139071 PASS; próximas integrações dependem das auditorias e preservarão os legados.
 
 Fase11 preparada com contratos fictícios e telas Piscina/Academia; acesso restrito ausente, conexão operacional pendente. Consulta autorizada somente de metadados, sem alteração externa.
+
+Fase12: preparação Osteria com horários/pessoas/mesas e estados de consulta; tipo e crianças preservam contrato próprio da origem (regra de crianças em observações aplica Cine/Lora/Pizza). Produção null, sem leitura ou alteração externa. Integração operacional pendente.

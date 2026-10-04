@@ -54,9 +54,14 @@ test("anônimo redirecionado, login, reload e logout", async ({ page }) => {
   await expect(page.getByRole("heading", { name: "Hoje", exact: true })).toBeVisible();
   const response = await page.reload();
   expect(response?.headers()["cache-control"]).toContain("no-store");
+  await page.goto("/osteria?dia=2026-12-31");
+  await expect(page.getByRole("heading", { name: "Reservas do dia · 31/12/2026", exact: true })).toBeVisible();
+  await expect(page.getByText("Conexão pendente", { exact: true })).toBeVisible();
+  await expect(page.getByRole("link", { name: "Abrir Gestão da Osteria ↗", exact: true })).toHaveAttribute("href", "https://osteriadilucca.web.app/");
   await page.getByRole("button", { name: "Sair", exact: true }).click();
   await expect(page).toHaveURL(/\/login$/);
   await page.goto("/agenda"); await expect(page).toHaveURL(/\/login$/);
+  await page.goto("/osteria"); await expect(page).toHaveURL(/\/login$/);
 });
 
 test("senha incorreta, perfil inativo e sem vínculo não entram", async ({ page }) => {

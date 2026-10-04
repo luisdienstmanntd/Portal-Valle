@@ -138,3 +138,7 @@ ADR-013 validada: CI37170139071/c639381de43eb842e955f54242965817794f68b2 PASS: 9
 ## ADR-014 — Facilities preparado, sem conexão administrativa
 
 Metadados autorizados continuam sem interface SELECT-only comprovada. Factory null incondicional, sem ENV habilitadora. Port estrito de leitura/DTO sem PII/complete=true e fixtures permitem preparar contrato e telas sem ler dados externos. Não confundir preparação tecnicamente validada com integração operacional concluída.
+
+## ADR-015 — Osteria preparada com tradução mínima, sem conexão ampla
+
+Paxs/chd vêm da origem; regra de observações de crianças do Cine/Pizza não altera Osteria. DTO exclui identidade/financeiro; tipo vem somente de join mínimo. Linhas vazias/bloqueios fora, canceladas distintas sem somar ativos. Horário civil com segundos, mesa textual, nenhuma duração ou disponibilidade inferida. Factory null até SELECT-only e contrato da fonte verificados. Preparação não significa integração operacional concluída.
