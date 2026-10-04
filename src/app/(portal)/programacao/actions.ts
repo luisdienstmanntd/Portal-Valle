@@ -14,6 +14,6 @@ export async function duplicateWeek(_state:{error:string|null},form:FormData):Pr
   const client=await createPortalServerClient();
   const {data,error}=await client.rpc("portal_duplicate_week",{p_request:req.data,p_command:command.data});
   if(error||!data) return {error:({E_EMPTY_WEEK:"Esta semana não tem sessões abertas ou em rascunho para copiar.",E_WEEK_OCCUPIED:"A semana de destino já contém sessões. Escolha outra semana.",E_WEEK_LIMIT:"Esta semana excede o limite de 100 sessões para duplicação."} as Record<string,string>)[error?.message??""]??operationError(error?.message??"")};
-  revalidatePath("/programacao"); revalidatePath("/experiencias/cine-toscana"); revalidatePath("/experiencias/la-vera-pizza");
+  revalidatePath("/hoje");revalidatePath("/agenda");revalidatePath("/programacao"); revalidatePath("/experiencias/cine-toscana"); revalidatePath("/experiencias/la-vera-pizza");
   redirect(`/programacao?semana=${command.data.target_week}&duplicada=1`);
 }

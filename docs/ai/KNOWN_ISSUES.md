@@ -25,3 +25,5 @@ Fase9 validada no CI37168649494: duplicação exige destino sem nenhuma sessão 
 Fase9 CI37168251847/994642e: checks/e2e PASS,196pgTAP/7HTTP e checkpoints semanal/Cine/Pizza PASS; Auth13/14, locator aguardava título repetido na lista antes do redirect. Corrigido para heading level1 sem remover assertions. Cobertura adicional de editar/cancelar cópia e reflexão na semana; faixa1900–2099 em nova migration20261004013531, não editar versão já publicada. Navegação extrema omitida, destino padrão fora da faixa fica vazio; CI da correção37168649494 PASS.
 
 Resultado final Fase9: CI37168649494/509542335c787ad4dde34635aa1b9290d1431dd9 PASS: 89 unit, 36 prévias E2E, 198 pgTAP, 7 HTTP e 14 Auth E2E; checkpoints de duplicação concorrente/criação manual/idempotência/sem inscrições, Cine/Pizza, advisors e cleanup PASS.
+
+Fase 10: prévia sem ENV não comprova ausência de sessões. Timeline inclui somente sessões próprias, sem reservas/ocupação; excesso de100 ou DTO inválido falha integralmente a fonte. Facilities/Osteria ainda não conectadas. Fixture Auth Hoje usa relógio real; virada de dia entre seed e teste pode requerer nova execução. CI/revisão final pendentes.

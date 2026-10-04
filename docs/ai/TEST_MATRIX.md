@@ -45,3 +45,5 @@ Fase9 CI37168251847/994642e: checks/e2e PASS,196pgTAP/7HTTP e checkpoints semana
 
 Resultado final Fase9: CI37168649494/509542335c787ad4dde34635aa1b9290d1431dd9 PASS: 89 unit, 36 prévias E2E, 198 pgTAP, 7 HTTP e 14 Auth E2E; checkpoints de duplicação concorrente/criação manual/idempotência/sem inscrições, Cine/Pizza, advisors e cleanup PASS.
 Fechamento Fase9: APROVADO TECNICAMENTE pelo revisor independente.
+
+Fase 10: 97 unitários PASS (datas/fronteiras DST/1900–2099; estados/ordenamento/deadline/abort/DTO/limites/PII), check/build PASS, 40 prévias E2E PASS nos quatro viewports. Agenda: datas inválidas, limites e navegação; conexão pendente sem falso vazio. Auth CI adiciona sessões Cine/Pizza Hoje/Agenda, ausência de hóspede/apartamento na timeline, detalhe autorizado e dia consultado vazio. CI pendente nesta publicação.

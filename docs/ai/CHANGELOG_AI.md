@@ -89,3 +89,5 @@ Fase9 CI37168251847/994642e: checks/e2e PASS,196pgTAP/7HTTP e checkpoints semana
 
 Resultado final Fase9: CI37168649494/509542335c787ad4dde34635aa1b9290d1431dd9 PASS: 89 unit, 36 prévias E2E, 198 pgTAP, 7 HTTP e 14 Auth E2E; checkpoints de duplicação concorrente/criação manual/idempotência/sem inscrições, Cine/Pizza, advisors e cleanup PASS.
 Fechamento Fase9: APROVADO TECNICAMENTE pelo revisor independente.
+
+2026-10-03 — Fase 10: agenda diária e Hoje com timeline compartilhada, provider próprio somente leitura, estados distintos, timeout/abort, fronteiras civis São Paulo e navegação por data. Revalidação nas operações existentes. Check/build/97 unitários/40 prévias PASS; revisor pré-CI sem bloqueios. Sem migrations, dependências ou alterações em legados. CI pendente.

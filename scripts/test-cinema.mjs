@@ -1,4 +1,5 @@
 import {testWeek} from "./test-week.mjs";
+import {seedDailyAgenda} from "./test-daily-agenda.mjs";
 import {randomUUID} from "node:crypto";
 import {writeFileSync} from "node:fs";
 import assert from "node:assert/strict";
@@ -56,6 +57,7 @@ export async function testCinema(status,users,password) {
   writeFileSync("work/cinema-fixtures.json",JSON.stringify({occurrenceId:ui}));
   await testPizza(manager,reception);
   await testWeek(manager,reception);
+  await seedDailyAgenda(manager,reception);
   await manager.auth.signOut({scope:"local"}); await reception.auth.signOut({scope:"local"});
   console.log("Cine HTTP transactions/concurrency/idempotency/roles/children/versions/cancellation PASS.");
 }

@@ -123,6 +123,19 @@ for (const name of ["recepcao", "gerencia", "admin"]) {
       await expect(page.getByRole('heading',{name:editedTitle,exact:true})).toBeVisible();
       await page.goto('/programacao?semana='+target);
       await expect(page.locator('.week-session').filter({hasText:editedTitle})).toContainText('Cancelada');
+      const daily=JSON.parse(readFileSync('work/daily-agenda-fixtures.json','utf8')) as {date:string;cinema:string;pizza:string};
+      await page.goto('/hoje');
+      await expect(page.locator('.daily-timeline').getByRole('heading',{name:'Agenda fictícia Cine',exact:true})).toBeVisible();
+      await expect(page.locator('.daily-timeline').getByRole('heading',{name:'Agenda fictícia Pizza',exact:true})).toBeVisible();
+      await expect(page.getByText('Pessoa privada fictícia da agenda',{exact:true})).toHaveCount(0);
+      await expect(page.getByText('TEST-AGENDA',{exact:true})).toHaveCount(0);
+      await page.goto('/agenda?dia='+daily.date);
+      await expect(page.locator('.daily-timeline').getByRole('heading',{name:'Agenda fictícia Pizza',exact:true})).toBeVisible();
+      await page.locator('.timeline-entry').filter({hasText:'Agenda fictícia Pizza'}).click();
+      await expect(page).toHaveURL(new RegExp('/experiencias/la-vera-pizza/'+daily.pizza));
+      await expect(page.getByText('Pessoa privada fictícia da agenda · Apto TEST-AGENDA',{exact:true})).toBeVisible();
+      await page.goto('/agenda?dia=2029-05-01');
+      await expect(page.getByRole('heading',{name:'Nenhuma sessão programada neste dia',exact:true})).toBeVisible();
     }
     if (name === "recepcao") {
       const cinema = JSON.parse(readFileSync("work/cinema-fixtures.json", "utf8")) as { occurrenceId: string };

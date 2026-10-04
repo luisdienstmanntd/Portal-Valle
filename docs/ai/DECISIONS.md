@@ -126,3 +126,9 @@ Cine e Pizza usam consultas, formulários e Server Actions compartilhados, com c
 Status: implementada e validada no CI37168649494 PASS. Data:2026-10-03.
 
 Semana começa segunda no fuso do hotel, intervalo semiaberto por starts_at. Eventos noturnos ficam no dia inicial. Duplicação não sobrescreve destino: qualquer sessão, inclusive cancelada, bloqueia; fonte vazia bloqueia. Apenas Cine/Pizza ativos com draft/published são copiados; novos rascunhos/version1/operador atual, sem bookings. Preserve hora local na mudança de offset, rejeite gap impossível. Registro privado guarda IDs do lote para replay determinístico; advisory global antes de locks comuns serializa duplicação e writers de sessões. Baixo volume operacional justifica serialização simples, sem motor universal/recorrência.
+
+## ADR-013 — Agenda como projeção de sessões com estados de fonte
+
+Status: implementada na Fase 10; CI pendente. Data: 2026-10-03.
+
+A agenda inicial usa apenas occurrences próprias Cine/Pizza. DTO exclui hóspedes e contagens; navegação leva ao detalhe autorizado. Fontes desconectadas, falhas e consulta vazia têm estados distintos; desconhecimento nunca vira ausência. allSettled, timeout e abort limitam falha por fonte. Limites civis do hotel suportam meia-noite histórica inexistente; sessões pertencem ao dia inicial. Nenhuma materialização de agenda, integração externa ou nova permissão.
