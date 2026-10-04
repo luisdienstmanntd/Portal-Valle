@@ -123,6 +123,6 @@ Cine e Pizza usam consultas, formulários e Server Actions compartilhados, com c
 
 ## ADR-012 — Semana como projeção e cópias em rascunho
 
-Status: implementada, aguardando CI. Data:2026-10-03.
+Status: implementada e validada no CI37168649494 PASS. Data:2026-10-03.
 
 Semana começa segunda no fuso do hotel, intervalo semiaberto por starts_at. Eventos noturnos ficam no dia inicial. Duplicação não sobrescreve destino: qualquer sessão, inclusive cancelada, bloqueia; fonte vazia bloqueia. Apenas Cine/Pizza ativos com draft/published são copiados; novos rascunhos/version1/operador atual, sem bookings. Preserve hora local na mudança de offset, rejeite gap impossível. Registro privado guarda IDs do lote para replay determinístico; advisory global antes de locks comuns serializa duplicação e writers de sessões. Baixo volume operacional justifica serialização simples, sem motor universal/recorrência.
