@@ -18,11 +18,11 @@ Nenhuma migration, permissão ou tabela nova. Leitura das occurrences e catálog
 
 ## Testes executados
 
-Lint, TypeScript, 97 unitários, build e 40 E2E de prévia em quatro viewports locais. Inspeção visual desktop e prévia 3100 aberta. Testes Auth/banco/HTTP em CI Linux isolado pendentes nesta publicação.
+Lint, TypeScript, 97 unitários, build e 40 E2E de prévia em quatro viewports locais. Inspeção visual desktop e prévia 3100 aberta. Testes Auth/banco/HTTP em CI Linux isolado concluídos.
 
 ## Resultado dos testes
 
-Check/build e 40 prévias PASS. Revisor independente não encontrou bloqueios pré-CI. Aprovação final aguardando CI.
+CI37170139071/c639381de43eb842e955f54242965817794f68b2 PASS: 97 unitários, 40 prévias E2E, 198 pgTAP, 7 HTTP e 14 Auth E2E; checkpoints Agenda/Cine/Pizza/semana, advisors e cleanup PASS. Auth UI comprova sessões em Hoje/Agenda, ausência de hóspede/apartamento na timeline, navegação ao detalhe autorizado e dia vazio após consulta válida. APROVADO TECNICAMENTE pelo revisor independente, que confirmou todos os jobs/logs e documentação final.
 
 ## Riscos encontrados
 
@@ -30,11 +30,11 @@ Sem conexão hospedada, a prévia mostra conexão pendente: isso não confirma d
 
 ## Pendências
 
-CI e aprovação final. Integrações Facilities/Osteria nas próximas fases, respeitando gates de segurança. Lora adiada.
+Sem bloqueio técnico restante da Fase10; APROVADO TECNICAMENTE. Integrações Facilities/Osteria nas próximas fases, respeitando gates de segurança. Lora adiada.
 
 ## Commit
 
-Implementação nesta publicação; hash e CI serão registrados após validação.
+Implementação c639381de43eb842e955f54242965817794f68b2 publicada e validada no CI37170139071. Fechamento documental posterior.
 
 ## Próxima fase
 

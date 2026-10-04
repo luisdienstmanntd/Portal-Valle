@@ -91,3 +91,7 @@ Resultado final Fase9: CI37168649494/509542335c787ad4dde34635aa1b9290d1431dd9 PA
 Fechamento Fase9: APROVADO TECNICAMENTE pelo revisor independente.
 
 2026-10-03 — Fase 10: agenda diária e Hoje com timeline compartilhada, provider próprio somente leitura, estados distintos, timeout/abort, fronteiras civis São Paulo e navegação por data. Revalidação nas operações existentes. Check/build/97 unitários/40 prévias PASS; revisor pré-CI sem bloqueios. Sem migrations, dependências ou alterações em legados. CI pendente.
+
+2026-10-03 — Fase10 CI validado: CI37170139071/c639381de43eb842e955f54242965817794f68b2 PASS: 97 unitários, 40 prévias E2E, 198 pgTAP, 7 HTTP e 14 Auth E2E; checkpoints Agenda/Cine/Pizza/semana, advisors e cleanup PASS. Acesso Facilities começou a ser revisto somente em metadados; grants permanecem administrativos. Renovação adicional de metadados bloqueada pela revisão automática, pergunta de autorização pendente; nenhum dado operacional ou alteração aos legados.
+
+2026-10-03 — Fase10 APROVADO TECNICAMENTE pelo revisor independente após confirmar implementação, CI e documentação. Fase11 permanece apenas auditoria inicial, não aprovada nem habilitada.

@@ -27,3 +27,6 @@ Confirmar dono do dado, referência de projeto/deploy, data source exata e vers�
 
 Contrato tests com fixtures fictícias: formato data/hora, mapeamento, campos nulos, bloqueio/cancelamento, 401/403, timeout, schema incompatível, fonte vazia e falha parcial. Não testar escrita contra produção para demonstrar read-only.
 
+## Reavaliação inicial da Fase11 — 2026-10-03
+
+main Facilities permanece no snapshot eeecd6db4f2a327aafa47759a3e66a2c5a7fc5e0. Consulta somente leitura de table_privileges de public.reservations retornou grants para postgres/service_role com SELECT e escrita (INSERT/UPDATE/DELETE/TRUNCATE); nenhuma credencial SELECT-only foi evidenciada. Não foram lidas reservas/hóspedes, ENV ou segredos. Tentativa adicional de renovar RLS/policies/views foi recusada pela revisão automática: acesso ao banco hospedado sem autorização específica nesta fase. Autorização de metadados solicitada, ainda pendente. Preservar auditoria anterior como evidência datada, não afirmar catálogo completo renovado. Adapter ainda não implementado nem habilitado; próximas tarefas podem preparar contratos com fixtures fictícias sem consultar produção.

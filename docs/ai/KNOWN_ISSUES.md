@@ -26,4 +26,6 @@ Fase9 CI37168251847/994642e: checks/e2e PASS,196pgTAP/7HTTP e checkpoints semana
 
 Resultado final Fase9: CI37168649494/509542335c787ad4dde34635aa1b9290d1431dd9 PASS: 89 unit, 36 prévias E2E, 198 pgTAP, 7 HTTP e 14 Auth E2E; checkpoints de duplicação concorrente/criação manual/idempotência/sem inscrições, Cine/Pizza, advisors e cleanup PASS.
 
-Fase 10: prévia sem ENV não comprova ausência de sessões. Timeline inclui somente sessões próprias, sem reservas/ocupação; excesso de100 ou DTO inválido falha integralmente a fonte. Facilities/Osteria ainda não conectadas. Fixture Auth Hoje usa relógio real; virada de dia entre seed e teste pode requerer nova execução. CI/revisão final pendentes.
+Fase 10: prévia sem ENV não comprova ausência de sessões. Timeline inclui somente sessões próprias, sem reservas/ocupação; excesso de100 ou DTO inválido falha integralmente a fonte. Facilities/Osteria ainda não conectadas. Fixture Auth Hoje usa relógio real; virada de dia entre seed e teste pode requerer nova execução. CI37170139071 PASS; APROVADO TECNICAMENTE.
+
+Fase10 CI concluído: CI37170139071/c639381de43eb842e955f54242965817794f68b2 PASS: 97 unitários, 40 prévias E2E, 198 pgTAP, 7 HTTP e 14 Auth E2E; checkpoints Agenda/Cine/Pizza/semana, advisors e cleanup PASS. Fixture Hoje passou. O risco raro de virada do dia permanece não bloqueante. Fase11: renovação adicional de RLS/views no hospedado recusada pela revisão automática; autorização específica solicitada. Grants já consultados ainda incluem escrita; nenhum acesso restrito comprovado, integração desabilitada.

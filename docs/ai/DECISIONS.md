@@ -129,6 +129,8 @@ Semana começa segunda no fuso do hotel, intervalo semiaberto por starts_at. Eve
 
 ## ADR-013 — Agenda como projeção de sessões com estados de fonte
 
-Status: implementada na Fase 10; CI pendente. Data: 2026-10-03.
+Status: implementada e validada na Fase 10, CI37170139071 PASS. Data: 2026-10-03.
 
 A agenda inicial usa apenas occurrences próprias Cine/Pizza. DTO exclui hóspedes e contagens; navegação leva ao detalhe autorizado. Fontes desconectadas, falhas e consulta vazia têm estados distintos; desconhecimento nunca vira ausência. allSettled, timeout e abort limitam falha por fonte. Limites civis do hotel suportam meia-noite histórica inexistente; sessões pertencem ao dia inicial. Nenhuma materialização de agenda, integração externa ou nova permissão.
+
+ADR-013 validada: CI37170139071/c639381de43eb842e955f54242965817794f68b2 PASS: 97 unitários, 40 prévias E2E, 198 pgTAP, 7 HTTP e 14 Auth E2E; checkpoints Agenda/Cine/Pizza/semana, advisors e cleanup PASS.
