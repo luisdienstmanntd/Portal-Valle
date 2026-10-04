@@ -15,4 +15,3 @@ Versão impede sobrescrita de edição concorrente. Request escopado ao actor, s
 Testes: commands.test.ts (crianças/unidades/fuso/erros), portal_cinema.test.sql (grants/Auth/configuração/idempotência/versões/rollback), test-cinema.mjs (HTTP/última vaga/redução concorrente), login.spec.ts (sessão/reserva/presença/cancelamento/reativação/papéis). Banco/Auth somente CI loopback efêmero. Prévia sem ENV exibe formulários desabilitados, sem simular inscrições.
 
 Pendências: Supabase hospedado, retenção/contas reais e eventual confirmação/alteração da distribuição de puffs.
-

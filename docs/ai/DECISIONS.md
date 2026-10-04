@@ -115,7 +115,7 @@ Consequências: oito rotas reais com estados de preparação, sem dados/contagen
 
 ## ADR-011 — Reutilização de experiências e vagas por adultos
 
-Status: implementada, aguardando validação CI da Fase 8. Data: 2026-10-03.
+Status: implementada e validada na Fase 8 (CI37158542094 PASS). Data: 2026-10-03.
 
 O proprietário confirmou crianças somente em observações para Cine/Lora/Pizza e capacidade inicial 12 para Lora/Pizza. O campo de admissão children_allowed foi removido; children=0 é invariante técnica, não proibição de participação. Capacidade conta adultos. Lora permanece adiada.
 

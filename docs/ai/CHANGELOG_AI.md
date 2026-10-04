@@ -76,4 +76,7 @@ Fase6 adaptada: CI37155203841/db28d2b PASS completo (83unit/28preview/140pgTAP/7
 
 ## 2026-10-03 — Fase 8 La Vera Pizza
 
-Proprietário autorizou prosseguir, adiou Lora e confirmou capacidade inicial 12 adultos para Pizza/Lora; crianças nas observações com idade em Cine/Lora/Pizza. Reutilização de consultas/UI/ações e operações transacionais de Cine/Pizza, RPCs restritas ao catálogo, idempotência por operação e unidades zero em persons. Sem financeiro e sem mutações dos legados. Check/build local PASS, 85 unit e 32 prévias E2E PASS; CI isolado e revisão final pendentes. Prévia na porta 3100 preservada.
+Proprietário autorizou prosseguir, adiou Lora e confirmou capacidade inicial 12 adultos para Pizza/Lora; crianças nas observações com idade em Cine/Lora/Pizza. Reutilização de consultas/UI/ações e operações transacionais de Cine/Pizza, RPCs restritas ao catálogo, idempotência por operação e unidades zero em persons. Sem financeiro e sem mutações dos legados. Check/build local PASS, 85 unit e 32 prévias E2E PASS; CI37158542094 PASS; APROVADO TECNICAMENTE pelo revisor independente. Prévia na porta 3100 preservada.
+
+Resultado Fase 8: CI37158542094/a5fa1caf32be3599d7af5d63ea1db7a28fc647ba PASS: 85 unit, 32 prévias E2E, 169 pgTAP, 7 HTTP, 14 Auth E2E e checkpoints Cine/Pizza de concorrência, idempotência, notas CHD, versões e cancelamento; advisors e cleanup PASS.
+Fechamento da Fase 8: APROVADO TECNICAMENTE pelo revisor independente.

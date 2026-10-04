@@ -74,4 +74,3 @@ Supabase Auth próprio. Política `can(user, permission)` central com matriz exp
 Integrações: servidor → acesso comprovadamente restrito → banco externo. As permissões hoje observadas não satisfazem isso automaticamente. Qualquer novo role/view/RPC no externo depende de autorização específica futura. Até lá, provider desativado e link ao sistema de origem.
 
 Auditoria registra actor, entidade, ação, campos relevantes e horário; não snapshots irrestritos de PII. Logs estruturados com requestId, duração e errorCode. Segredos nunca com NEXT_PUBLIC_. Política de retenção/anonimização precisa de decisão do hotel antes de dados reais.
-
