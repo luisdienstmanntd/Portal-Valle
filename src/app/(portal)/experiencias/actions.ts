@@ -10,7 +10,7 @@ import { getExperienceFlow, type ExperienceFlow } from "@/modules/experiences/do
 export type OperationState={error:string|null};
 function field(form:FormData,name:string) { return String(form.get(name)??""); }
 function number(form:FormData,name:string) { const raw=field(form,name); return raw.trim()===""?NaN:Number(raw); }
-function refresh(slug:string,id:string) { revalidatePath(`/experiencias/${slug}`); revalidatePath(`/experiencias/${slug}/${id}`); }
+function refresh(slug:string,id:string) { revalidatePath("/programacao"); revalidatePath(`/experiencias/${slug}`); revalidatePath(`/experiencias/${slug}/${id}`); }
 export async function saveOccurrence(flow:ExperienceFlow,_state:OperationState,form:FormData):Promise<OperationState> {
   await requirePermission("experiences.manage");
   const config=getExperienceFlow(flow); if(!config) return {error:operationError("E_INPUT")};

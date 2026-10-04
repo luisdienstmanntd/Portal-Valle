@@ -38,3 +38,5 @@ Fase 8: check/build local PASS (85 unit); 32 prévias E2E PASS nos 4 viewports. 
 
 Resultado Fase 8: CI37158542094/a5fa1caf32be3599d7af5d63ea1db7a28fc647ba PASS: 85 unit, 32 prévias E2E, 169 pgTAP, 7 HTTP, 14 Auth E2E e checkpoints Cine/Pizza de concorrência, idempotência, notas CHD, versões e cancelamento; advisors e cleanup PASS.
 Fechamento da Fase 8: APROVADO TECNICAMENTE pelo revisor independente.
+
+Fase9: week.test.ts cobre segunda/domingo/viradaano/fuso/offset histórico/data inválida; check89unit/buildPASS. week-preview.spec.ts cobre 4viewports/navegação/duplicação desabilitada/semoverflow. portal_week.test.sql: grants/permissão/retry/payloaddivergente/novosIDs/draft/version1/responsável/semhóspedes/presençaoriginal/ano/offset/fontevazia/destinoocupado/auditoria. test-week.mjs ligado em testCinema cobre duplicações concorrentes e criador manual, idempotência, sembookings e roles. Authgerência projeta Cine/Pizza, duplica, abre cópia sem reservas. CI pendente.

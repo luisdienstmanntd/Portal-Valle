@@ -120,3 +120,9 @@ Status: implementada e validada na Fase 8 (CI37158542094 PASS). Data: 2026-10-03
 O proprietário confirmou crianças somente em observações para Cine/Lora/Pizza e capacidade inicial 12 para Lora/Pizza. O campo de admissão children_allowed foi removido; children=0 é invariante técnica, não proibição de participação. Capacidade conta adultos. Lora permanece adiada.
 
 Cine e Pizza usam consultas, formulários e Server Actions compartilhados, com configuração fechada cinema/pizza. Helpers privados SECURITY INVOKER são chamados por wrappers SECURITY DEFINER com search_path vazio, grants mínimos e autorização viva. Wrappers restringem categoria e slug; idempotência inclui categoria, slug e tipo de operação antes de qualquer replay. persons exige units=0; Cine calcula ceil(adults/2). Auditoria exclui observações e dados pessoais. Sem motor universal ou financeiro.
+
+## ADR-012 — Semana como projeção e cópias em rascunho
+
+Status: implementada, aguardando CI. Data:2026-10-03.
+
+Semana começa segunda no fuso do hotel, intervalo semiaberto por starts_at. Eventos noturnos ficam no dia inicial. Duplicação não sobrescreve destino: qualquer sessão, inclusive cancelada, bloqueia; fonte vazia bloqueia. Apenas Cine/Pizza ativos com draft/published são copiados; novos rascunhos/version1/operador atual, sem bookings. Preserve hora local na mudança de offset, rejeite gap impossível. Registro privado guarda IDs do lote para replay determinístico; advisory global antes de locks comuns serializa duplicação e writers de sessões. Baixo volume operacional justifica serialização simples, sem motor universal/recorrência.

@@ -11,6 +11,16 @@ export async function loadExperience(flow:ExperienceFlow) {
   if(rows.error) throw new Error("Não foi possível carregar as sessões.");
   return {experience,occurrences:(rows.data??[]).map(toOccurrence)};
 }
+export async function loadWeek(from:string,until:string) {
+  const client=await createPortalServerClient();
+  const catalogs=await client.from("experiences").select("*").in("slug",Object.values(experienceFlows).map(v=>v.slug)).eq("active",true);
+  if(catalogs.error) throw new Error("Não foi possível carregar as experiências.");
+  const experiences=(catalogs.data??[]).map(toExperience);
+  if(!experiences.length) return {experiences,occurrences:[]};
+  const rows=await client.from("experience_occurrences").select("*").in("experience_id",experiences.map(e=>e.id)).gte("starts_at",from).lt("starts_at",until).order("starts_at").order("id").limit(101);
+  if(rows.error||rows.data&&rows.data.length>100) throw new Error("Não foi possível carregar a semana completa. Solicite revisão à gerência.");
+  return {experiences,occurrences:(rows.data??[]).map(toOccurrence)};
+}
 export async function loadExperienceSession(flow:ExperienceFlow,id:string) {
   const client=await createPortalServerClient();
   const row=await client.from("experience_occurrences").select("*").eq("id",id).maybeSingle();

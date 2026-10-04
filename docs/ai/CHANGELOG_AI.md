@@ -80,3 +80,7 @@ Proprietário autorizou prosseguir, adiou Lora e confirmou capacidade inicial 12
 
 Resultado Fase 8: CI37158542094/a5fa1caf32be3599d7af5d63ea1db7a28fc647ba PASS: 85 unit, 32 prévias E2E, 169 pgTAP, 7 HTTP, 14 Auth E2E e checkpoints Cine/Pizza de concorrência, idempotência, notas CHD, versões e cancelamento; advisors e cleanup PASS.
 Fechamento da Fase 8: APROVADO TECNICAMENTE pelo revisor independente.
+
+## 2026-10-03 — Fase 9 Programação semanal
+
+Solicitação: prosseguir após Pizza; avanço automático entre fases já autorizado. Projeção das sessões reais, navegação semanal, gerência pelos fluxos existentes e duplicação para destino vazio. SQL usa mesma serialização de writers e receipts privados do lote. Horários no fuso do hotel; cópias rascunho sem inscrições/presença. Check89unit/buildPASS;E2E/CI/revisão em andamento. Nenhum legado/hospedado alterado.

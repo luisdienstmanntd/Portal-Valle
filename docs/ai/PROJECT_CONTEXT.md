@@ -35,3 +35,7 @@ Auditoria estática dos repositórios e consulta de catálogos PostgreSQL; nenhu
 ## Regras confirmadas em 2026-10-03
 
 Cine Toscana: 8 vagas de adultos e 4 puffs de casal, distribuição exclusiva provisória ceil(adults/2). Pizza e Lora: capacidade inicial de 12 adultos. Crianças entram somente nas observações, com idade (ex.: 2 adultos; CHD 2 anos), sem contagem de vagas. Isso substitui a interpretação anterior de proibição de crianças. Lora segue adiada pelo proprietário. Fase 8 reutiliza o fluxo de experiência para Pizza, sem financeiro.
+
+## Programação semanal — Fase 9
+
+Proprietário autorizou prosseguir após Pizza. Semana de segunda00:00 até próxima segunda exclusiva em America/Sao_Paulo; cada sessão pertence ao dia em que começa. Projeção de occurrences, sem tabela duplicada de programação. Criar/editar/cancelar usam fluxos próprios. Duplicação para semana vazia copia somente sessões Cine/Pizza ativos, draft/published, como novos rascunhos; sem inscrições/presença.

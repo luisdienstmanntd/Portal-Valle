@@ -96,6 +96,19 @@ for (const name of ["recepcao", "gerencia", "admin"]) {
       test.setTimeout(90_000);
       await experienceFlow(page,"cine-toscana","Filme","Filme fictício interface","2 / 4 puffs · 3 / 8 adultos","0 / 4 puffs · 0 / 8 adultos");
       await experienceFlow(page,"la-vera-pizza","Evento","Pizza fictícia interface","3 / 12 adultos","0 / 12 adultos");
+      await page.goto('/programacao?semana=2026-10-05');
+      await expect(page.locator('.week-session').filter({hasText:'Filme fictício interface'}).first()).toBeVisible();
+      await expect(page.locator('.week-session').filter({hasText:'Pizza fictícia interface'}).first()).toBeVisible();
+      const target=test.info().project.name.includes('desktop')?'2027-03-01':'2027-03-08';
+      await page.getByLabel('Segunda-feira da semana de destino').fill(target);
+      await page.getByRole('button',{name:'Duplicar semana',exact:true}).click();
+      await page.getByRole('alertdialog',{name:'Duplicar esta semana?',exact:true}).getByRole('button',{name:'Confirmar duplicação',exact:true}).click();
+      await expect(page).toHaveURL(new RegExp('semana='+target));
+      const copy=page.locator('.week-session').filter({hasText:'Pizza fictícia interface'}).first();
+      await expect(copy).toContainText('Rascunho');
+      await copy.click();
+      await expect(page.getByRole('heading',{name:'0 / 12 adultos',exact:true})).toBeVisible();
+      await expect(page.getByText('Observações: CHD 2 anos',{exact:true})).toHaveCount(0);
     }
     if (name === "recepcao") {
       const cinema = JSON.parse(readFileSync("work/cinema-fixtures.json", "utf8")) as { occurrenceId: string };

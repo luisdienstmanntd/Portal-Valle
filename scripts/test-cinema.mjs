@@ -1,3 +1,4 @@
+import {testWeek} from "./test-week.mjs";
 import {randomUUID} from "node:crypto";
 import {writeFileSync} from "node:fs";
 import assert from "node:assert/strict";
@@ -54,6 +55,7 @@ export async function testCinema(status,users,password) {
   const ui=randomUUID(); assert.equal((await call(manager,"portal_save_occurrence",{...occurrence,id:ui})).error,null);
   writeFileSync("work/cinema-fixtures.json",JSON.stringify({occurrenceId:ui}));
   await testPizza(manager,reception);
+  await testWeek(manager,reception);
   await manager.auth.signOut({scope:"local"}); await reception.auth.signOut({scope:"local"});
   console.log("Cine HTTP transactions/concurrency/idempotency/roles/children/versions/cancellation PASS.");
 }

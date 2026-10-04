@@ -1,0 +1,58 @@
+begin;
+set local search_path=public,extensions;
+select no_plan();
+insert into auth.users(id) values('90000000-0000-4000-8000-000000000001'),('90000000-0000-4000-8000-000000000002');
+insert into auth.sessions(id,user_id) values ('91000000-0000-4000-8000-000000000001','90000000-0000-4000-8000-000000000001'),('91000000-0000-4000-8000-000000000002','90000000-0000-4000-8000-000000000002');
+insert into public.portal_profiles(id,role,active) values('90000000-0000-4000-8000-000000000001','gerencia',true),('90000000-0000-4000-8000-000000000002','recepcao',true);
+insert into public.experience_occurrences(id,experience_id,starts_at,ends_at,location,status,title_override) values
+ ('92000000-0000-4000-8000-000000000001','c8000000-0000-4000-8000-000000000001','2026-12-31 23:00Z','2027-01-01 01:00Z','Local fictício','published','Pizza fictícia semanal'),
+ ('92000000-0000-4000-8000-000000000002','c8000000-0000-4000-8000-000000000001','2026-12-30 23:00Z','2026-12-31 01:00Z','Local fictício','cancelled','Cancelada fictícia'),
+ ('92000000-0000-4000-8000-000000000003','c8000000-0000-4000-8000-000000000001','2018-11-02 02:00Z','2018-11-02 03:00Z','Local fictício','draft','Pizza fictícia DST');
+insert into public.experience_bookings(occurrence_id,apartment_number,guest_name,adults,children,units,notes,status,attendance_status)
+ values('92000000-0000-4000-8000-000000000001','TEST','Pessoa fictícia semanal',2,0,0,'CHD 2 anos','confirmed','present');
+create temporary table week_results(ids uuid[]);
+grant all on week_results to authenticated;
+select ok(not has_function_privilege('anon','public.portal_duplicate_week(uuid,jsonb)','execute'),'Anonymous cannot duplicate');
+select ok(not has_table_privilege('authenticated','private.week_duplication_results','select'),'Batch receipts private');
+select throws_ok($$select public.portal_duplicate_week(gen_random_uuid(),'{"source_week":"2026-12-28","target_week":"2027-01-04"}')$$,'P0001','E_FORBIDDEN','No live identity blocked');
+set local role authenticated;
+select set_config('request.jwt.claims','{"sub":"90000000-0000-4000-8000-000000000002","session_id":"91000000-0000-4000-8000-000000000002"}',true);
+select throws_ok($$select public.portal_duplicate_week(gen_random_uuid(),'{"source_week":"2026-12-28","target_week":"2027-01-04"}')$$,'P0001','E_FORBIDDEN','Reception cannot duplicate');
+select set_config('request.jwt.claims','{"sub":"90000000-0000-4000-8000-000000000001","session_id":"91000000-0000-4000-8000-000000000001"}',true);
+select throws_ok($$select public.portal_duplicate_week(gen_random_uuid(),'{"source_week":"2026-12-29","target_week":"2027-01-04"}')$$,'P0001','E_INPUT','Source requires Monday');
+select throws_ok($$select public.portal_duplicate_week(gen_random_uuid(),'{"source_week":"2026-12-28","target_week":"2026-12-28"}')$$,'P0001','E_INPUT','Same week rejected');
+select throws_ok($$select public.portal_duplicate_week(gen_random_uuid(),'{"source_week":"2026-12-28","target_week":"2027-01-04","bookings":true}')$$,'P0001','E_INPUT','Strict command excludes bookings');
+insert into week_results select public.portal_duplicate_week('94000000-0000-4000-8000-000000000001','{"source_week":"2026-12-28","target_week":"2027-01-04"}');
+select is((select cardinality(ids) from week_results),1,'Cancelled source not copied');
+select is(public.portal_duplicate_week('94000000-0000-4000-8000-000000000001','{"source_week":"2026-12-28","target_week":"2027-01-04"}'),(select ids from week_results),'Retry returns same ordered new IDs');
+select throws_ok($$select public.portal_duplicate_week('94000000-0000-4000-8000-000000000001','{"source_week":"2026-12-28","target_week":"2027-01-11"}')$$,'P0001','E_IDEMPOTENCY','Changed retry rejected');
+select is((select starts_at from public.experience_occurrences where id=(select ids[1] from week_results)),'2027-01-07 23:00Z'::timestamptz,'Local time preserved across year');
+select is((select ends_at from public.experience_occurrences where id=(select ids[1] from week_results)),'2027-01-08 01:00Z'::timestamptz,'Cross-midnight end preserved');
+select is((select status::text from public.experience_occurrences where id=(select ids[1] from week_results)),'draft','Copy requires publication');
+select is((select version from public.experience_occurrences where id=(select ids[1] from week_results)),1,'Copy starts version one');
+select is((select responsible_id from public.experience_occurrences where id=(select ids[1] from week_results)),'90000000-0000-4000-8000-000000000001'::uuid,'Current operator responsible');
+select is((select count(*) from public.experience_bookings where occurrence_id=(select ids[1] from week_results)),0::bigint,'No guests or presence copied');
+select is((select attendance_status::text from public.experience_bookings where occurrence_id='92000000-0000-4000-8000-000000000001'),'present','Source presence preserved');
+select throws_ok($$select public.portal_duplicate_week(gen_random_uuid(),'{"source_week":"2026-12-28","target_week":"2027-01-04"}')$$,'P0001','E_WEEK_OCCUPIED','Second copy refuses occupied target');
+select throws_ok($$select public.portal_duplicate_week(gen_random_uuid(),'{"source_week":"2028-01-03","target_week":"2028-01-10"}')$$,'P0001','E_EMPTY_WEEK','Empty source rejected');
+select lives_ok($$select public.portal_duplicate_week(gen_random_uuid(),'{"source_week":"2018-10-29","target_week":"2018-11-05"}')$$,'Historical offset duplication succeeds');
+select is((select starts_at from public.experience_occurrences where title_override='Pizza fictícia DST' and id<>'92000000-0000-4000-8000-000000000003'),'2018-11-09 01:00Z'::timestamptz,'Local clock preserved when UTC offset changes');
+reset role;
+select set_config('request.jwt.claims','{}',true);
+insert into public.experience_occurrences(experience_id,starts_at,ends_at,location,status,title_override)
+ values('c8000000-0000-4000-8000-000000000001','2027-01-12 23:00Z','2027-01-13 01:00Z','Local fictício','cancelled','Destino cancelado fictício');
+create function pg_temp.reject_week_audit() returns trigger language plpgsql set search_path='' as $$begin raise exception 'E_TEST_AUDIT'; end;$$;
+create trigger reject_week_audit before insert on public.audit_events for each row execute function pg_temp.reject_week_audit();
+set local role authenticated;
+select set_config('request.jwt.claims','{"sub":"90000000-0000-4000-8000-000000000001","session_id":"91000000-0000-4000-8000-000000000001"}',true);
+select throws_ok($$select public.portal_duplicate_week(gen_random_uuid(),'{"source_week":"2026-12-28","target_week":"2027-01-11"}')$$,'P0001','E_WEEK_OCCUPIED','Cancelled destination also blocks duplication');
+select throws_ok($$select public.portal_duplicate_week('94000000-0000-4000-8000-000000000002','{"source_week":"2026-12-28","target_week":"2027-01-18"}')$$,'P0001','E_TEST_AUDIT','Audit failure rolls back batch');
+reset role;
+select set_config('request.jwt.claims','{}',true);
+drop trigger reject_week_audit on public.audit_events;
+select is((select count(*) from public.experience_occurrences where starts_at>='2027-01-18 03:00Z' and starts_at<'2027-01-25 03:00Z'),0::bigint,'Failed audit leaves no clones');
+select is((select count(*) from private.mutation_requests where request_id='94000000-0000-4000-8000-000000000002'),0::bigint,'Failed audit leaves no receipt');
+select is((select count(*) from private.week_duplication_results),2::bigint,'Only successful batches produce receipts');
+select ok(not exists(select 1 from public.audit_events where coalesce(before,'{}') ?| array['guest_name','notes','metadata','title_override'] or coalesce(after,'{}') ?| array['guest_name','notes','metadata','title_override']),'Audit excludes guests, notes and free text');
+select * from finish();
+rollback;

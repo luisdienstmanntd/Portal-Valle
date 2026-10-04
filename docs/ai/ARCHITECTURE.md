@@ -74,3 +74,9 @@ Supabase Auth próprio. Política `can(user, permission)` central com matriz exp
 Integrações: servidor → acesso comprovadamente restrito → banco externo. As permissões hoje observadas não satisfazem isso automaticamente. Qualquer novo role/view/RPC no externo depende de autorização específica futura. Até lá, provider desativado e link ao sistema de origem.
 
 Auditoria registra actor, entidade, ação, campos relevantes e horário; não snapshots irrestritos de PII. Logs estruturados com requestId, duração e errorCode. Segredos nunca com NEXT_PUBLIC_. Política de retenção/anonimização precisa de decisão do hotel antes de dados reais.
+
+## Fase 9 — projeção e duplicação semanal
+
+Domínio week.ts valida data civil/segunda e converte fronteiras no fuso do hotel, com relógio injetado para hoje. loadWeek consulta occurrences por [from,until), limitado a100 (101 detecta excesso, falha sem truncar silenciosamente), sem hóspedes. Programação usa Server Component protegido experiences.read, criação/edição/cancelamento nas mesmas rotas operacionais e revalidação após mutação.
+
+portal_duplicate_week usa weekly_program.manage e begin_mutation; resultado uuid[] em tabela privada com RLS/grants fechados. Um advisory lock comum serializa todos os writers operacionais de occurrences e lotes antes de catálogo/rows, evitando destino vazio observado por duplicações concorrentes ou por criador manual. Bookings continuam seus locks de capacidade sem bloqueio global extra. Clone copia configuração/horários locais, detecta horário inexistente por roundtrip, novos IDs/version1/responsiblecurrent/statusdraft; não consulta/copia bookings. Receipt/auditoria/cópias transacionais.

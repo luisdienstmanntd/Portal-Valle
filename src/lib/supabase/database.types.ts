@@ -29,6 +29,7 @@ export type Database = {
     };
     Views: { [_ in never]: never };
     Functions: {
+      portal_duplicate_week: { Args: { p_request: string; p_command: Record<string,string> }; Returns: string[] };
       portal_save_occurrence: { Args: { p_request: string; p_command: Record<string, string | number> }; Returns: string };
       portal_save_booking: { Args: { p_request: string; p_command: Record<string, string | number> }; Returns: string };
       portal_pizza_save_occurrence: { Args: { p_request: string; p_command: Record<string, string | number> }; Returns: string };
