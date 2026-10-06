@@ -129,3 +129,7 @@ Resultado aviso programação: CI37527250539/a36c41b572c184be4d2ee7c7af47109bd95
 Conceito15 local:142unit/check/build e56 E2E PASS. CI/revisão final pendentes.
 
 Resultado conceito15: CI37529212227/f6e5f5cac43ed7c8beaa5cdf78ad494ee201a256 PASS:142unit/56prévia/198pgTAP/7HTTP/14Auth; build/advisors/checkpoints/cleanup PASS. Revisão final em fechamento; cadastro/vínculos operacionais não habilitados.
+
+2026-10-06: cadastro próprio de estadias com RPC idempotente, RLS, stays.read/manage, auditoria limitada, formulário/lista/detalhe. Vínculos das reservas pendentes.151 testes/check e build local PASS; testes de banco/Auth em CI pendentes.
+
+Revisão do cadastro15: corrigida paginação; incluídos Auth E2E de formulário, HTTP concorrente e pgTAP de rollback.153 unitários PASS. CI de banco pendente.

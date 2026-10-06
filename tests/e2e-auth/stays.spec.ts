@@ -1,0 +1,23 @@
+import { test, expect } from "@playwright/test";
+import { readFileSync } from "node:fs";
+const fixture = JSON.parse(readFileSync("work/auth-fixtures.json", "utf8")) as { password: string; users: Record<string, { email: string }> };
+test("recepção cadastra estadia própria e consulta o período sem associação automática", async ({ page }) => {
+  await page.goto("/login");
+  await page.getByLabel("E-mail", { exact: true }).fill(fixture.users.recepcao.email);
+  await page.getByLabel("Senha", { exact: true }).fill(fixture.password);
+  await page.getByRole("button", { name: "Entrar", exact: true }).click();
+  await expect(page).toHaveURL(/\/hoje$/);
+  await page.goto("/estadias");
+  const form = page.getByRole("form", { name: "Cadastrar estadia", exact: true });
+  await form.getByLabel("Apartamento", { exact: true }).fill("TEST-UI");
+  await form.getByLabel("Entrada", { exact: true }).fill("2026-10-09");
+  await form.getByLabel("Saída", { exact: true }).fill("2026-10-12");
+  await form.getByRole("button", { name: "Cadastrar estadia", exact: true }).click();
+  await expect(page).toHaveURL(/\/estadias\/[a-f0-9-]{36}$/);
+  await expect(page.getByRole("heading", { name: "Apartamento TEST-UI", exact: true })).toBeVisible();
+  await expect(page.getByText("Entrada: 09/10/2026 · Saída: 12/10/2026", { exact: true })).toBeVisible();
+  await expect(page.getByText("O cadastro não associa atividades automaticamente.", { exact: false })).toBeVisible();
+  await page.getByRole("link", { name: "Voltar às estadias" }).click();
+  await expect(page.getByRole("link", { name: "Apartamento TEST-UI · 09/10/2026 a 12/10/2026", exact: true }).first()).toBeVisible();
+  expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
+});

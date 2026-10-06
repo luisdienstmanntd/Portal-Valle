@@ -73,3 +73,7 @@ Resultado aviso programação: CI37527250539/a36c41b572c184be4d2ee7c7af47109bd95
 Conceito15 local:142unit/check/build e56 E2E PASS. CI/revisão final pendentes.
 
 Resultado conceito15: CI37529212227/f6e5f5cac43ed7c8beaa5cdf78ad494ee201a256 PASS:142unit/56prévia/198pgTAP/7HTTP/14Auth; build/advisors/checkpoints/cleanup PASS. Revisão final em fechamento; cadastro/vínculos operacionais não habilitados.
+
+Cadastro15: check151 e build .next-check PASS. Novos pgTAP cobrem RPC/permissões/RLS/datas/idempotência; HTTP concorrente e Auth UI preparados, aguardando CI isolado.
+
+Após revisão:153 unitários PASS; paginação50+1/cursor inválido testados; pgTAP acrescenta rollback de auditoria e isolamento por ator. HTTP concorrente e16 Auth E2E aguardam CI.

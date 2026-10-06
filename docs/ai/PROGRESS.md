@@ -32,4 +32,7 @@ Resultado aviso programação: CI37527250539/a36c41b572c184be4d2ee7c7af47109bd95
 Conceito15 local:142unit/check/build e56 E2E PASS. CI/revisão final pendentes.
 
 Resultado conceito15: CI37529212227/f6e5f5cac43ed7c8beaa5cdf78ad494ee201a256 PASS:142unit/56prévia/198pgTAP/7HTTP/14Auth; build/advisors/checkpoints/cleanup PASS. Revisão final em fechamento; cadastro/vínculos operacionais não habilitados.
-`n2026-10-06: revisor confirmou APROVADO TECNICAMENTE somente ao conceito15. Proprietário autorizou desenvolvimento contínuo sem novas confirmações; dúvidas não urgentes serão documentadas. Nenhuma autorização para alterar legados foi inferida.
+
+2026-10-06: revisor confirmou APROVADO TECNICAMENTE somente ao conceito15. Proprietário autorizou desenvolvimento contínuo sem novas confirmações; dúvidas não urgentes serão documentadas. Nenhuma autorização para alterar legados foi inferida.
+
+Cadastro15: paginação por cursor50+1 evita limite permanente; check153/build PASS. Revisão pré-CI APROVADO TECNICAMENTE após correções de paginação e Auth E2E. Cadastro e leitura próprios; vínculos pendentes.

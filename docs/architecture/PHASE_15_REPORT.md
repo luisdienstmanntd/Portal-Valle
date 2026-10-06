@@ -43,4 +43,5 @@ Concluir operação da estadia em entrega própria antes de depender dela em rel
 ## Validação manual sugerida
 
 Abrir Estadias pelo menu, conferir campos e estado em preparação. Home mantém informativo09–12/10. Não criar hóspedes/atividades de demonstração na prévia.
-`nFechamento conceitual: APROVADO TECNICAMENTE pelo subagente revisor; cadastro operacional será entrega separada. Avanço contínuo autorizado pelo proprietário em 2026-10-06.
+
+Fechamento conceitual: APROVADO TECNICAMENTE pelo subagente revisor; cadastro operacional será entrega separada. Avanço contínuo autorizado pelo proprietário em 2026-10-06.
