@@ -8,7 +8,6 @@ insert into public.portal_stays(id,apartment,arrival_date,departure_date,created
  ('92000000-0000-4000-8000-000000000001','TEST-A','2026-10-09','2026-10-12','90000000-0000-4000-8000-000000000001'),
  ('92000000-0000-4000-8000-000000000002','TEST-B','2026-10-09','2026-10-12','90000000-0000-4000-8000-000000000001'),
  ('92000000-0000-4000-8000-000000000003','TEST-A','2026-11-01','2026-11-03','90000000-0000-4000-8000-000000000001');
--- 2026-10-10 00:30 Sao Paulo is still 10/10 locally (03:30 UTC), proving civil-day comparison.
 insert into public.experience_occurrences(id,experience_id,starts_at,ends_at,location,status)
 values('93000000-0000-4000-8000-000000000001','c1000000-0000-4000-8000-000000000001','2026-10-10T20:00:00-03','2026-10-10T22:00:00-03','Teste','published');
 insert into public.experience_bookings(id,occurrence_id,apartment_number,guest_name,adults,children,units,status) values
@@ -34,5 +33,14 @@ reset role;
 select is((select count(*) from public.audit_events where entity_type='experience_bookings' and after ? 'stay_id'),4::bigint,'Two inserts and both link changes audited with stay_id');
 update public.experience_bookings set stay_id='92000000-0000-4000-8000-000000000001' where id='94000000-0000-4000-8000-000000000001';
 select throws_ok($$delete from public.portal_stays where id='92000000-0000-4000-8000-000000000001'$$,'23503',null,'Linked stay cannot be deleted');
+-- Invariants after linking: the booking is linked to stay 1 here (updated above as postgres).
+select throws_ok($$update public.experience_bookings set apartment_number='TEST-B' where id='94000000-0000-4000-8000-000000000001'$$,'P0001','E_PERIOD','Linked booking cannot change apartment');
+select throws_ok($$update public.experience_occurrences set starts_at='2026-11-20T20:00:00-03',ends_at='2026-11-20T22:00:00-03' where id='93000000-0000-4000-8000-000000000001'$$,'P0001','E_PERIOD','Reschedule outside stay period refused');
+select lives_ok($$update public.experience_occurrences set starts_at='2026-10-11T20:00:00-03',ends_at='2026-10-11T22:00:00-03' where id='93000000-0000-4000-8000-000000000001'$$,'Reschedule inside period allowed');
+update public.experience_bookings set status='cancelled' where id='94000000-0000-4000-8000-000000000001';
+set local role authenticated;
+select set_config('request.jwt.claims','{"sub":"90000000-0000-4000-8000-000000000001","session_id":"91000000-0000-4000-8000-000000000001"}',true);
+select lives_ok($$select public.portal_link_booking_stay(gen_random_uuid(),jsonb_build_object('booking_id','94000000-0000-4000-8000-000000000001','version',(select version from public.experience_bookings where id='94000000-0000-4000-8000-000000000001'),'stay_id',null))$$,'Cancelled booking can be unlinked');
+reset role;
 select * from finish();
 rollback;

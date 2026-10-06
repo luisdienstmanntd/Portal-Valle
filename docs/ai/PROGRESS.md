@@ -38,3 +38,5 @@ Resultado conceito15: CI37529212227/f6e5f5cac43ed7c8beaa5cdf78ad494ee201a256 PAS
 Cadastro15: paginação por cursor50+1 evita limite permanente; check153/build PASS. Revisão pré-CI APROVADO TECNICAMENTE após correções de paginação e Auth E2E. Cadastro e leitura próprios; vínculos pendentes.
 
 2026-10-06 — Vínculo15: migration 20261006230000 remove check stay_id=null, adiciona FK restrict e RPC portal_link_booking_stay (idempotente, versão, auditoria com stay_id, mesmo apartamento e dia civil America/Sao_Paulo dentro do período, vincular/desvincular). Tela /estadias/[id] lista reservas vinculadas e candidatas com confirmação explícita. check156/build PASS locais; pgTAP novo (portal_booking_stay_link) NÃO executado localmente (Docker daemon ausente) — depende da CI. Revisão/CI pendentes.
+
+Vínculo15: revisor pediu invariantes pós-vínculo; corrigido na migration 20261006233000 (triggers, desvínculo de cancelada) e stayId derivado do caminho. check local PASS; pgTAP/CI e nova revisão pendentes.
