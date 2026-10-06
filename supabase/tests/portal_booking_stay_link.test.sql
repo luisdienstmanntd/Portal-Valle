@@ -4,10 +4,6 @@ select no_plan();
 insert into auth.users(id) values('90000000-0000-4000-8000-000000000001');
 insert into auth.sessions(id,user_id) values('91000000-0000-4000-8000-000000000001','90000000-0000-4000-8000-000000000001');
 insert into public.portal_profiles(id,role,active) values('90000000-0000-4000-8000-000000000001','recepcao',true);
-insert into public.portal_stays(id,apartment,arrival_date,departure_date,created_by) values
- ('92000000-0000-4000-8000-000000000001','TEST-A','2026-10-09','2026-10-12','90000000-0000-4000-8000-000000000001'),
- ('92000000-0000-4000-8000-000000000002','TEST-B','2026-10-09','2026-10-12','90000000-0000-4000-8000-000000000001'),
- ('92000000-0000-4000-8000-000000000003','TEST-A','2026-11-01','2026-11-03','90000000-0000-4000-8000-000000000001');
 insert into public.experience_occurrences(id,experience_id,starts_at,ends_at,location,status)
 values('93000000-0000-4000-8000-000000000001','c1000000-0000-4000-8000-000000000001','2026-10-10T20:00:00-03','2026-10-10T22:00:00-03','Teste','published');
 insert into public.experience_bookings(id,occurrence_id,apartment_number,guest_name,adults,children,units,status) values
@@ -17,6 +13,9 @@ select ok(not has_function_privilege('anon','public.portal_link_booking_stay(uui
 select ok(not has_function_privilege('service_role','public.portal_link_booking_stay(uuid,jsonb)','execute'),'No administrative linker');
 set local role authenticated;
 select set_config('request.jwt.claims','{"sub":"90000000-0000-4000-8000-000000000001","session_id":"91000000-0000-4000-8000-000000000001"}',true);
+select public.portal_create_stay('96000000-0000-4000-8000-000000000001','{"id":"92000000-0000-4000-8000-000000000001","apartment":"TEST-A","arrival_date":"2026-10-09","departure_date":"2026-10-12"}');
+select public.portal_create_stay('96000000-0000-4000-8000-000000000002','{"id":"92000000-0000-4000-8000-000000000002","apartment":"TEST-B","arrival_date":"2026-10-09","departure_date":"2026-10-12"}');
+select public.portal_create_stay('96000000-0000-4000-8000-000000000003','{"id":"92000000-0000-4000-8000-000000000003","apartment":"TEST-A","arrival_date":"2026-11-01","departure_date":"2026-11-03"}');
 select throws_ok($$select public.portal_link_booking_stay(gen_random_uuid(),'{"booking_id":"94000000-0000-4000-8000-000000000001","version":1,"stay_id":"92000000-0000-4000-8000-000000000002"}')$$,'P0001','E_PERIOD','Different apartment refused');
 select throws_ok($$select public.portal_link_booking_stay(gen_random_uuid(),'{"booking_id":"94000000-0000-4000-8000-000000000001","version":1,"stay_id":"92000000-0000-4000-8000-000000000003"}')$$,'P0001','E_PERIOD','Session outside period refused');
 select throws_ok($$select public.portal_link_booking_stay(gen_random_uuid(),'{"booking_id":"94000000-0000-4000-8000-000000000002","version":1,"stay_id":"92000000-0000-4000-8000-000000000001"}')$$,'P0001','E_CANCELLED','Cancelled booking refused');

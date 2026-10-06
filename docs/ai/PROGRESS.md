@@ -40,3 +40,5 @@ Cadastro15: paginação por cursor50+1 evita limite permanente; check153/build P
 2026-10-06 — Vínculo15: migration 20261006230000 remove check stay_id=null, adiciona FK restrict e RPC portal_link_booking_stay (idempotente, versão, auditoria com stay_id, mesmo apartamento e dia civil America/Sao_Paulo dentro do período, vincular/desvincular). Tela /estadias/[id] lista reservas vinculadas e candidatas com confirmação explícita. check156/build PASS locais; pgTAP novo (portal_booking_stay_link) NÃO executado localmente (Docker daemon ausente) — depende da CI. Revisão/CI pendentes.
 
 Vínculo15: revisor pediu invariantes pós-vínculo; corrigido na migration 20261006233000 (triggers, desvínculo de cancelada) e stayId derivado do caminho. check local PASS; pgTAP/CI e nova revisão pendentes.
+
+Vínculo15: revisor emitiu APROVADO TECNICAMENTE para d2ea64e (sem execução própria de pgTAP). CI do a555d5f falhou só na fixture do pgTAP novo (estadias inseridas como postgres violam o gatilho de auditoria E_FORBIDDEN); fixture agora cria estadias via portal_create_stay como operador. Aguardando CI.
