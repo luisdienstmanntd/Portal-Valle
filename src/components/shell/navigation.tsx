@@ -11,6 +11,7 @@ const items: { href: string; label: string; icon: IconName; group: string }[] = 
   { href: "/hoje", label: "Hoje", icon: "sun", group: "Dia a dia" },
   { href: "/agenda", label: "Agenda", icon: "calendar", group: "Dia a dia" },
   { href: "/programacao", label: "Programação", icon: "week", group: "Dia a dia" },
+  { href: "/estadias", label: "Estadias", icon: "calendar", group: "Dia a dia" },
   { href: "/experiencias", label: "Experiências", icon: "sparkles", group: "No hotel" },
   { href: "/piscina", label: "Piscina", icon: "pool", group: "No hotel" },
   { href: "/academia", label: "Academia", icon: "gym", group: "No hotel" },

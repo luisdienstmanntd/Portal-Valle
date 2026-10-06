@@ -255,3 +255,7 @@ textarea.field-control { min-height: 100px; resize: vertical; }
 .hotel-program-day li { display: grid; gap: 4px; border-top: 1px solid var(--border, #ded6ce); padding: 12px 0; font-size: 14px; line-height: 1.5; }
 .hotel-program-day li strong { font-size: 13px; }
 @media (max-width: 767px) { .hotel-program { padding: 20px; } .hotel-program-days { grid-template-columns: 1fr; } }
+.stay-fields { border: 0; padding: 0; margin: 24px 0 0; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; }
+.stay-fields legend { margin-bottom: 16px; font-weight: 600; }
+.stay-fields .button { justify-self: start; }
+@media (max-width: 767px) { .stay-fields { grid-template-columns: 1fr; } }

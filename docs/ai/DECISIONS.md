@@ -146,3 +146,7 @@ Paxs/chd vêm da origem; regra de observações de crianças do Cine/Pizza não 
 ## ADR-016 — Hoje agrega resultados, sem habilitar fontes pendentes
 
 Resumo por fonte, sem somar capacidade/ocupação heterogênea. allSettled preserva fontes disponíveis; zero global apenas todas empty. IDs compostos, horários civis e fim Osteria null. Permissões antes de consulta; factories11/12 null. Nenhuma leitura externa/armazenamento de hóspedes para apresentar a Home.
+
+## ADR-017 — Estadia própria e vínculo explícito
+
+Escolha confirmada pelo proprietário: referência UUID Portal, apartamento como atributo e período civil. Coincidência não identifica estadia. Fase15 prepara conceito e agregação, sem mudar stay_id=null ou fontes externas; operação exige persistência/RLS/mutação auditada própria.

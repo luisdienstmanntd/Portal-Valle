@@ -67,3 +67,7 @@ Resultado Fase14: CI37525732273/aa5438f750c742786064b3e6cf4f40c291e3686a PASS:13
 2026-10-06 — Solicitação do proprietário: programação do log no início de Hoje. Informativo Bem-estar09–12/10/2026 confirmado (sexta a segunda), transcrição sem PII, dias expansíveis. Substitui welcome banner; não altera reservas/capacidades nem conecta log. Inserção manual em código; editor recorrente pendente. Check132/build PASS; validação final E2E/CI/revisão em andamento.
 
 Resultado aviso programação: CI37527250539/a36c41b572c184be4d2ee7c7af47109bd952e5a8 PASS:132unit/52prévia/198pgTAP/7HTTP/14Auth, build/advisors/checkpoints/cleanup PASS. Conferência com imagem original pelo autor e revisor; datas09–12/10 confirmadas. Parecer final em fechamento.
+
+2026-10-06 — Fase15 conceitual: proprietário escolheu cadastro próprio com apartamento/entrada/saída e vínculos explícitos. Modelo/GetStayAgenda validados, sem inferência por coincidência, readersprodução inexistentes, nenhum DB alterado. /estadias prepara cadastro, controles desabilitados.142/check/build PASS; E2E/CI/revisão pendentes. Operação cadastral/vínculos ainda pendente.
+
+Conceito15 local:142unit/check/build e56 E2E PASS. CI/revisão final pendentes.
