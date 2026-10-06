@@ -57,3 +57,5 @@ Cadastro15: sem editar/excluir estadias neste recorte; correção de datas e apa
 Limite100 corrigido antes da publicação: lista paginada50+1 por cursor validado, com próxima/primeira página. Excesso legítimo não bloqueia cadastro.
 
 Vínculo15: pgTAP do vínculo não executado localmente (sem Docker); validar na CI. Candidatas listadas por apartamento (ilike) apenas como sugestão; a RPC recusa apartamento/período divergentes. Edição de apartamento/datas da estadia continua pendente; estadia com reservas vinculadas não pode ser excluída (FK restrict). Sem E2E Auth do vínculo ainda.
+
+Vínculo15 revisão: apartamento da reserva e início da sessão vinculadas agora são protegidos por triggers (E_PERIOD); mudar exige desvincular antes. Desvincular reserva cancelada é permitido. Pendentes não bloqueantes: paginação/limite de loadStayBookings, erro por código em vez de query string, caso de fronteira de fuso e perfil inativo no pgTAP. pgTAP segue sem execução local.

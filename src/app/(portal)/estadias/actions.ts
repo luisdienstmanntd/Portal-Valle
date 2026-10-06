@@ -26,7 +26,7 @@ export async function linkBookingToStay(stayPath: string, form: FormData): Promi
   const field = (name: string) => String(form.get(name) ?? "");
   const request = z.uuid().safeParse(field("request"));
   const command = linkBookingStayCommandSchema.safeParse({
-    bookingId: field("bookingId"), version: Number(field("version")), stayId: field("stayId") || null,
+    bookingId: field("bookingId"), version: Number(field("version")), stayId: field("intent") === "unlink" ? null : stayPath,
   });
   const target = z.uuid().safeParse(stayPath);
   if (!request.success || !command.success || !target.success) redirect(`/estadias?erro=${encodeURIComponent(linkOperationError("E_INPUT"))}`);

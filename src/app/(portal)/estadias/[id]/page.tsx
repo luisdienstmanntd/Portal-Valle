@@ -26,7 +26,7 @@ export default async function StayPage({ params, searchParams }: { params: Promi
       {bookings.length === 0 ? <p>Nenhuma reserva vinculada ou candidata.</p> : <ul>{bookings.map(b => <li key={b.id}>
         {b.experience} · {when(b.startsAt)} · {b.status} · {b.linked ? "vinculada" : "candidata"}
         <form action={bind}><input type="hidden" name="request" value={crypto.randomUUID()}/><input type="hidden" name="bookingId" value={b.id}/>
-          <input type="hidden" name="version" value={b.version}/><input type="hidden" name="stayId" value={b.linked ? "" : stay.id}/>
+          <input type="hidden" name="version" value={b.version}/><input type="hidden" name="intent" value={b.linked ? "unlink" : "link"}/>
           <button type="submit" className={buttonClass("secondary")}>{b.linked ? "Desvincular" : "Vincular"}</button></form>
       </li>)}</ul>}
       <Link href="/estadias" className={buttonClass("secondary")}>Voltar às estadias</Link>
