@@ -1,13 +1,13 @@
 # Progresso — Portal Valle
 
-Current phase: Fase14 — Resiliência aprovada; ajuste Home solicitado pelo proprietário.
-Status: Fases13/14 APROVADO TECNICAMENTE, CI PASS; novo ajuste de programação em andamento.
-Completed: Fases 0–5; Cine Fase6 adaptada com requisitos7; Pizza Fase8; Programação semanal Fase9; Agenda diária Fase10.
-In progress: programação recebida pelo sistema interno em destaque no início de Hoje.
-Tests: Fase14 CI37525732273/aa5438f750c742786064b3e6cf4f40c291e3686a PASS:132unit/52prévia/198pgTAP/7HTTP/14Auth/build/advisors/cleanup.
-Next step: validar/revisar programação Home, período09–12/10 confirmado pelo proprietário. Fase15 posterior.
+Current phase: Fases13/14 e ajuste de programação Home aprovados.
+Status: APROVADO TECNICAMENTE, CI PASS; integrações externas operacionais pendentes.
+Completed: Fases0–5; Cine6/7; Pizza8; Programação9; Agenda10; preparações11/12 (operacionais pendentes); Home13; Resiliência14; aviso programação09–12/10.
+In progress: próxima frente Fase15 visão estadia, preservando vínculos explícitos e acesso restrito.
+Tests: aviso programação CI37527250539/a36c41b572c184be4d2ee7c7af47109bd952e5a8 PASS:132unit/52prévia/198pgTAP/7HTTP/14Auth/build/advisors/cleanup.
+Next step: Fase15 visão estadia; avanço automático autorizado. Programação atualmente manual; editor/ingestão recorrente pendentes.
 Blocked by: hospedado adiado por quota; Docker ausente neste Windows. Nenhuma alteração aos legados.
-Last verified implementation commit:aa5438f750c742786064b3e6cf4f40c291e3686a, CI37525732273 PASS.
+Last verified implementation commit:a36c41b572c184be4d2ee7c7af47109bd952e5a8, CI37527250539 PASS.
 Preview: porta3100, build .next-program; PID em work/program-final.pid. Programação09–12/10 em destaque, aba aberta. Não sobrescrever build ativo; usar diretório alternativo para builds futuros.
 Next AI instruction: ler OSTERIA_OPERATIONS/PHASE_12_REPORT e FACILITIES_OPERATIONS; não habilitar factory sem acesso restrito comprovado. Home agrega sessões Cine/Pizza e contratos externos preparados; fontes desconectadas sem contagens. Unknown não equivale a empty. Datas1900–2099 America/Sao_Paulo. Facilities/Osteria permanecem em preparação e exigem gates das auditorias. Lora adiada12adultos; Cine8adultos/4puffs; Pizza12adultos; crianças nas observações.
 
@@ -24,3 +24,5 @@ Resultado Fase13: CI37524673713/49a47225c1db66856ba5ab3ddfd763e57fb51bd9 PASS:11
 Resultado Fase14: CI37525732273/aa5438f750c742786064b3e6cf4f40c291e3686a PASS:132unit/52prévia/198pgTAP/7HTTP/14Auth; build/advisors/checkpoints/cleanup PASS. Revisão final em fechamento.
 
 2026-10-06 — Solicitação do proprietário: programação do log no início de Hoje. Informativo Bem-estar09–12/10/2026 confirmado (sexta a segunda), transcrição sem PII, dias expansíveis. Substitui welcome banner; não altera reservas/capacidades nem conecta log. Inserção manual em código; editor recorrente pendente. Check132/build PASS; validação final E2E/CI/revisão em andamento.
+
+Resultado aviso programação: CI37527250539/a36c41b572c184be4d2ee7c7af47109bd952e5a8 PASS:132unit/52prévia/198pgTAP/7HTTP/14Auth, build/advisors/checkpoints/cleanup PASS. Conferência com imagem original pelo autor e revisor; datas09–12/10 confirmadas. Parecer final em fechamento.
