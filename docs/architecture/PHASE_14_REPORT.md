@@ -18,11 +18,11 @@ Nenhuma alteração de runtime, migration, dependência, factory ou credencial. 
 
 ## Testes executados
 
-Check local: lint/TypeScript/132 unitários PASS (15 novos). Build,52 prévias,198 pgTAP,7 HTTP,14 Auth E2E serão verificados no CI desta publicação. Prévia3100 segue build validado da Fase13, pois esta fase altera somente testes/documentação.
+Check local: lint/TypeScript/132 unitários PASS (15 novos). Build,52 prévias,198 pgTAP,7 HTTP,14 Auth E2E confirmados no CI37525732273. Prévia3100 segue build validado da Fase13, pois esta fase altera somente testes/documentação.
 
 ## Resultado dos testes
 
-132 unitários/check locais PASS; CI e revisão final pendentes.
+CI37525732273/aa5438f750c742786064b3e6cf4f40c291e3686a PASS:132unit/52prévia/198pgTAP/7HTTP/14Auth, build/advisors/checkpoints/cleanup PASS. APROVADO TECNICAMENTE pelo revisor independente.
 
 ## Riscos encontrados
 
@@ -30,11 +30,11 @@ Offline é injetado no contrato de leitura, não no transporte externo ainda ine
 
 ## Pendências
 
-CI/revisão final. Integrações hospedadas e acesso restrito externo continuam pendentes. Tablet físico pendente. Lora adiada.
+APROVADO TECNICAMENTE pelo revisor independente. Integrações hospedadas e acesso restrito externo continuam pendentes. Tablet físico pendente. Lora adiada.
 
 ## Commit
 
-Registrar SHA e execução CI ao final da validação.
+aa5438f750c742786064b3e6cf4f40c291e3686a; CI37525732273 PASS.
 
 ## Próxima fase
 
