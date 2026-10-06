@@ -142,3 +142,7 @@ Metadados autorizados continuam sem interface SELECT-only comprovada. Factory nu
 ## ADR-015 — Osteria preparada com tradução mínima, sem conexão ampla
 
 Paxs/chd vêm da origem; regra de observações de crianças do Cine/Pizza não altera Osteria. DTO exclui identidade/financeiro; tipo vem somente de join mínimo. Linhas vazias/bloqueios fora, canceladas distintas sem somar ativos. Horário civil com segundos, mesa textual, nenhuma duração ou disponibilidade inferida. Factory null até SELECT-only e contrato da fonte verificados. Preparação não significa integração operacional concluída.
+
+## ADR-016 — Hoje agrega resultados, sem habilitar fontes pendentes
+
+Resumo por fonte, sem somar capacidade/ocupação heterogênea. allSettled preserva fontes disponíveis; zero global apenas todas empty. IDs compostos, horários civis e fim Osteria null. Permissões antes de consulta; factories11/12 null. Nenhuma leitura externa/armazenamento de hóspedes para apresentar a Home.

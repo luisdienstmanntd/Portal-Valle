@@ -237,3 +237,8 @@ textarea.field-control { min-height: 100px; resize: vertical; }
   .empty-state { padding: 44px 22px; }
   .workspace-footer { padding: 20px 18px; }
 }
+.home-sources { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; margin-bottom: 32px; }
+.home-source { padding: 24px; }
+.home-source h3 { margin-bottom: 12px; }
+.home-source p { margin: 12px 0; }
+@media (max-width: 767px) { .home-sources { grid-template-columns: 1fr; } }

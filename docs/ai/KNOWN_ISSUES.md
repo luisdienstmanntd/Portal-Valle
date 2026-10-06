@@ -35,3 +35,5 @@ Fase11: autorização adicional de metadados concedida e consulta concluída. RL
 Resultado preparação Fase11: CI37170970533/0630c5374590375e91059f40691f5082e4df9ca9 PASS: 103 unitários, 44 prévias E2E, 198 pgTAP, 7 HTTP e14 Auth E2E; checkpoints/advisors/cleanup PASS. Integração operacional continua pendente; nenhum acesso externo de leitura de reservas foi habilitado.
 
 Fase12: acesso SELECT-only Osteria não comprovado; factory null. Projeção requer join mínimo tipo, completo e validado; schema/live metadata ainda a confirmar em ambiente autorizado. Sem leitura real, pessoas/mesas na prévia ou alterações externas. CI37171940544 PASS; APROVADO TECNICAMENTE (preparação).
+
+Fase13: Home apresenta estado preparado das quatro áreas; Facilities/Osteria continuam unknown, não fontes operacionais. SemENV Portal tambémunknown; não afirmar dia vazio.117unit/check PASS; build/52 prévias E2E PASS; CI/revisão pendentes.

@@ -86,3 +86,5 @@ Fase 10: modules/agenda separa DTO estrito, GetDailyAgenda, provider de experiê
 Facilities: domínio valida slots civis/IDs e DTO sem PII; aplicação readFacilityDay isola deadline/abort e exige resposta completa. Factory server-only null fecha conexão; UI guard facilities.read, estado pendente sem zero e link original. Sem novo banco ou transporte externo. Ver FACILITIES_OPERATIONS.
 
 Osteria: mapper puro valida projeção mínima/flags/join tipo, datas/segundos e IDs; application deadline/abort/complete=true/resumo ativo. Factory null sem transport/ENV. Página guard osteria.read, navegação e link original; sem SDK/JS legado importado. Conversor hotel-time estendido para segundos civis exatos e offsets históricos, preservando minutos. Ver OSTERIA_OPERATIONS.
+
+Home: GetHotelDay concreto compõe aplicações existentes/allSettled; DTO mínimo e ordenação. Guard retornaStaff e página aplica can por fonte antes da carga. SemAuth/externalreadersnull mantém preparação. Cards distinguem desconhecido/falha/vazio; vazio global exige todas consultadasvazias. Ver HOME_TODAY_OPERATIONS.

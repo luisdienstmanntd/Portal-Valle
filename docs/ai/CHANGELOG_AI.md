@@ -105,3 +105,5 @@ Resultado preparação Fase11: CI37170970533/0630c5374590375e91059f40691f5082e4d
 2026-10-03 — Fase12: contrato/DTO/resumo/telas Osteria preparados; factory null e integração operacional pendente. Link Gestão da Osteria, datas, flags e pessoas preservados sem PII. Conversor civil com segundos/histórico.112 unitários/check/build PASS, CI37171940544 PASS; sem migration/dependência/alteração externa.
 
 2026-10-06 — Fechamento preparação Fase12 APROVADO TECNICAMENTE; CI37171940544/0306b8b PASS,112unit/48prévia/198pgTAP/7HTTP/14Auth. Conexão Osteria permanece pendente; avanço Fase13 já autorizado pelo proprietário.
+
+2026-10-06 — Fase13: Home com quatro cards e timeline agregada; allSettled/timeouts/resultados válidos, resumo null para desconhecimento/falha. GuardStaff/can por fonte.117unit/check PASS; build e52 prévias E2E PASS; CI pendente. Sem migrations/dependências/conexões externas novas.

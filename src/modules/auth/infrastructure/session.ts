@@ -26,5 +26,6 @@ export async function requirePermission(permission: Permission): Promise<Staff> 
 
 /** Only preparation pages can remain public while configuration is absent. */
 export async function guardPreparationPage(permission: Permission = "portal.read") {
-  if (authConfigured()) await requirePermission(permission);
+  if (authConfigured()) return requirePermission(permission);
+  return null;
 }
