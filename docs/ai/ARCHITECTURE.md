@@ -88,3 +88,5 @@ Facilities: domínio valida slots civis/IDs e DTO sem PII; aplicação readFacil
 Osteria: mapper puro valida projeção mínima/flags/join tipo, datas/segundos e IDs; application deadline/abort/complete=true/resumo ativo. Factory null sem transport/ENV. Página guard osteria.read, navegação e link original; sem SDK/JS legado importado. Conversor hotel-time estendido para segundos civis exatos e offsets históricos, preservando minutos. Ver OSTERIA_OPERATIONS.
 
 Home: GetHotelDay concreto compõe aplicações existentes/allSettled; DTO mínimo e ordenação. Guard retornaStaff e página aplica can por fonte antes da carga. SemAuth/externalreadersnull mantém preparação. Cards distinguem desconhecido/falha/vazio; vazio global exige todas consultadasvazias. Ver HOME_TODAY_OPERATIONS.
+
+2026-10-06 — Fase14: matriz resiliência9falhas (offline/timeout/schema x Portal/Facilities/Osteria), paralelo, recuperação e resposta tardia. ENV ausente/parcial/chave administrativa testados.132unit/check locais PASS; CI/revisão pendentes. Somente testes/docs, sem falhas induzidas em bancos reais, runtime inalterado.

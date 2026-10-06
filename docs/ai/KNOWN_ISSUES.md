@@ -39,3 +39,5 @@ Fase12: acesso SELECT-only Osteria não comprovado; factory null. Projeção req
 Fase13: Home apresenta estado preparado das quatro áreas; Facilities/Osteria continuam unknown, não fontes operacionais. SemENV Portal tambémunknown; não afirmar dia vazio.117unit/check PASS; build/52 prévias E2E PASS; CI/revisão pendentes.
 
 Resultado Fase13: CI37524673713/49a47225c1db66856ba5ab3ddfd763e57fb51bd9 PASS:117unit/52prévia/198pgTAP/7HTTP/14Auth; advisors/checkpoints/cleanup PASS. Conexões externas seguem pendentes.
+
+2026-10-06 — Fase14: matriz resiliência9falhas (offline/timeout/schema x Portal/Facilities/Osteria), paralelo, recuperação e resposta tardia. ENV ausente/parcial/chave administrativa testados.132unit/check locais PASS; CI/revisão pendentes. Somente testes/docs, sem falhas induzidas em bancos reais, runtime inalterado.

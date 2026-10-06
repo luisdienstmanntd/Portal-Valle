@@ -59,3 +59,5 @@ Fase12:112 unitários/check/build locais PASS; contratos sobre flags/bloqueios/v
 Fase13:117unit/check/lint/TS locais PASS. Testes agregação quatro áreas/IDs/ordem/meia-noite/sem fim Osteria/PII/falhaPortal/timeoutFacilities/schemaOsteria/4unknown/4empty/data inválida. E2E Home quatrocards semfalsozero, links, quatroviewports e Auth timelineexistente a validar no CI. Build e52 prévias E2E PASS; CI pendente.
 
 Resultado Fase13: CI37524673713/49a47225c1db66856ba5ab3ddfd763e57fb51bd9 PASS:117unit/52prévia/198pgTAP/7HTTP/14Auth; advisors/checkpoints/cleanup PASS. Conexões externas seguem pendentes.
+
+2026-10-06 — Fase14: matriz resiliência9falhas (offline/timeout/schema x Portal/Facilities/Osteria), paralelo, recuperação e resposta tardia. ENV ausente/parcial/chave administrativa testados.132unit/check locais PASS; CI/revisão pendentes. Somente testes/docs, sem falhas induzidas em bancos reais, runtime inalterado.

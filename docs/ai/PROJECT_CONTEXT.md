@@ -47,3 +47,5 @@ Fase11 preparada com contratos fictícios e telas Piscina/Academia; acesso restr
 Fase12: preparação Osteria com horários/pessoas/mesas e estados de consulta; tipo e crianças preservam contrato próprio da origem (regra de crianças em observações aplica Cine/Lora/Pizza). Produção null, sem leitura ou alteração externa. Integração operacional pendente.
 
 Fase13: Hoje reúne quatro áreas com estados/contagens válidas e timeline. Externos seguem desconectados; fontes conhecidas podem mostrar atividades sem ocultar pendências. Sem PII/hóspedes na Home.
+
+2026-10-06 — Fase14: matriz resiliência9falhas (offline/timeout/schema x Portal/Facilities/Osteria), paralelo, recuperação e resposta tardia. ENV ausente/parcial/chave administrativa testados.132unit/check locais PASS; CI/revisão pendentes. Somente testes/docs, sem falhas induzidas em bancos reais, runtime inalterado.
