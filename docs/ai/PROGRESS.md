@@ -1,13 +1,13 @@
 # Progresso — Portal Valle
 
-Current phase: Fase15 conceitual em validação; cadastro/vínculos operacionais pendentes.
-Status: Fases13/14/aviso aprovados; conceito15 check/build142 PASS, E2E/CI/revisão pendentes.
+Current phase: Fase15 operacional: cadastro próprio e vínculos explícitos.
+Status: Conceito15 APROVADO TECNICAMENTE; CI37529212227 PASS. Implementação operacional iniciada.
 Completed: Fases0–5; Cine6/7; Pizza8; Programação9; Agenda10; preparações11/12 (operacionais pendentes); Home13; Resiliência14; aviso programação09–12/10.
-In progress: validar/revisar modelo/agregação/página de preparação15.
-Tests: aviso programação CI37527250539/a36c41b572c184be4d2ee7c7af47109bd952e5a8 PASS:132unit/52prévia/198pgTAP/7HTTP/14Auth/build/advisors/cleanup.
+In progress: persistência e cadastro de estadias; depois vínculo explícito das reservas.
+Tests: conceito15 CI37529212227/f6e5f5cac43ed7c8beaa5cdf78ad494ee201a256 PASS:142unit/56prévia/198pgTAP/7HTTP/14Auth/build/advisors/cleanup.
 Next step: fechar conceito15; operação cadastro/vínculos exige persistência própria auditada antes de Fase16. Avanço automático autorizado.
 Blocked by: hospedado adiado por quota; Docker ausente neste Windows. Nenhuma alteração aos legados.
-Last verified implementation commit:a36c41b572c184be4d2ee7c7af47109bd952e5a8, CI37527250539 PASS.
+Last verified implementation commit:f6e5f5cac43ed7c8beaa5cdf78ad494ee201a256, CI37529212227 PASS.
 Preview: porta3100, build .next-verify; PID em work/phase15-preview.pid. Menu Estadias e programação09–12/10 preservada. Não sobrescrever build ativo; usar diretório alternativo para builds futuros.
 Next AI instruction: ler OSTERIA_OPERATIONS/PHASE_12_REPORT e FACILITIES_OPERATIONS; não habilitar factory sem acesso restrito comprovado. Home agrega sessões Cine/Pizza e contratos externos preparados; fontes desconectadas sem contagens. Unknown não equivale a empty. Datas1900–2099 America/Sao_Paulo. Facilities/Osteria permanecem em preparação e exigem gates das auditorias. Lora adiada12adultos; Cine8adultos/4puffs; Pizza12adultos; crianças nas observações.
 
@@ -30,3 +30,6 @@ Resultado aviso programação: CI37527250539/a36c41b572c184be4d2ee7c7af47109bd95
 2026-10-06 — Fase15 conceitual: proprietário escolheu cadastro próprio com apartamento/entrada/saída e vínculos explícitos. Modelo/GetStayAgenda validados, sem inferência por coincidência, readersprodução inexistentes, nenhum DB alterado. /estadias prepara cadastro, controles desabilitados.142/check/build PASS; E2E/CI/revisão pendentes. Operação cadastral/vínculos ainda pendente.
 
 Conceito15 local:142unit/check/build e56 E2E PASS. CI/revisão final pendentes.
+
+Resultado conceito15: CI37529212227/f6e5f5cac43ed7c8beaa5cdf78ad494ee201a256 PASS:142unit/56prévia/198pgTAP/7HTTP/14Auth; build/advisors/checkpoints/cleanup PASS. Revisão final em fechamento; cadastro/vínculos operacionais não habilitados.
+`n2026-10-06: revisor confirmou APROVADO TECNICAMENTE somente ao conceito15. Proprietário autorizou desenvolvimento contínuo sem novas confirmações; dúvidas não urgentes serão documentadas. Nenhuma autorização para alterar legados foi inferida.

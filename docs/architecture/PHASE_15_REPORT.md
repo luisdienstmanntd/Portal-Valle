@@ -22,7 +22,7 @@ Nenhuma migration/tabela/RPC/FK, alteração de RLS/ENV, gravação, reassociaç
 
 ## Resultado dos testes
 
-142/check/build e56 prévias E2E locais PASS; CI e revisão final pendentes.
+CI37529212227/f6e5f5cac43ed7c8beaa5cdf78ad494ee201a256 PASS:142unit/56prévia/198pgTAP/7HTTP/14Auth; build/advisors/checkpoints/cleanup PASS. Revisão final em fechamento, somente conceito.
 
 ## Riscos encontrados
 
@@ -30,11 +30,11 @@ Cadastros/vínculos operacionais ainda não existem. Modelo de teste não é pro
 
 ## Pendências
 
-Validar CI/revisão. Persistência/RLS/RPCs auditados e fluxo de vínculo antes de operar. Fontes externas restritas, hospedado, tablet físico e Lora adiada permanecem pendentes.
+Revisão final em fechamento. Persistência/RLS/RPCs auditados e fluxo de vínculo antes de operar. Fontes externas restritas, hospedado, tablet físico e Lora adiada permanecem pendentes.
 
 ## Commit
 
-Registrar SHA/CI após publicação de validação.
+f6e5f5cac43ed7c8beaa5cdf78ad494ee201a256; CI37529212227 PASS.
 
 ## Próxima fase
 
@@ -43,3 +43,4 @@ Concluir operação da estadia em entrega própria antes de depender dela em rel
 ## Validação manual sugerida
 
 Abrir Estadias pelo menu, conferir campos e estado em preparação. Home mantém informativo09–12/10. Não criar hóspedes/atividades de demonstração na prévia.
+`nFechamento conceitual: APROVADO TECNICAMENTE pelo subagente revisor; cadastro operacional será entrega separada. Avanço contínuo autorizado pelo proprietário em 2026-10-06.

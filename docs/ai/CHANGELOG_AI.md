@@ -127,3 +127,5 @@ Resultado aviso programação: CI37527250539/a36c41b572c184be4d2ee7c7af47109bd95
 2026-10-06 — Fase15 conceitual: proprietário escolheu cadastro próprio com apartamento/entrada/saída e vínculos explícitos. Modelo/GetStayAgenda validados, sem inferência por coincidência, readersprodução inexistentes, nenhum DB alterado. /estadias prepara cadastro, controles desabilitados.142/check/build PASS; E2E/CI/revisão pendentes. Operação cadastral/vínculos ainda pendente.
 
 Conceito15 local:142unit/check/build e56 E2E PASS. CI/revisão final pendentes.
+
+Resultado conceito15: CI37529212227/f6e5f5cac43ed7c8beaa5cdf78ad494ee201a256 PASS:142unit/56prévia/198pgTAP/7HTTP/14Auth; build/advisors/checkpoints/cleanup PASS. Revisão final em fechamento; cadastro/vínculos operacionais não habilitados.
