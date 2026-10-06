@@ -6,11 +6,14 @@ import { requirePortalSupabaseConfig } from "./config";
 import type { Database } from "./database.types";
 
 /** New client per request; only Server Actions may opt into cookie writes. */
-export async function createPortalServerClient(writable = false) {
+export async function createPortalServerClient(writable = false, signal?: AbortSignal) {
   const { url, publishableKey } = requirePortalSupabaseConfig();
   const cookieStore = await cookies();
+  const requestSignal = signal ?? AbortSignal.timeout(5000);
   return createServerClient<Database>(url, publishableKey, {
-    global: { fetch: (input, init) => fetch(input, { ...init, cache: "no-store" }) },
+    db: { retry: false },
+    global: { fetch: (input, init) => fetch(input, { ...init, cache: "no-store",
+      signal: init?.signal ? AbortSignal.any([requestSignal, init.signal]) : requestSignal }) },
     cookies: {
       getAll: () => cookieStore.getAll(),
       setAll(cookiesToSet) {

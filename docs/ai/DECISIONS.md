@@ -146,3 +146,7 @@ Paxs/chd vêm da origem; regra de observações de crianças do Cine/Pizza não 
 ## ADR-016 — Home compõe contratos mínimos existentes
 
 Fase13 usa agenda própria e leitores diários validados em paralelo, sem duplicar transporte/schema nem ampliar DTO da Agenda inicial. Resumos com unidades explícitas e nulidade desconhecida; timeline sem PII. Integrações preparadas permanecem desconectadas. Guard por domínio antes da carga; próxima consultada exclui rascunhos/concluídas/canceladas. Disponibilidade parcial nunca implica dia vazio.
+
+## ADR-017 — Falha de autorização fecha acesso; falha de leitura permite recuperação
+
+Auth/perfil têm deadline e validação estrita; falhas não viram sessão ausente. Proxy preserva cookies/cache privado no redirect público sem loop. Cliente SSR limita também consultas/mutações a5s e desativa repetição automática PostgREST. ENV inválida difere de ausente; páginas protegidas dinâmicas e error boundary sanitizada permitem recuperar sem expor payload. Matriz loopback isolada complementa Auth/RLS real do CI, sem habilitar integrações externas.

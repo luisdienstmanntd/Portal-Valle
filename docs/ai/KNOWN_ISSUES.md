@@ -44,3 +44,5 @@ Fase12: acesso SELECT-only Osteria não comprovado; factory null. Projeção req
 2026-10-06 — Fase13 verificação local: lint/typecheck/118unit/build PASS. Primeira prévia50/52; duas navegações existentes Cine/Academia tablet-landscape ficaram na página anterior. Repetição focal3x:6/6 PASS; suíte completa repetida52/52 PASS, sem alterar assertions nem produto. Causa transitória não reproduzida; CI Linux ainda necessário. Layout Home inspecionado nos quatro viewports, sem overflow.
 
 2026-10-06 — Fase13 APROVADO TECNICAMENTE pelo revisor independente. CI37483659784/68cfb5380efc29e5cd72e688e9ed675ee0a7a60a PASS:118unit/52prévia/198pgTAP/7HTTP/14Auth, checkpoints/advisors/cleanup. Factories null, integração operacional pendente. PR1 branch codex/home-today-phase13 em rascunho, sem merge/deploy. Fase14 não iniciada.
+
+Fase14: deadline5s por verificação/cliente não é SLA HTTP total. Cenários externos permanecem sintéticos, factories null; acesso restrito real e tablet físico pendentes. SDK pode emitir diagnóstico de abort no servidor; UI sanitizada. CI/revisão finais pendentes.

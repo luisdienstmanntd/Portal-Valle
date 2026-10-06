@@ -1,12 +1,16 @@
 import Image from "next/image";
 import Link from "next/link";
-import { redirect } from "next/navigation";
+import { redirect, unstable_rethrow } from "next/navigation";
 import { authConfigured, getStaff } from "@/modules/auth/infrastructure/session";
 import { LoginForm } from "./login-form";
+export const dynamic = "force-dynamic";
 
 export default async function LoginPage() {
   const available = authConfigured();
-  if (available && await getStaff()) redirect("/hoje");
+  let staff;
+  try { staff = available ? await getStaff() : null; }
+  catch (error) { unstable_rethrow(error); redirect("/indisponivel"); }
+  if (staff?.active) redirect("/hoje");
   return <main className="login-page"><section className="login-card" aria-labelledby="login-title">
     <Image src="/brand/logo-valle-dincanto.jpg" alt="Valle D'Incanto" width={1024} height={364} className="login-brand" priority />
     <p className="eyebrow">PORTAL DE EXPERIÊNCIAS</p><h1 id="login-title">Bem-vindo ao Valle.</h1>
