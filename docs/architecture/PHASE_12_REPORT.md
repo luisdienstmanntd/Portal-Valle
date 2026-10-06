@@ -43,3 +43,5 @@ Fase13 Home Hoje com estados de fontes; avanço automático autorizado. Não dec
 ## Validação manual sugerida
 
 Abrir Osteria, escolher dia, avançar/voltar e conferir conexão pendente. Botão Abrir Gestão da Osteria leva ao sistema próprio. Na prévia não há reservas reais, contagens nem queries externas. Comparações operacionais dependem de futuro ambiente com leitura restrita.
+
+2026-10-06 — Fechamento da preparação Fase12: revisão independente APROVADO TECNICAMENTE. CI37171940544 no SHA0306b8b278a0f07c24b7ee0c63171ae5e078b236 confirmado: lint/typecheck/build,112 unitários,48 prévias E2E,198 pgTAP,7 HTTP,14 Auth E2E, checkpoints/advisors/cleanup PASS. Integração operacional permanece pendente; factories null, sem acesso externo. Proprietário autorizou revisar e prosseguir para Fase13.

@@ -18,6 +18,7 @@
     "test:db": "supabase test db --local",
     "test:e2e": "playwright test",
     "test:e2e:auth": "node scripts/test-auth.mjs",
+    "test:resilience": "node scripts/test-resilience.mjs",
     "check": "npm run lint && npm run typecheck && npm run test"
   },
   "dependencies": {

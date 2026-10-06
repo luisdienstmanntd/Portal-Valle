@@ -55,3 +55,14 @@ Fase11 locais:103 unitários/check/build PASS,44 prévias E2E PASS. Contratos: s
 Resultado preparação Fase11: CI37170970533/0630c5374590375e91059f40691f5082e4df9ca9 PASS: 103 unitários, 44 prévias E2E, 198 pgTAP, 7 HTTP e14 Auth E2E; checkpoints/advisors/cleanup PASS. Integração operacional continua pendente; nenhum acesso externo de leitura de reservas foi habilitado.
 
 Fase12:112 unitários/check/build locais PASS; contratos sobre flags/bloqueios/vazios/cancelamento/restauração/roomservice/mesa textual/segundos/horários extras/join ausente/PII/schema/duplicatas/limites/completude/401/403/timeout. Hotel-time minutos/segundos/offset1900/DSTgap PASS. E2E públicos48 PASS; Auth testa recepção/Osteria desconhecida/link/logout/redirecionamento. CI pendente.
+
+2026-10-06 — Fechamento da preparação Fase12: revisão independente APROVADO TECNICAMENTE. CI37171940544 no SHA0306b8b278a0f07c24b7ee0c63171ae5e078b236 confirmado: lint/typecheck/build,112 unitários,48 prévias E2E,198 pgTAP,7 HTTP,14 Auth E2E, checkpoints/advisors/cleanup PASS. Integração operacional permanece pendente; factories null, sem acesso externo. Proprietário autorizou revisar e prosseguir para Fase13.
+
+
+2026-10-06 — Fase13 Home Hoje: readHomeDay compõe quatro fontes paralelas com estados independentes, guards por domínio, cards/timeline/próxima atividade consultada e aviso de visão parcial. Factories continuam null. Check118unit/build PASS;52 prévias em validação, CI/revisão final pendentes. Sem migration, nova dependência, PII ou alteração externa.
+
+2026-10-06 — Fase13 verificação local: lint/typecheck/118unit/build PASS. Primeira prévia50/52; duas navegações existentes Cine/Academia tablet-landscape ficaram na página anterior. Repetição focal3x:6/6 PASS; suíte completa repetida52/52 PASS, sem alterar assertions nem produto. Causa transitória não reproduzida; CI Linux ainda necessário. Layout Home inspecionado nos quatro viewports, sem overflow.
+
+2026-10-06 — Fase13 APROVADO TECNICAMENTE pelo revisor independente. CI37483659784/68cfb5380efc29e5cd72e688e9ed675ee0a7a60a PASS:118unit/52prévia/198pgTAP/7HTTP/14Auth, checkpoints/advisors/cleanup. Factories null, integração operacional pendente. PR1 branch codex/home-today-phase13 em rascunho, sem merge/deploy. Fase14 não iniciada.
+
+Fase14:125 testes unitários;22 cenários de resiliência HTTP desktop/tablet (Auth/perfil offline/schema/timeout, sessão expirada, ENV ausente/parcial/legado, login, Home parcial, página operacional offline/timeout e retry). Serviço local sintético; test:resilience usa build separado, sem dados reais. CI final pendente.
