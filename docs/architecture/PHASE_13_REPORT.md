@@ -18,11 +18,11 @@ Nenhuma migration, tabela, credencial ou permissão nova. Factories Facilities/O
 
 ## Testes executados
 
-Check/lint/TypeScript e117unitários locais PASS. Build e52 prévias E2E locais PASS; CI pendente. Unit cobre quatro estados, ordenação/IDs, meia-noite/segundos, ausência de PII, falha/timeout/schema isolados e data inválida antes de consulta. Fixtures somente fictícias.
+Check/lint/TypeScript e117unitários locais PASS. Build e52 prévias E2E locais PASS; CI37524673713 PASS. Unit cobre quatro estados, ordenação/IDs, meia-noite/segundos, ausência de PII, falha/timeout/schema isolados e data inválida antes de consulta. Fixtures somente fictícias.
 
 ## Resultado dos testes
 
-117 unitários/check/build e52 prévias E2E locais PASS; CI e parecer final pendentes.
+CI37524673713/49a47225c1db66856ba5ab3ddfd763e57fb51bd9 PASS:117 unitários,52 prévias E2E,198 pgTAP,7 HTTP,14 Auth E2E; advisors/checkpoints/cleanup PASS. APROVADO TECNICAMENTE pelo revisor independente.
 
 ## Riscos encontrados
 
@@ -30,11 +30,11 @@ Conexões externas ainda pendentes de acesso restrito; nenhum zero ou disponibil
 
 ## Pendências
 
-Finalizar validação, CI e revisão. Acesso restrito externo, banco hospedado Portal e equipe real pendentes. Lora adiada.
+CI e revisão final concluídos. Acesso restrito externo, banco hospedado Portal e equipe real pendentes. Lora adiada.
 
 ## Commit
 
-Implementação nesta publicação; registrar hash/CI após validação.
+49a47225c1db66856ba5ab3ddfd763e57fb51bd9; CI37524673713 PASS.
 
 ## Próxima fase
 

@@ -107,3 +107,7 @@ Resultado preparação Fase11: CI37170970533/0630c5374590375e91059f40691f5082e4d
 2026-10-06 — Fechamento preparação Fase12 APROVADO TECNICAMENTE; CI37171940544/0306b8b PASS,112unit/48prévia/198pgTAP/7HTTP/14Auth. Conexão Osteria permanece pendente; avanço Fase13 já autorizado pelo proprietário.
 
 2026-10-06 — Fase13: Home com quatro cards e timeline agregada; allSettled/timeouts/resultados válidos, resumo null para desconhecimento/falha. GuardStaff/can por fonte.117unit/check PASS; build e52 prévias E2E PASS; CI pendente. Sem migrations/dependências/conexões externas novas.
+
+Resultado Fase13: CI37524673713/49a47225c1db66856ba5ab3ddfd763e57fb51bd9 PASS:117unit/52prévia/198pgTAP/7HTTP/14Auth; advisors/checkpoints/cleanup PASS. Conexões externas seguem pendentes.
+
+2026-10-06 — Fase13 APROVADO TECNICAMENTE após confirmação independente do CI37524673713. Home concluída; Fase14 autorizada pelo proprietário.

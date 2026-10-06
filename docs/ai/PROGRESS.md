@@ -1,13 +1,13 @@
 # Progresso — Portal Valle
 
-Current phase: Fase13 — Home Hoje em validação.
-Status: preparações11/12 aprovadas; Home implementada, validação local PASS, CI/revisão final pendentes.
+Current phase: Fase13 — Home Hoje aprovada.
+Status: Fase13 APROVADO TECNICAMENTE, CI PASS; conexões externas operacionais pendentes.
 Completed: Fases 0–5; Cine Fase6 adaptada com requisitos7; Pizza Fase8; Programação semanal Fase9; Agenda diária Fase10.
-In progress: concluir validação CI e revisão independente da Home.
+In progress: próxima Fase14 resiliência, autorizada automaticamente.
 Tests: CI37171940544/0306b8b278a0f07c24b7ee0c63171ae5e078b236 PASS:112 unitários,48 prévias E2E,198 pgTAP,7 HTTP e14 Auth E2E; checkpoints/advisors/cleanup PASS.
-Next step: concluir Fase13; avançar Fase14 resiliência com autorização automática já concedida.
+Next step: iniciar Fase14 resiliência com autorização automática já concedida.
 Blocked by: hospedado adiado por quota; Docker ausente neste Windows. Nenhuma alteração aos legados.
-Last verified implementation commit:0306b8b278a0f07c24b7ee0c63171ae5e078b236, CI37171940544 PASS.
+Last verified implementation commit:49a47225c1db66856ba5ab3ddfd763e57fb51bd9, CI37524673713 PASS.
 Preview: porta3100, build .next; PID em work/phase13-preview.pid. Home atualizada e aba aberta. Não sobrescrever build ativo; usar diretório alternativo para builds futuros.
 Next AI instruction: ler OSTERIA_OPERATIONS/PHASE_12_REPORT e FACILITIES_OPERATIONS; não habilitar factory sem acesso restrito comprovado. Home agrega sessões Cine/Pizza e contratos externos preparados; fontes desconectadas sem contagens. Unknown não equivale a empty. Datas1900–2099 America/Sao_Paulo. Facilities/Osteria permanecem em preparação e exigem gates das auditorias. Lora adiada12adultos; Cine8adultos/4puffs; Pizza12adultos; crianças nas observações.
 
@@ -16,3 +16,5 @@ Fase10: CI37170139071/c639381de43eb842e955f54242965817794f68b2 PASS: 97 unitári
 Fase11: proprietário autorizou consulta adicional de metadados; executada com êxito, RLS=true/policies=[]/views=[] para Facilities. Bloqueio de autorização anterior resolvido; acesso SELECT-only continua não comprovado. Adapter/contratos/telas preparados, produção desconectada. 103 unitários/check/build e44 prévias PASS; CI37170970533 PASS, APROVADO TECNICAMENTE (preparação). Prévia3100 final .next, PID work/phase11-preview-final.pid; não sobrescrever build ativo. Ver PHASE_11_REPORT/FACILITIES_OPERATIONS.
 
 Fase13 locais:117 unitários/check/build e52 prévias E2E PASS. Servidor temporário3102 precisou encerramento manual após cenários; comando E2E concluiu exit0. CI/revisão final pendentes.
+
+Resultado Fase13: CI37524673713/49a47225c1db66856ba5ab3ddfd763e57fb51bd9 PASS:117unit/52prévia/198pgTAP/7HTTP/14Auth; advisors/checkpoints/cleanup PASS. Conexões externas seguem pendentes.

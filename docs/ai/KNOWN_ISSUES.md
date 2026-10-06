@@ -37,3 +37,5 @@ Resultado preparação Fase11: CI37170970533/0630c5374590375e91059f40691f5082e4d
 Fase12: acesso SELECT-only Osteria não comprovado; factory null. Projeção requer join mínimo tipo, completo e validado; schema/live metadata ainda a confirmar em ambiente autorizado. Sem leitura real, pessoas/mesas na prévia ou alterações externas. CI37171940544 PASS; APROVADO TECNICAMENTE (preparação).
 
 Fase13: Home apresenta estado preparado das quatro áreas; Facilities/Osteria continuam unknown, não fontes operacionais. SemENV Portal tambémunknown; não afirmar dia vazio.117unit/check PASS; build/52 prévias E2E PASS; CI/revisão pendentes.
+
+Resultado Fase13: CI37524673713/49a47225c1db66856ba5ab3ddfd763e57fb51bd9 PASS:117unit/52prévia/198pgTAP/7HTTP/14Auth; advisors/checkpoints/cleanup PASS. Conexões externas seguem pendentes.

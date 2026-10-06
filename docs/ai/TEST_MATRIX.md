@@ -57,3 +57,5 @@ Resultado preparação Fase11: CI37170970533/0630c5374590375e91059f40691f5082e4d
 Fase12:112 unitários/check/build locais PASS; contratos sobre flags/bloqueios/vazios/cancelamento/restauração/roomservice/mesa textual/segundos/horários extras/join ausente/PII/schema/duplicatas/limites/completude/401/403/timeout. Hotel-time minutos/segundos/offset1900/DSTgap PASS. E2E públicos48 PASS; Auth testa recepção/Osteria desconhecida/link/logout/redirecionamento. CI37171940544 PASS (Fase12).
 
 Fase13:117unit/check/lint/TS locais PASS. Testes agregação quatro áreas/IDs/ordem/meia-noite/sem fim Osteria/PII/falhaPortal/timeoutFacilities/schemaOsteria/4unknown/4empty/data inválida. E2E Home quatrocards semfalsozero, links, quatroviewports e Auth timelineexistente a validar no CI. Build e52 prévias E2E PASS; CI pendente.
+
+Resultado Fase13: CI37524673713/49a47225c1db66856ba5ab3ddfd763e57fb51bd9 PASS:117unit/52prévia/198pgTAP/7HTTP/14Auth; advisors/checkpoints/cleanup PASS. Conexões externas seguem pendentes.
