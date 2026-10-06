@@ -77,3 +77,5 @@ Resultado conceito15: CI37529212227/f6e5f5cac43ed7c8beaa5cdf78ad494ee201a256 PAS
 Cadastro15: check151 e build .next-check PASS. Novos pgTAP cobrem RPC/permissões/RLS/datas/idempotência; HTTP concorrente e Auth UI preparados, aguardando CI isolado.
 
 Após revisão:153 unitários PASS; paginação50+1/cursor inválido testados; pgTAP acrescenta rollback de auditoria e isolamento por ator. HTTP concorrente e16 Auth E2E aguardam CI.
+
+Vínculo15: unit 156 PASS local; build PASS; pgTAP portal_booking_stay_link (período, apartamento, cancelada, versão, idempotência, auditoria, FK) escrito, execução pendente na CI; E2E Auth pendente.

@@ -71,11 +71,14 @@ describe("validação sem framework ou banco", () => {
   it.each([-1, 1.5, NaN, Infinity, 10001])("quantidade inválida %s recusada", adults => {
     expect(bookingSchema.safeParse(booking({ adults })).success).toBe(false);
   });
-  it("recusa grupo vazio, PII excessiva, stay futuro e campos extras", () => {
+  it("recusa grupo vazio, PII excessiva, stay inválido e campos extras", () => {
     for (const value of [booking({ adults: 0, children: 0 }), booking({ guest_name: " " }),
-      booking({ notes: "x".repeat(2001) }), { ...booking(), stay_id: id(9) }, { ...booking(), role: "admin" }]) {
+      booking({ notes: "x".repeat(2001) }), { ...booking(), stay_id: "nao-uuid" }, { ...booking(), role: "admin" }]) {
       expect(bookingSchema.safeParse(value).success).toBe(false);
     }
+  });
+  it("aceita vínculo explícito de estadia por UUID", () => {
+    expect(bookingSchema.safeParse(booking({ stay_id: id(9) })).success).toBe(true);
   });
   it("exige instante com fuso e fim posterior, comparando instantes", () => {
     for (const value of [occurrence({ starts_at: "2026-10-08T18:00:00" }), occurrence({ ends_at: "2026-10-08T20:00:00Z" })]) {

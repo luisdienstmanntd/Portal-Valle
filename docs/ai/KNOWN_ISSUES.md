@@ -55,3 +55,5 @@ Resultado conceito15: CI37529212227/f6e5f5cac43ed7c8beaa5cdf78ad494ee201a256 PAS
 Cadastro15: sem editar/excluir estadias neste recorte; correção de datas e apartamento pendente antes de dados reais. Lista limitada a100, excedente gera falha explícita; paginação pendente. Não impede CI sintético. Reservas permanecem sem vínculo.
 
 Limite100 corrigido antes da publicação: lista paginada50+1 por cursor validado, com próxima/primeira página. Excesso legítimo não bloqueia cadastro.
+
+Vínculo15: pgTAP do vínculo não executado localmente (sem Docker); validar na CI. Candidatas listadas por apartamento (ilike) apenas como sugestão; a RPC recusa apartamento/período divergentes. Edição de apartamento/datas da estadia continua pendente; estadia com reservas vinculadas não pode ser excluída (FK restrict). Sem E2E Auth do vínculo ainda.

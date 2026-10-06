@@ -37,7 +37,7 @@ export const occurrenceSchema = z.object({
 export const bookingSchema = z.object({
   id: z.uuid(),
   version: z.number().int().min(1),
-  occurrence_id: z.uuid(), stay_id: z.null(), apartment_number: shortText(30),
+  occurrence_id: z.uuid(), stay_id: z.uuid().nullable(), apartment_number: shortText(30),
   guest_name: shortText(160), guest_phone: shortText(40).nullable(),
   adults: quantity, children: quantity, units: quantity,
   notes: z.string().max(2000).nullable(), status: bookingStatusSchema,

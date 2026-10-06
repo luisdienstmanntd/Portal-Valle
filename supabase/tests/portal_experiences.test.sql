@@ -41,7 +41,7 @@ select throws_ok($$update public.experiences set default_capacity=null$$,'23514'
 select throws_ok($$update public.experiences set guest_bookable=true$$,'23514',null,'Public booking not enabled prematurely');
 select throws_ok($$update public.experience_bookings set adults=-1$$,'23514',null,'Negative persons refused');
 select throws_ok($$update public.experience_bookings set adults=0,children=0$$,'23514',null,'Empty group refused');
-select throws_ok($$update public.experience_bookings set stay_id=gen_random_uuid()$$,'23514',null,'Stays deferred');
+select throws_ok($$update public.experience_bookings set stay_id=gen_random_uuid()$$,'23503',null,'Unknown stay refused');
 select throws_ok($$update public.experience_occurrences set metadata='{"guest_phone":"test"}'$$,'23514',null,'Metadata allowlist');
 select throws_ok($$delete from public.experiences$$,'23503',null,'No orphan occurrences');
 
