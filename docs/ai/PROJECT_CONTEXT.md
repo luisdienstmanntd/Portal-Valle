@@ -45,3 +45,5 @@ Fase 10: Hoje/Agenda compartilham timeline somente de sessões Cine/Pizza, sele�
 Fase11 preparada com contratos fictícios e telas Piscina/Academia; acesso restrito ausente, conexão operacional pendente. Consulta autorizada somente de metadados, sem alteração externa.
 
 Fase12: preparação Osteria com horários/pessoas/mesas e estados de consulta; tipo e crianças preservam contrato próprio da origem (regra de crianças em observações aplica Cine/Lora/Pizza). Produção null, sem leitura ou alteração externa. Integração operacional pendente.
+
+2026-10-06 — Fase13 APROVADO TECNICAMENTE pelo revisor independente. CI37483659784/68cfb5380efc29e5cd72e688e9ed675ee0a7a60a PASS:118unit/52prévia/198pgTAP/7HTTP/14Auth, checkpoints/advisors/cleanup. Factories null, integração operacional pendente. PR1 branch codex/home-today-phase13 em rascunho, sem merge/deploy. Fase14 não iniciada.

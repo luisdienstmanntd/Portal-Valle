@@ -29,4 +29,4 @@ Revisão de fontes GitHub com commits fixos, catálogos PostgreSQL em transaçõ
 
 ## Continuidade atual
 
-Fases6/8 Cine/Pizza, programação semanal9 e agenda10 concluídas; Lora adiada. Preparação Facilities11 e Osteria12 aprovada tecnicamente, com factories desabilitadas por falta de acesso restrito comprovado. Fase13 Home reúne contratos mínimos e estados independentes, em validação final. Consulte [PROGRESS](docs/ai/PROGRESS.md), [HOME_TODAY_OPERATIONS](docs/architecture/HOME_TODAY_OPERATIONS.md) e [SUPABASE_SETUP](docs/architecture/SUPABASE_SETUP.md). Nenhuma integração externa ou produção foi habilitada.
+Fases6/8 Cine/Pizza, programação semanal9 e agenda10 concluídas; Lora adiada. Preparação Facilities11 e Osteria12 aprovada tecnicamente, com factories desabilitadas por falta de acesso restrito comprovado. Fase13 Home reúne contratos mínimos e estados independentes, aprovada tecnicamente no CI37483659784 (PR1 em rascunho). Consulte [PROGRESS](docs/ai/PROGRESS.md), [HOME_TODAY_OPERATIONS](docs/architecture/HOME_TODAY_OPERATIONS.md) e [SUPABASE_SETUP](docs/architecture/SUPABASE_SETUP.md). Nenhuma integração externa ou produção foi habilitada.
