@@ -142,3 +142,7 @@ Metadados autorizados continuam sem interface SELECT-only comprovada. Factory nu
 ## ADR-015 — Osteria preparada com tradução mínima, sem conexão ampla
 
 Paxs/chd vêm da origem; regra de observações de crianças do Cine/Pizza não altera Osteria. DTO exclui identidade/financeiro; tipo vem somente de join mínimo. Linhas vazias/bloqueios fora, canceladas distintas sem somar ativos. Horário civil com segundos, mesa textual, nenhuma duração ou disponibilidade inferida. Factory null até SELECT-only e contrato da fonte verificados. Preparação não significa integração operacional concluída.
+
+## ADR-016 — Home compõe contratos mínimos existentes
+
+Fase13 usa agenda própria e leitores diários validados em paralelo, sem duplicar transporte/schema nem ampliar DTO da Agenda inicial. Resumos com unidades explícitas e nulidade desconhecida; timeline sem PII. Integrações preparadas permanecem desconectadas. Guard por domínio antes da carga; próxima consultada exclui rascunhos/concluídas/canceladas. Disponibilidade parcial nunca implica dia vazio.

@@ -86,3 +86,5 @@ Fase 10: modules/agenda separa DTO estrito, GetDailyAgenda, provider de experiê
 Facilities: domínio valida slots civis/IDs e DTO sem PII; aplicação readFacilityDay isola deadline/abort e exige resposta completa. Factory server-only null fecha conexão; UI guard facilities.read, estado pendente sem zero e link original. Sem novo banco ou transporte externo. Ver FACILITIES_OPERATIONS.
 
 Osteria: mapper puro valida projeção mínima/flags/join tipo, datas/segundos e IDs; application deadline/abort/complete=true/resumo ativo. Factory null sem transport/ENV. Página guard osteria.read, navegação e link original; sem SDK/JS legado importado. Conversor hotel-time estendido para segundos civis exatos e offsets históricos, preservando minutos. Ver OSTERIA_OPERATIONS.
+
+2026-10-06 — Fase13 Home Hoje: readHomeDay compõe quatro fontes paralelas com estados independentes, guards por domínio, cards/timeline/próxima atividade consultada e aviso de visão parcial. Factories continuam null. Check118unit/build PASS;52 prévias em validação, CI/revisão final pendentes. Sem migration, nova dependência, PII ou alteração externa.

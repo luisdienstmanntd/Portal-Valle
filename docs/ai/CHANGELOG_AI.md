@@ -106,3 +106,5 @@ Resultado preparação Fase11: CI37170970533/0630c5374590375e91059f40691f5082e4d
 
 2026-10-06 — Fechamento da preparação Fase12: revisão independente APROVADO TECNICAMENTE. CI37171940544 no SHA0306b8b278a0f07c24b7ee0c63171ae5e078b236 confirmado: lint/typecheck/build,112 unitários,48 prévias E2E,198 pgTAP,7 HTTP,14 Auth E2E, checkpoints/advisors/cleanup PASS. Integração operacional permanece pendente; factories null, sem acesso externo. Proprietário autorizou revisar e prosseguir para Fase13.
 
+
+2026-10-06 — Fase13 Home Hoje: readHomeDay compõe quatro fontes paralelas com estados independentes, guards por domínio, cards/timeline/próxima atividade consultada e aviso de visão parcial. Factories continuam null. Check118unit/build PASS;52 prévias em validação, CI/revisão final pendentes. Sem migration, nova dependência, PII ou alteração externa.

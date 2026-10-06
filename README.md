@@ -27,6 +27,6 @@ O teste E2E usa Playwright contra um servidor Next em `127.0.0.1:3100`. No Windo
 
 Revisão de fontes GitHub com commits fixos, catálogos PostgreSQL em transações somente leitura, consistência documental e verificação de ausência de credenciais. Não houve scripts npm ou testes de aplicação na Fase 0. A matriz de testes descreve trabalho futuro, não resultados executados.
 
-## Próxima etapa
+## Continuidade atual
 
-Fase5 concluída, validada em CI e aprovada tecnicamente: modelo de experiências/ocorrências/reservas e auditoria, sem UI de operação. Consulte [EXPERIENCE_MODEL](docs/architecture/EXPERIENCE_MODEL.md). Fase6 exige nova autorização. Consulte [SUPABASE_SETUP](docs/architecture/SUPABASE_SETUP.md) para executar os testes de banco.
+Fases6/8 Cine/Pizza, programação semanal9 e agenda10 concluídas; Lora adiada. Preparação Facilities11 e Osteria12 aprovada tecnicamente, com factories desabilitadas por falta de acesso restrito comprovado. Fase13 Home reúne contratos mínimos e estados independentes, em validação final. Consulte [PROGRESS](docs/ai/PROGRESS.md), [HOME_TODAY_OPERATIONS](docs/architecture/HOME_TODAY_OPERATIONS.md) e [SUPABASE_SETUP](docs/architecture/SUPABASE_SETUP.md). Nenhuma integração externa ou produção foi habilitada.

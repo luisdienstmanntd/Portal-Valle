@@ -130,6 +130,9 @@ for (const name of ["recepcao", "gerencia", "admin"]) {
       await expect(page.locator('.week-session').filter({hasText:editedTitle})).toContainText('Cancelada');
       const daily=JSON.parse(readFileSync('work/daily-agenda-fixtures.json','utf8')) as {date:string;cinema:string;pizza:string};
       await page.goto('/hoje');
+      await expect(page.getByRole('region',{name:'Resumo do dia'}).getByText('Conexão pendente',{exact:true})).toHaveCount(3);
+      await expect(page.getByRole('region',{name:'Resumo do dia'}).getByText('Consultado',{exact:true})).toBeVisible();
+      await expect(page.getByRole('status')).toContainText('Visão parcial do dia');
       await expect(page.locator('.daily-timeline').getByRole('heading',{name:'Agenda fictícia Cine',exact:true})).toBeVisible();
       await expect(page.locator('.daily-timeline').getByRole('heading',{name:'Agenda fictícia Pizza',exact:true})).toBeVisible();
       await expect(page.getByText('Pessoa privada fictícia da agenda',{exact:true})).toHaveCount(0);
