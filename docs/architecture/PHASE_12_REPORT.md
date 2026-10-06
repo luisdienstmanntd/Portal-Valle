@@ -18,11 +18,11 @@ Nenhuma migration, credencial ou conexão criada. Nenhum banco/registro Osteria 
 
 ## Testes executados
 
-Lint/TypeScript/112 unitários e build locais PASS.48 E2E públicos em quatro viewports PASS; CI/Auth/banco pendentes. Testes de contrato usam exclusivamente fixtures fictícias.
+Lint/TypeScript/112 unitários e build locais PASS.48 E2E públicos em quatro viewports PASS; CI/Auth/banco PASS. Testes de contrato usam exclusivamente fixtures fictícias.
 
 ## Resultado dos testes
 
-112 unitários/check/build PASS. CI e revisão final pendentes nesta publicação.
+CI37171940544/0306b8b278a0f07c24b7ee0c63171ae5e078b236 PASS:112 unitários,48 prévias E2E,198 pgTAP,7 HTTP e14 Auth E2E; checkpoints/advisors/cleanup PASS. APROVADO TECNICAMENTE pelo revisor para a preparação.
 
 ## Riscos encontrados
 
@@ -30,11 +30,11 @@ Schema/deploy podem divergir do Git; identidade operacional comum permite escrit
 
 ## Pendências
 
-Preparação técnica aguarda CI/revisão. Integração operacional Fase12 pendente de endpoint ou identidade restrita e contrato da origem verificado. Facilities também permanece desconectado. Hosted Portal adiado; Lora adiada.
+Preparação técnica CI PASS; APROVADO TECNICAMENTE (preparação). Integração operacional Fase12 pendente de endpoint ou identidade restrita e contrato da origem verificado. Facilities também permanece desconectado. Hosted Portal adiado; Lora adiada.
 
 ## Commit
 
-Implementação nesta publicação; SHA/CI serão registrados após validação.
+Implementação0306b8b278a0f07c24b7ee0c63171ae5e078b236 publicada e validada no CI37171940544.
 
 ## Próxima fase
 

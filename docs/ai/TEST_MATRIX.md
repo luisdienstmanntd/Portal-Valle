@@ -54,4 +54,4 @@ Fase11 locais:103 unitários/check/build PASS,44 prévias E2E PASS. Contratos: s
 
 Resultado preparação Fase11: CI37170970533/0630c5374590375e91059f40691f5082e4df9ca9 PASS: 103 unitários, 44 prévias E2E, 198 pgTAP, 7 HTTP e14 Auth E2E; checkpoints/advisors/cleanup PASS. Integração operacional continua pendente; nenhum acesso externo de leitura de reservas foi habilitado.
 
-Fase12:112 unitários/check/build locais PASS; contratos sobre flags/bloqueios/vazios/cancelamento/restauração/roomservice/mesa textual/segundos/horários extras/join ausente/PII/schema/duplicatas/limites/completude/401/403/timeout. Hotel-time minutos/segundos/offset1900/DSTgap PASS. E2E públicos48 PASS; Auth testa recepção/Osteria desconhecida/link/logout/redirecionamento. CI pendente.
+Fase12:112 unitários/check/build locais PASS; contratos sobre flags/bloqueios/vazios/cancelamento/restauração/roomservice/mesa textual/segundos/horários extras/join ausente/PII/schema/duplicatas/limites/completude/401/403/timeout. Hotel-time minutos/segundos/offset1900/DSTgap PASS. E2E públicos48 PASS; Auth testa recepção/Osteria desconhecida/link/logout/redirecionamento. CI37171940544 PASS (Fase12).
