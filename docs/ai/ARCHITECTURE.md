@@ -90,3 +90,5 @@ Osteria: mapper puro valida projeção mínima/flags/join tipo, datas/segundos e
 Home: GetHotelDay concreto compõe aplicações existentes/allSettled; DTO mínimo e ordenação. Guard retornaStaff e página aplica can por fonte antes da carga. SemAuth/externalreadersnull mantém preparação. Cards distinguem desconhecido/falha/vazio; vazio global exige todas consultadasvazias. Ver HOME_TODAY_OPERATIONS.
 
 2026-10-06 — Fase14: matriz resiliência9falhas (offline/timeout/schema x Portal/Facilities/Osteria), paralelo, recuperação e resposta tardia. ENV ausente/parcial/chave administrativa testados.132unit/check locais PASS; CI/revisão pendentes. Somente testes/docs, sem falhas induzidas em bancos reais, runtime inalterado.
+
+2026-10-06 — Solicitação do proprietário: programação do log no início de Hoje. Informativo Bem-estar09–12/10/2026 confirmado (sexta a segunda), transcrição sem PII, dias expansíveis. Substitui welcome banner; não altera reservas/capacidades nem conecta log. Inserção manual em código; editor recorrente pendente. Check132/build PASS; validação final E2E/CI/revisão em andamento.

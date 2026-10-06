@@ -5,6 +5,7 @@ node_modules/
 .next/
 .next-check/
 .next-verify/
+.next-program/
 coverage/
 playwright-report/
 test-results/

@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { PageHeading } from "@/components/shell/page-heading";
-import { Card,Button } from "@/components/ui/primitives";
+import { Button } from "@/components/ui/primitives";
 import { Icon } from "@/components/ui/icon";
 import { guardPreparationPage } from "@/modules/auth/infrastructure/session";
 import { hotelToday } from "@/lib/hotel-date";
@@ -8,6 +8,7 @@ import { ExperienceAgendaProvider } from "@/modules/agenda/infrastructure/experi
 import { can } from "@/modules/auth/domain/permissions";
 import { GetHotelDay } from "@/modules/home/application/get-hotel-day";
 import { DayOverview } from "@/modules/home/ui/day-overview";
+import { HotelProgramNotice } from "@/modules/home/ui/hotel-program-notice";
 import { facilitiesReader } from "@/modules/facilities/infrastructure/reader";
 import { osteriaReader } from "@/modules/osteria/infrastructure/reader";
 export const dynamic="force-dynamic";
@@ -19,7 +20,7 @@ export default async function TodayPage() {
     facilities: can(staff,"facilities.read") ? facilitiesReader() : null, osteria: can(staff,"osteria.read") ? osteriaReader() : null, now: () => new Date() });
   return <>
     <PageHeading title="Hoje" description={`Seu dia no Valle · ${date.split("-").reverse().join("/")}`} action={<form action="/hoje"><Button type="submit" variant="secondary">Atualizar dia</Button></form>}/>
-    <Card className="welcome-card"><div><p className="eyebrow">BEM-VINDO AO PORTAL</p><h2>Mais tempo para acolher.</h2><p>A programação e as experiências do hotel, reunidas para o dia a dia da recepção.</p></div><Icon name="sparkles" width={72} height={72} /></Card>
+    <HotelProgramNotice startDate="2026-10-09" today={date}/>
     <DayOverview day={day}/>
     <div className="section-heading"><h2>Explore o Portal</h2><span>Visão geral</span></div>
     <div className="quick-links">

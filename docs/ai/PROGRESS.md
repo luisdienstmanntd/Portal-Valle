@@ -5,10 +5,10 @@ Status: Fases13/14 APROVADO TECNICAMENTE, CI PASS; novo ajuste de programação 
 Completed: Fases 0–5; Cine Fase6 adaptada com requisitos7; Pizza Fase8; Programação semanal Fase9; Agenda diária Fase10.
 In progress: programação recebida pelo sistema interno em destaque no início de Hoje.
 Tests: Fase14 CI37525732273/aa5438f750c742786064b3e6cf4f40c291e3686a PASS:132unit/52prévia/198pgTAP/7HTTP/14Auth/build/advisors/cleanup.
-Next step: concluir ajuste Home; confirmar datas (08/10/2026 é quinta, mensagem começa sexta). Fase15 posterior, avanço automático autorizado.
+Next step: validar/revisar programação Home, período09–12/10 confirmado pelo proprietário. Fase15 posterior.
 Blocked by: hospedado adiado por quota; Docker ausente neste Windows. Nenhuma alteração aos legados.
 Last verified implementation commit:aa5438f750c742786064b3e6cf4f40c291e3686a, CI37525732273 PASS.
-Preview: porta3100, build .next; PID em work/phase13-preview.pid. Home atualizada e aba aberta. Não sobrescrever build ativo; usar diretório alternativo para builds futuros.
+Preview: porta3100, build .next-program; PID em work/program-final.pid. Programação09–12/10 em destaque, aba aberta. Não sobrescrever build ativo; usar diretório alternativo para builds futuros.
 Next AI instruction: ler OSTERIA_OPERATIONS/PHASE_12_REPORT e FACILITIES_OPERATIONS; não habilitar factory sem acesso restrito comprovado. Home agrega sessões Cine/Pizza e contratos externos preparados; fontes desconectadas sem contagens. Unknown não equivale a empty. Datas1900–2099 America/Sao_Paulo. Facilities/Osteria permanecem em preparação e exigem gates das auditorias. Lora adiada12adultos; Cine8adultos/4puffs; Pizza12adultos; crianças nas observações.
 
 Fase10: CI37170139071/c639381de43eb842e955f54242965817794f68b2 PASS: 97 unitários, 40 prévias E2E, 198 pgTAP, 7 HTTP e 14 Auth E2E; checkpoints Agenda/Cine/Pizza/semana, advisors e cleanup PASS. Revisão independente confirmou CI e emitiu APROVADO TECNICAMENTE para Fase10. Fase11 iniciada pela auditoria de acesso somente leitura: snapshot Facilities main permanece eeecd6db4f2a327aafa47759a3e66a2c5a7fc5e0. Consulta aceita de metadados confirmou grants de escrita para postgres/service_role, sem SELECT-only identificado. Verificação adicional RLS/views foi recusada pela revisão automática por falta de autorização específica para hospedado nesta fase; pergunta então pendente, autorizada pelo proprietário no turno seguinte. Sem reservas/hóspedes lidos, sem alterações externas ou adapter habilitado.
@@ -22,3 +22,5 @@ Resultado Fase13: CI37524673713/49a47225c1db66856ba5ab3ddfd763e57fb51bd9 PASS:11
 2026-10-06 — Fase14: matriz resiliência9falhas (offline/timeout/schema x Portal/Facilities/Osteria), paralelo, recuperação e resposta tardia. ENV ausente/parcial/chave administrativa testados.132unit/check locais PASS; CI/revisão pendentes. Somente testes/docs, sem falhas induzidas em bancos reais, runtime inalterado.
 
 Resultado Fase14: CI37525732273/aa5438f750c742786064b3e6cf4f40c291e3686a PASS:132unit/52prévia/198pgTAP/7HTTP/14Auth; build/advisors/checkpoints/cleanup PASS. Revisão final em fechamento.
+
+2026-10-06 — Solicitação do proprietário: programação do log no início de Hoje. Informativo Bem-estar09–12/10/2026 confirmado (sexta a segunda), transcrição sem PII, dias expansíveis. Substitui welcome banner; não altera reservas/capacidades nem conecta log. Inserção manual em código; editor recorrente pendente. Check132/build PASS; validação final E2E/CI/revisão em andamento.
