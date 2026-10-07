@@ -2,7 +2,7 @@ begin;
 set local search_path = public, extensions;
 select no_plan();
 -- Isolate the Phase 5 synthetic fixture from the new fixed Cine catalogue; rollback restores it.
-delete from public.experiences where slug in ('cine-toscana','la-vera-pizza');
+delete from public.experiences where slug in ('cine-toscana','la-vera-pizza','programacao-hotel');
 delete from public.audit_events;
 insert into auth.users(id) values ('50000000-0000-4000-8000-000000000001'),('50000000-0000-4000-8000-000000000002'),('50000000-0000-4000-8000-000000000003');
 insert into auth.sessions(id,user_id) values
