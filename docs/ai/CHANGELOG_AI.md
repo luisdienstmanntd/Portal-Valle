@@ -1,5 +1,7 @@
 # Changelog de trabalho IA
 
+Publicação Vercel07/10: portal-valle-eight.vercel.app em preparação, build/READY/8rotas200 e login iframe dos dois sistemas verificados. Banco/Auth próprios continuam pendentes. Detalhes em ../architecture/VERCEL_DEPLOYMENT.md.
+
 ## 2026-10-07 — Portal da Recepção
 
 - Hoje reúne programação publicada do dia e da semana, com acesso às vagas e inscrições.
@@ -7,8 +9,10 @@
 - Recepção e gerência organizam Cine, Pizza e atividades livres. Pizza: padrão de 20 pessoas, adultos e crianças; excedente exige justificativa registrada com o responsável.
 - Documentação vigente e ADR-020/021 atualizados; roteiro anterior arquivado.
 - Validação local: lint, TypeScript, 134 unitários, build e 60 E2E em quatro tamanhos PASS. Todas as migrations aplicadas em PostgreSQL isolado; capacidade, exceções, auditoria, idempotência, cancelamento, cópia da semana e perfil inativo PASS. CI37683235074/923f13e PASS:209pgTAP,7HTTP,14AuthUI,concorrência,advisors ecleanup.
-- Banco/Auth próprios hospedados continuam pendentes. Esta entrega não altera os sistemas externos nem publica em produção.
+- Banco/Auth próprios hospedados continuam pendentes. Os sistemas externos não foram alterados; a publicação inicial em preparação está descrita em VERCEL_DEPLOYMENT.md.
 ## 2026-10-03 — Cine operacional em validação
+
+
 
 - Fase6 reordenada pelo proprietário: Cine primeiro, Lora adiada. Somente adultos8pessoas/4puffs; puffs exclusivos provisoriamente.
 - UI sessão/filme/local/inscrição/presença/notas, bookings.manage e RPCs locks/idempotência/versões/auditoria; SQL bloqueia crianças/unidades falsas. Hosted desconectado.
