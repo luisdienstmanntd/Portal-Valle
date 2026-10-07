@@ -1,5 +1,7 @@
 # Validação vigente — 07/10/2026
 
+Publicação Vercel07/10: portal-valle-eight.vercel.app em preparação, build/READY/8rotas200 e login iframe dos dois sistemas verificados. Banco/Auth próprios continuam pendentes. Detalhes em ../architecture/VERCEL_DEPLOYMENT.md.
+
 - npm run check: lint, TypeScript e 134 testes unitários PASS.
 - Build de produção separado (.next-verify): PASS.
 - Playwright público: 60 testes PASS em desktop, tablet retrato/paisagem e celular. Inclui abertura/fechamento incorporado, links atuais, navegação, teclado e ausência de overflow.
@@ -9,6 +11,8 @@
 
 ## Matriz histórica
 # Matriz de testes planejados
+
+
 
 **Fase 0:** sem produto executável. Nenhum teste de código abaixo foi implementado ou executado. As verificações desta fase foram inspeção de fontes, catálogos PostgreSQL com transações `READ ONLY`, estrutura documental e ausência de credenciais no material criado.
 

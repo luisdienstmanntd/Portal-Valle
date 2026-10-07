@@ -1,5 +1,7 @@
 # Pendências vigentes — reformulação07/10/2026
 
+Publicação Vercel07/10: portal-valle-eight.vercel.app em preparação, build/READY/8rotas200 e login iframe dos dois sistemas verificados. Banco/Auth próprios continuam pendentes. Detalhes em ../architecture/VERCEL_DEPLOYMENT.md.
+
 - Supabase/Auth próprios hospedados ainda não provisionados; prévia sem ENV não aceita cadastro/inscrições. Migration nova só versionada e validada em banco local isolado após testes.
 - Login/reserva real em iframe não testado; alternativa em nova aba. HEAD200sem bloqueio não comprova cookies/autenticação.
 - Observações históricas CHD não podem ser convertidas automaticamente em quantidade de crianças. Revisar antes de usar Pizza com dados anteriores.
@@ -11,6 +13,8 @@
 ## Histórico anterior — consultar requisitos atuais antes de agir
 
 # Pendências e riscos conhecidos
+
+
 
 Atualizado na Fase 8. O Portal ainda não está em produção.
 
