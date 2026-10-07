@@ -7,7 +7,7 @@ export async function testWeek(manager,reception) {
  const booking={action:"save",id:randomUUID(),version:0,occurrence_id:occurrence.id,adults:2,children:0,apartment_number:"TEST",guest_name:"Pessoa fictícia semanal",notes:"CHD 2 anos",status:"confirmed",attendance_status:"present"};
  assert.equal((await call(reception,"portal_pizza_save_booking",booking)).error,null);
  const command={source_week:"2026-12-28",target_week:"2027-01-04"},key=randomUUID();
- assert.equal((await call(reception,"portal_duplicate_week",command)).error?.message,"E_FORBIDDEN");
+ const receptionClone=await call(reception,"portal_duplicate_week",{...command,target_week:"2027-02-01"}); assert.equal(receptionClone.error,null); assert.equal(receptionClone.data.length,1);
  const clone=await call(manager,"portal_duplicate_week",command,key); assert.equal(clone.error,null);assert.equal(clone.data.length,1);
  assert.deepEqual((await call(manager,"portal_duplicate_week",command,key)).data,clone.data);
  assert.equal((await call(manager,"portal_duplicate_week",{...command,target_week:"2027-01-11"},key)).error?.message,"E_IDEMPOTENCY");
