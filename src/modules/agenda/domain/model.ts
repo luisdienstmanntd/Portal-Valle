@@ -4,7 +4,7 @@ export const agendaEntrySchema=z.object({
  title:z.string().trim().min(1).max(160),experience:z.string().trim().min(1).max(160),
  start:z.iso.datetime({offset:true}),end:z.iso.datetime({offset:true}),location:z.string().trim().min(1).max(160),
  status:z.enum(["draft","published","cancelled","completed"]),
- href:z.string().max(300).regex(/^\/experiencias\/(cine-toscana|la-vera-pizza)\/[a-f0-9-]{36}$/),
+ href:z.string().max(300).regex(/^\/experiencias\/(cine-toscana|la-vera-pizza|programacao-hotel)\/[a-f0-9-]{36}$/),
 }).strict().refine(v=>Date.parse(v.end)>Date.parse(v.start));
 export type AgendaEntry=z.infer<typeof agendaEntrySchema> & {source:string};
 export type AgendaProvider={id:string;label:string;configured:boolean;getEntries(range:{date:string;from:string;until:string},signal:AbortSignal):Promise<unknown>};

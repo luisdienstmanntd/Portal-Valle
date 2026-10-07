@@ -13,7 +13,8 @@ test("o menu acessa as oito áreas e indica a página atual", async ({ page }) =
   for (const [href, title] of routes) {
     if (mobile) await page.getByRole("button", { name: "Abrir menu de navegação" }).click();
     const navigation = page.getByRole("navigation", { name: "Navegação principal" });
-    const link = navigation.getByRole("link", { name: title, exact: true });
+    const menuName = href === "/experiencias" ? "Cine, Pizza e atividades" : title;
+    const link = navigation.getByRole("link", { name: menuName, exact: true });
     await link.click();
     await expect(page).toHaveURL(new RegExp(`${href}$`));
     await expect(page.getByRole("heading", { level: 1, name: title, exact: true })).toBeVisible();
@@ -21,7 +22,7 @@ test("o menu acessa as oito áreas e indica a página atual", async ({ page }) =
       await expect(page.getByRole("dialog", { name: "Portal Valle" })).not.toBeVisible();
       await page.getByRole("button", { name: "Abrir menu de navegação" }).click();
     }
-    await expect(navigation.getByRole("link", { name: title, exact: true })).toHaveAttribute("aria-current", "page");
+    await expect(navigation.getByRole("link", { name: menuName, exact: true })).toHaveAttribute("aria-current", "page");
     if (mobile) await page.keyboard.press("Escape");
   }
 });

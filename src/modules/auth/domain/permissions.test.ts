@@ -5,7 +5,7 @@ describe("RBAC central", () => {
   for (const role of roles) {
     for (const permission of permissions) {
       it(`${role}: ${permission}`, () => {
-        const expected = role === "admin" || (permission !== "settings.manage" && (role === "gerencia" || !["experiences.manage", "weekly_program.manage", "reports.read"].includes(permission)));
+        const expected = role === "admin" || (permission !== "settings.manage" && (role === "gerencia" || !["reports.read"].includes(permission)));
         expect(can({ id: "synthetic", role, active: true }, permission)).toBe(expected);
         expect(can({ id: "synthetic", role, active: false }, permission)).toBe(false);
         expect(can(null, permission)).toBe(false);

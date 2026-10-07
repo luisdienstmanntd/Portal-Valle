@@ -1,32 +1,22 @@
-# Valle D'Incanto — Portal de Experiências
+# Portal Valle — Portal da Recepção
 
-Nome curto: **Portal Valle**. Terceiro produto independente para a recepção do Hotel Valle D'Incanto, Gramado/RS.
+Um só local para acompanhar o dia do hotel e trabalhar com reservas.
 
-## Estado atual
+- Hoje: programação do dia e semana, atalhos para reservas.
+- Programação: recepção/gerência cadastra e publica atividades com vagas e inscrições; a Home lê a mesma fonte.
+- Cine/Pizza: sessões e inscrições próprias. Pizza20pessoas incluindo crianças; exceções justificadas e auditadas.
+- Piscina/Academia e Osteria: sistemas atuais incorporados, com alternativa em nova aba.
 
-Fases 0–5 concluídas e publicadas. A Fase 3 foi validada em CI com Supabase independente efêmero, migrations/RLS, clientes e testes de banco. Homologação hospedada adiada pelo proprietário devido ao limite gratuito; nenhum banco existente será usado. Auth/RBAC individual foi validado em CI isolado. A prévia não possui ENV ou contas reais; ainda não há integração externa ou deploy.
+Requisitos: [MASTER_REQUEST](docs/ai/MASTER_REQUEST.md). Continuidade: [PROGRESS](docs/ai/PROGRESS.md). Arquitetura: [ARCHITECTURE](docs/ai/ARCHITECTURE.md).
 
-- Repositório: https://github.com/luisdienstmanntd/Portal-Valle
-- Produção desejada, ainda não provisionada: https://portalvalle.vercel.app
-- Relatórios: [Fase 0](docs/architecture/PHASE_0_REPORT.md), [Fase 1](docs/architecture/PHASE_1_REPORT.md), [Fase 2](docs/architecture/PHASE_2_REPORT.md) e [Fase 3](docs/architecture/PHASE_3_REPORT.md).
-- Continuidade: [PROGRESS](docs/ai/PROGRESS.md) e [AGENTS](AGENTS.md).
+## Desenvolvimento
 
-## Limites permanentes
+Node24, npm ci, npm run dev. / redireciona para /hoje. npm run check valida lint/TypeScript/unitários; npm run build compila. Playwright usa127.0.0.1:3100. PORTAL_NEXT_DIST_DIR=.next-verify mantém build de verificação separado da prévia.
 
-Piscina/Academia e Osteria continuam donos dos seus dados e independentes do Portal. As primeiras integrações serão exclusivamente de leitura, no servidor, com acesso restrito ainda a definir. Nenhum código desses sistemas deve ser importado em runtime.
+Sem ENV, interface própria é prévia e cadastro/inscrições permanecem desabilitados. Supabase/Auth hospedados exclusivos do Portal ainda pendentes; não reutilizar bancos dos sistemas atuais. Migration nova está versionada, não aplicada em produção.
 
-Os repositórios `luisdienstmanntd/Reservas-Piscina-Academia` e `luisdienstmanntd/Gerenciador-de-Reservas`, seus bancos, domínios, credenciais e deploys não podem ser alterados sem autorização específica.
+Sistemas atuais: https://agendamentosvalledincanto.vercel.app/recepcao e https://osteriadilucca.web.app/. Login/cookies de origem podem exigir nova aba. Abrir uma tela não permite ao Portal obter suas reservas ou afirmar disponibilidade automaticamente.
 
-## Desenvolvimento local
+Programação fixa09–12/10 anterior preservada como referência histórica; a programação vigente passa a ser cadastrada pela equipe após conectar o banco próprio.
 
-Use Node 24 (`.nvmrc`), `npm ci` e `npm run dev`. Para verificar: `npm run check`, `npm run build`, `npx playwright install chromium` e `npm run test:e2e` depois do build. `/` redireciona para `/hoje`. As rotas mostram a estrutura visual e estados de preparação; a operação será implementada nas próximas fases. Consulte [DESIGN_SYSTEM](docs/architecture/DESIGN_SYSTEM.md) para os componentes e fontes locais.
-
-O teste E2E usa Playwright contra um servidor Next em `127.0.0.1:3100`. No Windows, o Playwright pode ficar preso ao encerrar automaticamente o servidor; iniciar `npm run start -- --hostname 127.0.0.1 --port 3100` separadamente antes do E2E permite o teste terminar normalmente.
-
-## Verificação da descoberta
-
-Revisão de fontes GitHub com commits fixos, catálogos PostgreSQL em transações somente leitura, consistência documental e verificação de ausência de credenciais. Não houve scripts npm ou testes de aplicação na Fase 0. A matriz de testes descreve trabalho futuro, não resultados executados.
-
-## Próxima etapa
-
-Fase5 concluída, validada em CI e aprovada tecnicamente: modelo de experiências/ocorrências/reservas e auditoria, sem UI de operação. Consulte [EXPERIENCE_MODEL](docs/architecture/EXPERIENCE_MODEL.md). Fase6 exige nova autorização. Consulte [SUPABASE_SETUP](docs/architecture/SUPABASE_SETUP.md) para executar os testes de banco.
+Sem mudanças nos sistemas atuais, credenciais, bancos ou deploys. Estadias, PMS, relatórios, portal do hóspede e roadmap antigo fora do escopo vigente.

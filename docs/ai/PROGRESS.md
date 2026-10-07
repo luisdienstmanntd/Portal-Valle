@@ -1,3 +1,17 @@
+# Progresso vigente —07/10/2026
+
+Current phase: reformulação do Portal da Recepção (ADR-020/021).
+Status: implementação local; verificações e revisão em andamento.
+Completed: decisões confirmadas; telas incorporadas; Home/programação na mesma fonte; atividade livre; permissões recepção/gerência; Pizza20incluindo crianças e exceções justificadas; documentação vigente substituída.
+In progress: validação SQL/local/E2E e revisão independente.
+Next step: concluir verificações; banco/Auth próprios hospedados dependem de ambiente exclusivo disponível. Não retomar fases do roteiro histórico.
+Blocked by: operação compartilhada hospedada sem banco/Auth próprios provisionados. Telas de login reais abrem em iframe; autenticação/reservas precisam da validação da equipe.
+Last verified implementation commit:565d2a1 (base remota); mudanças atuais ainda não commitadas.
+Tests status: check134unit, build e60E2E PASS local. PostgreSQL isolado: migrations e regras operacionais PASS. pgTAP/Auth/HTTP completos aguardam CI.
+Next AI instruction: seguir MASTER_REQUEST/ADR-020/021. Sistemas incorporados inicialmente; não criar views/RPC/bancos externos, novas fases, estadias ou relatórios por iniciativa própria.
+
+## Histórico anterior — não é roteiro vigente
+
 # Progresso — Portal Valle
 
 Current phase: Fase15 CANCELADA pelo proprietário (aba Estadias fora do Portal); estado funcional equivalente à Fase14 + aviso de programação.

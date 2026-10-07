@@ -14,14 +14,14 @@ insert into pizza_commands values
  ('occurrence','{"action":"save","id":"82000000-0000-4000-8000-000000000001","version":0,"experience_id":"c8000000-0000-4000-8000-000000000001","title":"Evento fictício SQL","location":"Local fictício SQL","starts_at":"2026-10-10T22:00:00Z","ends_at":"2026-10-11T00:00:00Z","capacity":12,"person_limit":12,"status":"published"}'),
  ('booking','{"action":"save","id":"83000000-0000-4000-8000-000000000001","version":0,"occurrence_id":"82000000-0000-4000-8000-000000000001","adults":2,"children":0,"apartment_number":"TEST","guest_name":"Pessoa fictícia PizzaSQL","notes":"CHD 2 anos","status":"reserved","attendance_status":"pending"}');
 select ok(not exists(select 1 from information_schema.columns where table_schema='public' and table_name='experiences' and column_name='children_allowed'),'No misleading child admission flag');
-select is((select default_capacity from public.experiences where slug='la-vera-pizza'),12,'Pizza adult capacity supplied by owner');
+select is((select default_capacity from public.experiences where slug='la-vera-pizza'),20,'Pizza total capacity supplied by owner');
 select is((select count(*) from public.experiences where category='wine'),0::bigint,'Lora remains deferred');
 select ok(not has_function_privilege('anon','public.portal_pizza_save_booking(uuid,jsonb)','execute'),'Anon cannot write Pizza');
 select ok(not has_function_privilege('authenticated','private.save_booking(uuid,jsonb,public.experience_category,text)','execute'),'Shared helper not callable by client');
 select throws_ok($$select public.portal_pizza_save_occurrence(gen_random_uuid(),(select command from pizza_commands where kind='occurrence'))$$,'P0001','E_FORBIDDEN','Auth missing rejects Pizza operation');
 set local role authenticated;
 select set_config('request.jwt.claims','{"sub":"80000000-0000-4000-8000-000000000002","session_id":"81000000-0000-4000-8000-000000000002"}',true);
-select throws_ok($$select public.portal_pizza_save_occurrence(gen_random_uuid(),(select command from pizza_commands where kind='occurrence'))$$,'P0001','E_FORBIDDEN','Reception cannot create Pizza session');
+select ok(private.has_permission('experiences.manage'),'Reception can create Pizza sessions');
 select set_config('request.jwt.claims','{"sub":"80000000-0000-4000-8000-000000000001","session_id":"81000000-0000-4000-8000-000000000001"}',true);
 select lives_ok($$select public.portal_pizza_save_occurrence('84000000-0000-4000-8000-000000000001',(select command from pizza_commands where kind='occurrence'))$$,'Manager creates Pizza event');
 select throws_ok($$select public.portal_pizza_save_occurrence(gen_random_uuid(),(select command||'{"id":"82000000-0000-4000-8000-000000000002","experience_id":"c8000000-0000-4000-8000-000000000002"}'::jsonb from pizza_commands where kind='occurrence'))$$,'P0001','E_CONFIGURATION','Pizza wrapper cannot create a different gastronomy catalogue session');
@@ -36,8 +36,8 @@ select is((select children from public.experience_bookings where id='83000000-00
 select is((select notes from public.experience_bookings where id='83000000-0000-4000-8000-000000000001'),'CHD 2 anos','Child age retained only in notes');
 select is((select units from public.experience_bookings where id='83000000-0000-4000-8000-000000000001'),0,'Pizza has no puffs allocation');
 select throws_ok($$select public.portal_save_booking('84000000-0000-4000-8000-000000000002',(select command from pizza_commands where kind='booking'))$$,'P0001','E_IDEMPOTENCY','Booking receipt scoped to operation/domain');
-select throws_ok($$select public.portal_pizza_save_booking(gen_random_uuid(),(select command||'{"version":1,"children":1}'::jsonb from pizza_commands where kind='booking'))$$,'P0001','E_INPUT','Children must use notes, never structured count');
-select lives_ok($$select public.portal_pizza_save_booking(gen_random_uuid(),(select command||'{"version":1,"adults":12}'::jsonb from pizza_commands where kind='booking'))$$,'Twelve adult places fit');
+select lives_ok($$select public.portal_pizza_save_booking(gen_random_uuid(),(select command||'{"version":1,"children":1}'::jsonb from pizza_commands where kind='booking'))$$,'Pizza counts children explicitly');
+select lives_ok($$select public.portal_pizza_save_booking(gen_random_uuid(),(select command||'{"version":2,"adults":12,"children":0}'::jsonb from pizza_commands where kind='booking'))$$,'Twelve adult places fit');
 select throws_ok($$select public.portal_pizza_save_booking(gen_random_uuid(),(select command||'{"id":"83000000-0000-4000-8000-000000000002","adults":1}'::jsonb from pizza_commands where kind='booking'))$$,'P0001','E_CAPACITY','Thirteenth adult refused');
 select set_config('request.jwt.claims','{"sub":"80000000-0000-4000-8000-000000000001","session_id":"81000000-0000-4000-8000-000000000001"}',true);
 select throws_ok($$select public.portal_pizza_save_occurrence(gen_random_uuid(),(select command||'{"version":1,"capacity":11}'::jsonb from pizza_commands where kind='occurrence'))$$,'P0001','E_CAPACITY','Cannot reduce below adult occupancy');

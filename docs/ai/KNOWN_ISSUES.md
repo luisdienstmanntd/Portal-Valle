@@ -1,3 +1,15 @@
+# Pendências vigentes — reformulação07/10/2026
+
+- Supabase/Auth próprios hospedados ainda não provisionados; prévia sem ENV não aceita cadastro/inscrições. Migration nova só versionada e validada em banco local isolado após testes.
+- Login/reserva real em iframe não testado; alternativa em nova aba. HEAD200sem bloqueio não comprova cookies/autenticação.
+- Observações históricas CHD não podem ser convertidas automaticamente em quantidade de crianças. Revisar antes de usar Pizza com dados anteriores.
+- Sessões históricas com limite12mantêm seu limite explícito; novas Pizza começam com20. Equipe pode editar sessões até20, desde que não reduza abaixo da ocupação.
+- Atividades gerais ainda contam adultos, mantendo regra existente; inclusão de crianças em sua capacidade não foi solicitada. Pizza conta todos.
+- Comunicado09–12/10 preservado como referência histórica, sem importação automática de horários/vagas incompletos.
+- Testes pgTAP/Supabase HTTP/Auth completos aguardam CI; PostgreSQL portátil valida SQL com auth.users/sessions e funções JWT mínimas de fixture, não substitui GoTrue/PostgREST.
+
+## Histórico anterior — consultar requisitos atuais antes de agir
+
 # Pendências e riscos conhecidos
 
 Atualizado na Fase 8. O Portal ainda não está em produção.

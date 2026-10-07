@@ -4,7 +4,7 @@ export type Staff = { id: string; role: Role; active: boolean };
 export const permissions = ["portal.read", "experiences.read", "experiences.manage", "bookings.manage", "weekly_program.manage", "facilities.read", "osteria.read", "reports.read", "settings.manage"] as const;
 export type Permission = typeof permissions[number];
 const grants: Record<Role, readonly Permission[]> = {
-  recepcao: ["portal.read", "experiences.read", "bookings.manage", "facilities.read", "osteria.read"],
+  recepcao: ["portal.read", "experiences.read", "experiences.manage", "weekly_program.manage", "bookings.manage", "facilities.read", "osteria.read"],
   gerencia: ["portal.read", "experiences.read", "experiences.manage", "bookings.manage", "weekly_program.manage", "facilities.read", "osteria.read", "reports.read"],
   admin: permissions,
 };

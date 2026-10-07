@@ -28,7 +28,7 @@ async function experienceFlow(page:Page,slug:string,label:string,title:string,oc
  await booking.getByLabel('Nome do hóspede').fill('Pessoa fictícia interface');
  await booking.getByLabel('Adultos',{exact:true}).fill('3');
  await booking.getByLabel('Observações',{exact:true}).fill('CHD 2 anos');
- await expect(booking.getByLabel('Crianças',{exact:true})).toHaveCount(0);
+ if(slug==="la-vera-pizza") await expect(booking.getByLabel("Crianças",{exact:true})).toHaveValue("0"); else await expect(booking.getByLabel("Crianças",{exact:true})).toHaveCount(0);
  await booking.getByRole('button',{name:'Reservar',exact:true}).click();
  await expect(page.getByRole('heading',{name:occupied,exact:true})).toBeVisible();
  await expect(page.getByText('Observações: CHD 2 anos',{exact:true})).toBeVisible();
@@ -55,9 +55,9 @@ test("anônimo redirecionado, login, reload e logout", async ({ page }) => {
   const response = await page.reload();
   expect(response?.headers()["cache-control"]).toContain("no-store");
   await page.goto("/osteria?dia=2026-12-31");
-  await expect(page.getByRole("heading", { name: "Reservas do dia · 31/12/2026", exact: true })).toBeVisible();
-  await expect(page.getByText("Conexão pendente", { exact: true })).toBeVisible();
-  await expect(page.getByRole("link", { name: "Abrir Gestão da Osteria ↗", exact: true })).toHaveAttribute("href", "https://osteriadilucca.web.app/");
+  await expect(page.getByRole("heading", { level:1,name:"Osteria",exact:true })).toBeVisible();
+  await expect(page.getByRole("button", { name:"Abrir Osteria no Portal",exact:true })).toBeVisible();
+  await expect(page.getByRole("link", { name: "Abrir em nova aba ↗", exact: true })).toHaveAttribute("href", "https://osteriadilucca.web.app/");
   await page.getByRole("button", { name: "Sair", exact: true }).click();
   await expect(page).toHaveURL(/\/login$/);
   await page.goto("/agenda"); await expect(page).toHaveURL(/\/login$/);
@@ -100,7 +100,7 @@ for (const name of ["recepcao", "gerencia", "admin"]) {
     if (name === "gerencia") {
       test.setTimeout(90_000);
       await experienceFlow(page,"cine-toscana","Filme","Filme fictício interface","2 / 4 puffs · 3 / 8 adultos","0 / 4 puffs · 0 / 8 adultos");
-      await experienceFlow(page,"la-vera-pizza","Evento","Pizza fictícia interface","3 / 12 adultos","0 / 12 adultos");
+      await experienceFlow(page,"la-vera-pizza","Evento","Pizza fictícia interface","3 / 20 pessoas","0 / 20 pessoas");
       await page.goto('/programacao?semana=2026-10-05');
       await expect(page.locator('.week-session').filter({hasText:'Filme fictício interface'}).first()).toBeVisible();
       await expect(page.locator('.week-session').filter({hasText:'Pizza fictícia interface'}).first()).toBeVisible();
@@ -112,7 +112,7 @@ for (const name of ["recepcao", "gerencia", "admin"]) {
       const copy=page.locator('.week-session').filter({hasText:'Pizza fictícia interface'}).first();
       await expect(copy).toContainText('Rascunho');
       await copy.click();
-      await expect(page.getByRole('heading',{name:'0 / 12 adultos',exact:true})).toBeVisible();
+      await expect(page.getByRole('heading',{name:'0 / 20 pessoas',exact:true})).toBeVisible();
       await expect(page.getByText('Observações: CHD 2 anos',{exact:true})).toHaveCount(0);
       await page.getByText('Editar sessão',{exact:true}).click();
       const sessionEdit=page.getByRole('form',{name:'Editar sessão',exact:true});
@@ -130,8 +130,8 @@ for (const name of ["recepcao", "gerencia", "admin"]) {
       await expect(page.locator('.week-session').filter({hasText:editedTitle})).toContainText('Cancelada');
       const daily=JSON.parse(readFileSync('work/daily-agenda-fixtures.json','utf8')) as {date:string;cinema:string;pizza:string};
       await page.goto('/hoje');
-      await expect(page.locator('.daily-timeline').getByRole('heading',{name:'Agenda fictícia Cine',exact:true})).toBeVisible();
-      await expect(page.locator('.daily-timeline').getByRole('heading',{name:'Agenda fictícia Pizza',exact:true})).toBeVisible();
+      await expect(page.getByTestId("hotel-program").getByRole("link").filter({hasText:"Agenda fictícia Cine"}).first()).toBeVisible();
+      await expect(page.getByTestId("hotel-program").getByRole("link").filter({hasText:"Agenda fictícia Pizza"}).first()).toBeVisible();
       await expect(page.getByText('Pessoa privada fictícia da agenda',{exact:true})).toHaveCount(0);
       await expect(page.getByText('TEST-AGENDA',{exact:true})).toHaveCount(0);
       await page.goto('/agenda?dia='+daily.date);
@@ -146,8 +146,8 @@ for (const name of ["recepcao", "gerencia", "admin"]) {
       const cinema = JSON.parse(readFileSync("work/cinema-fixtures.json", "utf8")) as { occurrenceId: string };
       await page.goto(`/experiencias/cine-toscana/${cinema.occurrenceId}`);
       await expect(page.getByRole("form", { name: "Nova inscrição", exact: true })).toBeVisible();
-      await expect(page.getByText("Editar sessão", { exact: true })).toHaveCount(0);
-      await expect(page.getByRole("button", { name: "Cancelar sessão", exact: true })).toHaveCount(0);
+      await expect(page.getByText("Editar sessão", { exact: true })).toBeVisible();
+      await expect(page.getByRole("button", { name: "Cancelar sessão", exact: true })).toBeVisible();
     }
     await page.goto("/configuracoes");
     if (name === "admin") await expect(page.getByRole("heading", { name: "Configurações", exact: true })).toBeVisible();

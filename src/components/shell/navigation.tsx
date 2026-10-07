@@ -11,17 +11,17 @@ const items: { href: string; label: string; icon: IconName; group: string }[] = 
   { href: "/hoje", label: "Hoje", icon: "sun", group: "Dia a dia" },
   { href: "/agenda", label: "Agenda", icon: "calendar", group: "Dia a dia" },
   { href: "/programacao", label: "Programação", icon: "week", group: "Dia a dia" },
-  { href: "/experiencias", label: "Experiências", icon: "sparkles", group: "No hotel" },
-  { href: "/piscina", label: "Piscina", icon: "pool", group: "No hotel" },
-  { href: "/academia", label: "Academia", icon: "gym", group: "No hotel" },
-  { href: "/osteria", label: "Osteria", icon: "dining", group: "No hotel" },
+  { href: "/experiencias", label: "Cine, Pizza e atividades", icon: "sparkles", group: "Reservas" },
+  { href: "/piscina", label: "Piscina", icon: "pool", group: "Reservas" },
+  { href: "/academia", label: "Academia", icon: "gym", group: "Reservas" },
+  { href: "/osteria", label: "Osteria", icon: "dining", group: "Reservas" },
   { href: "/configuracoes", label: "Configurações", icon: "settings", group: "Portal" },
 ];
 
 function Navigation({ onNavigate, showSettings = true }: { onNavigate?: () => void; showSettings?: boolean }) {
   const pathname = usePathname();
   return <nav aria-label="Navegação principal">
-    {["Dia a dia", "No hotel", ...(showSettings ? ["Portal"] : [])].map(group => <div className="nav-group" key={group}>
+    {["Dia a dia", "Reservas", ...(showSettings ? ["Portal"] : [])].map(group => <div className="nav-group" key={group}>
       <p className="nav-label">{group}</p>
       <ul>{items.filter(item => item.group === group).map(item => <li key={item.href}><Link href={item.href} className="nav-link" aria-current={pathname === item.href ? "page" : undefined} onClick={onNavigate}><Icon name={item.icon} /><span>{item.label}</span></Link></li>)}</ul>
     </div>)}

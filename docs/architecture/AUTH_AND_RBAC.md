@@ -1,3 +1,5 @@
+> Referência histórica anterior à reformulação07/10/2026. Para comportamento/permissões/regras atuais, consulte ../ai/MASTER_REQUEST.md e ADR-020/021. O comunicado fixo não é mais a fonte da Home.
+
 # Auth e permissões — Fase 4
 
 Supabase Auth pertence exclusivamente ao Portal. Hosted permanece adiado por escolha do proprietário; testes reais usam somente stack efêmero de CI. Sem credenciais de hóspedes/equipe reais e sem uso dos bancos legados.

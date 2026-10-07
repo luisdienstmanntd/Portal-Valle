@@ -17,7 +17,7 @@ select ok(not has_table_privilege('authenticated','private.week_duplication_resu
 select throws_ok($$select public.portal_duplicate_week(gen_random_uuid(),'{"source_week":"2026-12-28","target_week":"2027-01-04"}')$$,'P0001','E_FORBIDDEN','No live identity blocked');
 set local role authenticated;
 select set_config('request.jwt.claims','{"sub":"90000000-0000-4000-8000-000000000002","session_id":"91000000-0000-4000-8000-000000000002"}',true);
-select throws_ok($$select public.portal_duplicate_week(gen_random_uuid(),'{"source_week":"2026-12-28","target_week":"2027-01-04"}')$$,'P0001','E_FORBIDDEN','Reception cannot duplicate');
+select ok(private.has_permission('weekly_program.manage'),'Reception can organize the week');
 select set_config('request.jwt.claims','{"sub":"90000000-0000-4000-8000-000000000001","session_id":"91000000-0000-4000-8000-000000000001"}',true);
 select throws_ok($$select public.portal_duplicate_week(gen_random_uuid(),'{"source_week":"2026-12-29","target_week":"2027-01-04"}')$$,'P0001','E_INPUT','Source requires Monday');
 select throws_ok($$select public.portal_duplicate_week(gen_random_uuid(),'{"source_week":"2026-12-28","target_week":"2026-12-28"}')$$,'P0001','E_INPUT','Same week rejected');

@@ -1,3 +1,5 @@
+> Referência histórica anterior à reformulação07/10/2026. Para comportamento/permissões/regras atuais, consulte ../ai/MASTER_REQUEST.md e ADR-020/021. O comunicado fixo não é mais a fonte da Home.
+
 # Modelo de experiências — Fase 5
 
 Atualização Fase6 adaptada validada em CI37155203841: proprietário escolheu Cine primeiro e somente adultos. `persons_per_unit=2`, `children_allowed=false` no catálogo Cine, version/responsible_id e RPCs de operação adicionados; os parágrafos abaixo registram a fundação da Fase5, antes das escritas. Puffs provisoriamente exclusivos ceil(adults/2); Lora adiada. Auditoria de bookings exige bookings.manage. Consulte CINEMA_OPERATIONS para comportamento e limites atuais.

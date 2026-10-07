@@ -9,7 +9,7 @@ export async function testPizza(manager,reception) {
  assert.equal((await call(manager,"portal_pizza_save_occurrence",event,key)).data,session);
  assert.equal((await call(manager,"portal_save_occurrence",event,key)).error?.message,"E_IDEMPOTENCY");
  assert.equal((await call(manager,"portal_save_occurrence",event)).error?.message,"E_CONFIGURATION");
- assert.equal((await call(reception,"portal_pizza_save_occurrence",{...event,id:randomUUID()})).error?.message,"E_FORBIDDEN");
+ assert.equal((await call(reception,"portal_pizza_save_occurrence",{...event,id:randomUUID()})).error,null);
  const booking=(id,patch={})=>({action:"save",id,version:0,occurrence_id:session,adults:11,children:0,apartment_number:"TEST",guest_name:"Pessoa fictícia Pizza",notes:"CHD 2 anos",status:"reserved",attendance_status:"pending",...patch});
  const first=randomUUID(),bookingKey=randomUUID(),command=booking(first);
  assert.equal((await call(reception,"portal_pizza_save_booking",command,bookingKey)).error,null);
@@ -19,7 +19,7 @@ export async function testPizza(manager,reception) {
  assert.equal(race.filter(x=>!x.error).length,1);assert.equal(race.filter(x=>x.error?.message==="E_CAPACITY").length,1);
  const persisted=await reception.from("experience_bookings").select("adults,children,units,notes").eq("id",first).single();
  assert.deepEqual(persisted.data,{adults:11,children:0,units:0,notes:"CHD 2 anos"});
- assert.equal((await call(reception,"portal_pizza_save_booking",booking(first,{version:1,children:1}))).error?.message,"E_INPUT");
+ assert.equal((await call(reception,"portal_pizza_save_booking",booking(first,{version:1,children:-1}))).error?.message,"E_INPUT");
  assert.equal((await call(manager,"portal_pizza_save_occurrence",{...event,version:1,capacity:11})).error?.message,"E_CAPACITY");
  assert.equal((await call(reception,"portal_pizza_save_booking",{action:"cancel",id:first,version:1,occurrence_id:session})).error,null);
  assert.equal((await call(reception,"portal_pizza_save_booking",booking(first,{version:2,attendance_status:"present"}))).error,null);
