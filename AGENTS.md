@@ -1,11 +1,13 @@
 # Portal Valle — instruções operacionais
 
+Escopo vigente: docs/ai/MASTER_REQUEST.md e ADR-020/021. Roteiro antigo arquivado; não retomar fases fora do objetivo.
+
 Antes de alterar: ler `docs/ai/PROJECT_CONTEXT.md`, `ARCHITECTURE.md`, `DECISIONS.md`, `PROGRESS.md`, `KNOWN_ISSUES.md` e o requisito aplicável de `MASTER_REQUEST.md`.
 
 Executar `git status --short`, `git branch --show-current` e `git log --oneline -10`. Confirmar fase, branch, último commit verificado e pendências. Preservar alterações do usuário.
 
-- Executar uma fase por vez. Ao término, verificar, documentar, commit, relatório e PARAR. Não iniciar a próxima sem autorização explícita.
-- Nunca alterar `luisdienstmanntd/Reservas-Piscina-Academia` ou `luisdienstmanntd/Gerenciador-de-Reservas`, seus bancos/deploys/credenciais, para viabilizar o Portal. Integrações iniciais somente leitura.
+- Executar a reformulação já autorizada até concluir implementação, testes e documentação. Não acrescentar produtos ou novas integrações externas por iniciativa própria.
+- Nunca alterar `luisdienstmanntd/Reservas-Piscina-Academia` ou `luisdienstmanntd/Gerenciador-de-Reservas`, seus bancos/deploys/credenciais, para viabilizar o Portal. Nesta entrega, abrir sistemas atuais em iframe/nova aba; sem acesso direto aos bancos externos.
 - Portal tem GitHub, Vercel, Supabase/Auth, migrations e ENV próprios. Nunca usar seus recursos existentes como destino do Portal.
 - Domínio puro; UI → aplicação → domínio/ports; infraestrutura implementa contratos úteis. Sem BaseRepository, GenericService ou abstrações cerimoniais.
 - Validar entradas no servidor; autorização central e RLS; capacidade e idempotência protegidas atomicamente no banco.

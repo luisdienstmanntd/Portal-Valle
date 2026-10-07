@@ -40,7 +40,7 @@ export const bookingSchema = z.object({
   occurrence_id: z.uuid(), stay_id: z.null(), apartment_number: shortText(30),
   guest_name: shortText(160), guest_phone: shortText(40).nullable(),
   adults: quantity, children: quantity, units: quantity,
-  notes: z.string().max(2000).nullable(), status: bookingStatusSchema,
+  notes: z.string().max(2000).nullable(), exception_reason: z.string().max(1000).nullable().optional(), status: bookingStatusSchema,
   attendance_status: attendanceStatusSchema, created_by: z.uuid().nullable(),
 }).strict().refine(value => value.adults + value.children > 0, {
   path: ["adults"], message: "Reserva exige pelo menos uma pessoa.",

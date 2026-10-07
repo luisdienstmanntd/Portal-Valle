@@ -23,7 +23,7 @@ export default async function ProgramPage({searchParams}:{searchParams:Promise<{
   const previousAvailable=localDateSchema.safeParse(previous).success;
   const nextAvailable=localDateSchema.safeParse(week.end).success;
   const request=randomUUID();
-  return <><PageHeading title="Programação" description="As experiências da semana, no horário de Gramado."/>
+  return <><PageHeading title="Programação" description="Recepção e gerência organizam a semana. Atividades publicadas aparecem na tela Hoje."/>
     <Card className="operation-panel"><div className="week-toolbar">{previousAvailable?<Link className={buttonClass("secondary")} href={`/programacao?semana=${previous}`}>← Semana anterior</Link>:<span aria-disabled="true">Início do período disponível</span>}
     <h2>{dateLabel(week.start)} a {dateLabel(week.days[6])}</h2>{nextAvailable?<Link className={buttonClass("secondary")} href={`/programacao?semana=${week.end}`}>Próxima semana →</Link>:<span aria-disabled="true">Fim do período disponível</span>}</div>
     <form className="week-selector" action="/programacao"><Label htmlFor="week-date">Escolher data da semana</Label><Input id="week-date" type="date" name="semana" min="1900-01-01" max="2099-12-31" defaultValue={week.start} required/><Button type="submit" variant="secondary">Ver semana</Button></form>
@@ -40,7 +40,7 @@ export default async function ProgramPage({searchParams}:{searchParams:Promise<{
       })}</Card>;
     })}</div>
     {(manages||!configured)&&<Card className="operation-panel"><h2>Criar uma sessão</h2><p>Escolha a experiência para definir evento, local, horário e capacidade. A sessão aparecerá automaticamente na sua semana.</p>
-    <div className="week-toolbar"><Link className={buttonClass("secondary")} href="/experiencias/cine-toscana">Criar sessão do Cine</Link><Link className={buttonClass("secondary")} href="/experiencias/la-vera-pizza">Criar sessão da Pizza</Link></div></Card>}
+    <div className="week-toolbar"><Link className={buttonClass("secondary")} href="/experiencias/programacao-hotel">Cadastrar atividade do hotel</Link><Link className={buttonClass("secondary")} href="/experiencias/cine-toscana">Criar sessão do Cine</Link><Link className={buttonClass("secondary")} href="/experiencias/la-vera-pizza">Criar sessão da Pizza</Link></div></Card>}
     {(manages||!configured)&&<Card className="operation-panel"><h2>Duplicar esta semana</h2><DuplicateForm key={week.start} request={request} source={week.start} target={nextAvailable?week.end:""} available={configured&&manages}/></Card>}
   </>;
 }

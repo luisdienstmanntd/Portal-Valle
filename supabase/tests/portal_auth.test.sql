@@ -18,7 +18,7 @@ select ok((select relrowsecurity from pg_class where oid='public.portal_profiles
 set local role authenticated;
 select set_config('request.jwt.claims','{"sub":"00000000-0000-0000-0000-000000000001","session_id":"11111111-1111-1111-1111-111111111111","user_metadata":{"role":"admin"}}',true);
 select is(private.has_permission(permission), expected, 'recepcao '||permission) from (values
- ('portal.read',true),('experiences.read',true),('experiences.manage',false),('weekly_program.manage',false),
+ ('portal.read',true),('experiences.read',true),('experiences.manage',true),('weekly_program.manage',true),
  ('facilities.read',true),('osteria.read',true),('reports.read',false),('settings.manage',false)) as matrix(permission,expected);
 select is((select count(*) from public.portal_profiles),1::bigint,'Only own active profile visible');
 select is((select count(*) from public.portal_settings),1::bigint,'Active reception sees settings');

@@ -1,3 +1,5 @@
+> Referência histórica anterior à reformulação07/10/2026. Para comportamento/permissões/regras atuais, consulte ../ai/MASTER_REQUEST.md e ADR-020/021. O comunicado fixo não é mais a fonte da Home.
+
 # Programação semanal
 
 Projeção de occurrences reais do Cine/Pizza em segunda-domingo, America/Sao_Paulo, por instante de início [segunda00:00,próxima segunda00:00). Evento que termina no dia seguinte permanece no dia inicial. Sem tabela editorial paralela. Sessões mostram estado e link para formulário existente; alterações revalidam programação. Recepção lê; gerência/admin duplicam via weekly_program.manage e criam/editam/cancelam via experiências.

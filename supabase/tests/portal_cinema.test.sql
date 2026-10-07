@@ -20,7 +20,7 @@ select ok(not has_table_privilege('authenticated','private.mutation_requests','s
 select throws_ok($$select public.portal_save_occurrence(gen_random_uuid(),(select command from cinema_commands where kind='occurrence'))$$,'P0001','E_FORBIDDEN','RPC rejects missing Auth even under SQL owner');
 set local role authenticated;
 select set_config('request.jwt.claims','{"sub":"60000000-0000-4000-8000-000000000002","session_id":"61000000-0000-4000-8000-000000000002"}',true);
-select throws_ok($$select public.portal_save_occurrence(gen_random_uuid(),(select command from cinema_commands where kind='occurrence'))$$,'P0001','E_FORBIDDEN','Reception cannot create session');
+select ok(private.has_permission('experiences.manage'),'Reception can manage sessions');
 select set_config('request.jwt.claims','{"sub":"60000000-0000-4000-8000-000000000001","session_id":"61000000-0000-4000-8000-000000000001"}',true);
 select is(public.portal_save_occurrence('64000000-0000-4000-8000-000000000001',(select command from cinema_commands where kind='occurrence')),'62000000-0000-4000-8000-000000000001'::uuid,'Manager creates session');
 select is(public.portal_save_occurrence('64000000-0000-4000-8000-000000000001',(select command from cinema_commands where kind='occurrence')),'62000000-0000-4000-8000-000000000001'::uuid,'Retry returns same entity');

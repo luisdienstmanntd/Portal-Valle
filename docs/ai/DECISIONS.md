@@ -160,3 +160,17 @@ Status: decisão do proprietário em 2026-10-07; substitui ADR-017. A aba/concei
 ## ADR-019 — Portal único com escrita por funções seguras nos sistemas atuais
 
 Status: decisão do proprietário em 2026-10-07; ainda sem implementação. Piscina/Academia/Osteria permanecem como fonte da verdade; o Portal lê por views e grava por funções restritas, com credencial própria por sistema, sem chave administrativa. 'Onde os hóspedes estão' é a atividade em andamento derivada de reservas, sem rastreamento. Cada alteração no legado exige autorização explícita por etapa e ambiente de teste primeiro. Plano em docs/architecture/INTEGRATED_PORTAL_PLAN.md.
+
+## ADR-020 — Portal da recepção com sistemas incorporados
+
+Status: decidido pelo proprietário07/10/2026; implementação local em validação. Substitui a estratégia inicial de ADR-019 e o roteiro do antigo MASTER_REQUEST.
+
+Objetivo restrito ao trabalho da recepção e programação. Sistemas atuais incorporados inicialmente, URLs confirmadas pelo proprietário. Programação tem vagas/inscrições; Cine/Pizza preservados. Recepção e gerência mantêm sessões/semana. Home lê a mesma fonte de sessões e destaca dia/semana; atividades livres reutilizam fluxo existente.
+
+Não ampliar para estadias, PMS, localização, relatórios, portais externos ou novas conexões de banco. Login/cookies em iframe continuam sujeitos à origem/browser; alternativa em nova aba. Nenhuma alteração externa nesta entrega. Banco/Auth próprios hospedados ainda pendentes.
+
+## ADR-021 — Pizza20pessoas e exceção justificada
+
+Status: confirmado pelo proprietário07/10/2026. Substitui regra Pizza12adultos de ADR-011; Cine não muda.
+
+Pizza conta adultos e crianças e tem padrão20. Recepção e gerência podem exceder por exceção explicitamente marcada/justificada. Servidor valida; banco sob lock decide excedente pela ocupação real e exige razão10–1000caracteres. Justificativa gravada na reserva e auditoria com ator; não aumenta capacidade e não é permitida nos outros fluxos. Não inferir quantidade de crianças a partir de observações históricas. Sessões antigas conservam limites explícitos.

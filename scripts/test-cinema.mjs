@@ -18,7 +18,7 @@ export async function testCinema(status,users,password) {
   const created=await call(manager,"portal_save_occurrence",occurrence,request); assert.equal(created.error,null);
   assert.equal((await call(manager,"portal_save_occurrence",occurrence,request)).data,occ);
   assert.equal((await call(manager,"portal_save_occurrence",{...occurrence,film_title:"Outro filme fictício"},request)).error?.message,"E_IDEMPOTENCY");
-  assert.equal((await call(reception,"portal_save_occurrence",{...occurrence,id:randomUUID()})).error?.message,"E_FORBIDDEN");
+  assert.equal((await call(reception,"portal_save_occurrence",{...occurrence,id:randomUUID()})).error,null);
   const command=(id,patch={})=>({action:"save",id,version:0,occurrence_id:occ,adults:2,children:0,apartment_number:"TEST",guest_name:"Pessoa fictícia CI",notes:"",status:"reserved",attendance_status:"pending",...patch});
   const first=randomUUID(),duplicateRequest=randomUUID(),firstCommand=command(first);
   const duplicate=await Promise.all([call(reception,"portal_save_booking",firstCommand,duplicateRequest),call(reception,"portal_save_booking",firstCommand,duplicateRequest)]);

@@ -10,7 +10,7 @@ const playfair = localFont({ src: "../../public/fonts/playfair-display-variable.
 
 export const metadata: Metadata = {
   title: "Portal Valle | Valle D'Incanto",
-  description: "Portal de Experiências do Hotel Valle D'Incanto.",
+  description: "Portal da Recepção do Hotel Valle D'Incanto.",
 };
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {

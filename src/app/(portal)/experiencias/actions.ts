@@ -5,7 +5,7 @@ import { redirect } from "next/navigation";
 import { requirePermission } from "@/modules/auth/infrastructure/session";
 import { createPortalServerClient } from "@/lib/supabase/server";
 import { hotelDateTimeToInstant } from "@/lib/hotel-time";
-import { bookingCommandSchema, occurrenceCommandSchema, pizzaBookingCommandSchema, pizzaOccurrenceCommandSchema, operationError } from "@/modules/experiences/domain/commands";
+import { bookingCommandSchema, occurrenceCommandSchema, pizzaBookingCommandSchema, pizzaOccurrenceCommandSchema, programOccurrenceCommandSchema, programBookingCommandSchema, operationError } from "@/modules/experiences/domain/commands";
 import { getExperienceFlow, type ExperienceFlow } from "@/modules/experiences/domain/flows";
 export type OperationState={error:string|null};
 function field(form:FormData,name:string) { return String(form.get(name)??""); }
@@ -18,7 +18,7 @@ export async function saveOccurrence(flow:ExperienceFlow,_state:OperationState,f
   let command;
   try {
     const base={action:field(form,"action"),id:field(form,"id"),version:number(form,"version"),experience_id:field(form,"experience_id")};
-    command=(config.film?occurrenceCommandSchema:pizzaOccurrenceCommandSchema).safeParse(base.action==="cancel"?base:{...base,
+    command=(flow==="program"?programOccurrenceCommandSchema:config.film?occurrenceCommandSchema:pizzaOccurrenceCommandSchema).safeParse(base.action==="cancel"?base:{...base,
       starts_at:hotelDateTimeToInstant(field(form,"starts_at")),ends_at:hotelDateTimeToInstant(field(form,"ends_at")),
       location:field(form,"location"),...(config.film?{film_title:field(form,"film_title")}:{title:field(form,"title")}),capacity:number(form,"capacity"),person_limit:number(form,"person_limit"),status:field(form,"status")});
   } catch { return {error:operationError("E_INPUT")}; }
@@ -33,7 +33,7 @@ export async function saveBooking(flow:ExperienceFlow,_state:OperationState,form
   const config=getExperienceFlow(flow); if(!config) return {error:operationError("E_INPUT")};
   const req=z.uuid().safeParse(field(form,"request"));
   const base={action:field(form,"action"),id:field(form,"id"),version:number(form,"version"),occurrence_id:field(form,"occurrence_id")};
-  const command=(config.film?bookingCommandSchema:pizzaBookingCommandSchema).safeParse(base.action==="cancel"?base:{...base,adults:number(form,"adults"),children:0,
+  const command=(flow==="program"?programBookingCommandSchema:config.film?bookingCommandSchema:pizzaBookingCommandSchema).safeParse(base.action==="cancel"?base:{...base,adults:number(form,"adults"),children:flow==="pizza"?number(form,"children"):0,...(flow==="pizza"?{exception_reason:field(form,"exception_authorized")==="on"?field(form,"exception_reason"):""}:{}),
     apartment_number:field(form,"apartment_number"),guest_name:field(form,"guest_name"),notes:field(form,"notes"),status:field(form,"status"),attendance_status:field(form,"attendance_status")});
   if(!req.success||!command.success) return {error:operationError("E_INPUT")};
   const client=await createPortalServerClient();

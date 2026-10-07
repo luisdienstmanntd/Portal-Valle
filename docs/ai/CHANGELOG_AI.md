@@ -1,5 +1,13 @@
 # Changelog de trabalho IA
 
+## 2026-10-07 — Portal da Recepção
+
+- Hoje reúne programação publicada do dia e da semana, com acesso às vagas e inscrições.
+- Piscina/Academia e Osteria abrem os sistemas atuais dentro do Portal, com alternativa em nova aba. Ambas as telas reais de acesso foram verificadas no navegador; reservas reais não foram alteradas.
+- Recepção e gerência organizam Cine, Pizza e atividades livres. Pizza: padrão de 20 pessoas, adultos e crianças; excedente exige justificativa registrada com o responsável.
+- Documentação vigente e ADR-020/021 atualizados; roteiro anterior arquivado.
+- Validação local: lint, TypeScript, 134 unitários, build e 60 E2E em quatro tamanhos PASS. Todas as migrations aplicadas em PostgreSQL isolado; capacidade, exceções, auditoria, idempotência, cancelamento, cópia da semana e perfil inativo PASS. Auth/HTTP/pgTAP completos dependem do CI isolado.
+- Banco/Auth próprios hospedados continuam pendentes. Esta entrega não altera os sistemas externos nem publica em produção.
 ## 2026-10-03 — Cine operacional em validação
 
 - Fase6 reordenada pelo proprietário: Cine primeiro, Lora adiada. Somente adultos8pessoas/4puffs; puffs exclusivos provisoriamente.

@@ -5,6 +5,11 @@ const now=()=>new Date("2026-10-03T12:00:00Z");
 const entry=(id:string,start="2026-10-03T22:00:00Z")=>({id,type:"experience_session",title:"Evento fictício",experience:"La Vera Pizza",start,end:"2026-10-04T01:00:00Z",location:"Local fictício",status:"published",href:"/experiencias/la-vera-pizza/c8000000-0000-4000-8000-000000000001"});
 const provider=(id:string,getEntries:AgendaProvider["getEntries"],configured=true):AgendaProvider=>({id,label:id,configured,getEntries});
 afterEach(()=>vi.useRealTimers());
+it("programação livre convive com Cine e Pizza sem invalidar a fonte",async()=>{
+ const entries=[entry("pizza"),{...entry("cine"),experience:"Cine Toscana",href:"/experiencias/cine-toscana/c1000000-0000-4000-8000-000000000001"},{...entry("workshop"),experience:"Atividades do hotel",href:"/experiencias/programacao-hotel/c7000000-0000-4000-8000-000000000001"}];
+ const loaded=await GetDailyAgenda({date:"2026-10-03",now,providers:[provider("portal",async()=>entries)]});
+ expect(loaded.sources[0].status).toBe("available");expect(loaded.entries).toHaveLength(3);
+});
 it("executa fontes independentes, ordena e compõe IDs sem colisão",async()=>{
  const loaded=await GetDailyAgenda({date:"2026-10-03",now,providers:[provider("b",async()=>[entry("1"),entry("2","2026-10-03T21:00:00Z")]),provider("a",async()=>[entry("1")])]});
  expect(loaded.entries.map(v=>v.id)).toEqual(["b:2","a:1","b:1"]);

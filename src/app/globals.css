@@ -246,6 +246,11 @@ textarea.field-control { min-height: 100px; resize: vertical; }
 .hotel-program-heading { display: flex; align-items: flex-start; justify-content: space-between; flex-wrap: wrap; gap: 16px; }
 .hotel-program-heading h2 { margin: 8px 0; font-family: var(--font-heading, Georgia, serif); font-size: 30px; }
 .hotel-program-intro { margin: 12px 0 20px; }
+.program-today { list-style:none; padding:0; margin:20px 0; }
+.program-today li { display:grid; gap:6px; padding:16px 0; border-bottom:1px solid var(--brand-border); }
+.program-today a,.hotel-program-day a { text-decoration:underline; text-underline-offset:3px; }
+.external-system-frame { display:block; width:100%; min-height:75vh; border:1px solid var(--brand-border); border-radius:var(--brand-radius); margin-top:20px; background:white; }
+.external-workspace .week-toolbar { align-items:flex-start; }
 .hotel-program-days { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); align-items: start; gap: 12px; }
 .hotel-program-day { border: 1px solid var(--border, #ded6ce); border-radius: 10px; padding: 16px; }
 .hotel-program-day summary { cursor: pointer; min-height: 44px; line-height: 24px; font-weight: 600; }

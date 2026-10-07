@@ -1,3 +1,5 @@
+> Referência histórica anterior à reformulação07/10/2026. Para comportamento/permissões/regras atuais, consulte ../ai/MASTER_REQUEST.md e ADR-020/021. O comunicado fixo não é mais a fonte da Home.
+
 # Programação no início de Hoje
 
 O proprietário esclareceu em06/10/2026 que a programação enviada no log do sistema usado pelo hotel deve aparecer no início da página. A imagem enviada contém o informativo Bem-estar no Valle; transcrevemos somente atividades/horários/locais/limites anunciados, sem nomes de remetente, destinatários ou outras mensagens da caixa de entrada.
