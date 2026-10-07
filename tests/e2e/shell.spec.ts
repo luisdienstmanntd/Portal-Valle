@@ -1,12 +1,12 @@
 import { expect, test } from "@playwright/test";
 
 const routes = [
-  ["/hoje", "Hoje"], ["/agenda", "Agenda"], ["/programacao", "Programação"], ["/estadias", "Estadias"],
+  ["/hoje", "Hoje"], ["/agenda", "Agenda"], ["/programacao", "Programação"],
   ["/experiencias", "Experiências"], ["/piscina", "Piscina"], ["/academia", "Academia"],
   ["/osteria", "Osteria"], ["/configuracoes", "Configurações"],
 ] as const;
 
-test("o menu acessa as nove áreas e indica a página atual", async ({ page }) => {
+test("o menu acessa as oito áreas e indica a página atual", async ({ page }) => {
   await page.goto("/");
   await expect(page).toHaveURL(/\/hoje$/);
   const mobile = page.viewportSize()!.width < 768;

@@ -1,7 +1,7 @@
 # Progresso — Portal Valle
 
-Current phase: Fase15 operacional: cadastro próprio e vínculos explícitos.
-Status: Conceito15 APROVADO TECNICAMENTE; CI37529212227 PASS. Implementação operacional iniciada.
+Current phase: Fase15 CANCELADA pelo proprietário (aba Estadias fora do Portal); estado funcional equivalente à Fase14 + aviso de programação.
+Status: Estadias removida (código, rota, menu, migrations, testes). Nenhuma outra fase iniciada; aguardando instrução do proprietário.
 Completed: Fases0–5; Cine6/7; Pizza8; Programação9; Agenda10; preparações11/12 (operacionais pendentes); Home13; Resiliência14; aviso programação09–12/10.
 In progress: persistência e cadastro de estadias; depois vínculo explícito das reservas.
 Tests: conceito15 CI37529212227/f6e5f5cac43ed7c8beaa5cdf78ad494ee201a256 PASS:142unit/56prévia/198pgTAP/7HTTP/14Auth/build/advisors/cleanup.
@@ -42,3 +42,5 @@ Cadastro15: paginação por cursor50+1 evita limite permanente; check153/build P
 Vínculo15: revisor pediu invariantes pós-vínculo; corrigido na migration 20261006233000 (triggers, desvínculo de cancelada) e stayId derivado do caminho. check local PASS; pgTAP/CI e nova revisão pendentes.
 
 Vínculo15: revisor emitiu APROVADO TECNICAMENTE para d2ea64e (sem execução própria de pgTAP). CI do a555d5f falhou só na fixture do pgTAP novo (estadias inseridas como postgres violam o gatilho de auditoria E_FORBIDDEN); fixture agora cria estadias via portal_create_stay como operador. Aguardando CI.
+
+2026-10-07 — Proprietário cancelou a ideia da aba Estadias; não deve entrar no Portal. Removidos módulo stays, rotas /estadias, menu, permissões stays.*, 3 migrations (registro, vínculo, invariantes), pgTAP/E2E/scripts e o relaxamento de stay_id (volta a check stay_id is null). check 132 unit/build PASS locais; CI pendente. Hospedado Portal nunca recebeu essas migrations (adiado); se algum ambiente as aplicou, será preciso migration de remoção. Docs históricos da Fase15 mantidos como registro cancelado.

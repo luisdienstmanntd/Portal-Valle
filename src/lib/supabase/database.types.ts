@@ -3,14 +3,13 @@ type Timestamps = { created_at: string; updated_at: string };
 // Phase 5 has no direct client mutations; future writes must use atomic authorized RPCs.
 type ReadTable<Row> = { Row: Row; Insert: never; Update: never; Relationships: [] };
 type AuditRow = { id: string; actor_id: string | null; action: "INSERT" | "UPDATE" | "DELETE";
-  entity_type: "experiences" | "experience_occurrences" | "experience_bookings" | "portal_stays"; entity_id: string;
+  entity_type: "experiences" | "experience_occurrences" | "experience_bookings"; entity_id: string;
   before: Record<string, string | number | boolean | null> | null;
   after: Record<string, string | number | boolean | null> | null; created_at: string };
 /** Manual schema contract maintained with versioned migrations and pgTAP tests. */
 export type Database = {
   public: {
     Tables: {
-      portal_stays: ReadTable<{id:string;apartment:string;arrival_date:string;departure_date:string;created_by:string;created_at:string}>;
       experiences: ReadTable<Experience & Timestamps>;
       experience_occurrences: ReadTable<Occurrence & Timestamps>;
       experience_bookings: ReadTable<Booking & Timestamps>;
@@ -30,8 +29,6 @@ export type Database = {
     };
     Views: { [_ in never]: never };
     Functions: {
-      portal_create_stay: { Args: { p_request: string; p_command: Record<string,string> }; Returns: string };
-      portal_link_booking_stay: { Args: { p_request: string; p_command: Record<string, string | number | null> }; Returns: string };
       portal_duplicate_week: { Args: { p_request: string; p_command: Record<string,string> }; Returns: string[] };
       portal_save_occurrence: { Args: { p_request: string; p_command: Record<string, string | number> }; Returns: string };
       portal_save_booking: { Args: { p_request: string; p_command: Record<string, string | number> }; Returns: string };

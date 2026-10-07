@@ -150,3 +150,7 @@ Resumo por fonte, sem somar capacidade/ocupação heterogênea. allSettled prese
 ## ADR-017 — Estadia própria e vínculo explícito
 
 Escolha confirmada pelo proprietário: referência UUID Portal, apartamento como atributo e período civil. Coincidência não identifica estadia. Fase15 prepara conceito e agregação, sem mudar stay_id=null ou fontes externas; operação exige persistência/RLS/mutação auditada própria.
+
+## ADR-018 — Estadias cancelada
+
+Status: decisão do proprietário em 2026-10-07; substitui ADR-017. A aba/conceito de Estadias, cadastro próprio e vínculo de reservas não entram no Portal. Reservas mantêm apartamento como atributo próprio e stay_id permanece reservado como nulo. Não reintroduzir sem nova decisão explícita.

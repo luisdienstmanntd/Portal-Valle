@@ -45,3 +45,6 @@ Concluir operação da estadia em entrega própria antes de depender dela em rel
 Abrir Estadias pelo menu, conferir campos e estado em preparação. Home mantém informativo09–12/10. Não criar hóspedes/atividades de demonstração na prévia.
 
 Fechamento conceitual: APROVADO TECNICAMENTE pelo subagente revisor; cadastro operacional será entrega separada. Avanço contínuo autorizado pelo proprietário em 2026-10-06.
+
+
+> CANCELADA em 2026-10-07 por decisão do proprietário (ADR-018). Conteúdo acima é registro histórico; nada disso permanece no código.

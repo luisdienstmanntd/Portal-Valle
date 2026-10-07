@@ -59,3 +59,5 @@ Limite100 corrigido antes da publicação: lista paginada50+1 por cursor validad
 Vínculo15: pgTAP do vínculo não executado localmente (sem Docker); validar na CI. Candidatas listadas por apartamento (ilike) apenas como sugestão; a RPC recusa apartamento/período divergentes. Edição de apartamento/datas da estadia continua pendente; estadia com reservas vinculadas não pode ser excluída (FK restrict). Sem E2E Auth do vínculo ainda.
 
 Vínculo15 revisão: apartamento da reserva e início da sessão vinculadas agora são protegidos por triggers (E_PERIOD); mudar exige desvincular antes. Desvincular reserva cancelada é permitido. Pendentes não bloqueantes: paginação/limite de loadStayBookings, erro por código em vez de query string, caso de fronteira de fuso e perfil inativo no pgTAP. pgTAP segue sem execução local.
+
+2026-10-07 — Estadias cancelada: pendências de cadastro/vínculo/pgTAP da Fase15 deixam de existir. Verificar na CI que nenhum teste referencia estadias.

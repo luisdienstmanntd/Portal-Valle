@@ -135,3 +135,5 @@ Resultado conceito15: CI37529212227/f6e5f5cac43ed7c8beaa5cdf78ad494ee201a256 PAS
 Revisão do cadastro15: corrigida paginação; incluídos Auth E2E de formulário, HTTP concorrente e pgTAP de rollback.153 unitários PASS. CI de banco pendente.
 
 2026-10-06 — feat(stays): vínculo explícito reserva→estadia (migration, RPC, action, tela, testes unitários e pgTAP).
+
+2026-10-07 — revert(stays): remoção completa da aba Estadias a pedido do proprietário (ADR-018).
