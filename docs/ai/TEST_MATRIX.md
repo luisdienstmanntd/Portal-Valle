@@ -4,7 +4,7 @@
 - Build de produção separado (.next-verify): PASS.
 - Playwright público: 60 testes PASS em desktop, tablet retrato/paisagem e celular. Inclui abertura/fechamento incorporado, links atuais, navegação, teclado e ausência de overflow.
 - PostgreSQL 18 isolado: todas as migrations aplicadas; recepção, atividade livre, Pizza 20 com crianças, exceções, auditoria, retry, cancelamento/reativação, edição de sessão excedida, cópia sem inscrições e perfil inativo PASS.
-- Novo portal_reception_scope.test.sql mantém a regressão no pgTAP do CI. Docker/Supabase completos indisponíveis localmente; não confundir o teste PostgreSQL com GoTrue/PostgREST reais.
+- Novo portal_reception_scope.test.sql mantém a regressão no pgTAP do CI. CI37683235074/923f13e:209pgTAP,7HTTP,14AuthUI,concorrência,advisors ecleanup PASS. Docker/Supabase completos indisponíveis localmente; não confundir o teste PostgreSQL com GoTrue/PostgREST reais.
 - Telas reais incorporadas de Piscina/Academia e Osteria verificadas até o login. Login e reservas reais precisam de validação pela equipe.
 
 ## Matriz histórica

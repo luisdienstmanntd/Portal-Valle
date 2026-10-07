@@ -1,13 +1,13 @@
 # Progresso vigente —07/10/2026
 
 Current phase: reformulação do Portal da Recepção (ADR-020/021).
-Status: implementação local; verificações e revisão em andamento.
+Status: reformulação implementada e aprovada tecnicamente; CI completo PASS.
 Completed: decisões confirmadas; telas incorporadas; Home/programação na mesma fonte; atividade livre; permissões recepção/gerência; Pizza20incluindo crianças e exceções justificadas; documentação vigente substituída.
-In progress: validação SQL/local/E2E e revisão independente.
-Next step: concluir verificações; banco/Auth próprios hospedados dependem de ambiente exclusivo disponível. Não retomar fases do roteiro histórico.
+In progress: nenhuma implementação pendente neste escopo.
+Next step: revisão do PR #3; banco/Auth próprios hospedados dependem de ambiente exclusivo disponível. Não retomar fases do roteiro histórico.
 Blocked by: operação compartilhada hospedada sem banco/Auth próprios provisionados. Telas de login reais abrem em iframe; autenticação/reservas precisam da validação da equipe.
-Last verified implementation commit:565d2a1 (base remota); mudanças atuais ainda não commitadas.
-Tests status: check134unit, build e60E2E PASS local. PostgreSQL isolado: migrations e regras operacionais PASS. pgTAP/Auth/HTTP completos aguardam CI.
+Last verified implementation commit:923f13e; CI37683235074 PASS; APROVADO TECNICAMENTE. PR #3 em rascunho, sem merge/deploy.
+Tests status: check134unit, build e60E2E PASS local. PostgreSQL isolado: migrations e regras operacionais PASS. CI37683235074 PASS:209pgTAP,7HTTP,14AuthUI,concorrência Cine/Pizza/semana,advisors ecleanup.
 Next AI instruction: seguir MASTER_REQUEST/ADR-020/021. Sistemas incorporados inicialmente; não criar views/RPC/bancos externos, novas fases, estadias ou relatórios por iniciativa própria.
 
 ## Histórico anterior — não é roteiro vigente
