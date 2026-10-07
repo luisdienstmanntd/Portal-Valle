@@ -156,3 +156,7 @@ Escolha confirmada pelo proprietário: referência UUID Portal, apartamento como
 ## ADR-018 — Estadias cancelada
 
 Status: decisão do proprietário em 2026-10-07; substitui ADR-017. A aba/conceito de Estadias, cadastro próprio e vínculo de reservas não entram no Portal. Reservas mantêm apartamento como atributo próprio e stay_id permanece reservado como nulo. Não reintroduzir sem nova decisão explícita.
+
+## ADR-019 — Portal único com escrita por funções seguras nos sistemas atuais
+
+Status: decisão do proprietário em 2026-10-07; ainda sem implementação. Piscina/Academia/Osteria permanecem como fonte da verdade; o Portal lê por views e grava por funções restritas, com credencial própria por sistema, sem chave administrativa. 'Onde os hóspedes estão' é a atividade em andamento derivada de reservas, sem rastreamento. Cada alteração no legado exige autorização explícita por etapa e ambiente de teste primeiro. Plano em docs/architecture/INTEGRATED_PORTAL_PLAN.md.
