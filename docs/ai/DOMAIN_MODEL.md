@@ -36,7 +36,7 @@ id, actor_id, action, entity_type, entity_id, before/after seletivos, created_at
 
 ## Stay e Guest futuros
 
-Não criar antecipadamente. Não correlacionar pessoas apenas pelo apartamento ou nome. Agregação futura deve considerar intervalo da estadia e identificador validado, sem copiar permanentemente bases externas.
+Não criar antecipadamente. Não correlacionar pessoas apenas pelo apartamento ou nome. [Estadias canceladas, ADR-018] Agregação futura deve considerar intervalo da estadia e identificador validado, sem copiar permanentemente bases externas.
 
 ## Resultados
 

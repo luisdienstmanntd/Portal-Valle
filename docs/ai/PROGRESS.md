@@ -3,12 +3,12 @@
 Current phase: Fase15 CANCELADA pelo proprietário (aba Estadias fora do Portal); estado funcional equivalente à Fase14 + aviso de programação.
 Status: Estadias removida (código, rota, menu, migrations, testes). Nenhuma outra fase iniciada; aguardando instrução do proprietário.
 Completed: Fases0–5; Cine6/7; Pizza8; Programação9; Agenda10; preparações11/12 (operacionais pendentes); Home13; Resiliência14; aviso programação09–12/10.
-In progress: persistência e cadastro de estadias; depois vínculo explícito das reservas.
-Tests: conceito15 CI37529212227/f6e5f5cac43ed7c8beaa5cdf78ad494ee201a256 PASS:142unit/56prévia/198pgTAP/7HTTP/14Auth/build/advisors/cleanup.
-Next step: fechar conceito15; operação cadastro/vínculos exige persistência própria auditada antes de Fase16. Avanço automático autorizado.
+In progress: nenhuma frente. Fase15 (Estadias) cancelada; não retomar.
+Tests: último CI válido do aviso de programação CI37527250539/a36c41b572c184be4d2ee7c7af47109bd952e5a8 PASS:132unit/52prévia/198pgTAP/7HTTP/14Auth/build/advisors/cleanup. CI do commit de remoção pendente.
+Next step: aguardar instrução do proprietário. Fase15 cancelada (ADR-018); nenhuma fase iniciada. Avanço automático anterior não cobre Estadias.
 Blocked by: hospedado adiado por quota; Docker ausente neste Windows. Nenhuma alteração aos legados.
-Last verified implementation commit:f6e5f5cac43ed7c8beaa5cdf78ad494ee201a256, CI37529212227 PASS.
-Preview: porta3100, build .next-verify; PID em work/phase15-preview.pid. Menu Estadias e programação09–12/10 preservada. Não sobrescrever build ativo; usar diretório alternativo para builds futuros.
+Last verified implementation commit:a36c41b572c184be4d2ee7c7af47109bd952e5a8, CI37527250539 PASS (estado funcional atual, sem Estadias).
+Preview: porta3100 (dev local); sem aba Estadias; programação09–12/10 preservada. Não sobrescrever build ativo; usar diretório alternativo para builds futuros.
 Next AI instruction: ler OSTERIA_OPERATIONS/PHASE_12_REPORT e FACILITIES_OPERATIONS; não habilitar factory sem acesso restrito comprovado. Home agrega sessões Cine/Pizza e contratos externos preparados; fontes desconectadas sem contagens. Unknown não equivale a empty. Datas1900–2099 America/Sao_Paulo. Facilities/Osteria permanecem em preparação e exigem gates das auditorias. Lora adiada12adultos; Cine8adultos/4puffs; Pizza12adultos; crianças nas observações.
 
 Fase10: CI37170139071/c639381de43eb842e955f54242965817794f68b2 PASS: 97 unitários, 40 prévias E2E, 198 pgTAP, 7 HTTP e 14 Auth E2E; checkpoints Agenda/Cine/Pizza/semana, advisors e cleanup PASS. Revisão independente confirmou CI e emitiu APROVADO TECNICAMENTE para Fase10. Fase11 iniciada pela auditoria de acesso somente leitura: snapshot Facilities main permanece eeecd6db4f2a327aafa47759a3e66a2c5a7fc5e0. Consulta aceita de metadados confirmou grants de escrita para postgres/service_role, sem SELECT-only identificado. Verificação adicional RLS/views foi recusada pela revisão automática por falta de autorização específica para hospedado nesta fase; pergunta então pendente, autorizada pelo proprietário no turno seguinte. Sem reservas/hóspedes lidos, sem alterações externas ou adapter habilitado.
