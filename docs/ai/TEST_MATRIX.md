@@ -79,3 +79,5 @@ Cadastro15: check151 e build .next-check PASS. Novos pgTAP cobrem RPC/permissõe
 Após revisão:153 unitários PASS; paginação50+1/cursor inválido testados; pgTAP acrescenta rollback de auditoria e isolamento por ator. HTTP concorrente e16 Auth E2E aguardam CI.
 
 Vínculo15: unit 156 PASS local; build PASS; pgTAP portal_booking_stay_link (período, apartamento, cancelada, versão, idempotência, auditoria, FK) escrito, execução pendente na CI; E2E Auth pendente.
+
+2026-10-07 — Estadias removida: 132 unit PASS local, build PASS; testes de estadia (unit/pgTAP/E2E) removidos. CI pendente.
