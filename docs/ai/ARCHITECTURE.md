@@ -47,7 +47,7 @@ public/brand/
 docs/{ai,architecture}/
 ```
 
-Stays só na Fase 15. `weekly-program/infrastructure` só se surgir persistência própria justificada; na primeira versão a semana consulta occurrences. Não criar diretórios vazios nesta fase.
+Stays: Fase 15 cancelada (ADR-018), não criar. `weekly-program/infrastructure` só se surgir persistência própria justificada; na primeira versão a semana consulta occurrences. Não criar diretórios vazios nesta fase.
 
 ## Dados e regras
 
