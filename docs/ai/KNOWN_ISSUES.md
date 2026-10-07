@@ -6,7 +6,7 @@
 - Sessões históricas com limite12mantêm seu limite explícito; novas Pizza começam com20. Equipe pode editar sessões até20, desde que não reduza abaixo da ocupação.
 - Atividades gerais ainda contam adultos, mantendo regra existente; inclusão de crianças em sua capacidade não foi solicitada. Pizza conta todos.
 - Comunicado09–12/10 preservado como referência histórica, sem importação automática de horários/vagas incompletos.
-- Testes pgTAP/Supabase HTTP/Auth completos aguardam CI; PostgreSQL portátil valida SQL com auth.users/sessions e funções JWT mínimas de fixture, não substitui GoTrue/PostgREST.
+- CI37683235074 PASS:209pgTAP,7HTTP,14AuthUI e concorrência; PostgreSQL portátil valida SQL com auth.users/sessions e funções JWT mínimas de fixture, não substitui GoTrue/PostgREST.
 
 ## Histórico anterior — consultar requisitos atuais antes de agir
 
