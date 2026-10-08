@@ -1,6 +1,6 @@
 # Portal Valle — instruções operacionais
 
-Escopo vigente: docs/ai/MASTER_REQUEST.md e ADR-020/021. Roteiro antigo arquivado; não retomar fases fora do objetivo.
+Escopo vigente: docs/ai/MASTER_REQUEST.md e ADR-020/021/022. Roteiro antigo arquivado; não retomar fases fora do objetivo.
 
 Antes de alterar: ler `docs/ai/PROJECT_CONTEXT.md`, `ARCHITECTURE.md`, `DECISIONS.md`, `PROGRESS.md`, `KNOWN_ISSUES.md` e o requisito aplicável de `MASTER_REQUEST.md`.
 

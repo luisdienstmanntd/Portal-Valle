@@ -1,5 +1,15 @@
 # Decisões de arquitetura
 
+## ADR-022 — Acesso público sem senha e abertura direta
+
+Status: confirmado explicitamente pelo proprietário07/10/2026 após esclarecimento de exposição de nomes/apartamentos e operações. Substitui identidade individual obrigatória da ADR-008 e carregamento por botão da ADR-020 para este modo.
+
+Qualquer visitante pode consultar e gerir programação/inscrições. Proxy cria automaticamente sessão Supabase anônima somente quando portal_settings.public_access=true; reutiliza cookies e não solicita credenciais. Trigger de auth.users atribui recepcao ativa apenas a is_anonymous real, nunca metadata editável. has_permission exige sessão viva/perfil ativo/modo público ainda habilitado e nega settings/reports/auditoria a anônimos mesmo com perfil promovido. UUID é trilha técnica de sessão, sem identificação de operador humano. Nenhuma chave administrativa no runtime; RLS e RPCs atômicas preservadas. Falha de entrada automática apresenta indisponibilidade/retry em vez de senha. Modo false mantém Auth individual anterior.
+
+Hosted público precisa permitir criação anônima no Auth; cadastro e-mail/senha fica desabilitado pelo provedor Email, em vez de disable_signup global (que também impede anonymous). Auth local de CI conserva defaults fechados para regressão; testes SQL usam modo público transacional. Sessões anônimas contam no limite de usuários Auth; cookies reutilizados evitam criação por navegação normal.
+
+Iframes iniciam abertos. Legados conservam seu login/sessão; browser/origem podem exigir novo acesso ou bloquear cookies em iframe. Nova aba permite utilizar a sessão própria sem alterar proteções. Não automatizar credenciais nem mudar sistemas externos.
+
 ## ADR-010 — Cine primeiro e operações transacionais por sessão
 
 Status: implementada e APROVADO TECNICAMENTE na Fase6 adaptada, CI37155203841 PASS. Data: 2026-10-03.

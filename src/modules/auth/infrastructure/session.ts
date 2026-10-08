@@ -13,13 +13,20 @@ export async function getStaff(): Promise<Staff | null> {
   if (error || !user) return null;
   // RLS also checks live auth.sessions, active profile and identity. No JWT role claims.
   const { data: profile } = await client.from("portal_profiles").select("id,role,active").eq("id", user.id).maybeSingle();
-  return profile;
+  return profile ? { ...profile, publicVisitor: user.is_anonymous === true } : null;
+}
+
+export async function publicAccessEnabled(): Promise<boolean> {
+  if (!authConfigured()) return false;
+  const client = await createPortalServerClient();
+  const { data, error } = await client.rpc("portal_public_access_enabled");
+  return !error && data === true;
 }
 
 export async function requirePermission(permission: Permission): Promise<Staff> {
   if (!authConfigured()) throw new Error("Acesso da equipe ainda não disponível.");
   const staff = await getStaff();
-  if (!staff) redirect("/login");
+  if (!staff) redirect(await publicAccessEnabled() ? "/acesso-indisponivel" : "/login");
   if (!can(staff, permission)) redirect("/acesso-negado");
   return staff;
 }

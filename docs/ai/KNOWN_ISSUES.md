@@ -1,14 +1,13 @@
-# Pendências vigentes — reformulação07/10/2026
+# Pendências vigentes — 07/10/2026
 
-Publicação Vercel07/10: portal-valle-eight.vercel.app em preparação, build/READY/8rotas200 e login iframe dos dois sistemas verificados. Banco/Auth próprios continuam pendentes. Detalhes em ../architecture/VERCEL_DEPLOYMENT.md.
-
-- Supabase/Auth próprios hospedados ainda não provisionados; prévia sem ENV não aceita cadastro/inscrições. Migration nova só versionada e validada em banco local isolado após testes.
-- Login/reserva real em iframe não testado; alternativa em nova aba. HEAD200sem bloqueio não comprova cookies/autenticação.
-- Observações históricas CHD não podem ser convertidas automaticamente em quantidade de crianças. Revisar antes de usar Pizza com dados anteriores.
-- Sessões históricas com limite12mantêm seu limite explícito; novas Pizza começam com20. Equipe pode editar sessões até20, desde que não reduza abaixo da ocupação.
-- Atividades gerais ainda contam adultos, mantendo regra existente; inclusão de crianças em sua capacidade não foi solicitada. Pizza conta todos.
-- Comunicado09–12/10 preservado como referência histórica, sem importação automática de horários/vagas incompletos.
-- CI37683235074 PASS:209pgTAP,7HTTP,14AuthUI e concorrência; PostgreSQL portátil valida SQL com auth.users/sessions e funções JWT mínimas de fixture, não substitui GoTrue/PostgREST.
+- Acesso público aos dados e operações confirmado pelo proprietário (ADR-022). Não há identificação humana do operador; a trilha usa UUID técnico da sessão. Configurações e relatórios permanecem fechados aos visitantes.
+- Sessões automáticas contam no Auth/MAU; cookie é reutilizado. Falha ou limite do serviço mostra indisponibilidade e retry por navegação normal.
+- Autenticação dos sistemas externos preservada. Abas abrem automaticamente, mas a sessão externa não estava conectada no navegador de validação. Login inicial e reservas reais nesses sistemas devem ser validados pela equipe; alternativa nova aba disponível.
+- Supabase próprio conectado com nove migrations. Conector do chat ainda não acessa esse projeto; painel autenticado permitiu instalação/verificação. Nenhuma chave privilegiada utilizada.
+- Retenção dos dados de hóspedes não definida. Não importar observações históricas de crianças como quantidade automaticamente. Pizza nova conta adultos e crianças, limite padrão20; sessões históricas mantêm limite explícito.
+- Atividades gerais mantêm contagem de adultos; Cine8adultos/4puffs com crianças nas observações. Comunicado histórico09–12/10 não importado automaticamente.
+- CI e revisão final do novo commit público pendentes. Docker indisponível neste Windows; GoTrue/PostgREST hospedados validados em projeto próprio, PostgreSQL18 isolado e E2E locais complementam CI.
+- Nenhuma reserva ou hóspede de teste inserido no hospedado; usuários anônimos técnicos de validação permanecem. Nenhuma alteração nos sistemas legados.
 
 ## Histórico anterior — consultar requisitos atuais antes de agir
 
