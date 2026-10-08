@@ -131,6 +131,7 @@ for (const name of ["recepcao", "gerencia", "admin"]) {
       await page.getByRole('button',{name:'Cancelar sessão',exact:true}).click();
       await page.getByRole('alertdialog',{name:'Cancelar esta sessão?',exact:true}).getByRole('button',{name:'Confirmar cancelamento',exact:true}).click();
       await expect(page.getByRole('heading',{name:editedTitle,exact:true})).toBeVisible();
+      await expect(page.getByText('Cancelada',{exact:true})).toBeVisible();
       await page.goto('/programacao?semana='+target);
       await expect(page.locator('.week-session').filter({hasText:editedTitle})).toContainText('Cancelada');
       const daily=JSON.parse(readFileSync('work/daily-agenda-fixtures.json','utf8')) as {date:string;cinema:string;pizza:string};

@@ -1,5 +1,7 @@
 # Pendências vigentes — 07/10/2026
 
+CI37711320324: checks/prévia/227pgTAP/7HTTP/advisors PASS, AuthUI13/14; teste da sessão duplicada navegava antes de o cancelamento terminar (heading já existente não era confirmação). Corrigido para aguardar estado Cancelada antes da navegação, mantendo assertion da semana. Não remover assertions nem tratar esta execução como PASS.
+
 - Acesso público aos dados e operações confirmado pelo proprietário (ADR-022). Não há identificação humana do operador; a trilha usa UUID técnico da sessão. Configurações e relatórios permanecem fechados aos visitantes.
 - Sessões automáticas contam no Auth/MAU; cookie é reutilizado. Falha ou limite do serviço mostra indisponibilidade e retry por navegação normal.
 - Autenticação dos sistemas externos preservada. Abas abrem automaticamente, mas a sessão externa não estava conectada no navegador de validação. Login inicial e reservas reais nesses sistemas devem ser validados pela equipe; alternativa nova aba disponível.
