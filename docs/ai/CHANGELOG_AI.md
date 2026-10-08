@@ -1,6 +1,6 @@
 # Changelog de trabalho IA
 
-ADR-022 autorizado: acesso público sem senha, confirmação explícita de exposição/edição dos dados. Sessão anônima automática, perfil operacional fixo, modo público revogável e administração fechada. Iframes abertos por padrão, autenticação da origem preservada. Nove migrations aplicadas, GoTrue/PostgREST público real validado, 135 unitários e60 E2E PASS. Deployment dpl_AVLtnEyDdzhnA65xAkDTzqbi4Bhj promovido ao domínio principal. Configurações administrativas negadas; sem fixtures de negócio no hosted. CI/parecer final pendentes.
+ADR-022 autorizado: acesso público sem senha, confirmação explícita de exposição/edição dos dados. Sessão anônima automática, perfil operacional fixo, modo público revogável e administração fechada. Iframes abertos por padrão, autenticação da origem preservada. Nove migrations aplicadas, GoTrue/PostgREST público real validado, 135 unitários e60 E2E PASS. Deployment dpl_AVLtnEyDdzhnA65xAkDTzqbi4Bhj promovido ao domínio principal. Configurações administrativas negadas; teste UI de atividade/inscrição fictícias e cancelamentos PASS; registros cancelados no histórico, sem dados reais. CI/parecer final pendentes.
 
 ## Etapas anteriores de provisionamento — superadas pela ativação acima
 
