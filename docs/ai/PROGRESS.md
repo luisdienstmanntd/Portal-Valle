@@ -1,14 +1,16 @@
-# Progresso vigente —07/10/2026
+# Progresso vigente — 07/10/2026
 
-Current phase: reformulação do Portal da Recepção (ADR-020/021).
-Status: reformulação implementada e aprovada tecnicamente; CI completo PASS.
-Completed: decisões confirmadas; telas incorporadas; Home/programação na mesma fonte; atividade livre; permissões recepção/gerência; Pizza20incluindo crianças e exceções justificadas; documentação vigente substituída.
-In progress: nenhuma implementação pendente neste escopo.
-Next step: revisão do PR #3; banco/Auth próprios hospedados dependem de ambiente exclusivo disponível. Não retomar fases do roteiro histórico.
-Blocked by: operação compartilhada hospedada sem banco/Auth próprios provisionados. Telas de login reais abrem em iframe; autenticação/reservas precisam da validação da equipe.
-Last verified implementation commit:923f13e; CI37683235074 PASS; APROVADO TECNICAMENTE. PR #3 pronto para revisão, sem merge. Publicação manual de preparação em portal-valle-eight.vercel.app, deployment READY; ver docs/architecture/VERCEL_DEPLOYMENT.md.
-Tests status: check134unit, build e60E2E PASS local. PostgreSQL isolado: migrations e regras operacionais PASS. CI37683235074 PASS:209pgTAP,7HTTP,14AuthUI,concorrência Cine/Pizza/semana,advisors ecleanup.
-Next AI instruction: seguir MASTER_REQUEST/ADR-020/021. Sistemas incorporados inicialmente; não criar views/RPC/bancos externos, novas fases, estadias ou relatórios por iniciativa própria.
+Escopo ADR-020/021/022: Portal da recepção com acesso público sem senha expressamente autorizado; programação, Cine, Pizza e inscrições próprias; sistemas externos incorporados com autenticação preservada.
+
+Implementação publicada em https://portal-valle-eight.vercel.app/hoje. Deployment dpl_AVLtnEyDdzhnA65xAkDTzqbi4Bhj READY/build remoto PASS e promovido ao domínio principal. Projeto Supabase exclusivo Portal-Valle-staging/hhtwewjihvqhkmpodeek, organização luisirnop, ca-central-1; nove migrations instaladas e histórico privado conferido. public_access=true, anonymous sign-ins e signup geral habilitados; Email provider desabilitado. Apenas chave publishable no cliente.
+
+Verificação: 135 testes unitários/check PASS; 60 E2E de prévia PASS; PostgreSQL18 isolado validou nove migrations, regras operacionais, Pizza20/exceções e revogação do modo público. GoTrue/PostgREST hospedados reais: entrada anônima, perfil recepcao automático, leitura operacional, escrita administrativa negada e leitura após revogação negada PASS. Browser hospedado: Hoje sem login, recarregamento com sessão, Programação editável e Configurações redirecionando para acesso-negado. Não foram inseridas sessões, inscrições ou hóspedes no hospedado.
+
+Piscina/Academia e Osteria abrem imediatamente; navegador de validação sem sessão externa mostra login. Equipe precisa conectar cada sistema uma vez no navegador de uso; persistência depende de cookies da origem. Nenhum legado alterado.
+
+Revisão independente aprovou bundle da migration9 e correção do retry. Aprovação operacional final e CI do commit público ainda pendentes. PR #3 pronto para revisão, sem merge. CI anterior37683235074 PASS com209pgTAP/7HTTP/14AuthUI/concorrência; não representa ainda o novo commit.
+
+Continuar apenas escopo vigente; concluir documentação/CI/revisão. Não reintroduzir estadias, relatórios ou integrações diretas externas.
 
 ## Histórico anterior — não é roteiro vigente
 

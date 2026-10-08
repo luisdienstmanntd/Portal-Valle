@@ -6,6 +6,11 @@ import { createChunks, combineChunks, stringFromBase64URL, stringToBase64URL } f
 const fixture = JSON.parse(readFileSync("work/auth-fixtures.json", "utf8")) as {
   password: string; users: Record<string, { email: string; id: string }>;
 };
+test.beforeEach(async ({ page }) => {
+  for (const url of ["https://osteriadilucca.web.app/**", "https://agendamentosvalledincanto.vercel.app/**"]) {
+    await page.route(url, route => route.fulfill({ status: 200, contentType: "text/html; charset=utf-8", body: "<h1>Sistema fictício</h1>" }));
+  }
+});
 async function login(page: Page, name: string, password = fixture.password) {
   await page.goto("/login");
   await page.getByLabel("E-mail", { exact: true }).fill(fixture.users[name].email);
@@ -56,7 +61,7 @@ test("anônimo redirecionado, login, reload e logout", async ({ page }) => {
   expect(response?.headers()["cache-control"]).toContain("no-store");
   await page.goto("/osteria?dia=2026-12-31");
   await expect(page.getByRole("heading", { level:1,name:"Osteria",exact:true })).toBeVisible();
-  await expect(page.getByRole("button", { name:"Abrir Osteria no Portal",exact:true })).toBeVisible();
+  await expect(page.getByRole("button", { name:"Fechar sistema",exact:true })).toBeVisible();
   await expect(page.getByRole("link", { name: "Abrir em nova aba ↗", exact: true })).toHaveAttribute("href", "https://osteriadilucca.web.app/");
   await page.getByRole("button", { name: "Sair", exact: true }).click();
   await expect(page).toHaveURL(/\/login$/);
@@ -175,3 +180,4 @@ test("sessão revogada invalida JWT existente também no banco", async ({ page }
   await page.reload(); await expect(page).toHaveURL(/\/login$/);
   await page.goto("/experiencias"); await expect(page).toHaveURL(/\/login$/);
 });
+

@@ -1,13 +1,12 @@
 # Validação vigente — 07/10/2026
 
-Publicação Vercel07/10: portal-valle-eight.vercel.app em preparação, build/READY/8rotas200 e login iframe dos dois sistemas verificados. Banco/Auth próprios continuam pendentes. Detalhes em ../architecture/VERCEL_DEPLOYMENT.md.
-
-- npm run check: lint, TypeScript e 134 testes unitários PASS.
-- Build de produção separado (.next-verify): PASS.
-- Playwright público: 60 testes PASS em desktop, tablet retrato/paisagem e celular. Inclui abertura/fechamento incorporado, links atuais, navegação, teclado e ausência de overflow.
-- PostgreSQL 18 isolado: todas as migrations aplicadas; recepção, atividade livre, Pizza 20 com crianças, exceções, auditoria, retry, cancelamento/reativação, edição de sessão excedida, cópia sem inscrições e perfil inativo PASS.
-- Novo portal_reception_scope.test.sql mantém a regressão no pgTAP do CI. CI37683235074/923f13e:209pgTAP,7HTTP,14AuthUI,concorrência,advisors ecleanup PASS. Docker/Supabase completos indisponíveis localmente; não confundir o teste PostgreSQL com GoTrue/PostgREST reais.
-- Telas reais incorporadas de Piscina/Academia e Osteria verificadas até o login. Login e reservas reais precisam de validação pela equipe.
+- Check: lint/TypeScript/135 testes unitários PASS.
+- Playwright de prévia:60 PASS nos quatro viewports; iframes automáticos, fechar/reabrir, links e navegação.
+- PostgreSQL18 isolado: nove migrations, programação, Pizza20 incluindo crianças/exceções, idempotência, auditoria, cópia, visitante técnico, administração negada e revogação PASS. Novo portal_public_access.test.sql versionado para CI.
+- Supabase hospedado próprio: nove registros de migration conferidos após transação; RLS preservada. Auth REST confirma anonymous_users=true, disable_signup=false e email=false. Teste GoTrue/PostgREST real confirma criação anônima, perfil recepcao ativo automático, três experiências acessíveis, PATCH administrativo negado e leitura vazia após logout global. Sem fixtures de negócio no hospedado.
+- Browser real no domínio principal: Hoje sem senha, recarregar preserva entrada, Programação disponível, configurações negadas; Piscina e Osteria incorporadas imediatamente até login de origem. Sessões/reservas externas reais não testadas.
+- Vercel dpl_AVLtnEyDdzhnA65xAkDTzqbi4Bhj READY, build remoto PASS, domínio principal promovido.
+- CI anterior37683235074 PASS:209pgTAP/7HTTP/14AuthUI/concorrência/advisors/cleanup. Novo commit público ainda requer CI e parecer final; não atribuir ao novo commit resultados antigos.
 
 ## Matriz histórica
 # Matriz de testes planejados

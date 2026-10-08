@@ -1,5 +1,11 @@
 # Changelog de trabalho IA
 
+ADR-022 autorizado: acesso público sem senha, confirmação explícita de exposição/edição dos dados. Sessão anônima automática, perfil operacional fixo, modo público revogável e administração fechada. Iframes abertos por padrão, autenticação da origem preservada. Nove migrations aplicadas, GoTrue/PostgREST público real validado, 135 unitários e60 E2E PASS. Deployment dpl_AVLtnEyDdzhnA65xAkDTzqbi4Bhj promovido ao domínio principal. Configurações administrativas negadas; sem fixtures de negócio no hosted. CI/parecer final pendentes.
+
+## Etapas anteriores de provisionamento — superadas pela ativação acima
+
+Provisionamento hospedado07/10: projeto próprio hhtwewjihvqhkmpodeek vazio recebeu oito migrations exatas em transação e histórico privado. RLS/grants/catalogo/Pizza20/fuso verificados; signup público bloqueado; Site URL próprio. Três ENV públicas na Vercel e prévia conectada READY/build PASS. Sem usuários, reservas ou alterações de legado. Pedido novo de acesso sem senha aguarda esclarecimento de exposição pública versus sessão persistente.
+
 Publicação Vercel07/10: portal-valle-eight.vercel.app em preparação, build/READY/8rotas200 e login iframe dos dois sistemas verificados. Banco/Auth próprios continuam pendentes. Detalhes em ../architecture/VERCEL_DEPLOYMENT.md.
 
 ## 2026-10-07 — Portal da Recepção

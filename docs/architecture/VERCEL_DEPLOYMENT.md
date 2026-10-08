@@ -1,16 +1,15 @@
 # Publicação Vercel — 07/10/2026
 
-Projeto próprio: portal-valle. Conta autenticada: luisdienstmanntd-9106; escopo luisdienstmanntd-9106s-projects. ID prj_psJ9dC854NqcVOwI5OqZaKs6fWcO.
+URL pública: https://portal-valle-eight.vercel.app/hoje
 
-URL estável: https://portal-valle-eight.vercel.app/hoje
-Deployment: dpl_9aU5dzoYCU3QFPx3Nb5azNRREYgi, READY; URL imutável https://portal-valle-fx42wy00j-luisdienstmanntd-9106s-projects.vercel.app.
+Projeto próprio portal-valle, ID prj_psJ9dC854NqcVOwI5OqZaKs6fWcO; conta luisdienstmanntd-9106, escopo luisdienstmanntd-9106s-projects. Deployment dpl_AVLtnEyDdzhnA65xAkDTzqbi4Bhj, READY/build PASS, production, promovido ao domínio principal após configuração do banco. URL imutável https://portal-valle-8gy9sjk8h-luisdienstmanntd-9106s-projects.vercel.app.
 
-Publicação manual da cópia local baseada em fd53cee, com vercel.json e .vercelignore. O comando solicitou target preview; a Vercel atribuiu o primeiro deployment ao target production e ao alias estável. A publicação é de preparação: não há banco/Auth configurados, hóspedes ou cadastros operacionais do Portal. Nenhum deployment externo foi alterado. GitHub ainda não vinculado para deploy automático; PR #3 não integrado.
+Supabase exclusivo Portal-Valle-staging/hhtwewjihvqhkmpodeek, organização luisirnop, CanadaCentral ca-central-1 escolhida pelo proprietário. Nove migrations registradas, RLS e histórico privado preservados. public_access=true, sessões anônimas habilitadas; signup geral habilitado por exigência do GoTrue anônimo e Email provider desabilitado. Site URL aponta ao domínio próprio. Não há e-mails/senhas exigidos pelo Portal; administração fechada aos visitantes.
 
-Framework Next.js explícito no vercel.json, Node24 pelo package.json. .vercel/project.json fica ignorado; arquivos locais de ambiente, work/, builds e resultados de testes não são enviados (.vercelignore). Sem credenciais no código.
+Três NEXT_PUBLIC_SUPABASE_* configuradas em production, somente URL/ref/chave publishable. Nenhuma chave privilegiada. .vercel/project.json, .env*, work/, builds e relatórios locais ignorados. Next.js explícito em vercel.json; Node24.
 
-Verificação: build remoto PASS; inspect READY; oito rotas respondem HTTP200 (Hoje, Piscina, Academia, Osteria, Programação, Pizza, atividades e login). Navegação e abertura das telas reais de login de Piscina/Academia e Osteria verificadas em browser no endereço hospedado. Login/reservas reais não realizados.
+Prévia dpl_9KWxRZzh1G8U3p1XfEmWSxKvZNZv build PASS. Proteção Vercel exigiu conta de equipe para URL imutável; não foi removida. Versão production criada com --skip-domain, depois promovida com vercel promote para testar o endereço público. CLI ainda atribuiu alias de equipe ao criar --skip-domain; não presumir ausência de aliases. GitHub não conectado ao deploy automático; PR #3 não integrado.
 
-Para ativar programação, Cine e Pizza: provisionar Supabase/Auth exclusivos; aplicar migrations revisadas; desabilitar signup público no hosted; configurar as três variáveis públicas validadas em .env.example, criar perfis individuais e validar permissões. Criação do projeto Supabase ainda bloqueada: get_cost indisponível no conector; plano gratuito conectado já tem dois projetos ativos. Não usar bancos existentes.
+Validação no domínio principal: entrada sem senha, sessão após reload, Programação e bloqueio de Configurações. Sistemas externos carregam iframe imediatamente; login externo inicial permanece necessário quando a sessão não está conectada. Não foram criadas reservas externas ou hóspedes no hospedado.
 
-Antes de cada publicação, executar vercel project inspect --non-interactive e conferir este destino. Usar vercel deploy --target preview para futuras prévias e inspecionar o target efetivamente criado. Não promover para operação real antes da configuração e verificação do banco próprio.
+Antes de publicar, conferir vercel project inspect no escopo próprio. Futuras prévias usam --build-env/--env públicos porque env add preview exige branch/repositório conectado neste projeto manual. Inspecionar target e aliases efetivos. Não reutilizar projetos/bancos dos sistemas atuais.

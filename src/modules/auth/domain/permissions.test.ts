@@ -2,6 +2,13 @@ import { describe, expect, it } from "vitest";
 import { can, permissions, roles } from "./permissions";
 import { loginSchema } from "./login";
 describe("RBAC central", () => {
+  it("visitante público mantém permissões operacionais sem administração", () => {
+    const visitor = { id: "anonymous", role: "admin" as const, active: true, publicVisitor: true };
+    expect(can(visitor, "bookings.manage")).toBe(true);
+    expect(can(visitor, "weekly_program.manage")).toBe(true);
+    expect(can(visitor, "settings.manage")).toBe(false);
+    expect(can(visitor, "reports.read")).toBe(false);
+  });
   for (const role of roles) {
     for (const permission of permissions) {
       it(`${role}: ${permission}`, () => {

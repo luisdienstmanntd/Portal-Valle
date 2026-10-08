@@ -1,10 +1,12 @@
 # Arquitetura vigente
 
+ADR-022 acrescenta modo público explícito no banco: proxy cria/reutiliza sessão anônima automática, trigger atribui perfil operacional fixo, autorização checa modo público em cada RPC/leitura e bloqueia administração/auditoria para anônimos. SSR permanece dinâmico/no-store, sem chave privilegiada. Interface omite login/logout para visitante público e apresenta indisponibilidade com retry em falha de sessão. Iframes agora carregam ao abrir a aba; origem mantém login/cookies e alternativa nova aba. Os parágrafos antigos sobre carregamento somente por clique/identidade pessoal são substituídos neste modo.
+
 ## Fluxos
 
 - Browser → Portal Next.js: navegação, Hoje, Programação, Cine/Pizza e atividades.
-- Browser → iframe HTTPS do sistema atual: reservas Piscina/Academia/Osteria usando autenticação da origem; Portal não lê DOM nem captura credenciais. Sem banco externo ou compartilhamento de sessão. Incorporação carregada somente após clicar, alternativa em nova aba sempre disponível.
-- Portal servidor → Supabase próprio: catálogo, sessões, inscrições, Auth e auditoria. Cliente público com sessão individual; nenhuma chave administrativa.
+- Browser → iframe HTTPS do sistema atual: reservas Piscina/Academia/Osteria usando autenticação da origem; Portal não lê DOM nem captura credenciais. Sem banco externo ou compartilhamento de sessão. Incorporação carregada imediatamente ao abrir a aba, alternativa em nova aba sempre disponível.
+- Portal servidor → Supabase próprio: catálogo, sessões, inscrições, Auth e auditoria. Cliente público com sessão técnica anônima no modo público; nenhuma chave administrativa.
 
 Hoje e Programação usam loadWeek sobre experience_occurrences. Home exibe published/completed; cadastro conserva rascunhos e canceladas. Salvar/cancelar invalida Hoje, Agenda e Programação. Consultas no-store; estado sem configuração/falha é distinto de vazio. Fuso America/Sao_Paulo.
 
@@ -20,6 +22,6 @@ Pizza permanece com capacidade20; booking acima da capacidade só aceita justifi
 
 Adapters diretos externos anteriores ficam preparados/desconectados, fora do caminho das telas incorporadas. Não retomar ADR-019/plano de escrita sem nova solicitação. Bancos externos nunca dependem do Portal.
 
-Autenticação incorporada pode falhar por políticas do browser/origem; não inferir êxito pelo evento load do iframe. Verificação visual de tela de login não comprova login ou reserva. Hospedagem/Auth próprios ainda pendentes.
+Autenticação incorporada pode falhar por políticas do browser/origem; não inferir êxito pelo evento load do iframe. Verificação visual de tela de login não comprova login ou reserva. Supabase/Auth próprios configurados e entrada pública automática validada no domínio principal.
 
 Arquitetura anterior preservada em ../history/ARCHITECTURE_BEFORE_RECEPTION_SCOPE.md. Docs de fases antigas são evidências históricas; não são roteiro vigente.
