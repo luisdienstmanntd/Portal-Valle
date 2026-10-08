@@ -2,15 +2,15 @@
 
 Escopo ADR-020/021/022: Portal da recepção com acesso público sem senha expressamente autorizado; programação, Cine, Pizza e inscrições próprias; sistemas externos incorporados com autenticação preservada.
 
-Implementação publicada em https://portal-valle-eight.vercel.app/hoje. Deployment dpl_AVLtnEyDdzhnA65xAkDTzqbi4Bhj READY/build remoto PASS e promovido ao domínio principal. Projeto Supabase exclusivo Portal-Valle-staging/hhtwewjihvqhkmpodeek, organização luisirnop, ca-central-1; nove migrations instaladas e histórico privado conferido. public_access=true, anonymous sign-ins e signup geral habilitados; Email provider desabilitado. Apenas chave publishable no cliente.
+Implementação publicada em https://portal-valle-eight.vercel.app/hoje. Deployment dpl_2XfgE9Me64qhZpi5h2sWPUhnNuPp READY/build remoto PASS e promovido ao domínio principal. Projeto Supabase exclusivo Portal-Valle-staging/hhtwewjihvqhkmpodeek, organização luisirnop, ca-central-1; nove migrations instaladas e histórico privado conferido. public_access=true, anonymous sign-ins e signup geral habilitados; Email provider desabilitado. Apenas chave publishable no cliente.
 
 Verificação: 135 testes unitários/check PASS; 60 E2E de prévia PASS; PostgreSQL18 isolado validou nove migrations, regras operacionais, Pizza20/exceções e revogação do modo público. GoTrue/PostgREST hospedados reais: entrada anônima, perfil recepcao automático, leitura operacional, escrita administrativa negada e leitura após revogação negada PASS. Browser hospedado: Hoje sem login, recarregamento com sessão, Programação editável e Configurações redirecionando para acesso-negado. Validação operacional posterior: uma atividade e uma inscrição fictícias foram criadas pela UI sem senha; publicação refletiu em Hoje, ocupação1/12 e cancelamento liberou0/12. Ambas canceladas logicamente e preservadas no histórico; sem dados reais.
 
 Piscina/Academia e Osteria abrem imediatamente; navegador de validação sem sessão externa mostra login. Equipe precisa conectar cada sistema uma vez no navegador de uso; persistência depende de cookies da origem. Nenhum legado alterado.
 
-Revisão independente aprovou bundle da migration9 e correção do retry. Aprovação operacional final e CI do commit público ainda pendentes. PR #3 pronto para revisão, sem merge. CI anterior37683235074 PASS com209pgTAP/7HTTP/14AuthUI/concorrência; não representa ainda o novo commit.
+Revisão independente aprovou bundle da migration9 e correção do retry. CI37710987820/217f592 PASS:135 unitários,60 E2E de prévia,227 pgTAP,7 HTTP,14 AuthUI,concorrência/advisors/cleanup. Revisão independente final acompanha o PR #3. PR #3 pronto para revisão, sem merge. CI anterior37683235074 PASS com209pgTAP/7HTTP/14AuthUI/concorrência; não representa ainda o novo commit.
 
-Continuar apenas escopo vigente; concluir documentação/CI/revisão. Não reintroduzir estadias, relatórios ou integrações diretas externas.
+Manter apenas escopo vigente. Não reintroduzir estadias, relatórios ou integrações diretas externas.
 
 ## Histórico anterior — não é roteiro vigente
 

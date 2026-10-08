@@ -6,7 +6,7 @@
 - Supabase próprio conectado com nove migrations. Conector do chat ainda não acessa esse projeto; painel autenticado permitiu instalação/verificação. Nenhuma chave privilegiada utilizada.
 - Retenção dos dados de hóspedes não definida. Não importar observações históricas de crianças como quantidade automaticamente. Pizza nova conta adultos e crianças, limite padrão20; sessões históricas mantêm limite explícito.
 - Atividades gerais mantêm contagem de adultos; Cine8adultos/4puffs com crianças nas observações. Comunicado histórico09–12/10 não importado automaticamente.
-- CI e revisão final do novo commit público pendentes. Docker indisponível neste Windows; GoTrue/PostgREST hospedados validados em projeto próprio, PostgreSQL18 isolado e E2E locais complementam CI.
+- CI37710987820/217f592 PASS:135 unitários,60 E2E de prévia,227 pgTAP,7 HTTP,14 AuthUI,concorrência/advisors/cleanup. Docker indisponível neste Windows; GoTrue/PostgREST hospedados validados em projeto próprio, PostgreSQL18 isolado e E2E locais complementam CI.
 - Uma atividade TESTE TÉCNICO e uma inscrição Hóspede fictício/Apto TESTE foram validadas na UI e canceladas logicamente; permanecem apenas no histórico. Usuários anônimos técnicos de validação permanecem. Nenhuma alteração nos sistemas legados.
 
 ## Histórico anterior — consultar requisitos atuais antes de agir

@@ -2,7 +2,7 @@
 
 URL pública: https://portal-valle-eight.vercel.app/hoje
 
-Projeto próprio portal-valle, ID prj_psJ9dC854NqcVOwI5OqZaKs6fWcO; conta luisdienstmanntd-9106, escopo luisdienstmanntd-9106s-projects. Deployment dpl_AVLtnEyDdzhnA65xAkDTzqbi4Bhj, READY/build PASS, production, promovido ao domínio principal após configuração do banco. URL imutável https://portal-valle-8gy9sjk8h-luisdienstmanntd-9106s-projects.vercel.app.
+Projeto próprio portal-valle, ID prj_psJ9dC854NqcVOwI5OqZaKs6fWcO; conta luisdienstmanntd-9106, escopo luisdienstmanntd-9106s-projects. Deployment dpl_2XfgE9Me64qhZpi5h2sWPUhnNuPp, READY/build PASS, production, promovido ao domínio principal após configuração do banco. URL imutável https://portal-valle-9vqadylat-luisdienstmanntd-9106s-projects.vercel.app.
 
 Supabase exclusivo Portal-Valle-staging/hhtwewjihvqhkmpodeek, organização luisirnop, CanadaCentral ca-central-1 escolhida pelo proprietário. Nove migrations registradas, RLS e histórico privado preservados. public_access=true, sessões anônimas habilitadas; signup geral habilitado por exigência do GoTrue anônimo e Email provider desabilitado. Site URL aponta ao domínio próprio. Não há e-mails/senhas exigidos pelo Portal; administração fechada aos visitantes.
 
