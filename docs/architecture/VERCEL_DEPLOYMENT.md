@@ -10,6 +10,6 @@ Três NEXT_PUBLIC_SUPABASE_* configuradas em production, somente URL/ref/chave p
 
 Prévia dpl_9KWxRZzh1G8U3p1XfEmWSxKvZNZv build PASS. Proteção Vercel exigiu conta de equipe para URL imutável; não foi removida. Versão production criada com --skip-domain, depois promovida com vercel promote para testar o endereço público. CLI ainda atribuiu alias de equipe ao criar --skip-domain; não presumir ausência de aliases. GitHub não conectado ao deploy automático; PR #3 não integrado.
 
-Validação no domínio principal: entrada sem senha, sessão após reload, Programação e bloqueio de Configurações. Sistemas externos carregam iframe imediatamente; login externo inicial permanece necessário quando a sessão não está conectada. Não foram criadas reservas externas ou hóspedes no hospedado.
+Validação no domínio principal: entrada sem senha, sessão após reload, Programação e bloqueio de Configurações. Sistemas externos carregam iframe imediatamente; login externo inicial permanece necessário quando a sessão não está conectada. Nenhuma reserva externa criada. Uma atividade e uma inscrição inteiramente fictícias validadas pelo Portal e canceladas logicamente; histórico preservado.
 
 Antes de publicar, conferir vercel project inspect no escopo próprio. Futuras prévias usam --build-env/--env públicos porque env add preview exige branch/repositório conectado neste projeto manual. Inspecionar target e aliases efetivos. Não reutilizar projetos/bancos dos sistemas atuais.

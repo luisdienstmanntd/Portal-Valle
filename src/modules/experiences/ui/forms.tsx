@@ -25,7 +25,7 @@ export function OccurrenceForm({flow,request,id,experienceId,available,occurrenc
       <div><Label htmlFor={`${prefix}-capacity`}>{config.film?"Puffs disponíveis":flow==="pizza"?"Vagas para pessoas (adultos e crianças)":"Vagas para adultos"}</Label><Input id={`${prefix}-capacity`} type="number" name="capacity" min={0} max={config.capacity} required defaultValue={occurrence?.capacity_override??(flow==="program"?12:config.capacity)} /></div>
       <div><Label htmlFor={`${prefix}-people`}>{flow==="pizza"?"Limite de pessoas":"Limite de adultos"}</Label><Input id={`${prefix}-people`} type="number" name="person_limit" min={0} max={flow==="pizza"?20:config.adults} required defaultValue={occurrence?.person_limit_override??(flow==="program"?12:flow==="pizza"?20:config.adults)} /></div>
       <div><Label htmlFor={`${prefix}-status`}>Disponibilidade</Label><Select id={`${prefix}-status`} name="status" defaultValue={occurrence?.status??"draft"}><option value="draft">Rascunho</option><option value="published">Aberta para inscrições</option></Select></div>
-      <p className="operation-help">Responsável registrado pelo login individual. {flow==="pizza"?"Vagas incluem adultos e crianças. Limite padrão: 20 pessoas.":"Vagas contadas por adultos."}</p>
+      <p className="operation-help">{flow==="pizza"?"Vagas incluem adultos e crianças. Limite padrão: 20 pessoas.":"Vagas contadas por adultos."}</p>
       <Button type="submit">{pending?"Salvando…":occurrence?"Salvar sessão":"Criar sessão"}</Button>
     </fieldset><ErrorMessage error={state.error} />
   </form>;
