@@ -74,3 +74,7 @@ Fase14 evidência final: CI37486467897/bf12bdb PASS:125unit,52prévia,22resiliê
 Fase15 em validação:5cenários aplicação (escopo/fuso, estados, ordenação/cancelamento, payload foraescopo/PII/excesso, timeout), preview4viewports e consulta real no fluxo Auth Cine/Pizza, sem expor nome na timeline.
 
 Fase15 local: lint/TS/130unit/build/22resiliência PASS;52préviaexistentesPASS,4novos corrigido seletor alert duplicado pelo announcerNext e4/4PASS. Nenhuma assertion removida.
+
+Fase15 CI38435133727/75c55f0 PASS:130unit56prévia22resiliência198pgTAP7HTTP14Auth; consulta real de inscrições Cine/Pizza via sessão/RLS no testeAuth. Advisors/checkpoints/cleanup PASS.
+
+Fase15 revisão independente2026-10-13: APROVADO TECNICAMENTE, CI/SHA exato confirmado. Hosted/tablet físico não verificados.

@@ -52,3 +52,7 @@ Fase14: CI final37486467897/bf12bdb PASS, pendência de CI resolvida; APROVADO T
 Fase15: apartamento/período não identifica hóspede/estadia; conferir detalhe da inscrição. Limites100sessões antes do filtro e100inscrições podem tornar período indisponível. Catálogos inativos fora da consulta. Vínculo externo seguro ausente, factories null.
 
 Fase15 CI38434476196/985b7b1:130unit/56prévia/22resiliência/198pgTAP/7HTTP PASS, Auth13/14. Sessões desktop/tablet repetem título; seletor novo ficou ambíguo. Corrigido para href da sessão criada, mantendo título/URL como assertions. Produto não alterado; CI da correção pendente.
+
+Fase15 falha de teste resolvida: CI38435133727/75c55f0 PASS completo. Limites operacionais e fontes externas pendentes permanecem.
+
+Fase15 APROVADO TECNICAMENTE em2026-10-13. Pendências de validação CI/revisão resolvidas; fontes externas e hospedagem permanecem pendentes.
