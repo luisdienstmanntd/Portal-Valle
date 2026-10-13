@@ -242,3 +242,6 @@ textarea.field-control { min-height: 100px; resize: vertical; }
   .empty-state { padding: 44px 22px; }
   .workspace-footer { padding: 20px 18px; }
 }
+.stay-selector { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 180px), 1fr)); gap: 16px; align-items: end; margin: 20px 0; }
+.stay-entries { list-style: none; padding: 0; }
+.stay-entries li { border-top: 1px solid var(--brand-border); padding: 16px 0; overflow-wrap: anywhere; }

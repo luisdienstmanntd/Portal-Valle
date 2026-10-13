@@ -116,3 +116,5 @@ Resultado preparação Fase11: CI37170970533/0630c5374590375e91059f40691f5082e4d
 Fase14 CI37486467897/bf12bdb PASS, incluindo banco/Auth e22cenários de resiliência. Código enviado ao PR1 em rascunho, sem merge/deploy.
 
 2026-10-13 — Revisão independente confirmou CI/SHA e emitiu APROVADO TECNICAMENTE para Fase14. Sem merge/deploy; Fase15 não iniciada.
+
+2026-10-13 — Proprietário autorizou Fase15. Visão Estadia manual em implementação, semPMS, PII ou associação automática; catálogos ativos Cine/Pizza, fontes externas pendentes.

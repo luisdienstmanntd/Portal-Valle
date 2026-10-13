@@ -48,3 +48,5 @@ Fase12: acesso SELECT-only Osteria não comprovado; factory null. Projeção req
 Fase14: deadline5s por verificação/cliente não é SLA HTTP total. Cenários externos permanecem sintéticos, factories null; acesso restrito real e tablet físico pendentes. SDK pode emitir diagnóstico de abort no servidor; UI sanitizada. CI final PASS; APROVADO TECNICAMENTE em2026-10-13.
 
 Fase14: CI final37486467897/bf12bdb PASS, pendência de CI resolvida; APROVADO TECNICAMENTE em2026-10-13. Limitações operacionais acima permanecem.
+
+Fase15: apartamento/período não identifica hóspede/estadia; conferir detalhe da inscrição. Limites100sessões antes do filtro e100inscrições podem tornar período indisponível. Catálogos inativos fora da consulta. Vínculo externo seguro ausente, factories null.

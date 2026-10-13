@@ -1,11 +1,11 @@
 # Progresso — Portal Valle
 
-Current phase: Fase14 — Resiliência concluída.
+Current phase: Fase15 — Visão Estadia em validação.
 Status: Fase14 APROVADO TECNICAMENTE; CI PASS. Conexões externas operacionais pendentes.
 Completed: Fases0–5; Cine6 com requisitos7; Pizza8; programação9; agenda10; preparação11/12; Home13; resiliência14.
-In progress: nenhuma implementação; Fase15 não iniciada. Factories externos continuam null.
+In progress: Fase15 autorizada em2026-10-13; consulta manual apartamento/período, semPMS. Factories externos continuam null.
 Tests: CI37486467897/bf12bdb PASS:125 unitários,52 prévias,22 resiliência,198 pgTAP,7 HTTP,14 Auth E2E; advisors/checkpoints/cleanup PASS. Check/build/125unit/22resiliência locais PASS.
-Next step: Fase15 Visão Estadia somente com nova autorização explícita.
+Next step: validar Fase15, revisão/CI/commit/relatório e parar antes da Fase16.
 Blocked by: hospedado adiado por quota; Docker ausente neste Windows. Nenhuma alteração aos legados.
 Last verified implementation commit: bf12bdb6813c82082b88e4f9bfded8a06473ed85, CI37486467897 PASS; branch codex/home-today-phase13, PR1 em rascunho, não mesclado.
 Preview: checkout novo em Windows; servidor local127.0.0.1:3100 usa build.next, sem ENV/dados reais. Não sobrescrever build ativo.

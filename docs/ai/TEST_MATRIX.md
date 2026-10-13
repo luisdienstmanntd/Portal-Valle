@@ -70,3 +70,7 @@ Fase14:125 testes unitários;22 cenários de resiliência HTTP desktop/tablet (A
 Fase14 evidência final: CI37486467897/bf12bdb PASS:125unit,52prévia,22resiliência,198pgTAP,7HTTP,14Auth; advisors/checkpoints/cleanup PASS. Local check/build/22resiliência PASS.
 
 2026-10-13: revisor independente confirmou CI/SHA exato e APROVADO TECNICAMENTE para Fase14. Nenhum novo código após bf12bdb; fechamento documental.
+
+Fase15 em validação:5cenários aplicação (escopo/fuso, estados, ordenação/cancelamento, payload foraescopo/PII/excesso, timeout), preview4viewports e consulta real no fluxo Auth Cine/Pizza, sem expor nome na timeline.
+
+Fase15 local: lint/TS/130unit/build/22resiliência PASS;52préviaexistentesPASS,4novos corrigido seletor alert duplicado pelo announcerNext e4/4PASS. Nenhuma assertion removida.

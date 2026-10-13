@@ -150,3 +150,7 @@ Fase13 usa agenda própria e leitores diários validados em paralelo, sem duplic
 ## ADR-017 — Falha de autorização fecha acesso; falha de leitura permite recuperação
 
 Auth/perfil têm deadline e validação estrita; falhas não viram sessão ausente. Proxy preserva cookies/cache privado no redirect público sem loop. Cliente SSR limita também consultas/mutações a5s e desativa repetição automática PostgREST. ENV inválida difere de ausente; páginas protegidas dinâmicas e error boundary sanitizada permitem recuperar sem expor payload. Matriz loopback isolada complementa Auth/RLS real do CI, sem habilitar integrações externas.
+
+## ADR-018 — Estadia inicial como escopo manual de consulta
+
+Apartamento+período inclusivo até31dias reúne inscrições próprias, sem inferir identidade/check-in/PMS ou persistir Stay. Contrato de apartamento mantém texto aparado1–30. Projeção mínima exclui nome/telefone; sessão/RLS e experiences.read existentes. Fontes externas sem vínculo seguro ficam pendentes. Limites100sessões/100inscrições falham integralmente; sem truncamento ou cadastro paralelo.

@@ -32,6 +32,11 @@ async function experienceFlow(page:Page,slug:string,label:string,title:string,oc
  await booking.getByRole('button',{name:'Reservar',exact:true}).click();
  await expect(page.getByRole('heading',{name:occupied,exact:true})).toBeVisible();
  await expect(page.getByText('Observações: CHD 2 anos',{exact:true})).toBeVisible();
+  await page.goto('/estadias?apto=TEST&inicio=2026-10-10&fim=2026-10-10');
+  await expect(page.getByRole('heading',{name:'APTO TEST',exact:true})).toBeVisible();
+  await expect(page.getByRole('region',{name:'Inscrições do apartamento'}).getByRole('link',{name:title,exact:true})).toBeVisible();
+  await expect(page.getByRole('region',{name:'Inscrições do apartamento'})).not.toContainText('Pessoa fictícia interface');
+  await page.getByRole('region',{name:'Inscrições do apartamento'}).getByRole('link',{name:title,exact:true}).click();
  await page.getByText('Editar inscrição e presença',{exact:true}).click();
  const edit=page.getByRole('form',{name:'Editar inscrição de Pessoa fictícia interface',exact:true});
  await edit.getByLabel('Presença',{exact:true}).selectOption('present');
@@ -61,6 +66,7 @@ test("anônimo redirecionado, login, reload e logout", async ({ page }) => {
   await page.getByRole("button", { name: "Sair", exact: true }).click();
   await expect(page).toHaveURL(/\/login$/);
   await page.goto("/agenda"); await expect(page).toHaveURL(/\/login$/);
+  await page.goto("/estadias?apto=TEST&inicio=2026-10-10&fim=2026-10-10"); await expect(page).toHaveURL(/\/login$/);
   await page.goto("/osteria"); await expect(page).toHaveURL(/\/login$/);
 });
 
