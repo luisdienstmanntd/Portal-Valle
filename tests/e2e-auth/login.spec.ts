@@ -23,6 +23,7 @@ async function experienceFlow(page:Page,slug:string,label:string,title:string,oc
  await session.getByLabel('Disponibilidade').selectOption('published');
  await session.getByRole('button',{name:'Criar sessão',exact:true}).click();
  await expect(page.getByRole('heading',{name:title,exact:true,level:1})).toBeVisible();
+ const sessionPath = new URL(page.url()).pathname;
  const booking=page.getByRole('form',{name:'Nova inscrição',exact:true});
  await booking.getByLabel('Apartamento',{exact:true}).fill('TEST');
  await booking.getByLabel('Nome do hóspede').fill('Pessoa fictícia interface');
@@ -34,9 +35,11 @@ async function experienceFlow(page:Page,slug:string,label:string,title:string,oc
  await expect(page.getByText('Observações: CHD 2 anos',{exact:true})).toBeVisible();
   await page.goto('/estadias?apto=TEST&inicio=2026-10-10&fim=2026-10-10');
   await expect(page.getByRole('heading',{name:'APTO TEST',exact:true})).toBeVisible();
-  await expect(page.getByRole('region',{name:'Inscrições do apartamento'}).getByRole('link',{name:title,exact:true})).toBeVisible();
+  const stayLink = page.getByRole('region',{name:'Inscrições do apartamento'}).locator(`a[href="${sessionPath}"]`);
+  await expect(stayLink).toHaveText(title);
   await expect(page.getByRole('region',{name:'Inscrições do apartamento'})).not.toContainText('Pessoa fictícia interface');
-  await page.getByRole('region',{name:'Inscrições do apartamento'}).getByRole('link',{name:title,exact:true}).click();
+  await stayLink.click();
+  await expect(page).toHaveURL(new RegExp(sessionPath + '$'));
  await page.getByText('Editar inscrição e presença',{exact:true}).click();
  const edit=page.getByRole('form',{name:'Editar inscrição de Pessoa fictícia interface',exact:true});
  await edit.getByLabel('Presença',{exact:true}).selectOption('present');
