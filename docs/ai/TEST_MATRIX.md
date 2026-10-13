@@ -65,4 +65,8 @@ Fase12:112 unitários/check/build locais PASS; contratos sobre flags/bloqueios/v
 
 2026-10-06 — Fase13 APROVADO TECNICAMENTE pelo revisor independente. CI37483659784/68cfb5380efc29e5cd72e688e9ed675ee0a7a60a PASS:118unit/52prévia/198pgTAP/7HTTP/14Auth, checkpoints/advisors/cleanup. Factories null, integração operacional pendente. PR1 branch codex/home-today-phase13 em rascunho, sem merge/deploy. Fase14 não iniciada.
 
-Fase14:125 testes unitários;22 cenários de resiliência HTTP desktop/tablet (Auth/perfil offline/schema/timeout, sessão expirada, ENV ausente/parcial/legado, login, Home parcial, página operacional offline/timeout e retry). Serviço local sintético; test:resilience usa build separado, sem dados reais. CI final pendente.
+Fase14:125 testes unitários;22 cenários de resiliência HTTP desktop/tablet (Auth/perfil offline/schema/timeout, sessão expirada, ENV ausente/parcial/legado, login, Home parcial, página operacional offline/timeout e retry). Serviço local sintético; test:resilience usa build separado, sem dados reais. CI final PASS conforme evidência abaixo.
+
+Fase14 evidência final: CI37486467897/bf12bdb PASS:125unit,52prévia,22resiliência,198pgTAP,7HTTP,14Auth; advisors/checkpoints/cleanup PASS. Local check/build/22resiliência PASS.
+
+2026-10-13: revisor independente confirmou CI/SHA exato e APROVADO TECNICAMENTE para Fase14. Nenhum novo código após bf12bdb; fechamento documental.

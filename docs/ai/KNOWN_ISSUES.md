@@ -45,4 +45,6 @@ Fase12: acesso SELECT-only Osteria não comprovado; factory null. Projeção req
 
 2026-10-06 — Fase13 APROVADO TECNICAMENTE pelo revisor independente. CI37483659784/68cfb5380efc29e5cd72e688e9ed675ee0a7a60a PASS:118unit/52prévia/198pgTAP/7HTTP/14Auth, checkpoints/advisors/cleanup. Factories null, integração operacional pendente. PR1 branch codex/home-today-phase13 em rascunho, sem merge/deploy. Fase14 não iniciada.
 
-Fase14: deadline5s por verificação/cliente não é SLA HTTP total. Cenários externos permanecem sintéticos, factories null; acesso restrito real e tablet físico pendentes. SDK pode emitir diagnóstico de abort no servidor; UI sanitizada. CI/revisão finais pendentes.
+Fase14: deadline5s por verificação/cliente não é SLA HTTP total. Cenários externos permanecem sintéticos, factories null; acesso restrito real e tablet físico pendentes. SDK pode emitir diagnóstico de abort no servidor; UI sanitizada. CI final PASS; APROVADO TECNICAMENTE em2026-10-13.
+
+Fase14: CI final37486467897/bf12bdb PASS, pendência de CI resolvida; APROVADO TECNICAMENTE em2026-10-13. Limitações operacionais acima permanecem.

@@ -16,24 +16,22 @@ Proxy, sessão, cliente SSR, layouts/login/actions, configurações lint/TS/Vite
 Nenhuma migration, credencial/recurso, consulta hospedada ou alteração aos legados. Factories externas null.
 
 ## Testes executados
-Lint/TypeScript/125 unitários PASS. Build .next-resilience PASS;22 cenários HTTP desktop/tablet PASS. Prévia/regressão/Auth/banco serão confirmados no CI isolado.
+Lint/TypeScript/125 unitários PASS. Build .next-resilience PASS;22 cenários HTTP desktop/tablet PASS. CI37486467897 PASS no commit bf12bdb6813c82082b88e4f9bfded8a06473ed85:125 unitários,52 prévias,22 resiliência,198 pgTAP,7 HTTP,14 Auth E2E; advisors/checkpoints/cleanup PASS.
 
 ## Resultado dos testes
-Em validação final; registrar CI/commit/revisão depois da execução.
+Todas as verificações executadas PASS. Revisão independente em2026-10-13: APROVADO TECNICAMENTE para bf12bdb, sem correções obrigatórias restantes.
 
 ## Riscos encontrados
 Sem acesso restrito real, cenários externos exercitam contratos sintéticos. Serviços de Auth/perfil indisponíveis bloqueiam todos os dados, pois autorização não pode ser inferida offline. Deadline5s não é prazo total de render/HTTP. SDK pode registrar erro técnico de abort no servidor. Alerta dev braces da Fase13 permanece; sem achados audit produção naquela fase.
 
 ## Pendências
-CI/revisão final, SELECT-only externo, Portal hospedado/Auth/backups/retensão e tablet físico. Fase15 não iniciada.
+SELECT-only externo, Portal hospedado/Auth/backups/retensão e tablet físico. Fase15 não iniciada.
 
 ## Commit
-Será registrado após validar implementação.
+bf12bdb6813c82082b88e4f9bfded8a06473ed85 — feat(resilience): bound service failures and recover protected pages.
 
 ## Próxima fase
 Fase15 Visão Estadia, somente após estabilização desta fase e novo escopo autorizado.
 
 ## Validação manual sugerida
 Prévia sem ENV permanece somente preparação. Em teste isolado, consultar Home com fonte indisponível e conferir aviso parcial/ausência de zero. Auth/perfil offline levam à recuperação; restabelecer serviço e clicar Tentar novamente. Sem experimentar falhas em produção.
-
-
